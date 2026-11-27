@@ -454,9 +454,12 @@ HOME_JS = r"""
   const pcs=document.querySelectorAll('.pchips .pc');
   pcs.forEach(b=>b.addEventListener('click',()=>{pcs.forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.ppanel').forEach(p=>p.hidden=p.dataset.f!==b.dataset.f)}));
   const gq=document.getElementById('gq');
-  if(gq){let gy=document.querySelector('.gyears .chip.on').dataset.y;const rows=[...document.querySelectorAll('#glist tbody tr')];
-    const run=()=>{const v=gq.value.trim().toLowerCase();let n=0;rows.forEach(r=>{const ok=(v?true:r.dataset.y===gy)&&(!v||r.dataset.q.includes(v));r.hidden=!ok;if(ok)n++});document.getElementById('gnone').hidden=n>0};
+  if(gq){let gy=document.querySelector('.gyears .chip.on').dataset.y,gk='all';const rows=[...document.querySelectorAll('#glist tbody tr')],kc=document.querySelectorAll('.gkinds .chip');
+    const run=()=>{const v=gq.value.trim().toLowerCase();let n=0;const cnt={all:0,uni:0,col:0,none:0};
+      rows.forEach(r=>{const iy=v||gy==='all'||r.dataset.y===gy,iq=!v||r.dataset.q.includes(v);if(iy&&iq){cnt.all++;cnt[r.dataset.k]++}const ok=iy&&iq&&(gk==='all'||r.dataset.k===gk);r.hidden=!ok;if(ok)n++});
+      kc.forEach(b=>{b.querySelector('em').textContent=cnt[b.dataset.k];b.hidden=b.dataset.k!=='all'&&!cnt[b.dataset.k]&&gk!==b.dataset.k});document.getElementById('gnone').hidden=n>0};
     document.querySelectorAll('.gyears .chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.gyears .chip').forEach(x=>x.classList.toggle('on',x===b));gy=b.dataset.y;gq.value='';run()}));
+    kc.forEach(b=>b.addEventListener('click',()=>{kc.forEach(x=>x.classList.toggle('on',x===b));gk=b.dataset.k;run()}));
     gq.addEventListener('input',run);run()}
   if('serviceWorker' in navigator){const ic=document.querySelector('link[rel=icon][href$="logo.png"]');navigator.serviceWorker.register(ic.href.replace(/logo\.png$/,'sw.js')).catch(()=>{})}"""
 
@@ -467,7 +470,15 @@ from collections import Counter as _Ctr
 GT = {
  "title": ("Pitkeriwshiler", "Graduates", "Bitiruvchilar", "Выпускники"),
  "desc": ("{b}: pitkeriwshilerimiz qay jerde oqıp atır — joqarı oqıw orınları, baǵdarlar hám qalalar.", "{b}: where our graduates study — universities, fields and cities.", "{b}: bitiruvchilarimiz qayerda o‘qimoqda — oliygohlar, yo‘nalishlar va shaharlar.", "{b}: где учатся наши выпускники — вузы, направления и города."),
- "lead": ("Sońǵı tórt jılda mektebimizdi {n} oqıwshı pitkerdi. Olardıń {p} bilimin dawam ettirip atır.", "{n} students graduated from our school in the last four years. {p} of them are continuing their education.", "So‘nggi to‘rt yilda maktabimizni {n} nafar o‘quvchi bitirdi. Ulardan {p} nafari ta’limni davom ettirmoqda.", "За последние четыре года школу окончили {n} учеников. {p} из них продолжают обучение."),
+ "lead": ("Sońǵı tórt jılda mektebimizdi {n} oqıwshı pitkerdi. Olardıń {u} joqarı oqıw orınlarında, {c} texnikumda oqıp atır.", "{n} students graduated from our school in the last four years. {u} of them study at universities and {c} at colleges (technikums).", "So‘nggi to‘rt yilda maktabimizni {n} nafar o‘quvchi bitirdi. Ulardan {u} nafari oliygohlarda, {c} nafari texnikumlarda o‘qimoqda.", "За последние четыре года школу окончили {n} учеников. {u} из них учатся в вузах, {c} — в техникумах."),
+ "s_uni": ("joqarı oqıw orınlarında oqıp atır ({p} oqıwshı)", "study at universities ({p} students)", "oliygohlarda o‘qimoqda ({p} nafar)", "учатся в вузах ({p} чел.)"),
+ "s_col": ("texnikumda oqıp atır ({p} oqıwshı)", "study at colleges / technikums ({p} students)", "texnikumlarda o‘qimoqda ({p} nafar)", "учатся в техникумах ({p} чел.)"),
+ "k_all": ("Barlıǵı", "All", "Barchasi", "Все"),
+ "k_uni": ("Joqarı oqıw orını", "University", "Oliygoh", "Вуз"),
+ "k_col": ("Texnikum", "College (technikum)", "Texnikum", "Техникум"),
+ "y_uni": ("{a} joqarı oqıw orınında", "{a} at university", "{a} nafari oliygohda", "{a} в вузе"),
+ "y_col": ("{a} texnikumda", "{a} at college", "{a} nafari texnikumda", "{a} в техникуме"),
+ "y_of": ("{b} pitkeriwshiden", "of {b} graduates", "{b} nafar bitiruvchidan", "из {b} выпускников"),
  "s_grad": ("pitkeriwshi (2023–2026)", "graduates (2023–2026)", "bitiruvchi (2023–2026)", "выпускник (2023–2026)"),
  "s_cont": ("bilimin dawam ettirip atır ({p} oqıwshı)", "continue their education ({p} students)", "ta’limni davom ettirmoqda ({p} nafar)", "продолжают обучение ({p} чел.)"),
  "s_inst": ("joqarı oqıw orını hám texnikum", "universities and colleges", "oliygoh va texnikum", "вузов и колледжей"),
@@ -548,11 +559,21 @@ def grad_body(lang, i):
     pct = dec(pl / tot * 100) + "%"
     stu = lambda n: GT["student1"][i] if n == 1 else GT["students"][i].format(n=n)
     inst_all = _Ctr(k for k, _ in allp); city_all = _Ctr(G.INST[k][4] for k, _ in allp)
+    iscol = lambda k: G.INST[k][5] == "college"
+    ncol = sum(1 for k, _ in allp if iscol(k)); nuni = pl - ncol
     stats = "".join(f'<div class="stat"><b>{v}</b><span>{l}</span></div>' for v, l in [
-        (tot, GT["s_grad"][i]), (pct, GT["s_cont"][i].format(p=pl)), (len(inst_all), GT["s_inst"][i]), (len(city_all), GT["s_city"][i])])
+        (tot, GT["s_grad"][i]), (dec(nuni / tot * 100) + "%", GT["s_uni"][i].format(p=nuni)), (dec(ncol / tot * 100) + "%", GT["s_col"][i].format(p=ncol)),
+        (len(inst_all), GT["s_inst"][i]), (len(city_all), GT["s_city"][i])])
     mx = max(n for _, n in G.YEARS)
-    years = "".join(f'<div class="yr"><span class="yl">{y}</span><div class="ybar"><i class="tot" style="width:{n / mx * 100:.1f}%"></i><i class="ok" style="width:{len(G.PLACED[y]) / mx * 100:.1f}%"></i></div>'
-                    f'<span class="yv"><b>{round(len(G.PLACED[y]) / n * 100)}%</b> {GT["of"][i].format(a=len(G.PLACED[y]), b=n)}</span></div>' for y, n in G.YEARS)
+    def yrow(y, n):
+        c = sum(1 for k, _ in G.PLACED[y] if iscol(k)); u = len(G.PLACED[y]) - c
+        lab = GT["y_uni"][i].format(a=u) + (f' · <span class="ycol">{GT["y_col"][i].format(a=c)}</span>' if c else "") + " " + GT["y_of"][i].format(b=n)
+        return (f'<div class="yr"><span class="yl">{y}</span><div class="ybar"><i class="tot" style="width:{n / mx * 100:.1f}%"></i>'
+                f'<i class="ok" style="width:{u / mx * 100:.1f}%"></i>' + (f'<i class="col" style="left:{u / mx * 100:.1f}%;width:{c / mx * 100:.1f}%"></i>' if c else "")
+                + f'</div><span class="yv"><b>{round(u / n * 100)}%</b> {lab}</span></div>')
+    years = "".join(yrow(y, n) for y, n in G.YEARS)
+    years += (f'<ul class="ylegend"><li><i class="ok"></i>{GT["k_uni"][i]}</li><li><i class="col"></i>{GT["k_col"][i]}</li>'
+              f'<li><i class="tot"></i>{GT2["na"][i]}</li></ul>')
     # ---- certificates
     C = G.CERTS; cw = sum(c["with_"] for c in C.values()); ct = sum(c["top"] for c in C.values())
     ci = sum(c["ielts"] for c in C.values()); cs = sum(c["sat"] for c in C.values())
@@ -624,22 +645,26 @@ def grad_body(lang, i):
                 + (f'<h3 class="bh">{GT["beyond_h"][i]}</h3><div class="bgrid">{bcards}</div>' if bcards else "") + '</div></div>')
     views = block(allp, "all") + "".join(block(G.PLACED[y], y) for y, _ in G.YEARS)
     ychips = f'<button type="button" class="chip on" data-y="all">{GT2["allyears"][i]}</button>' + "".join(f'<button type="button" class="chip" data-y="{y}">{y}</button>' for y, _ in G.YEARS)
-    gchips = "".join(f'<button type="button" class="chip{" on" if n_ == 0 else ""}" data-y="{y}">{y} <em>{len(G.roster(y))}</em></button>' for n_, (y, _) in enumerate(reversed(G.YEARS)))
+    gchips = (f'<button type="button" class="chip" data-y="all">{GT2["allyears"][i]} <em>{tot}</em></button>'
+              + "".join(f'<button type="button" class="chip{" on" if n_ == 0 else ""}" data-y="{y}">{y} <em>{len(G.roster(y))}</em></button>' for n_, (y, _) in enumerate(reversed(G.YEARS))))
+    kchips = "".join(f'<button type="button" class="chip{" on" if k_ == "all" else ""}" data-k="{k_}">{l_} <em></em></button>'
+                     for k_, l_ in [("all", GT["k_all"][i]), ("uni", GT["k_uni"][i]), ("col", GT["k_col"][i]), ("none", GT2["na"][i])])
     grows = ""
     for y, _ in G.YEARS:
         for nm_, plc in G.roster(y):
             nm = nm_ if lang == "ru" else G.latin_name(nm_)
             if plc is None:
-                grows += (f'<tr data-y="{y}" data-q="{nm.lower()}"><td class="gn">{nm}</td>'
+                grows += (f'<tr data-y="{y}" data-k="none" data-q="{nm.lower()}"><td class="gn">{nm}</td>'
                           f'<td><span class="gna">{GT2["na"][i]}</span></td><td><span class="gna">—</span></td></tr>')
                 continue
             k, f = plc
-            grows += (f'<tr data-y="{y}" data-q="{(nm + " " + G.INST[k][i]).lower()}"><td class="gn">{nm}</td>'
-                      f'<td><div class="gi">{seal(k)}<span>{G.INST[k][i]}<small>{G.CITY[G.INST[k][4]][i]}</small></span></div></td>'
+            ctag = f' <em class="ctag">{GT["college"][i]}</em>' if iscol(k) else ""
+            grows += (f'<tr data-y="{y}" data-k="{"col" if iscol(k) else "uni"}" data-q="{(nm + " " + G.INST[k][i]).lower()}"><td class="gn">{nm}</td>'
+                      f'<td><div class="gi">{seal(k)}<span>{G.INST[k][i]}{ctag}<small>{G.CITY[G.INST[k][4]][i]}</small></span></div></td>'
                       f'<td><span class="fchip" style="--sc:{G.FIELD[f][4]}">{G.FIELD[f][i]}</span></td></tr>')
     th = GT2["th"][i]
     glist = (f'<div class="gsec" id="glist"><h2>{GT2["list_h"][i]}</h2><p>{GT2["list_p"][i]}</p>'
-             f'<div class="gtools"><input type="search" id="gq" placeholder="{GT2["search"][i]}" aria-label="{GT2["search"][i]}"><div class="chips gyears" role="group">{gchips}</div></div>'
+             f'<div class="gtools"><input type="search" id="gq" placeholder="{GT2["search"][i]}" aria-label="{GT2["search"][i]}"><div class="chips gyears" role="group">{gchips}</div><div class="chips gkinds" role="group">{kchips}</div></div>'
              f'<div class="gtable card"><table><thead><tr><th>{th[0]}</th><th>{th[1]}</th><th>{th[2]}</th></tr></thead><tbody>{grows}</tbody></table>'
              f'<p class="note" id="gnone" hidden>{GT2["nores"][i]}</p></div></div>')
     fcnt = _Ctr(f for _, f in allp); order = [f for f, _ in fcnt.most_common()]
@@ -686,7 +711,7 @@ def grad_body(lang, i):
         cards = "".join(f'<figure class="story">{f"<img src=\'{{UP}}{s_["photo"]}\' alt=\'\'>" if s_.get("photo") else ""}<blockquote>{s_["text"][i]}</blockquote>'
                         f'<figcaption><b>{s_["name"]}</b><span>{G.INST[s_["inst"]][i]} · {s_["year"]}</span></figcaption></figure>' for s_ in G.STORIES)
         stories = f'<div class="gsec"><h2>{GT2["stories"][i]}</h2><div class="stories">{cards}</div></div>'
-    return f"""<p class="glead">{GT['lead'][i].format(n=tot, p=pl)}</p>
+    return f"""<p class="glead">{GT['lead'][i].format(n=tot, u=nuni, c=ncol)}</p>
 <div class="stats gstats">{stats}</div>
 <div class="gsec"><h2>{GT['years_h'][i]}</h2><div class="years">{years}</div></div>
 <div class="gsec"><h2>{GT2['cert_h'][i]}</h2><p>{GT2['cert_p'][i]}</p><div class="stats gstats cstats">{cstats}</div></div>

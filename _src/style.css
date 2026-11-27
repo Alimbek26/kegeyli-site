@@ -256,7 +256,10 @@ a#ttprint[hidden]{display:none}
 .yl{font:600 14px Inter,sans-serif;color:var(--soft)}
 .ybar{position:relative;height:30px;border-radius:9px;background:transparent}
 .ybar i{position:absolute;left:0;top:0;bottom:0;border-radius:9px}
-.ybar .tot{background:var(--tealbg)}.ybar .ok{background:linear-gradient(90deg,#0b5f78,#2a9bbb)}
+.ybar .tot{background:var(--tealbg)}.ybar .ok{background:linear-gradient(90deg,#0b5f78,#2a9bbb)}.ybar .col{background:#e0a21a;border-radius:0 9px 9px 0}.yv .ycol{color:light-dark(#9a6a05,#f2b134);font-weight:600}
+.ylegend{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;padding:0;margin:4px 0 0;font-size:13.5px;color:var(--soft)}.ylegend li{display:flex;align-items:center;gap:6px}.ylegend i{width:14px;height:14px;border-radius:4px;display:inline-block}.ylegend .ok{background:#0b5f78}.ylegend .col{background:#e0a21a}.ylegend .tot{background:var(--tealbg)}
+.gkinds .chip em{font-style:normal;color:var(--soft);margin-left:4px}.gkinds .chip.on em{color:#cfe6ec}.gkinds .chip[data-k=col].on{background:#b7800d;border-color:#b7800d}
+.ctag{font-style:normal;font-size:11px;font-weight:700;padding:1px 7px;border-radius:99px;margin-left:6px;background:light-dark(#fdf0d0,#3d2f0c);color:light-dark(#8a5b00,#f2cb73);white-space:nowrap}
 .yv{font-size:13.5px;color:var(--soft);white-space:nowrap}.yv b{color:var(--teal);font-size:16px;margin-right:4px}
 @media(max-width:600px){.yr{grid-template-columns:minmax(0,1fr);gap:4px}.yv{white-space:normal}}
 .ilist{list-style:none;margin:0;padding:0;display:grid;gap:10px}

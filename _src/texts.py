@@ -12,7 +12,7 @@ T = {}
 T["kaa"] = dict(
  lead_h='Basshılıq', teach_h='Muǵallimlerimiz', teach_p='Mektepte {n} muǵallim islep atır. Tómende olar pánler boyınsha kórsetilgen.',
  results_h='Jetiskenliklerimiz',
- results=[('97,2%', 'pitkeriwshilerimiz bilimin dawam ettirip atır (sońǵı 4 jılda 141 den 137 si)'), ('98,5%', '2025/2026 oqıw jılı ChSB nátiyjelerinde sapa kórsetkishi («5» hám «4» bahalar)'), ('95', '2025/2026 oqıw jılında tapsırılǵan milliy sertifikat imtihanları (aldıńǵı jılı 32); 9 nátiyje A hám A+ dárejesinde'), ('10', 'oqıwshı IELTS imtihanın tapsırdı (2023–2026); 2 oqıwshı SAT boyınsha 1200+ ball aldı'), ('43', 'muǵallim, olardıń 34,9% joqarı kategoriyalı'), ('Bronza', 'AKHU STEM olimpiadasında bronza medal, 2025/2026 oqıw jılı')],
+ results=[('92,9%', 'pitkeriwshilerimiz joqarı oqıw orınlarında oqıp atır (sońǵı 4 jılda 141 den 131 i; taǵı 6 sı texnikumda)'), ('98,5%', '2025/2026 oqıw jılı ChSB nátiyjelerinde sapa kórsetkishi («5» hám «4» bahalar)'), ('95', '2025/2026 oqıw jılında tapsırılǵan milliy sertifikat imtihanları (aldıńǵı jılı 32); 9 nátiyje A hám A+ dárejesinde'), ('10', 'oqıwshı IELTS imtihanın tapsırdı (2023–2026); 2 oqıwshı SAT boyınsha 1200+ ball aldı'), ('43', 'muǵallim, olardıń 34,9% joqarı kategoriyalı'), ('Bronza', 'AKHU STEM olimpiadasında bronza medal, 2025/2026 oqıw jılı')],
  results_note='Derek: mekteptiń 2022/2023–2025/2026 oqıw jılları boyınsha kórsetkishleri.',
  gallery_h="Fotogalereya",
  map_title="Mekteptiń kartadaǵı jaylasqan ornı",
@@ -65,7 +65,7 @@ T["kaa"] = dict(
 T["en"] = dict(
  lead_h='Leadership', teach_h='Our teachers', teach_p='{n} teachers work at the school. Here they are, grouped by subject.',
  results_h='Achievements',
- results=[('97.2%', 'of our graduates continue their education (137 of 141 over the last four years)'), ('98.5%', 'quality rate (grades 5 and 4) in the 2025/2026 state knowledge assessment (ChSB)'), ('95', 'national certificate exams taken in 2025/2026, up from 32 a year earlier; 9 results at A or A+ level'), ('10', 'students took the IELTS exam (2023–2026); 2 students scored 1200+ on the SAT'), ('43', 'teachers, 34.9% of them in the highest qualification category'), ('Bronze', 'medal at the AKHU STEM Olympiad, 2025/2026 school year')],
+ results=[('92.9%', 'of our graduates study at universities (131 of 141 over the last four years; 6 more at colleges)'), ('98.5%', 'quality rate (grades 5 and 4) in the 2025/2026 state knowledge assessment (ChSB)'), ('95', 'national certificate exams taken in 2025/2026, up from 32 a year earlier; 9 results at A or A+ level'), ('10', 'students took the IELTS exam (2023–2026); 2 students scored 1200+ on the SAT'), ('43', 'teachers, 34.9% of them in the highest qualification category'), ('Bronze', 'medal at the AKHU STEM Olympiad, 2025/2026 school year')],
  results_note='Source: school performance data for the 2022/2023–2025/2026 school years.',
  gallery_h="Photo gallery",
  map_title="School location on the map",
@@ -118,7 +118,7 @@ T["en"] = dict(
 T["uz"] = dict(
  lead_h='Rahbariyat', teach_h='O‘qituvchilarimiz', teach_p='Maktabda {n} nafar o‘qituvchi faoliyat yuritadi. Quyida ular fanlar bo‘yicha keltirilgan.',
  results_h='Yutuqlarimiz',
- results=[('97,2%', 'bitiruvchilarimiz ta’limni davom ettirmoqda (so‘nggi 4 yilda 141 nafardan 137 nafari)'), ('98,5%', '2025/2026 o‘quv yili ChSB natijalarida sifat ko‘rsatkichi («5» va «4» baholar)'), ('95', '2025/2026 o‘quv yilida topshirilgan milliy sertifikat imtihonlari (oldingi yil 32 ta); 9 tasi A va A+ darajada'), ('10', 'nafar o‘quvchi IELTS topshirdi (2023–2026); 2 nafar o‘quvchi SAT bo‘yicha 1200+ ball oldi'), ('43', 'nafar o‘qituvchi, ulardan 34,9% oliy toifali'), ('Bronza', 'AKHU STEM olimpiadasida bronza medal, 2025/2026 o‘quv yili')],
+ results=[('92,9%', 'bitiruvchilarimiz oliygohlarda o‘qimoqda (so‘nggi 4 yilda 141 nafardan 131 nafari; yana 6 nafari texnikumda)'), ('98,5%', '2025/2026 o‘quv yili ChSB natijalarida sifat ko‘rsatkichi («5» va «4» baholar)'), ('95', '2025/2026 o‘quv yilida topshirilgan milliy sertifikat imtihonlari (oldingi yil 32 ta); 9 tasi A va A+ darajada'), ('10', 'nafar o‘quvchi IELTS topshirdi (2023–2026); 2 nafar o‘quvchi SAT bo‘yicha 1200+ ball oldi'), ('43', 'nafar o‘qituvchi, ulardan 34,9% oliy toifali'), ('Bronza', 'AKHU STEM olimpiadasida bronza medal, 2025/2026 o‘quv yili')],
  results_note='Manba: maktabning 2022/2023–2025/2026 o‘quv yillari bo‘yicha ko‘rsatkichlari.',
  gallery_h="Fotogalereya",
  map_title="Maktabning xaritadagi joylashuvi",
@@ -171,7 +171,7 @@ T["uz"] = dict(
 T["ru"] = dict(
  lead_h='Руководство', teach_h='Наши учителя', teach_p='В школе работают {n} учителя. Ниже они сгруппированы по предметам.',
  results_h='Наши достижения',
- results=[('97,2%', 'наших выпускников продолжают обучение (137 из 141 за последние четыре года)'), ('98,5%', 'показатель качества («5» и «4») по результатам ЧСБ 2025/2026 учебного года'), ('95', 'экзаменов на национальный сертификат сдано в 2025/2026 учебном году (годом ранее — 32); 9 результатов на уровне A и A+'), ('10', 'учеников сдали экзамен IELTS (2023–2026); 2 ученика набрали 1200+ баллов SAT'), ('43', 'учителя, из них 34,9% — высшей категории'), ('Бронза', 'бронзовая медаль на олимпиаде AKHU STEM, 2025/2026 учебный год')],
+ results=[('92,9%', 'наших выпускников учатся в вузах (131 из 141 за последние четыре года; ещё 6 — в техникумах)'), ('98,5%', 'показатель качества («5» и «4») по результатам ЧСБ 2025/2026 учебного года'), ('95', 'экзаменов на национальный сертификат сдано в 2025/2026 учебном году (годом ранее — 32); 9 результатов на уровне A и A+'), ('10', 'учеников сдали экзамен IELTS (2023–2026); 2 ученика набрали 1200+ баллов SAT'), ('43', 'учителя, из них 34,9% — высшей категории'), ('Бронза', 'бронзовая медаль на олимпиаде AKHU STEM, 2025/2026 учебный год')],
  results_note='Источник: показатели школы за 2022/2023–2025/2026 учебные годы.',
  gallery_h="Фотогалерея",
  map_title="Расположение школы на карте",
