@@ -20,13 +20,18 @@ try:
             out = os.path.join(ROOT, "pdf", lang); os.makedirs(out, exist_ok=True)
             base = f"http://localhost:8766/{'' if lang == MAIN else lang + '/'}timetable/"
             for key, fname in [(c.lower(), "c-" + c.lower()) for c in classes] + [(slug(t), slug(t)) for t in teachers]:
-                pg.goto("about:blank"); pg.evaluate("localStorage.clear()") if False else None
+                pg.goto("about:blank")  # full reload so the page reads the #class / #teacher
                 pg.goto(base + "#" + key); pg.wait_for_timeout(120)
                 pg.evaluate("document.querySelectorAll('.ttmain .seg button')[1].click()")
+                pg.evaluate("document.querySelectorAll('.printhead img').forEach(function(i){i.src=i.src.replace(/logo\\.png$/,'logo-80.png')})")
+                pg.wait_for_timeout(60)
                 pg.emulate_media(media="print")
                 pg.pdf(path=os.path.join(out, fname + ".pdf"), format="A4", landscape=True, print_background=True,
                        margin={"top": "10mm", "bottom": "10mm", "left": "10mm", "right": "10mm"})
                 pg.emulate_media(media="screen"); n += 1
+                # smaller files: recompress streams, pack objects (same look)
+                f = os.path.join(out, fname + ".pdf")
+                subprocess.run(["qpdf", "--object-streams=generate", "--recompress-flate", "--compression-level=9", "--replace-input", f], check=False)
         b.close()
 finally:
     srv.kill()
