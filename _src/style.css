@@ -1450,3 +1450,11 @@ section.plsec:not(.card){padding:0!important}
 .ofqs.top b{background:color-mix(in srgb,#7c3aed 14%,transparent);color:#6d28d9}.ofqs.top b::before{content:"★ "}
 .ofqs.none{color:var(--soft)}.ofqs small{color:var(--soft)}
 .oflinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto}.ofsite{color:var(--soft)}
+/* ---- International programmes ---- */
+.prgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:16px;margin-bottom:22px}
+.prcard{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);padding:0!important;overflow:hidden;border-left:5px solid #0d9488}
+.prcard img{width:100%;height:100%;min-height:260px;object-fit:cover;object-position:50% 30%}
+.prbody{padding:20px;display:flex;flex-direction:column;gap:6px}.prbody h3{margin:0;font-size:20px}
+.prnote{margin:auto 0 0;font-size:13.5px;color:var(--soft)}
+.prstats .stat{border-top-color:#0d9488}.prstats .stat b{color:#0d9488}
+@media(max-width:560px){.prcard{grid-template-columns:1fr}.prcard img{height:260px;min-height:0}}

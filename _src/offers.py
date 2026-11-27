@@ -84,9 +84,16 @@ UNI = {
  "Caldwell University": ("https://www.caldwell.edu", None, None),
 }
 UNI_NOTE = {"University of Cincinnati — Clermont College": ("University of Cincinnati reytingi", "University of Cincinnati as a whole", "University of Cincinnati reytingi", "рейтинг University of Cincinnati в целом")}
+PSUB = "achievements/programmes/"
+PNAME = ("Xalıqaralıq programmalar", "International programmes", "Xalqaro dasturlar", "Международные программы")
+PDESC = ("Oqıwshılarımız qatnasqan shet el universitetleriniń hám xalıqaralıq shólkemlerdiń programmaları.",
+         "Programmes at universities and organisations abroad that our students have taken part in.",
+         "O‘quvchilarimiz qatnashgan xorijiy universitetlar va xalqaro tashkilotlar dasturlari.",
+         "Программы зарубежных университетов и международных организаций, в которых участвовали наши ученики.")
+PICON = ('<path d="M12 3l9 4.500-9 4.500-9-4.500z"/><path d="M7 9.700V15c0 1.300 2.200 3 5 3s5-1.700 5-3V9.700"/><path d="M21 7.500v6"/>', "#0d9488")
 PROGRAMMES = [
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
-      country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme-t.jpg"),
+      country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme.jpg", cls="11-A", grad="2024/2025"),
 ]
 
 X = dict(
@@ -192,11 +199,42 @@ def page(i, href, tabs):
         cards.append(f'<article class="card ofcard"><div class="ofhead"><span class="offlag" aria-hidden="true">{fl}</span>'
                      f'<div><span class="ofok">✓ {X["offered" if o.get("status") else "admitted"][i]} · {_date(o["date"], i)}</span><h3>{e(o["uni"])}</h3><p class="ofloc">{e(o["city"])}, {cn[i]}</p>{_rank(o["uni"], i)}</div></div>'
                      f'<dl class="ofdl">{dl}</dl>{nl}</article>')
-    progs = "".join(f'<article class="card ofprog">' + (f'<img src="{{UP}}photos/{p["photo"]}" alt="" loading="lazy">' if p.get("photo") else "")
-                    + f'<div><span class="offlag sm" aria-hidden="true">{COUNTRY[p["country"]][0]}</span><h3>{p["name"][i]}</h3><p>{e(p["student"][i])}' + (f' · {p["year"]}' if p.get("year") else "") + '</p></div></article>'
-                    for p in PROGRAMMES)
     return (f'{tabs(SUB, i, href)}<p class="lead2">{X["lead"][i]}</p><div class="stats ofstats">{tiles}</div>'
             f'<div class="ofgrid">{"".join(cards)}</div>'
-            + (f'<h2 class="ofh2">{X["prog_h"][i]}</h2><p>{X["prog_p"][i]}</p><div class="ofprogs">{progs}</div>' if PROGRAMMES else "")
+            + (f'<a class="card satprev satban ofban" href="{href(PSUB)}"><div class="sph"><span class="acbi" style="--ac:{PICON[1]}"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{PICON[0]}</svg></span><div><h3>{PNAME[i]} · {len(PROGRAMMES)}</h3><p>{X["prog_p"][i]}</p></div><span class="acgo2">→</span></div></a>' if PROGRAMMES else "")
             + f'<div class="card ofcta"><div><h3>{X["cta_h"][i]}</h3><p>{X["cta_p"][i]}</p></div><a class="btn p" href="{href("abroad/")}">{X["cta_b"][i]} →</a></div>'
             f'<p class="note">{X["qs_src"][i]} {X["note"][i]}</p>')
+
+
+PX = dict(
+ lead=("Shet el universitetleriniń hám xalıqaralıq shólkemlerdiń jazǵı mektepleri, kursları hám programmaları — oqıwshılarımız qatnasqan.",
+       "Summer schools, courses and programmes at universities and organisations abroad that our students have taken part in.",
+       "O‘quvchilarimiz qatnashgan xorijiy universitetlar va xalqaro tashkilotlarning yozgi maktablari, kurslari va dasturlari.",
+       "Летние школы, курсы и программы зарубежных университетов и международных организаций, в которых участвовали наши ученики."),
+ t_prog=("programma", "programmes", "ta dastur", "программ"), t_stud=("oqıwshı", "students", "nafar o‘quvchi", "учеников"), t_cty=("mámleket", "countries", "ta davlat", "стран"),
+ not_offer=("Bul qabıl usınısı emes — programmaǵa qatnasıw.", "This is participation in a programme, not an offer of admission.", "Bu qabul taklifi emas — dasturda ishtirok.", "Это участие в программе, а не предложение о зачислении."),
+ offers=("Shet el universitetleriniń qabıl usınısları", "Offers of admission from universities abroad", "Xorijiy universitetlarning qabul takliflari", "Предложения о зачислении от зарубежных университетов"),
+ tell_h=("Xalıqaralıq programmaǵa qatnastıńız ba?", "Taken part in an international programme?", "Xalqaro dasturda qatnashdingizmi?", "Участвовали в международной программе?"),
+ tell_p=("Programmanıń atın, shólkemlestiriwshisin, sánesin hám fotonı mektep basshılıǵına jiberiń — bul betke qosamız.",
+         "Send the programme name, organiser, dates and a photo to the school — we will add it to this page.",
+         "Dastur nomi, tashkilotchisi, sanalari va suratni maktab rahbariyatiga yuboring — ushbu sahifaga qo‘shamiz.",
+         "Пришлите в школу название программы, организатора, даты и фото — мы добавим её на эту страницу."),
+)
+
+def ppage(i, href, tabs):
+    e = _html.escape
+    n_st = len({p["student"][1] for p in PROGRAMMES}); n_c = len({p["country"] for p in PROGRAMMES})
+    tiles = "".join(f'<div class="stat"><b>{v}</b><span>{l}</span></div>' for v, l in [
+        (len(PROGRAMMES), PX["t_prog"][i]), (n_st, PX["t_stud"][i]), (n_c, PX["t_cty"][i])])
+    cards = []
+    for p in PROGRAMMES:
+        fl, cn = COUNTRY[p["country"]]
+        who = e(p["student"][i]) + (f' · {_cls(p["cls"], i)}' if p.get("cls") else "") + (f' · {(X["grad"][i] + " " + p["grad"]) if i == 3 else (p["grad"] + " " + X["grad"][i])}' if p.get("grad") else "")
+        img = f'<img src="{{UP}}photos/{p["photo"]}" alt="{e(p["name"][i])}" loading="lazy">' if p.get("photo") else ""
+        cards.append(f'<article class="card prcard">{img}<div class="prbody"><span class="offlag sm" aria-hidden="true">{fl}</span>'
+                     f'<h3>{p["name"][i]}</h3><p class="ofloc">{cn[i]}' + (f' · {p["year"]}' if p.get("year") else "") + '</p>'
+                     f'<dl class="ofdl"><dt>{X["student"][i]}</dt><dd>{who}</dd></dl><p class="prnote">{PX["not_offer"][i]}</p></div></article>')
+    return (f'{tabs(PSUB, i, href)}<p class="lead2">{PX["lead"][i]}</p><div class="stats ofstats prstats">{tiles}</div>'
+            f'<div class="prgrid">{"".join(cards)}</div>'
+            f'<a class="card satprev satban ofban" href="{href(SUB)}"><div class="sph"><span class="acbi" style="--ac:{ICON[1]}"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ICON[0]}</svg></span><div><h3>{NAME[i]} · {len(OFFERS)}</h3><p>{PX["offers"][i]}</p></div><span class="acgo2">→</span></div></a>'
+            f'<div class="card ofcta"><div><h3>{PX["tell_h"][i]}</h3><p>{PX["tell_p"][i]}</p></div><a class="btn p" href="{href("abroad/")}">{X["cta_b"][i]} →</a></div>')
