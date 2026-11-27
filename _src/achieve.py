@@ -8,13 +8,15 @@
 #   name:  olympiad name in 4 languages; who: optional student/class text in 4 languages (only with permission)
 import collections
 import graduates as G
+import natcert as NC
 
 T4 = lambda a, b, c, d: (a, b, c, d)
-SUBS = ["achievements/", "achievements/olympiads/", "achievements/certificates/", "achievements/sat/", "achievements/ielts/"]
+SUBS = ["achievements/", "achievements/olympiads/", "achievements/certificates/", NC.SUB, "achievements/sat/", "achievements/ielts/"]
 NAME = {
  "achievements/": ("Jetiskenlikler", "Achievements", "Yutuqlar", "Достижения"),
  "achievements/olympiads/": ("Olimpiadalar", "Olympiads", "Olimpiadalar", "Олимпиады"),
  "achievements/certificates/": ("Sertifikatlar", "Certificates", "Sertifikatlar", "Сертификаты"),
+ NC.SUB: NC.NAME,
  "achievements/sat/": ("SAT nátiyjeleri", "SAT results", "SAT natijalari", "Результаты SAT"),
  "achievements/ielts/": ("IELTS nátiyjeleri", "IELTS results", "IELTS natijalari", "Результаты IELTS"),
 }
@@ -31,6 +33,7 @@ DESC = {
                                 "National, CEFR, IELTS and SAT certificates of our graduates: subjects, levels and growth.",
                                 "Bitiruvchilarning milliy, CEFR, IELTS va SAT sertifikatlari: fanlar, darajalar va o‘sish.",
                                 "Национальные, CEFR, IELTS и SAT сертификаты выпускников: предметы, уровни и рост."),
+ NC.SUB: NC.DESC,
  "achievements/sat/": ("Oqıwshılarımızdıń rásmiy SAT nátiyjeleri: jalpı ball, bólimler, procentiller hám 8 bilim tarawı.",
                        "Our students’ official SAT results: total scores, sections, percentiles and the 8 skill areas.",
                        "O‘quvchilarimizning rasmiy SAT natijalari: umumiy ball, bo‘limlar, persentillar va 8 ta bilim sohasi.",
@@ -43,6 +46,7 @@ DESC = {
 ICON = {
  "achievements/": ('<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>', "#b45309"),
  "achievements/olympiads/": ('<circle cx="12" cy="15" r="6"/><path d="M8.500 10.200L5 3h4l3 6 3-6h4l-3.500 7.200"/><path d="M12 12.500v5M10.500 13.500l1.500-1"/>', "#d97706"),
+ NC.SUB: ('<circle cx="12" cy="9" r="6"/><path d="M9 14.5L7.5 22l4.500-2.500L16.500 22 15 14.500"/><path d="M10 9l1.500 1.500L14.500 7.500"/>', "#a3202c"),
  "achievements/sat/": ('<path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/>', "#7c3aed"),
  "achievements/ielts/": ('<path d="M4 5h16v11H9l-4 4v-4H4z"/><path d="M8 9h8M8 12h5"/>', "#d6452f"),
  "achievements/certificates/": ('<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 9h10M7 12h6"/><circle cx="16" cy="17" r="3"/><path d="M14.500 19.500L14 22l2-1 2 1-.5-2.500"/>', "#0b7a8f"),
@@ -470,7 +474,10 @@ def certificates(i, href):
         return "".join(f'<div class="aclv"><span class="aclt" style="background:{LVCOL[l]}">{l}</span><div class="aclb"><i style="width:{d["lv"][l] / m * 100:.0f}%;background:{LVCOL[l]}"></i></div><b>{d["lv"][l]}</b></div>' for l in order if d["lv"][l])
     intl = (f'<div class="acintl"><div><b>{d["ielts"]}</b><span>{X["c_ielts"][i]}</span></div><div><b>{d["sat"]}</b><span>{X["c_satn"][i]}</span></div>'
             f'<div><b>{BEST}</b><span>{X["c_best"][i]}</span></div></div>')
-    return (f'{tabs("achievements/certificates/", i, href)}{tiles}<div class="prevs">{sat_preview(i, href)}{ielts_preview(i, href)}</div>'
+    nst = NC.stats()
+    ncb = (f'<a class="card satprev satban ncban" href="{href(NC.SUB)}"><div class="sph"><span class="acbi" style="--ac:#a3202c">{_svg(ICON[NC.SUB][0], 26)}</span>'
+           f'<div><h3>{NC.NAME[i]}</h3><p>{NC.X["prof_p"][i].format(s=NC.SUBJ["kaa"][i], n=nst["n"], t=nst["top"])}</p></div><span class="acgo2">→</span></div></a>') if nst else ""
+    return (f'{tabs("achievements/certificates/", i, href)}{tiles}{ncb}<div class="prevs">{sat_preview(i, href)}{ielts_preview(i, href)}</div>'
             f'<div class="card acgrow"><h2>{X["c_grow"][i]}</h2><p>{X["c_grow_p"][i]}</p><div class="acgbars">{grow}</div>'
             f'<p class="acex"><b>{EXAMS[0]}</b> {X["hl_ex"][i].format(p=EXAMS[1])}</p></div>'
             f'<h2>{X["c_subj"][i]}</h2><p>{X["c_subj_p"][i]}</p><ul class="acsubj">{srows}</ul>'
@@ -482,4 +489,5 @@ SUBJN = {}
 def body(sub, i, href, subjn=None):
     if subjn:
         SUBJN.update(subjn)
-    return {"achievements/": hub, "achievements/olympiads/": olympiads, "achievements/certificates/": certificates, "achievements/sat/": sat_page, "achievements/ielts/": ielts_page}[sub](i, href)
+    return {"achievements/": hub, "achievements/olympiads/": olympiads, "achievements/certificates/": certificates, "achievements/sat/": sat_page, "achievements/ielts/": ielts_page,
+            NC.SUB: lambda i, href: NC.page(i, href, tabs)}[sub](i, href)

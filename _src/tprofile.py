@@ -194,6 +194,8 @@ def body(sub, lang, up, href, ctx):
           "else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){ok.textContent=" + json.dumps(X["copied"][i]) + "})}})})();</script>")
     import seminars as _SEM, lprofile as _LP
     sem = _SEM.for_person(cy, lang, href, sub_of, _LP.sub_of)
+    import natcert as _NC
+    sem += _NC.teaser(sk, i, href) if sk in _NC.SUBJ else ""
     return f'{hero}{tiles}{two}{ach}{sem}{cls}{sched}{coll}{js}'
 
 def desc(j):
