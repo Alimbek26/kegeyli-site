@@ -24,6 +24,12 @@ EMPTY = ("Jańalıqlar tez arada.", "News coming soon.", "Yangiliklar tez orada.
 TG_BTN = ("Telegram kanalımız", "Our Telegram channel", "Telegram kanalimiz", "Наш Telegram-канал")
 ALL = ("Barlıq jańalıqlar", "All news", "Barcha yangiliklar", "Все новости")
 NEWS = [
+ dict(date="2025", tag="result", photo="gallery/events/turganbaeva-arizona.jpg",
+  title=("Aynura Turǵanbaeva University of Arizona-nıń 16 000 dollarlıq grantın jeńip aldı", "Aynura Turganbaeva wins a $16,000 grant from the University of Arizona", "Aynura Turg‘anbayeva University of Arizona’ning 16 000 dollarlik grantini yutdi", "Айнура Турганбаева получила грант University of Arizona на $16 000"),
+  text=("Mektebimizdiń 11-«a» klass oqıwshısı Aynura Turǵanbaeva AQShtıń University of Arizona universitetiniń 16 000 dollarlıq grantınıń iyesi boldı. Eske salamız, bunnan aldın Aynura IELTS-ten 6.5 ball (B2 dárejesi) alǵan edi. Aynuranı shın júrekten qutlıqlaymız hám aldaǵı oqıwlarında tabıslar tileymiz!",
+        "Aynura Turganbaeva, a Grade 11-A student at our school, has won a $16,000 grant from the University of Arizona in the USA. Earlier, Aynura scored 6.5 in IELTS (B2 level). Congratulations, Aynura, and every success in your studies!",
+        "Maktabimizning 11-«a» sinf o‘quvchisi Aynura Turg‘anbayeva AQShning University of Arizona universitetidan 16 000 dollarlik grant sohibi bo‘ldi. Eslatib o‘tamiz, bundan oldin Aynura IELTS’dan 6.5 ball (B2 darajasi) olgan edi. Aynurani chin qalbdan tabriklaymiz va o‘qishlarida omad tilaymiz!",
+        "Ученица 11 «А» класса нашей школы Айнура Турганбаева получила грант University of Arizona (США) на $16 000. Напомним, ранее Айнура получила 6.5 балла IELTS (уровень B2). Поздравляем Айнуру и желаем успехов в учёбе!")),
  dict(date="2025-04-04", tag="result",
   title=("Ayjamal Abdullaeva dúnyanıń top-100 universitetlerinen eki usınıs aldı", "Ayjamal Abdullaeva receives offers from two world top-100 universities", "Ayjamal Abdullayeva dunyoning top-100 universitetlaridan ikki taklif oldi", "Айжамал Абдуллаева получила предложения от двух университетов мирового топ-100"),
   text=("Mektebimizdiń 11-«a» klass oqıwshısı Ayjamal Abdullaeva Ullı Britaniyanıń eki universitetinen ekonomika baǵdarı boyınsha usınıs aldı: QS 2025 reytinginde 78-orındaǵı University of Glasgow (Glasgow International College-de foundation, keyin MA (Hons) Economics) hám 80-orındaǵı University of Birmingham (foundation jılı menen BSc (Hons) Economics). Ayjamaldı shın júrekten qutlıqlaymız hám aldaǵı oqıwlarında tabıslar tileymiz!",
@@ -51,6 +57,8 @@ NEWS = [
 ]
 def fmt(date, i):
     p = date.split("-")
+    if len(p) == 1:
+        return p[0]
     m = MONTHS[i][int(p[1]) - 1]
     return (f"{int(p[2])} {m} {p[0]}" if len(p) > 2 else f"{m} {p[0]}") if i else (f"{int(p[2])}-{m.lower()}, {p[0]}" if len(p) > 2 else f"{m}, {p[0]}")
 

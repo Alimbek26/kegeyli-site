@@ -69,6 +69,9 @@ OFFERS.append(
       prog=("BSc (Hons) Economics", "BSc (Hons) Economics", "BSc (Hons) Economics", "BSc (Hons) Economics"),
       term="2025-fall", grant=None, date="2025-04-04",
       award=None, status=("Shártli usınıs", "Conditional offer", "Shartli taklif", "Условное предложение")))
+OFFERS.append(
+ dict(student=("Aynura Turǵanbaeva", "Aynura Turganbaeva", "Aynura Turg‘anbayeva", "Айнура Турганбаева"), cls="11-A", grad="2024/2025",
+      uni="University of Arizona", country="us", city="Tucson, Arizona", prog=None, term=None, grant=16000, date="2025", news=True))
 PROGRAMMES = [
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
       country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme-t.jpg"),

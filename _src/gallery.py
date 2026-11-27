@@ -54,6 +54,7 @@ PHOTOS += [
 ]
 
 PHOTOS += [
+ _e("turganbaeva-arizona", "Aynura Turǵanbaeva — University of Arizona-nıń 16 000 dollarlıq grantınıń iyesi", "Aynura Turganbaeva, winner of a $16,000 grant from the University of Arizona", "Aynura Turg‘anbayeva — University of Arizona’ning 16 000 dollarlik granti sohibi", "Айнура Турганбаева — обладательница гранта University of Arizona на $16 000", date="2025"),
  _e("ismailova-cambridge-programme", "Húrshida Ismailova Kembridj universitetiniń programmasında", "Húrshida Ismailova at a University of Cambridge programme", "Xurshida Ismailova Kembrij universiteti dasturida", "Хуршида Исмайлова на программе Кембриджского университета"),
  _e("pdp-grant-jumabaev", "Ádilbek Jumabaev — PDP University-diń 12 mln swmlıq grantınıń iyesi", "Adilbek Jumabaev won a 12 million so‘m grant from PDP University", "Adilbek Jumabaev — PDP Universityning 12 mln so‘mlik granti sohibi", "Адилбек Жумабаев — обладатель гранта PDP University на 12 млн сумов", date="2023-02-07"),
  _e("pdp-grant-saparniyazov", "Artıqbay Saparniyazov — PDP University-diń 12 mln swmlıq grantınıń iyesi", "Artıqbay Saparniyazov won a 12 million so‘m grant from PDP University", "Artiqbay Saparniyazov — PDP Universityning 12 mln so‘mlik granti sohibi", "Артыкбай Сапарниязов — обладатель гранта PDP University на 12 млн сумов", date="2023-02-07"),
@@ -86,7 +87,7 @@ ALBUM_OF = {
  "karakalpak-language-day-dance": "holidays", "new-year-staff-gifts": "holidays", "new-year-group": "holidays",
  "uzbek-language-teachers": "staff", "staff-group": "staff", "teacher-nominations": "staff", "welcome-balloons": "staff",
  "staff-celebration-stage": "staff", "staff-game-men": "staff", "staff-game-women": "staff",
- "olympiad-diploma": "awards", "pdp-grant-saparniyazov": "awards", "pdp-grant-jumabaev": "awards", "ismailova-cambridge-programme": "awards", "hakim-cup-ceremony": "awards", "hakim-cup-winners": "awards", "yosh-contest-winner": "awards",
+ "olympiad-diploma": "awards", "pdp-grant-saparniyazov": "awards", "pdp-grant-jumabaev": "awards", "ismailova-cambridge-programme": "awards", "turganbaeva-arizona": "awards", "hakim-cup-ceremony": "awards", "hakim-cup-winners": "awards", "yosh-contest-winner": "awards",
  "trip-presidential-school": "trips", "trip-youth-centre": "trips", "trip-savitsky-museum": "trips",
  "outdoor-lesson": "life", "bake-sale": "life", "autumn-costumes": "life", "english-day-guests": "life",
 }
