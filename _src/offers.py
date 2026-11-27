@@ -28,6 +28,11 @@ OFFERS = [
       prog=None, term=None, grant=7000, date="2025-01-05", news=True),
 ]
 OFFERS.append(
+ dict(student=_XH, cls="11-A", grad="2024/2025", uni="Caldwell University", country="us", city="Caldwell, New Jersey",
+      prog=("Computer Science (kompyuter ilimleri)", "Computer Science", "Computer Science (kompyuter fanlari)", "Computer Science (компьютерные науки)"),
+      term="2025-fall", grant=None, date="2025-01-08", news=True,
+      award=("Honors Program stipendiyasına ılayıq dep tabıldı", "Qualified for the Honors Program scholarship", "Honors Program stipendiyasiga loyiq deb topildi", "Получила право на стипендию Honors Program")))
+OFFERS.append(
  dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls="11-A", grad="2024/2025",
       uni="Colorado State University", country="us", city="Fort Collins, Colorado",
       prog=("Economics (ekonomika)", "Economics", "Economics (iqtisodiyot)", "Economics (экономика)"),
@@ -107,6 +112,7 @@ def page(i, href, tabs):
         if o.get("prog"): rows.append((X["prog"][i], o["prog"][i]))
         if o.get("term"): rows.append((X["start"][i], _term(o["term"], i)))
         if o.get("grant"): rows.append((X["grant"][i], f'<b class="ofgr">${o["grant"]:,}</b>'))
+        if o.get("award"): rows.append((X["grant"][i], f'<b class="ofgr">{o["award"][i]}</b>'))
         rows.append((X["student"][i], f'{e(o["student"][i])} · {(_cls(o["cls"], i) + " · ") if o.get("cls") else ""}{(X["grad"][i] + " " + o["grad"]) if i == 3 else (o["grad"] + " " + X["grad"][i])}'))
         dl = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in rows)
         nl = f'<a class="oflink" href="{href("news/")}">{X["news"][i]} →</a>' if o.get("news") else ""
