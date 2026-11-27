@@ -1,12 +1,12 @@
 # Individual teacher profile pages: teachers/<slug>/ (4 languages). Built from teachers.py, profiles.py, heads.py and timetable.json.
 import html as _html, json, os, re
-from teachers import TEACHERS, SUBJECTS, CATS, latin
+from teachers import TEACHERS, SUBJECTS, CATS, latin, latin_raw
 from profiles import PROFILES, UNI, DEG, SPEC
 import heads as HD
 
 LANGS = ["kaa", "en", "uz", "ru"]
 def slug(n):
-    return re.sub(r"[^a-z0-9]+", "-", latin(n).lower().replace("ǵ", "g")).strip("-")
+    return re.sub(r"[^a-z0-9]+", "-", latin_raw(n).lower().replace("ǵ", "g")).strip("-")
 SUB = {f"teachers/{slug(t[0])}/": j for j, t in enumerate(TEACHERS)}
 _PH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "photos")
 def small(cy, up, alt, ini=""):
@@ -41,19 +41,19 @@ def _norm(s):
 # Teachers whose weekly lesson count must not be shown (latin name prefix)
 HIDE_LPW = ["Shukirillaev"]
 def hide_lpw(j):
-    return any(latin(TEACHERS[j][0]).startswith(x) for x in HIDE_LPW)
+    return any(latin_raw(TEACHERS[j][0]).startswith(x) for x in HIDE_LPW)
 MANUAL = {"Daurxanov J": "Davirxanov"}
 def tt_index(tt):
     names = {x[1] for cl in tt["classes"].values() for day in cl.values() for p in day.values() for x in p if x[1]}
     M = {}
     for t in names:
         if t in MANUAL:
-            c = [j for j, x in enumerate(TEACHERS) if latin(x[0]).startswith(MANUAL[t])]
+            c = [j for j, x in enumerate(TEACHERS) if latin_raw(x[0]).startswith(MANUAL[t])]
         else:
             sur, ini = t.split()[0], t.split()[1]
-            c = [j for j, x in enumerate(TEACHERS) if _norm(latin(x[0]).split()[0])[:5] == _norm(sur)[:5] and _norm(latin(x[0]).split()[1])[:1] == _norm(ini)[:1]]
+            c = [j for j, x in enumerate(TEACHERS) if _norm(latin_raw(x[0]).split()[0])[:5] == _norm(sur)[:5] and _norm(latin_raw(x[0]).split()[1])[:1] == _norm(ini)[:1]]
             if len(c) != 1:
-                c = [j for j, x in enumerate(TEACHERS) if _norm(latin(x[0]).split()[0])[:4] == _norm(sur)[:4]]
+                c = [j for j, x in enumerate(TEACHERS) if _norm(latin_raw(x[0]).split()[0])[:4] == _norm(sur)[:4]]
         if len(c) == 1:
             M[t] = c[0]
     return M
@@ -143,7 +143,8 @@ def body(sub, lang, up, href, ctx):
     lpw = len(S)
     chips = (f'<span class="tpchip" style="--ac:{col}">{_svg(I_BOOK, 16)} {X["teacher"][i].format(s=subj)}</span>'
              + (f'<span class="tpchip gold">{_svg(I_STAR, 16)} {CATS[ck][lang]}</span>' if ck else "")
-             + "".join(f'<span class="tpchip lead">{_svg(I_USR, 16)} {X["lead"][i].format(c=c)}</span>' for c in leads))
+             + "".join(f'<span class="tpchip lead">{_svg(I_USR, 16)} {X["lead"][i].format(c=c)}</span>' for c in leads)
+             + (f'<span class="tpchip lead">{_svg(I_STAR, 16)} {pr["pos"][i]}</span>' if pr.get("pos") else ""))
     share = (f'<div class="tpshare"><button type="button" class="btn s" id="tpsh">{_svg(I_SHARE, 18)} {X["share"][i]}</button>'
              f'<a class="btn s" id="tptg" href="#" rel="noopener">{_svg(I_TG, 18)} Telegram</a><span id="tpok" role="status"></span></div>')
     hero = (f'<p class="rsback"><a href="{href("teachers/")}">← {X["back"][i]}</a></p>'

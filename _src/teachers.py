@@ -93,7 +93,12 @@ _MAP = {"а":"a","б":"b","в":"v","г":"g","д":"d","е":"e","ё":"yo","ж":"j"
  "н":"n","о":"o","п":"p","р":"r","с":"s","т":"t","у":"u","ф":"f","х":"x","ц":"ts","ч":"ch","ш":"sh","ъ":"’","ь":"",
  "э":"e","ю":"yu","я":"ya","ў":"w","қ":"q","ғ":"ǵ","ҳ":"h"}  # Karakalpak-style Latin spelling of names
 
+# Exact Karakalpak Latin spelling where the automatic transliteration is not right.
+# Web addresses (slugs) and timetable matching keep using latin_raw(), so links never change.
+LATIN_EXACT = {"Давирханов Женисбай": "Dáwirxanov Jeńisbay"}
 def latin(name):
+    return LATIN_EXACT.get(name) or latin_raw(name)
+def latin_raw(name):
     out = []
     for w in name.split():
         r = ""

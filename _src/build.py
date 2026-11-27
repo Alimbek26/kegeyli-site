@@ -24,7 +24,7 @@ import lprofile as LP
 import tbadges as TB
 import tgfeed as TGF
 import laws as LW
-from teachers import TEACHERS, LEADERS, ROLES, SUBJECTS, CATS, latin, LEADER_INFO
+from teachers import TEACHERS, LEADERS, ROLES, SUBJECTS, CATS, latin, LEADER_INFO, latin_raw as _latin_raw
 from profiles import PROFILES, UNI, DEG, SPEC
 import re as _re, html as _html
 LI = {"kaa": 0, "en": 1, "uz": 2, "ru": 3}
@@ -64,7 +64,7 @@ def href(fl, fs, tl, ts):
 def slug_l(n):
     return _re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-")
 def slug(n):
-    return _re.sub(r"[^a-z0-9]+", "-", latin(n).lower().replace("ǵ", "g")).strip("-")
+    return _re.sub(r"[^a-z0-9]+", "-", _latin_raw(n).lower().replace("ǵ", "g")).strip("-")
 try:
     from texts import PHOTOS   # list of (file in /photos/, caption per language dict)
 except ImportError:

@@ -1,6 +1,6 @@
 # Leadership & staff profile pages: leadership/<slug>/ (4 languages). Built from teachers.LEADERS / LEADER_INFO / ROLES.
 import html as _html, json, os, re
-from teachers import LEADERS, LEADER_INFO, ROLES, TEACHERS, latin
+from teachers import LEADERS, LEADER_INFO, ROLES, TEACHERS, latin, latin_raw
 import tprofile as TP
 import director as DIR
 import seminars as _SEM
@@ -26,7 +26,7 @@ def name(n, lang):
 def teacher_of(n):
     """index in TEACHERS if this person also teaches"""
     la = LEADERS[n][0]; f, s = la.split()[0], la.split()[-1]
-    m = [j for j, t in enumerate(TEACHERS) if latin(t[0]).split()[0] == s and latin(t[0]).split()[1] == f]
+    m = [j for j, t in enumerate(TEACHERS) if latin_raw(t[0]).split()[0] == s and latin_raw(t[0]).split()[1] == f]
     return m[0] if m else None
 
 ROLECOL = {"director": "#a3202c", "dep_edu": "#0b5f78", "dep_spirit": "#7c3aed", "dep_econ": "#b45309", "adviser": "#2a7fd1",
