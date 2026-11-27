@@ -19,7 +19,7 @@ COUNTRY = {
  "us": ("🇺🇸", ("AQSh", "USA", "AQSh", "США")),
  "uk": ("🇬🇧", ("Ullı Britaniya", "United Kingdom", "Buyuk Britaniya", "Великобритания")),
 }
-_XH = ("Húrshida Ismailova", "Húrshida Ismailova", "Xurshida Ismailova", "Хуршида Исмайлова")
+_XH = ("Khurshida Ismailova", "Khurshida Ismailova", "Khurshida Ismailova", "Хуршида Исмайлова")
 OFFERS = [
  dict(student=_XH, cls="11-A", grad="2024/2025", uni="Colorado State University", country="us", city="Fort Collins, Colorado",
       prog=("Computer Science (kompyuter ilimleri)", "Computer Science", "Computer Science (kompyuter fanlari)", "Computer Science (компьютерные науки)"),
