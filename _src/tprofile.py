@@ -8,6 +8,25 @@ LANGS = ["kaa", "en", "uz", "ru"]
 def slug(n):
     return re.sub(r"[^a-z0-9]+", "-", latin(n).lower().replace("ǵ", "g")).strip("-")
 SUB = {f"teachers/{slug(t[0])}/": j for j, t in enumerate(TEACHERS)}
+_PH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "photos")
+def small(cy, up, alt, ini=""):
+    """Round avatar: small face photo if there is one, otherwise the initials."""
+    s = slug(cy)
+    if os.path.exists(os.path.join(_PH, "teachers", s + "-s.jpg")):
+        return f'<img src="{up}photos/teachers/{s}-s.jpg" alt="" width="160" height="160" loading="lazy" decoding="async">'
+    return ini
+def portrait(folder, s, up, alt, cap):
+    """Profile hero photo: 3:4 portrait card that opens larger, or None."""
+    if not os.path.exists(os.path.join(_PH, folder, s + "-p.jpg")):
+        return None
+    src = f"{up}photos/{folder}/{s}-p.jpg"
+    return (f'<button type="button" class="tpport" data-lb="{src}" data-cap="{cap}" aria-label="{alt}">'
+            f'<img src="{src}" alt="{alt}" width="720" height="960" fetchpriority="high" decoding="async"><span class="tpzoom" aria-hidden="true">'
+            '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></button>')
+LB_JS = ("<dialog class=\"tplb\" id=\"tplb\"><button type=\"button\" class=\"tplbx\" aria-label=\"×\">×</button><img alt=\"\"><p></p></dialog>"
+         "<script>(function(){var d=document.getElementById('tplb');if(!d||!d.showModal)return;var im=d.querySelector('img'),p=d.querySelector('p');"
+         "document.querySelectorAll('[data-lb]').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.lb;im.alt=b.getAttribute('aria-label');p.textContent=b.dataset.cap;d.showModal()})});"
+         "d.addEventListener('click',function(e){if(e.target===d||e.target.closest('.tplbx'))d.close()})})();</script>")
 def sub_of(j):
     return f"teachers/{slug(TEACHERS[j][0])}/"
 def name(j, lang):
@@ -114,6 +133,7 @@ def body(sub, lang, up, href, ctx):
     photo = os.path.exists(os.path.join(ROOT, "photos", "teachers", sl + ".jpg"))
     ini = "".join(w[0] for w in nm.split()[:2])
     av = f'<img src="{up}photos/teachers/{sl}.jpg" alt="{esc(nm)}">' if photo else f'<span>{ini}</span>'
+    port = portrait("teachers", sl, up, esc(nm), esc(nm + " — " + X["teacher"][i].format(s=subj)))
     leads = [c for c in HD.HEAD if HD.HEAD[c][0] == cy]
     S = schedule(j, tt, M)
     per_cls = {}
@@ -127,7 +147,7 @@ def body(sub, lang, up, href, ctx):
     share = (f'<div class="tpshare"><button type="button" class="btn s" id="tpsh">{_svg(I_SHARE, 18)} {X["share"][i]}</button>'
              f'<a class="btn s" id="tptg" href="#" rel="noopener">{_svg(I_TG, 18)} Telegram</a><span id="tpok" role="status"></span></div>')
     hero = (f'<p class="rsback"><a href="{href("teachers/")}">← {X["back"][i]}</a></p>'
-            f'<div class="tphero" style="--ac:{col}"><div class="tpav">{av}</div><div class="tpht"><h2>{esc(nm)}</h2><div class="tpchips">{chips}</div>{share}</div></div>')
+            f'<div class="tphero{" hasp" if port else ""}" style="--ac:{col}">{port or f'<div class="tpav">{av}</div>'}<div class="tpht"><h2>{esc(nm)}</h2><div class="tpchips">{chips}</div>{share}</div></div>')
     grad = max((y for y, u, d in pr["edu"]), default=None)
     tiles = ([] if hide_lpw(j) else [(lpw or "—", X["lpw"][i], I_CLK, "#2a7fd1")]) + [(len(per_cls) or "—", X["ncls"][i], I_USR, "#0b7a8f"),
              (len(pr["ach"]), X["nach"][i], I_STAR, "#d4a017")]
@@ -187,7 +207,7 @@ def body(sub, lang, up, href, ctx):
     coll = ""
     if colls:
         coll = f'<h2>{X["coll_h"][i].format(s=subj)}</h2><div class="tpcoll">' + "".join(
-            f'<a href="{href(sub_of(k))}" style="--ac:{CATCOL.get(TEACHERS[k][2], "#5b6472")}"><span>{"".join(w[0] for w in name(k, lang).split()[:2])}</span>{esc(name(k, lang))}</a>' for k in colls) + '</div>'
+            f'<a href="{href(sub_of(k))}" style="--ac:{CATCOL.get(TEACHERS[k][2], "#5b6472")}"><span>{small(TEACHERS[k][0], up, "", "".join(w[0] for w in name(k, lang).split()[:2]))}</span>{esc(name(k, lang))}</a>' for k in colls) + '</div>'
     js = ("<script>(function(){var u=location.href,t=document.title,ok=document.getElementById('tpok');"
           "document.getElementById('tptg').href='https://t.me/share/url?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t);"
           "document.getElementById('tpsh').addEventListener('click',function(){if(navigator.share){navigator.share({title:t,url:u}).catch(function(){})}"
@@ -196,7 +216,7 @@ def body(sub, lang, up, href, ctx):
     sem = _SEM.for_person(cy, lang, href, sub_of, _LP.sub_of)
     import natcert as _NC
     sem += _NC.teaser(sk, i, href) if sk in _NC.SUBJ else ""
-    return f'{hero}{tiles}{two}{ach}{sem}{cls}{sched}{coll}{js}'
+    return f'{hero}{tiles}{two}{ach}{sem}{cls}{sched}{coll}{js}' + (LB_JS if port else '')
 
 def desc(j):
     sk = TEACHERS[j][1]

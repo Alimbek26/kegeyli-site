@@ -9,6 +9,11 @@ LANGS = ["kaa", "en", "uz", "ru"]
 def slug(la):
     return re.sub(r"[^a-z0-9]+", "-", la.lower()).strip("-")
 SUB = {f"leadership/{slug(l[0])}/": n for n, l in enumerate(LEADERS)}
+def small(n, up, ini=""):
+    s = slug(LEADERS[n][0])
+    if os.path.exists(os.path.join(TP._PH, "leaders", s + "-s.jpg")):
+        return f'<img src="{up}photos/leaders/{s}-s.jpg" alt="" width="160" height="160" loading="lazy" decoding="async">'
+    return ini
 def sub_of(n):
     return f"leadership/{slug(LEADERS[n][0])}/"
 FULL = {"Feruza Nizamatdinova": ("Feruza Nizamatdinova Usnatdinovna", "Феруза Низаматдинова Уснатдиновна")}
@@ -93,10 +98,11 @@ def body(sub, lang, up, href, ctx):
     ph = slug(la); photo = os.path.exists(os.path.join(ctx["ROOT"], "photos", "leaders", ph + ".jpg"))
     ini = "".join(w[0] for w in nm.split()[:2])
     av = f'<img src="{up}photos/leaders/{ph}.jpg" alt="{esc(nm)}">' if photo else f'<span>{ini}</span>'
+    port = TP.portrait("leaders", ph, up, esc(nm), esc(nm + " — " + ROLES[r][lang]))
     share = (f'<div class="tpshare"><button type="button" class="btn s" id="tpsh">{_svg(I_SHARE, 18)} {X["share"][i]}</button>'
              f'<a class="btn s" id="tptg" href="#" rel="noopener">{_svg(I_TG, 18)} Telegram</a><span id="tpok" role="status"></span></div>')
     hero = (f'<p class="rsback"><a href="{href("leadership/")}">← {X["back"][i]}</a></p>'
-            f'<div class="tphero" style="--ac:{col}"><div class="tpav">{av}</div><div class="tpht"><h2>{esc(nm)}</h2>'
+            f'<div class="tphero{" hasp" if port else ""}" style="--ac:{col}">{port or f'<div class="tpav">{av}</div>'}<div class="tpht"><h2>{esc(nm)}</h2>'
             f'<div class="tpchips"><span class="tpchip lead">{ROLES[r][lang]}</span></div>{share}</div></div>')
     full = ""
     if os.path.exists(os.path.join(ctx["ROOT"], "photos", "leaders", ph + "-full.jpg")):
@@ -115,7 +121,7 @@ def body(sub, lang, up, href, ctx):
     contact = (f'<div class="card lpcontact"><h3>{_svg(I_PHONE, 20)} {X["contact_h"][i]}</h3><p>{X["contact_p"][i]}</p>'
                f'<div class="btns"><a class="btn p" href="tel:{ctx["PHONE"]}">{_svg(I_PHONE, 18)} {ctx["PHONE_TXT"]}</a><a class="btn s" href="{ctx["TG"]}" rel="noopener">Telegram</a></div></div>')
     duty = f'<div class="card lpduty" style="--ac:{col}"><h3>{X["duty_h"][i]}</h3><ul>{duties}</ul></div>' if duties else ""
-    team = "".join(f'<a href="{href(sub_of(k))}" style="--ac:{ROLECOL.get(l[2], "#0b7a8f")}"><span>{"".join(w[0] for w in name(k, lang).split()[:2])}</span><div><b>{esc(name(k, lang))}</b><small>{ROLES[l[2]][lang]}</small></div></a>'
+    team = "".join(f'<a href="{href(sub_of(k))}" style="--ac:{ROLECOL.get(l[2], "#0b7a8f")}"><span>{small(k, up, "".join(w[0] for w in name(k, lang).split()[:2]))}</span><div><b>{esc(name(k, lang))}</b><small>{ROLES[l[2]][lang]}</small></div></a>'
                    for k, l in enumerate(LEADERS) if k != n)
     js = ("<script>(function(){var u=location.href,t=document.title,ok=document.getElementById('tpok');"
           "document.getElementById('tptg').href='https://t.me/share/url?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t);"
@@ -124,7 +130,7 @@ def body(sub, lang, up, href, ctx):
     D = DIR.sections(i, href, dict(ctx, name=esc(nm))) if r == "director" else dict(top="", mid="", side="", bottom="")
     return (f'{hero}{full}{D["top"]}<div class="actwo">{duty}<div class="lpside">{about}{tlink}{D["side"]}{contact}</div></div>{D["mid"]}{D["bottom"]}'
             + _SEM.for_person("lead:" + LEADERS[n][0], lang, href, TP.sub_of, sub_of) +
-            f'<h2>{X["team_h"][i]}</h2><div class="lpteam">{team}</div>{js}')
+            f'<h2>{X["team_h"][i]}</h2><div class="lpteam">{team}</div>{js}' + (TP.LB_JS if port else ''))
 
 def desc(n):
     la, cy, r = LEADERS[n]

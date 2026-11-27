@@ -74,6 +74,13 @@ DOMAIN = "https://kegeyliqm.uz/"
 SRC = os.path.dirname(__file__)
 ROOT = os.path.dirname(SRC)
 STYLE = open(os.path.join(SRC, "style.css"), encoding="utf-8").read()
+def og_img(sub):
+    """Sharing image: the person's photo on teacher / leader profiles, otherwise the logo."""
+    import tprofile as _TP, lprofile as _LP
+    for folder, subs, key in (("teachers", _TP.SUB, lambda j: _TP.slug(TEACHERS[j][0])), ("leaders", _LP.SUB, lambda n: _LP.slug(LEADERS[n][0]))):
+        if sub in subs and os.path.exists(os.path.join(ROOT, "photos", folder, key(subs[sub]) + ".jpg")):
+            return f"photos/{folder}/{key(subs[sub])}.jpg"
+    return "logo-512.png"
 # One shared, cacheable stylesheet instead of a copy inside every page.
 # The file name carries a hash of its content, so browsers always get the new version after a change.
 import hashlib as _hl, re as _re
@@ -741,7 +748,8 @@ def person_card(la, cy, r, lang):
     info = ('<ul class="linfo">' + "".join(f"<li>{l[LI[lang]]}</li>" for l in lines) + "</ul>") if lines else ""
     ph = slug_l(la)
     ic, col = ROLE_ICON.get(r, (ini, "ic-teal"))
-    av = (f'<img src="{{UP}}photos/leaders/{ph}.jpg" alt="{n}" loading="lazy">' if os.path.exists(os.path.join(ROOT, "photos", "leaders", ph + ".jpg")) else ini)
+    _s = "-s" if os.path.exists(os.path.join(ROOT, "photos", "leaders", ph + "-s.jpg")) else ""
+    av = (f'<img src="{{UP}}photos/leaders/{ph}{_s}.jpg" alt="{n}" loading="lazy" decoding="async">' if os.path.exists(os.path.join(ROOT, "photos", "leaders", ph + ".jpg")) else ini)
     return (f'<div class="person card{top}"><div class="avatar" aria-hidden="true">{av}</div>'
             f'<div><h3 style="margin:0"><a class="plink" href="{LP.slug(la)}/">{n}</a></h3><p class="role"><span class="ric {col}">{ic}</span><span>{ROLES[r][lang]}</span></p>{info}'
             f'<a class="tprof" href="{LP.slug(la)}/">{TL["prof"][LI[lang]]} →</a></div></div>')
@@ -762,7 +770,7 @@ def staff_strip(lang):
     i = LI[lang]; st = TB.stats(); cols = {"total": "#0b7a8f", "high": "#d4a017", "ma": "#7c3aed", "cert": "#2a7fd1", "heads": "#a3202c", "subj": "#2f8f5b"}
     return '<div class="tbstats">' + "".join(f'<div style="--ac:{cols[k]}"><b>{st[k]}</b><span>{TB.ST[k][i]}</span></div>' for k in ("total", "high", "ma", "cert", "heads", "subj")) + '</div>'
 
-def by_class(lang):
+def by_class(lang, up=""):
     i = LI[lang]; esc = _html.escape
     per = {c: {} for c in TT["classes"]}
     for j in range(len(TEACHERS)):
@@ -779,7 +787,7 @@ def by_class(lang):
         for (j, sname), n in rows:
             nm = TP.name(j, lang); ini = "".join(w[0] for w in nm.split()[:2]); sj = TT_SUBJ.get(sname, (sname,) * 4 + ("#0b7a8f",))
             ish = TEACHERS[j][0] == head
-            lis += (f'<li class="{"hd" if ish else ""}" style="--ac:{sj[4]}"><a href="../{TP.slug(TEACHERS[j][0])}/"><span class="bcav">{ini}</span><div><b>{esc(nm)}</b>'
+            lis += (f'<li class="{"hd" if ish else ""}" style="--ac:{sj[4]}"><a href="../{TP.slug(TEACHERS[j][0])}/"><span class="bcav">{TP.small(TEACHERS[j][0], up, "", ini)}</span><div><b>{esc(nm)}</b>'
                     f'<small>{sj[i]}' + (f' · <em>{BYC["head"][i]}</em>' if ish else '') + f'</small></div>' + ("" if TP.hide_lpw(j) else f'<span class="bcn">{BYC["lpw"][i].format(n=n)}</span>') + '</a></li>')
         nt = len({j for (j, s) in per[c]}); nl = sum(per[c].values())
         panels += f'<div class="bcp" data-c="{c}" hidden><h3>{c} <small>{BYC["tot"][i].format(t=nt)}</small></h3><ul class="bclist">{lis}</ul></div>'
@@ -829,7 +837,8 @@ def teacher_cards(lang, up):
         cy, sk, ck = TEACHERS[j]; pr = PROFILES[j]; name = nm(cy); sl = slug(cy)
         photo = os.path.join(ROOT, "photos", "teachers", sl + ".jpg")
         ini = "".join(w[0] for w in name.split()[:2])
-        av = f'<img src="{up}photos/teachers/{sl}.jpg" alt="{esc(name)}" loading="lazy">' if os.path.exists(photo) else f'<span>{ini}</span>'
+        _s = "-s" if os.path.exists(os.path.join(ROOT, "photos", "teachers", sl + "-s.jpg")) else ""
+        av = f'<img src="{up}photos/teachers/{sl}{_s}.jpg" alt="{esc(name)}" width="160" height="160" loading="lazy" decoding="async">' if os.path.exists(photo) else f'<span>{ini}</span>'
         edu = "<br>".join(f'{UNI[u][i]}, {y}' + (f' ({DEG[d][i]})' if d == "ma" else "") for y, u, d in pr["edu"])
         rows = ""
         if pr.get("pos"):
@@ -971,7 +980,7 @@ def page(lang, sub=""):
         elif sub == "teachers/":
             inner = f'{teach_tabs(sub, lang, lambda k: href(lang, sub, lang, k))}{staff_strip(lang)}<p>{t["teach_p"].format(n=len(TEACHERS))}</p>{teacher_cards(lang, up)}'
         elif sub == "teachers/by-class/":
-            inner = f'{teach_tabs(sub, lang, lambda k: href(lang, sub, lang, k))}{by_class(lang)}'
+            inner = f'{teach_tabs(sub, lang, lambda k: href(lang, sub, lang, k))}{by_class(lang, up)}'
         elif sub == SEM.SUB:
             _h = lambda k: href(lang, sub, lang, k)
             inner = f'{teach_tabs(sub, lang, _h)}{SEM.body(lang, _h, TP.sub_of, LP.sub_of)}'
@@ -1003,7 +1012,7 @@ def page(lang, sub=""):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{DOMAIN}logo-512.png">
+<meta property="og:image" content="{DOMAIN}{og_img(sub)}">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0b5f78">
 <link rel="icon" href="/favicon.ico" sizes="any">
