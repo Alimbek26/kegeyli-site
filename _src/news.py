@@ -67,6 +67,5 @@ def cards(i, limit=None, up=""):
     return out or f'<p>{EMPTY[i]}</p>'
 
 def body(i, up, tg):
-    import tgfeed as TGF
-    return (f'{TGF.html(i, len(TGF.POSTS))}<div class="ngrid">{cards(i, None, up)}</div>'
+    return (f'<div class="ngrid">{cards(i, None, up)}</div>'
             f'<p style="margin-top:22px"><a class="btn p" href="{tg}" rel="noopener">{TG_BTN[i]} →</a></p>')
