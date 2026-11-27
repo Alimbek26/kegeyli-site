@@ -1,0 +1,4727 @@
+{
+"date": "26.11.2026",
+"classes": {
+"5-A": {
+"mon": {
+"2": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"3": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"4": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"5": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"6": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"2": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"3": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"4": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"5": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"6": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"7": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"2": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"3": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"4": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"5": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"6": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"2": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"3": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"4": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"5": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"6": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"2": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"3": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"4": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"5": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"6": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+]
+}
+},
+"5-B": {
+"mon": {
+"2": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"3": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"4": [
+[
+"Inglis til",
+"Aytmuratova D"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"5": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"6": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"2": [
+[
+"Inglis til",
+"Aytmuratova D"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"3": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"4": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"5": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"6": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"2": [
+[
+"Inglis til",
+"Aytmuratova D"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"3": [
+[
+"Biologiya",
+"Umirbekova F"
+]
+],
+"4": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"5": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"6": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"7": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"2": [
+[
+"Inglis til",
+"Aytmuratova D"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"3": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"4": [
+[
+"Biologiya",
+"Umirbekova F"
+]
+],
+"5": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"6": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"2": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"3": [
+[
+"Inglis til",
+"Aytmuratova D"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"4": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"5": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"6": [
+[
+"ART",
+"Arzibaev T"
+]
+]
+}
+},
+"6-A": {
+"mon": {
+"2": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"3": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"4": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"5": [
+[
+"Inglis til",
+"Nazbergenova Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"6": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"7": [
+[
+"ART",
+"Arzibaev T"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Inglis til",
+"Nazbergenova Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"2": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"3": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"4": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"5": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"6": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"2": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"3": [
+[
+"Inglis til",
+"Nazbergenova Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"4": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"5": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"6": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"2": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"3": [
+[
+"Inglis til",
+"Nazbergenova Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"4": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"5": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"6": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"2": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"3": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"4": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"5": [
+[
+"Inglis til",
+"Nazbergenova Z"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"6": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"7": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+}
+},
+"6-B": {
+"mon": {
+"2": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"3": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"4": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"5": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"6": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"7": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"2": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"3": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"4": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"5": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"6": [
+[
+"ART",
+"Arzibaev T"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"2": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"3": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"4": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"5": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"6": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"7": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"2": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"3": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"4": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"5": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"6": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Jalgasbaeva O"
+]
+],
+"2": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"3": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"4": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"5": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"6": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+}
+},
+"7-A": {
+"mon": {
+"2": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"3": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"4": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"5": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"6": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"7": [
+[
+"Ximiya",
+""
+]
+]
+},
+"tue": {
+"1": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"2": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"3": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"4": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"5": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"6": [
+[
+"Ana til",
+"Salieva E"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"2": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"3": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"4": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"5": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"6": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"7": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"2": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"3": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"4": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"5": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"6": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"7": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"2": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Aynazarov A"
+]
+],
+"3": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"4": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"5": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"6": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"7": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+}
+},
+"7-B": {
+"mon": {
+"2": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"3": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"4": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"5": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Temirxanova A"
+]
+],
+"6": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"7": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"2": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"3": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"4": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"5": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"6": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"7": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"2": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Temirxanova A"
+]
+],
+"3": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"4": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"5": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"6": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"7": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"2": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"3": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Temirxanova A"
+]
+],
+"4": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"5": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"6": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"2": [
+[
+"Matematika",
+"Xudaybergenova Q"
+],
+[
+"Matematika",
+"Berdibaev S"
+]
+],
+"3": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Temirxanova A"
+]
+],
+"4": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"5": [
+[
+"Ximiya",
+""
+]
+],
+"6": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"7": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+]
+}
+},
+"7-C": {
+"mon": {
+"2": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"3": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"4": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"5": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"6": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"7": [
+[
+"Matematika",
+"Daurxanov J"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"2": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"3": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"4": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"5": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"6": [
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"7": [
+[
+"ART",
+"Arzibaev T"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"2": [
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"3": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"4": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"5": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"6": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"7": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"2": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"3": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"4": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"5": [
+[
+"Fizika",
+"Kewnimjaev A"
+]
+],
+"6": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"7": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"2": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"3": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"4": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"5": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"6": [
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"7": [
+[
+"Ana til",
+"Salieva E"
+]
+]
+}
+},
+"8-A": {
+"mon": {
+"2": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"3": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"4": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"5": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"6": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"7": [
+[
+"Biologiya",
+"Umirbekova F"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Ximiya",
+"Tajimuratova Z"
+]
+],
+"2": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"3": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"4": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"5": [
+[
+"Biologiya",
+"Umirbekova F"
+]
+],
+"6": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"7": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"2": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"3": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"4": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"5": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"6": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"7": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+]
+},
+"thu": {
+"1": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"2": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"3": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"4": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"5": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"6": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"7": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"2": [
+[
+"Matematika",
+"Orazalieva R"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"3": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"4": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"5": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"6": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"7": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+]
+}
+},
+"8-B": {
+"mon": {
+"2": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"3": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"4": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"5": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"6": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"7": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"2": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"3": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"4": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"5": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"6": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"7": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"2": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"3": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+],
+"4": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"5": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"6": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"7": [
+[
+"Biologiya",
+"Umirbekova F"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"2": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"3": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"4": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"5": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"6": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"7": [
+[
+"Ana til",
+"Qarlibaeva G"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"2": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"3": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"4": [
+[
+"Ximiya",
+"Tajimuratova Z"
+]
+],
+"5": [
+[
+"Matematika",
+"Esbergenov A"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"6": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"7": [
+[
+"Biologiya",
+"Umirbekova F"
+]
+]
+}
+},
+"9-A": {
+"mon": {
+"2": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"3": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"4": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"5": [
+[
+"Inglis til",
+"Mamutova Z"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"6": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"7": [
+[
+"Ana til",
+"Salieva E"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"2": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"3": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"4": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"5": [
+[
+"Inglis til",
+"Mamutova Z"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"6": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"7": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Inglis til",
+"Mamutova Z"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"2": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"3": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"4": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"5": [
+[
+"Ximiya",
+"Tajimuratova Z"
+]
+],
+"6": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"7": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Inglis til",
+"Mamutova Z"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"2": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"3": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"4": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"5": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"6": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"7": [
+[
+"ART",
+"Arzibaev T"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"2": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"3": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"4": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"5": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"6": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Esbergenov A"
+]
+],
+"7": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+}
+},
+"9-B": {
+"mon": {
+"2": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"3": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"4": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"5": [
+[
+"Ximiya",
+"Tajimuratova Z"
+]
+],
+"6": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"7": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"2": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"3": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"4": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"5": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"6": [
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"7": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"2": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"3": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"4": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"5": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"6": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"7": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"2": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"3": [
+[
+"Ana til",
+"Salieva E"
+]
+],
+"4": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"5": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"6": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"7": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Matematika",
+"Aynazarov A"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"2": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"3": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+],
+"4": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"5": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"6": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"7": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+]
+}
+},
+"9-C": {
+"mon": {
+"2": [
+[
+"Texnologiya",
+"Jangabaeva N"
+]
+],
+"3": [
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"4": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"5": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"6": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"7": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"2": [
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"3": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"4": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"5": [
+[
+"ART",
+"Arzibaev T"
+]
+],
+"6": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"7": [
+[
+"Geografiya",
+"Qudaybergenov M"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"2": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"3": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"4": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"5": [
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"6": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"7": [
+[
+"Fizika",
+"Artikova Sh"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"2": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"3": [
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"4": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"5": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"6": [
+[
+"Matematika",
+"Dilmuratov D"
+]
+],
+"7": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"2": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"3": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+],
+"4": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"5": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"6": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"7": [
+[
+"Ana til",
+"Joldasbaev B"
+]
+]
+}
+},
+"10-A": {
+"mon": {
+"2": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"3": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"4": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"5": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"6": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"7": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"2": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"3": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"4": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"5": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"6": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"7": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"2": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"3": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"4": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"5": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"6": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"2": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"3": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"4": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"5": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"6": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"7": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Matematika",
+"Pirimbetov A"
+],
+[
+"Matematika",
+"Xudaybergenova Q"
+]
+],
+"2": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"3": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"4": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"5": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"6": [
+[
+"Ana til",
+"Begalieva J"
+]
+]
+}
+},
+"10-B": {
+"mon": {
+"2": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"3": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"4": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"5": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Kewnimjaev A"
+]
+],
+"6": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Kewnimjaev A"
+]
+],
+"7": [
+[
+"Ana til",
+"Begalieva J"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"2": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"3": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"4": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"5": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Kewnimjaev A"
+]
+],
+"6": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"7": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"2": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"3": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"4": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"5": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Kewnimjaev A"
+]
+],
+"6": [
+[
+"Ana til",
+"Begalieva J"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"2": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"3": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"4": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"5": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"6": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Kewnimjaev A"
+]
+],
+"7": [
+[
+"Ana til",
+"Begalieva J"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"2": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"3": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"4": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"5": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"6": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+]
+}
+},
+"10-C": {
+"mon": {
+"2": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"3": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"4": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"5": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"6": [
+[
+"Matematika",
+"Aynazarov K"
+]
+],
+"7": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"2": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"3": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"4": [
+[
+"Matematika",
+"Aynazarov K"
+]
+],
+"5": [
+[
+"Matematika",
+"Aynazarov K"
+]
+],
+"6": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"7": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"2": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"3": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"4": [
+[
+"Inglis til",
+"Amanbaeva Q"
+],
+[
+"Inglis til",
+"Aytmuratova D"
+]
+],
+"5": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+],
+"6": [
+[
+"Matematika",
+"Aynazarov K"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"2": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"3": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"4": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"5": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"6": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"7": [
+[
+"Tariyx",
+"Jarilkasinov A"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"2": [
+[
+"Biologiya",
+"Umirbekova F"
+],
+[
+"Biologiya",
+"Elmuratova T"
+]
+],
+"3": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"4": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"5": [
+[
+"Matematika",
+"Aynazarov K"
+]
+],
+"6": [
+[
+"Ximiya",
+"Tajimuratova Z"
+],
+[
+"Ximiya",
+""
+]
+],
+"7": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+]
+}
+},
+"11-A": {
+"mon": {
+"2": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"3": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"4": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"5": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"6": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"7": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"2": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"3": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"4": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"5": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"6": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"7": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"2": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"3": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"4": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"5": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"6": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"7": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"2": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+],
+"3": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"4": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"5": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"6": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Fizika",
+"Sarsenbaev D"
+],
+[
+"Fizika",
+"Artikova Sh"
+]
+],
+"2": [
+[
+"Inglis til",
+"Temirxanova A"
+],
+[
+"Inglis til",
+"Mamutova Z"
+]
+],
+"3": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"4": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+],
+"5": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"6": [
+[
+"Matematika",
+"Aynazarov K"
+],
+[
+"Matematika",
+"Saparov M"
+]
+]
+}
+},
+"11-B": {
+"mon": {
+"2": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"3": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"4": [
+[
+"Tarbiya",
+"Uteshova G"
+]
+],
+"5": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"6": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+],
+"7": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+]
+},
+"tue": {
+"1": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"2": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"3": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"4": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"5": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"6": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"7": [
+[
+"Dene tarbiya",
+"Erejepov Z"
+]
+]
+},
+"wed": {
+"1": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"2": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"3": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"4": [
+[
+"Ozbek til",
+"Ismaylova G"
+],
+[
+"Ozbek til",
+"Qutlimuratov S"
+]
+],
+"5": [
+[
+"Tariyx",
+"Tulepov S"
+]
+],
+"6": [
+[
+"JSHSHT",
+"Seytnazarov T"
+]
+],
+"7": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+]
+},
+"thu": {
+"1": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"2": [
+[
+"Inglis til",
+"Oserbaeva Z"
+],
+[
+"Inglis til",
+"Nazbergenova Z"
+]
+],
+"3": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"4": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"5": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"6": [
+[
+"Russ til",
+"Begdullaev D"
+],
+[
+"Russ til",
+"Uzaqbaeva A"
+]
+],
+"7": [
+[
+"Informatika",
+"Zaripbaev A"
+],
+[
+"Informatika",
+"Shukirillaev N"
+]
+]
+},
+"fri": {
+"1": [
+[
+"Fizika",
+"Kewnimjaev A"
+],
+[
+"Fizika",
+"Qurbanbaeva M"
+]
+],
+"2": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"3": [
+[
+"Matematika",
+"Saparov M"
+],
+[
+"Matematika",
+"Daurxanov J"
+]
+],
+"4": [
+[
+"Ana til",
+"Begalieva J"
+]
+],
+"5": [
+[
+"Tariyx",
+"Tulepov S"
+]
+]
+}
+}
+}
+}

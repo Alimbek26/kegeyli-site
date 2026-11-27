@@ -1,0 +1,23 @@
+{
+ "name": "Кегейлийская районная специализированная школа",
+ "short_name": "Kegeyli QM",
+ "lang": "ru",
+ "start_url": "timetable/",
+ "scope": "/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#0b5f78",
+ "icons": [
+  {
+   "src": "/logo.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/logo-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+  <div class="fig" aria-hidden="true">
+    <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#e9dcc3"/></linearGradient>
+        <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#127591"/><stop offset="1" stop-color="#0b5f78"/></linearGradient>
+        <g id="win"><rect width="44" height="54" rx="4" fill="#0b5f78"/><rect x="4" y="4" width="36" height="22" fill="#9fd3e1"/><rect x="4" y="29" width="36" height="21" fill="#7cbfd1"/></g>
+        <g id="tree"><path d="M0 0c-6-30 2-50 0-70" stroke="#6b4a2b" stroke-width="7" fill="none"/><ellipse cx="0" cy="-86" rx="40" ry="30" fill="#5c8a4a"/><ellipse cx="-14" cy="-96" rx="22" ry="16" fill="#79a862"/><ellipse cx="18" cy="-78" rx="20" ry="14" fill="#4c7a3d"/></g>
+      </defs>
+      <circle class="sun" cx="980" cy="120" r="70" fill="#f2b134" opacity=".9"/>
+      <path d="M0 300 C200 270 400 290 600 280 S1000 260 1200 285 V420 H0z" fill="#e6cf9f"/>
+      <path d="M0 330 C300 310 600 330 900 318 S1100 320 1200 326 V420 H0z" fill="#d9bb83"/>
+      <!-- school -->
+      <rect x="330" y="150" width="540" height="190" fill="url(#wall)"/>
+      <rect x="330" y="330" width="540" height="12" fill="#c9b48e"/>
+      <path d="M310 156 600 70 890 156z" fill="url(#roof)"/>
+      <path d="M520 156h160v-30l-80-26-80 26z" fill="#a3202c"/>
+      <rect x="560" y="120" width="80" height="12" fill="#f2b134"/>
+      <use href="#win" x="360" y="185"/><use href="#win" x="425" y="185"/><use href="#win" x="490" y="185"/>
+      <use href="#win" x="666" y="185"/><use href="#win" x="731" y="185"/><use href="#win" x="796" y="185"/>
+      <use href="#win" x="360" y="262"/><use href="#win" x="425" y="262"/><use href="#win" x="731" y="262"/><use href="#win" x="796" y="262"/>
+      <rect x="555" y="200" width="90" height="140" rx="45" fill="#0b5f78"/>
+      <rect x="566" y="214" width="68" height="126" rx="34" fill="#a3202c"/>
+      <rect x="490" y="262" width="44" height="54" rx="4" fill="#0b5f78"/><rect x="666" y="262" width="44" height="54" rx="4" fill="#0b5f78"/>
+      <rect x="330" y="150" width="540" height="8" fill="#000" opacity=".08"/>
+      <!-- flag -->
+      <rect x="925" y="120" width="5" height="225" fill="#8a8f93"/>
+      <rect x="930" y="124" width="96" height="16" fill="#1eb4e6"/><rect x="930" y="141" width="96" height="16" fill="#fff"/><rect x="930" y="158" width="96" height="16" fill="#1eb53a"/>
+      <rect x="930" y="139.5" width="96" height="2" fill="#ce1126"/><rect x="930" y="156.5" width="96" height="2" fill="#ce1126"/>
+      <use href="#tree" x="230" y="345"/><use href="#tree" x="140" y="360"/><use href="#tree" x="1080" y="355"/>
+      <ellipse cx="600" cy="360" rx="330" ry="10" fill="#000" opacity=".08"/>
+    </svg>
+  </div>
+  <div class="orn"></div>
