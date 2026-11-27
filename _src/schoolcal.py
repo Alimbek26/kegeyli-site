@@ -1,4 +1,4 @@
-# School-year calendar (Oqıw jılı kalendarı): terms, holidays, days off, Saturday seminars.
+# School-year calendar (Oqıw jılı kalendarı): terms, holidays, days off, teachers' seminars.
 # Source: the school's official calendar for 2026-2027 (screenshots of the "Kalendar" page).
 # Each new school year: change YEAR, TERMS, BREAKS and DAYS_OFF below and run  python3 _src/build.py
 import datetime as _dt, html as _html, json
@@ -76,7 +76,8 @@ T = {
  "hint": ("Kún haqqında bilip alıw ushın onı basıń.", "Tap a day to see what happens on it.", "Kun haqida bilish uchun uni bosing.", "Нажмите на день, чтобы узнать подробности."),
  "lg_kan": ("Kanikul", "Holiday", "Ta’til", "Каникулы"),
  "lg_off": ("Dem alıs hám bayram kúnleri", "Weekends and public holidays", "Dam olish va bayram kunlari", "Выходные и праздники"),
- "lg_sem": ("Muǵallimler seminarı (shembi, 10:00)", "Teachers’ seminar (Saturday, 10:00)", "O‘qituvchilar seminari (shanba, 10:00)", "Семинар учителей (суббота, 10:00)"),
+ "lg_sem": ("Muǵallimler seminarı (10:00)", "Teachers’ seminar (10:00)", "O‘qituvchilar seminari (10:00)", "Семинар учителей (10:00)"),
+ "tw": ("oqıwshılar ushın kanikul, muǵallimler ushın jumıs kúni", "pupils’ holiday, a working day for teachers", "o‘quvchilar uchun ta’til, o‘qituvchilar uchun ish kuni", "каникулы для учеников, рабочий день для учителей"),
  "lg_today": ("Búgingi kún", "Today", "Bugungi sana", "Сегодня"),
  "sem_t": ("Seminar kúnlerin kórsetiw", "Show seminar days", "Seminar kunlarini ko‘rsatish", "Показать дни семинаров"),
  "lesson": ("sabaq kúni", "school day", "dars kuni", "учебный день"),
@@ -140,7 +141,7 @@ def _info(d, lang, sem):
     elif kind == "term":
         parts += [TERM[k][i], T["lesson"][i] if d.weekday() < 5 else T["weekend"][i]]
     elif kind == "break":
-        parts += [BREAK[k][i]]
+        parts += [BREAK[k][i]] + ([T["tw"][i]] if k != "summer" and d.weekday() < 6 else [])
     else:
         parts += [T["out"][i]]
     s = sem.get(d.isoformat())

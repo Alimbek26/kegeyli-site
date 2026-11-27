@@ -1,4 +1,5 @@
-# "Kásiplik rawajlanıw kúni" (Professional Development Day): every Saturday at 10:00 one teacher runs a seminar for colleagues.
+# "Kásiplik rawajlanıw kúni" (Professional Development Day): one teacher runs a seminar for colleagues at 10:00.
+# Usually on Saturdays; during pupils' holidays teachers still work (except Sunday), so seminars can be on any day Mon-Sat then.
 # Source: Google Sheet "Kásiplik rawajlanıw seminar waqıtları 2026-2027".
 #
 # To add or change a seminar, edit SEMINARS below and run: python3 _src/build.py
@@ -62,19 +63,19 @@ LANGS = ["kaa", "en", "uz", "ru"]
 SUB = "teachers/seminars/"
 NAME = ("Kásiplik rawajlanıw kúni", "Professional Development Day", "Kasbiy rivojlanish kuni", "День профессионального развития")
 TAB = ("Seminarlar", "Seminars", "Seminarlar", "Семинары")
-DESC = ("Hár shembi saat 10:00 de bir muǵallim kásipleslerine seminar ótkeredi: sabaq ótiw metodları hám paydalı usıllar. Seminarlar dizimi hám sáneleri.",
-        "Every Saturday at 10:00 one of our teachers runs a seminar for colleagues on teaching methods and useful techniques. Schedule and topics.",
-        "Har shanba soat 10:00 da bir o‘qituvchi hamkasblariga seminar o‘tkazadi: dars o‘tish metodlari va foydali usullar. Seminarlar jadvali va mavzulari.",
-        "Каждую субботу в 10:00 один из учителей проводит семинар для коллег о методиках преподавания и полезных приёмах. Расписание и темы.")
+DESC = ("Kásiplik rawajlanıw kúni: saat 10:00 de bir muǵallim kásipleslerine seminar ótkeredi — sabaq ótiw metodları hám paydalı usıllar. Seminarlar dizimi hám sáneleri.",
+        "Professional Development Day: at 10:00 one of our teachers runs a seminar for colleagues on teaching methods and useful techniques. Schedule and topics.",
+        "Kasbiy rivojlanish kuni: soat 10:00 da bir o‘qituvchi hamkasblariga seminar o‘tkazadi — dars o‘tish metodlari va foydali usullar. Seminarlar jadvali va mavzulari.",
+        "День профессионального развития: в 10:00 один из учителей проводит семинар для коллег о методиках преподавания и полезных приёмах. Расписание и темы.")
 T = {
- "lead": ("Hár shembi kúni saat 10:00 de mektebimizde Kásiplik rawajlanıw kúni ótkeriledi. Hár hápte bir muǵallim seminar-trener bolıp, kásipleslerine sabaq ótiw metodların, paydalı usılların hám jańa ideyaların úyretedi.",
-          "Every Saturday at 10:00 our school holds a Professional Development Day. Each week one teacher leads a seminar and shares teaching methods, useful techniques and new ideas with colleagues.",
-          "Har shanba kuni soat 10:00 da maktabimizda Kasbiy rivojlanish kuni o‘tkaziladi. Har hafta bir o‘qituvchi seminar-trener bo‘lib, hamkasblariga dars o‘tish metodlari, foydali usullar va yangi g‘oyalarni o‘rgatadi.",
-          "Каждую субботу в 10:00 в нашей школе проходит День профессионального развития. Каждую неделю один учитель проводит семинар и делится с коллегами методиками преподавания, полезными приёмами и новыми идеями."),
+ "lead": ("Mektebimizde hár hápte Kásiplik rawajlanıw kúni ótkeriledi: bir muǵallim seminar-trener bolıp, kásipleslerine sabaq ótiw metodların, paydalı usılların hám jańa ideyaların úyretedi. Seminarlar saat 10:00 de, ádette shembi kúni baslanadı; oqıwshılardıń kanikulı waqtında muǵallimler isleydi, sonlıqtan seminarlar hápte kúnleri de bolıwı múmkin.",
+          "Every week our school holds a Professional Development Day: one teacher leads a seminar and shares teaching methods, useful techniques and new ideas with colleagues. Seminars start at 10:00, usually on Saturday. During the pupils’ holidays teachers still work, so seminars can also be on weekdays.",
+          "Maktabimizda har hafta Kasbiy rivojlanish kuni o‘tkaziladi: bir o‘qituvchi seminar-trener bo‘lib, hamkasblariga dars o‘tish metodlari, foydali usullar va yangi g‘oyalarni o‘rgatadi. Seminarlar soat 10:00 da, odatda shanba kuni boshlanadi; o‘quvchilar ta’tilida o‘qituvchilar ishlaydi, shuning uchun seminarlar hafta kunlarida ham bo‘lishi mumkin.",
+          "Каждую неделю в нашей школе проходит День профессионального развития: один учитель проводит семинар и делится с коллегами методиками преподавания, полезными приёмами и новыми идеями. Семинары начинаются в 10:00, обычно в субботу. Во время каникул учеников учителя работают, поэтому семинары могут проходить и в будни."),
  "s_held": ("seminar ótkerildi (2026/2027)", "seminars held (2026/2027)", "seminar o‘tkazildi (2026/2027)", "семинаров проведено (2026/2027)"),
  "s_next": ("seminar rejelestirilgen", "seminars planned", "seminar rejalashtirilgan", "семинаров запланировано"),
  "s_who": ("seminar-trener usı oqıw jılında", "seminar trainers this school year", "seminar-trener shu o‘quv yilida", "ведущих семинаров в этом учебном году"),
- "s_when": ("hár shembi", "every Saturday", "har shanba", "каждую субботу"),
+ "s_when": ("seminar baslanıwı", "seminars start", "seminar boshlanishi", "начало семинара"),
  "next_h": ("Keyingi seminar", "Next seminar", "Navbatdagi seminar", "Следующий семинар"),
  "today": ("Búgin", "Today", "Bugun", "Сегодня"),
  "tba": ("Tema keyinirek belgilenedi", "Topic to be announced", "Mavzu keyinroq e’lon qilinadi", "Тема будет объявлена позже"),
@@ -96,7 +97,10 @@ MON_S = {"kaa": ["yan", "fev", "mar", "apr", "may", "iyun", "iyul", "avg", "sen"
          "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
          "uz": ["yan", "fev", "mar", "apr", "may", "iyun", "iyul", "avg", "sen", "okt", "noy", "dek"],
          "ru": ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]}
-SAT = ("shembi", "Saturday", "shanba", "суббота")
+WDAY = {"kaa": ["dúyshembi", "siyshembi", "sárshembi", "piyshembi", "juma", "shembi", "ekshembi"],
+        "en": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "uz": ["dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba", "yakshanba"],
+        "ru": ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]}
 SUBJ_COL = {"math": "#0b5f78", "eng": "#7c3aed", "phys": "#1d4ed8", "chem": "#0e7490", "bio": "#047857", "inf": "#2a7fd1", "rob": "#b45309",
             "kaa": "#a3202c", "uzb": "#be185d", "rus": "#92400e", "hist": "#7c2d12", "geo": "#15803d", "art": "#d97706", "pe": "#0b7a8f",
             "cqt": "#475569", "tarb": "#b23a48", "lead": "#5b6472"}
@@ -106,6 +110,7 @@ _LIDX = {l[0]: n for n, l in enumerate(LEADERS)}
 for _s in SEMINARS:  # catch typos early
     for _w in _s["who"]:
         assert (_w[5:] in _LIDX) if _w.startswith("lead:") else (_w in _TIDX), "unknown trainer in seminars.py: " + _w
+    assert _dt.date.fromisoformat(_s["date"]).weekday() != 6, "seminar on a Sunday in seminars.py: " + _s["date"]
     assert _s["subj"] in SUBJECTS or _s["subj"] == "lead", "unknown subject in seminars.py: " + _s["subj"]
 
 def _date(s):
@@ -113,10 +118,10 @@ def _date(s):
 def fmt_long(s, lang):
     d = _date(s); i = LANGS.index(lang)
     if lang == "en":
-        return f"{SAT[i]}, {d.day} {MON[lang][d.month - 1]} {d.year}"
+        return f"{WDAY[lang][d.weekday()]}, {d.day} {MON[lang][d.month - 1]} {d.year}"
     if lang == "ru":
-        return f"{d.day} {MON[lang][d.month - 1]} {d.year}, {SAT[i]}"
-    return f"{d.day}-{MON[lang][d.month - 1]}, {d.year}, {SAT[i]}"
+        return f"{d.day} {MON[lang][d.month - 1]} {d.year}, {WDAY[lang][d.weekday()]}"
+    return f"{d.day}-{MON[lang][d.month - 1]}, {d.year}, {WDAY[lang][d.weekday()]}"
 def subj_name(k, i):
     return T["lead_s"][i] if k == "lead" else SUBJECTS[k][LANGS[i]]
 def person(w, lang, href, tp_sub, lp_sub):
