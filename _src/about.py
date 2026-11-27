@@ -68,7 +68,7 @@ STATUS = [
 def status_card(i):
     rows = "".join(f"<dt>{k[i]}</dt><dd>{v[i]}" + (f' <a href="{AGENCY_URL}" target="_blank" rel="noopener">gov.uz/ima ↗</a>' if k[1] == "Governing authority" else "") + "</dd>" for n, (k, v) in enumerate(STATUS))
     sp = ("Universitetler ushın: mektep profili (inglis tilinde, PDF)", "For universities: School Profile (PDF)", "Universitetlar uchun: maktab profili (ingliz tilida, PDF)", "Для университетов: профиль школы (на английском, PDF)")[i]
-    return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl><p class="aspl"><a class="btn p" href="{{UP}}school-profile/">{sp} →</a></p></section>'
+    return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl><p class="aspl btns"><a class="btn p" href="{{UP}}school-profile/">{sp} →</a><a class="btn s" href="{{UP}}files/kegeyli-school-profile-2026-2027.pdf" download>PDF ↓</a></p></section>'
 
 def body(i, up, t, hrefs):
     tl = "".join(f'<li><span class="aty">{y}</span><div class="atc card"><h3>{h[i]}</h3><p>{p[i]}</p></div></li>' for y, h, p in TIMELINE)
