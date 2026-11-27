@@ -58,6 +58,7 @@ STATUS = [
    "O‘zbekiston Respublikasi Maktabgacha va maktab ta’limi vazirligi huzuridagi Ixtisoslashtirilgan ta’lim muassasalari agentligi",
    "Агентство специализированных образовательных учреждений при Министерстве дошкольного и школьного образования Республики Узбекистан")),
  (("Klasslar", "Grades", "Sinflar", "Классы"), ("5–11", "5–11", "5–11", "5–11")),
+ (("Oqıtıw tili", "Language of instruction", "Ta’lim tili", "Язык обучения"), ("Qaraqalpaq tili", "Karakalpak", "Qoraqalpoq tili", "Каракалпакский")),
  (("Pitkeriwshilerge beriledi", "Graduates receive", "Bitiruvchilarga beriladi", "Выпускники получают"),
   ("Ulıwma orta bilim haqqında mámleketlik attestat", "State certificate (attestat) of complete general secondary education", "Umumiy o‘rta ta’lim to‘g‘risida davlat attestati", "Государственный аттестат о полном общем среднем образовании")),
  (("Bahalaw sisteması", "Grading scale", "Baholash tizimi", "Система оценок"),
@@ -65,7 +66,7 @@ STATUS = [
    "5 ballik: 5 — a’lo, 4 — yaxshi, 3 — qoniqarli, 2 — qoniqarsiz", "5-балльная: 5 — отлично, 4 — хорошо, 3 — удовлетворительно, 2 — неудовлетворительно")),
 ]
 def status_card(i):
-    rows = "".join(f"<dt>{k[i]}</dt><dd>{v[i]}" + (f' <a href="{AGENCY_URL}" target="_blank" rel="noopener">gov.uz/ima ↗</a>' if n == 2 else "") + "</dd>" for n, (k, v) in enumerate(STATUS))
+    rows = "".join(f"<dt>{k[i]}</dt><dd>{v[i]}" + (f' <a href="{AGENCY_URL}" target="_blank" rel="noopener">gov.uz/ima ↗</a>' if k[1] == "Governing authority" else "") + "</dd>" for n, (k, v) in enumerate(STATUS))
     return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl></section>'
 
 def body(i, up, t, hrefs):
