@@ -36,15 +36,6 @@ NEWS = [
         "Artıqbay Saparniyazov (Grade 10) and Adilbek Jumabaev (Grade 11), students at Kegeyli District Specialized School, scored highly in the qualifying round of the Republican Mathematics Olympiad, and each was awarded a grant of 12,000,000 so‘m by PDP University.",
         "Kegeyli tumani ixtisoslashtirilgan maktabi o‘quvchilari Artiqbay Saparniyazov (10-sinf) va Adilbek Jumabaev (11-sinf) matematika bo‘yicha Respublika fan olimpiadasining saralash bosqichida yuqori ball to‘plab, har biri PDP University tomonidan 12 000 000 so‘mlik grant sohibi bo‘ldi.",
         "Ученики Кегейлийской районной специализированной школы Артыкбай Сапарниязов (10 класс) и Адилбек Жумабаев (11 класс) набрали высокие баллы на отборочном этапе Республиканской олимпиады по математике, и каждый получил грант PDP University на 12 000 000 сумов.")),
- dict(date="2026-11-20", tag="event",
-  title=('Belsendi oqıwshılar ushırasıwı', 'Meeting of active students', 'Faol o‘quvchilar uchrashuvi', 'Встреча активных учеников'),
-  text=('Qaraqalpaqstan Respublikası jaslar isleri basqarması hám Balalar shólkemi shólkemlestirgen 10–18 jastaǵı belsendi oqıwshılar ushırasıwına mektebimiz oqıwshıları da qatnastı.', "Our students took part in a meeting of active young people aged 10–18, organized by the Youth Affairs Department of the Republic of Karakalpakstan and the Children's Organization.", 'Qoraqalpog‘iston Respublikasi yoshlar ishlari boshqarmasi va Bolalar tashkiloti tashkil etgan 10–18 yoshdagi faol o‘quvchilar uchrashuvida maktabimiz o‘quvchilari ham qatnashdi.', 'Наши ученики приняли участие во встрече активной молодёжи 10–18 лет, организованной Управлением по делам молодёжи Республики Каракалпакстан и Детской организацией.')),
- dict(date="2026-11", tag="result",
-  title=('Xalıqaralıq sertifikat nátiyjeleri', 'International certificate results', 'Xalqaro sertifikat natijalari', 'Результаты международных сертификатов'),
-  text=('11-b klass oqıwshımız fizika, matematika, IELTS, SAT hám rus tili boyınsha xalıqaralıq sertifikat nátiyjelerin qolǵa kirgizdi.', 'A student of class 11-B achieved international certificate results in physics, mathematics, IELTS, SAT and Russian.', '11-b sinf o‘quvchimiz fizika, matematika, IELTS, SAT va rus tili bo‘yicha xalqaro sertifikat natijalarini qo‘lga kiritdi.', 'Ученик 11-Б класса получил результаты международных сертификатов по физике, математике, IELTS, SAT и русскому языку.')),
- dict(date="2026-11", tag="project",
-  title=('Ingliz tili joybarları', 'English language projects', 'Ingliz tili loyihalari', 'Проекты по английскому языку'),
-  text=('9-c klass oqıwshıları ingliz tili páninen joybar jumısların usınıs etti.', 'Students of class 9-C presented their English language project work.', '9-c sinf o‘quvchilari ingliz tili fanidan loyiha ishlarini taqdim etishdi.', 'Ученики 9-C класса представили проектные работы по английскому языку.')),
 ]
 def fmt(date, i):
     p = date.split("-")
