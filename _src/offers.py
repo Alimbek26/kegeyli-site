@@ -28,6 +28,10 @@ OFFERS = [
       prog=None, term=None, grant=7000, date="2025-01-05", news=True),
 ]
 OFFERS.append(
+ dict(student=_XH, cls="11-A", grad="2024/2025", uni="Iowa State University", country="us", city="Ames, Iowa",
+      prog=None, term=None, grant=None, date="2025", news=True,
+      award=("Grant penen qabıl etildi", "Admitted with a grant", "Grant bilan qabul qilindi", "Принята с грантом")))
+OFFERS.append(
  dict(student=_XH, cls="11-A", grad="2024/2025", uni="Caldwell University", country="us", city="Caldwell, New Jersey",
       prog=("Computer Science (kompyuter ilimleri)", "Computer Science", "Computer Science (kompyuter fanlari)", "Computer Science (компьютерные науки)"),
       term="2025-fall", grant=None, date="2025-01-08", news=True,
