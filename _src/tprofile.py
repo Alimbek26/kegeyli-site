@@ -192,7 +192,9 @@ def body(sub, lang, up, href, ctx):
           "document.getElementById('tptg').href='https://t.me/share/url?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t);"
           "document.getElementById('tpsh').addEventListener('click',function(){if(navigator.share){navigator.share({title:t,url:u}).catch(function(){})}"
           "else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){ok.textContent=" + json.dumps(X["copied"][i]) + "})}})})();</script>")
-    return f'{hero}{tiles}{two}{ach}{cls}{sched}{coll}{js}'
+    import seminars as _SEM, lprofile as _LP
+    sem = _SEM.for_person(cy, lang, href, sub_of, _LP.sub_of)
+    return f'{hero}{tiles}{two}{ach}{sem}{cls}{sched}{coll}{js}'
 
 def desc(j):
     sk = TEACHERS[j][1]

@@ -1404,6 +1404,27 @@ section.plsec:not(.card){padding:0!important}
 .lwtable th{text-align:left;font-size:12.5px;color:var(--soft);padding:8px;border-bottom:2px solid var(--line)}
 .lwtable td{padding:12px 8px;border-bottom:1px solid var(--line);font-size:14.5px}
 .lwbig{display:inline-block;font:700 18px Unbounded,Inter,sans-serif;color:#2f8f5b;background:color-mix(in srgb,#2f8f5b 12%,transparent);padding:4px 10px;border-radius:10px}
+
+/* Professional Development Day seminars */
+.smstats{margin:18px 0}
+.smnext{border-left:6px solid var(--sc);padding:20px 22px;margin:0 0 22px}.smnext h2{margin:6px 0 10px;font-size:clamp(20px,3vw,26px)}.smnext .tba{color:var(--soft);font-weight:600}
+.smkick{margin:0;font:700 13px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--sc)}
+.smchips{margin:6px 0 4px}.smchips .chip[data-s]:not([data-s=all]).on{background:var(--sc);border-color:var(--sc)}
+.smlist{list-style:none;padding:0;margin:10px 0 26px;display:grid;gap:10px}
+.smrow{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.smdate{display:grid;justify-items:center;align-content:center;border-radius:12px;padding:8px 4px;background:color-mix(in srgb,var(--sc) 12%,var(--card));color:var(--sc);line-height:1.05}
+.smdate b{font-size:24px}.smdate span{font-weight:700;font-size:13px;text-transform:uppercase}.smdate small{font-size:11px;color:var(--soft)}
+.smbody p{margin:0}.smmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.smsubj{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--sc) 14%,var(--card));color:var(--sc)}
+.smtoday{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;background:#dff3e6;color:#1d6b3e}
+.smkick .smtoday{background:none;padding:0;color:inherit;font-size:inherit}
+.smtopic{font-weight:600;font-size:16px;line-height:1.4}.smtopic.tba{color:var(--soft);font-weight:500;font-style:italic}
+.smwho{color:var(--soft);font-size:14px;margin-top:4px!important}.smwho a{color:var(--teal);font-weight:600}.smmuted,.smuted{color:var(--soft)}
+.smlist.past .smrow,.smrow.past{background:color-mix(in srgb,var(--tealbg) 35%,var(--card))}
+:root[data-theme=dark] .smtoday{background:#173a28;color:#8fe0b0}
+@media(max-width:520px){.smrow{grid-template-columns:52px minmax(0,1fr);gap:12px;padding:12px}.smdate b{font-size:20px}}
+.smrow[hidden],.smnext[hidden],.smtoday[hidden],.smlist[hidden]{display:none}
+.smchips{margin-bottom:18px}#smuph,#smpasth{margin-top:24px}
 </style>
 </head>
 <body>

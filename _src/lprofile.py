@@ -3,6 +3,7 @@ import html as _html, json, os, re
 from teachers import LEADERS, LEADER_INFO, ROLES, TEACHERS, latin
 import tprofile as TP
 import director as DIR
+import seminars as _SEM
 
 LANGS = ["kaa", "en", "uz", "ru"]
 def slug(la):
@@ -122,6 +123,7 @@ def body(sub, lang, up, href, ctx):
           "else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){ok.textContent=" + json.dumps(X["copied"][i]) + "})}})})();</script>")
     D = DIR.sections(i, href, dict(ctx, name=esc(nm))) if r == "director" else dict(top="", mid="", side="", bottom="")
     return (f'{hero}{full}{D["top"]}<div class="actwo">{duty}<div class="lpside">{about}{tlink}{D["side"]}{contact}</div></div>{D["mid"]}{D["bottom"]}'
+            + _SEM.for_person("lead:" + LEADERS[n][0], lang, href, TP.sub_of, sub_of) +
             f'<h2>{X["team_h"][i]}</h2><div class="lpteam">{team}</div>{js}')
 
 def desc(n):
