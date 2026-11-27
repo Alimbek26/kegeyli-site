@@ -27,6 +27,11 @@ OFFERS = [
  dict(student=_XH, cls="11-A", grad="2024/2025", uni="Pennsylvania Western University", country="us", city="Pennsylvania",
       prog=None, term=None, grant=7000, date="2025-01-05", news=True),
 ]
+OFFERS.append(
+ dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls=None, grad="2024/2025",
+      uni="Colorado State University", country="us", city="Fort Collins, Colorado",
+      prog=("Economics (ekonomika)", "Economics", "Economics (iqtisodiyot)", "Economics (экономика)"),
+      term="2025-fall", grant=None, date="2025", news=False))
 PROGRAMMES = [
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
       country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme-t.jpg"),
@@ -88,7 +93,7 @@ def _cls(c, i):
     return f'{X["cls"][i]} {c}' if i == 1 else f'{c} {X["cls"][i]}'
 
 def stats():
-    return dict(n=len(OFFERS), uni=len({o["uni"] for o in OFFERS}), cty=len({o["country"] for o in OFFERS}),
+    return dict(n=len(OFFERS), students=len({o["student"][1] for o in OFFERS}), uni=len({o["uni"] for o in OFFERS}), cty=len({o["country"] for o in OFFERS}),
                 grant=sum(o["grant"] or 0 for o in OFFERS))
 
 def page(i, href, tabs):
@@ -102,7 +107,7 @@ def page(i, href, tabs):
         if o.get("prog"): rows.append((X["prog"][i], o["prog"][i]))
         if o.get("term"): rows.append((X["start"][i], _term(o["term"], i)))
         if o.get("grant"): rows.append((X["grant"][i], f'<b class="ofgr">${o["grant"]:,}</b>'))
-        rows.append((X["student"][i], f'{e(o["student"][i])} · {_cls(o["cls"], i)} · {(X["grad"][i] + " " + o["grad"]) if i == 3 else (o["grad"] + " " + X["grad"][i])}'))
+        rows.append((X["student"][i], f'{e(o["student"][i])} · {(_cls(o["cls"], i) + " · ") if o.get("cls") else ""}{(X["grad"][i] + " " + o["grad"]) if i == 3 else (o["grad"] + " " + X["grad"][i])}'))
         dl = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in rows)
         nl = f'<a class="oflink" href="{href("news/")}">{X["news"][i]} →</a>' if o.get("news") else ""
         cards.append(f'<article class="card ofcard"><div class="ofhead"><span class="offlag" aria-hidden="true">{fl}</span>'
