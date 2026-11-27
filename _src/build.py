@@ -74,6 +74,11 @@ DOMAIN = "https://kegeyliqm.uz/"
 SRC = os.path.dirname(__file__)
 ROOT = os.path.dirname(SRC)
 STYLE = open(os.path.join(SRC, "style.css"), encoding="utf-8").read()
+# One shared, cacheable stylesheet instead of a copy inside every page.
+# The file name carries a hash of its content, so browsers always get the new version after a change.
+import hashlib as _hl, re as _re
+STYLE_MIN = "\n".join(l.strip() for l in _re.sub(r"/\*.*?\*/", "", STYLE, flags=_re.S).splitlines() if l.strip())
+CSS_FILE = f"style.{_hl.sha1(STYLE_MIN.encode()).hexdigest()[:10]}.css"
 HERO = open(os.path.join(SRC, "hero.svg"), encoding="utf-8").read()
 PHONE = "+998906543398"; PHONE_TXT = "+998 90 654 33 98"
 EMAIL = "ixm013@piima.uz"; TG = "https://t.me/Kegeyliqanigelestirilgenmektebi"
@@ -1014,7 +1019,7 @@ def page(lang, sub=""):
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;600&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
 {ldjs}
 <script>try{{var m=localStorage.getItem("theme");if(m)document.documentElement.dataset.theme=m}}catch(e){{}}</script>
-<style>{STYLE}</style>
+<link rel="stylesheet" href="{up}{CSS_FILE}">
 </head>
 <body>
 <header class="top">
@@ -1267,5 +1272,9 @@ for l in ORDER:
            "icons": [{"src": "/logo.png", "sizes": "192x192", "type": "image/png"}, {"src": "/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]}
     open(os.path.join(ROOT, path(l), "manifest.webmanifest"), "w", encoding="utf-8").write(json.dumps(man, ensure_ascii=False, indent=1))
 json.dump(TT, open(os.path.join(ROOT, "timetable.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+for _f in os.listdir(ROOT):
+    if _re.fullmatch(r"style\.[0-9a-f]{10}\.css", _f) and _f != CSS_FILE:
+        os.remove(os.path.join(ROOT, _f))
+open(os.path.join(ROOT, CSS_FILE), "w", encoding="utf-8").write(STYLE_MIN)
 open(os.path.join(ROOT, "sw.js"), "w", encoding="utf-8").write(open(os.path.join(SRC, "sw.js"), encoding="utf-8").read())
 print("built:", ", ".join(ORDER), "x", len(PAGES), "pages")
