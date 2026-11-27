@@ -471,6 +471,7 @@ GT = {
  "title": ("Pitkeriwshiler", "Graduates", "Bitiruvchilar", "Выпускники"),
  "desc": ("{b}: pitkeriwshilerimiz qay jerde oqıp atır — joqarı oqıw orınları, baǵdarlar hám qalalar.", "{b}: where our graduates study — universities, fields and cities.", "{b}: bitiruvchilarimiz qayerda o‘qimoqda — oliygohlar, yo‘nalishlar va shaharlar.", "{b}: где учатся наши выпускники — вузы, направления и города."),
  "lead": ("Sońǵı tórt jılda mektebimizdi {n} oqıwshı pitkerdi. Olardıń {u} joqarı oqıw orınlarında, {c} texnikumda oqıp atır.", "{n} students graduated from our school in the last four years. {u} of them study at universities and {c} at colleges (technikums).", "So‘nggi to‘rt yilda maktabimizni {n} nafar o‘quvchi bitirdi. Ulardan {u} nafari oliygohlarda, {c} nafari texnikumlarda o‘qimoqda.", "За последние четыре года школу окончили {n} учеников. {u} из них учатся в вузах, {c} — в техникумах."),
+ "s_ninst": ("túrli joqarı oqıw orınında pitkeriwshilerimiz oqıp atır (+ {c} texnikum)", "different universities where our graduates study (plus {c} technikums)", "xil oliygohda bitiruvchilarimiz o‘qimoqda (yana {c} ta texnikum)", "разных вузов, где учатся наши выпускники (и ещё {c} техникума)"),
  "s_uni": ("joqarı oqıw orınlarında oqıp atır ({p} oqıwshı)", "study at universities ({p} students)", "oliygohlarda o‘qimoqda ({p} nafar)", "учатся в вузах ({p} чел.)"),
  "s_col": ("texnikumda oqıp atır ({p} oqıwshı)", "study at colleges / technikums ({p} students)", "texnikumlarda o‘qimoqda ({p} nafar)", "учатся в техникумах ({p} чел.)"),
  "k_all": ("Barlıǵı", "All", "Barchasi", "Все"),
@@ -563,7 +564,7 @@ def grad_body(lang, i):
     ncol = sum(1 for k, _ in allp if iscol(k)); nuni = pl - ncol
     stats = "".join(f'<div class="stat"><b>{v}</b><span>{l}</span></div>' for v, l in [
         (tot, GT["s_grad"][i]), (dec(nuni / tot * 100) + "%", GT["s_uni"][i].format(p=nuni)), (dec(ncol / tot * 100) + "%", GT["s_col"][i].format(p=ncol)),
-        (len(inst_all), GT["s_inst"][i]), (len(city_all), GT["s_city"][i])])
+        (sum(1 for k in inst_all if not iscol(k)), GT["s_ninst"][i].format(c=sum(1 for k in inst_all if iscol(k)))), (len(city_all), GT["s_city"][i])])
     mx = max(n for _, n in G.YEARS)
     def yrow(y, n):
         c = sum(1 for k, _ in G.PLACED[y] if iscol(k)); u = len(G.PLACED[y]) - c
