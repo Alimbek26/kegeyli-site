@@ -24,7 +24,7 @@ EMPTY = ("Jańalıqlar tez arada.", "News coming soon.", "Yangiliklar tez orada.
 TG_BTN = ("Telegram kanalımız", "Our Telegram channel", "Telegram kanalimiz", "Наш Telegram-канал")
 ALL = ("Barlıq jańalıqlar", "All news", "Barcha yangiliklar", "Все новости")
 NEWS = [
- dict(date="2025", tag="result", photo="gallery/events/turganbaeva-arizona.jpg",
+ dict(date="2025-05-17", tag="result", photo="gallery/events/turganbaeva-arizona.jpg",
   title=("Aynura Turǵanbaeva University of Arizona-nıń 16 000 dollarlıq grantın jeńip aldı", "Aynura Turganbaeva wins a $16,000 grant from the University of Arizona", "Aynura Turg‘anbayeva University of Arizona’ning 16 000 dollarlik grantini yutdi", "Айнура Турганбаева получила грант University of Arizona на $16 000"),
   text=("Mektebimizdiń 11-«a» klass oqıwshısı Aynura Turǵanbaeva AQShtıń University of Arizona universitetiniń 16 000 dollarlıq grantınıń iyesi boldı. Eske salamız, bunnan aldın Aynura IELTS-ten 6.5 ball (B2 dárejesi) alǵan edi. Aynuranı shın júrekten qutlıqlaymız hám aldaǵı oqıwlarında tabıslar tileymiz!",
         "Aynura Turganbaeva, a Grade 11-A student at our school, has won a $16,000 grant from the University of Arizona in the USA. Earlier, Aynura scored 6.5 in IELTS (B2 level). Congratulations, Aynura, and every success in your studies!",
