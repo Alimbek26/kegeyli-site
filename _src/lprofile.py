@@ -46,7 +46,7 @@ DUTY = {
  "dep_econ": [("Mektep imaratı, klasslar hám úskeneler", "School building, classrooms and equipment", "Maktab binosi, sinflar va jihozlar", "Здание, классы и оборудование"),
               ("Asxana, tazalıq hám qáwipsizlik", "Canteen, cleanliness and safety", "Oshxona, tozalik va xavfsizlik", "Столовая, чистота и безопасность"),
               ("Xojalıq támiynatı hám remont jumısları", "Supplies and repairs", "Xo‘jalik ta’minoti va ta’mirlash", "Снабжение и ремонт")],
- "adviser": [("Shet elde hám Ózbekstanda oqıwǵa túsiw boyınsha másláhát", "Guidance on university admission abroad and in Uzbekistan", "Xorijda va O‘zbekistonda o‘qishga kirish bo‘yicha maslahat", "Консультации по поступлению за рубежом и в Узбекистане"),
+ "adviser": [("Shet elde hám Ózbekstanda oqıwǵa kiriw boyınsha másláhát", "Guidance on university admission abroad and in Uzbekistan", "Xorijda va O‘zbekistonda o‘qishga kirish bo‘yicha maslahat", "Консультации по поступлению за рубежом и в Узбекистане"),
              ("IELTS, SAT hám grantlarǵa tayarlıq", "IELTS, SAT and scholarship preparation", "IELTS, SAT va grantlarga tayyorgarlik", "Подготовка к IELTS, SAT и грантам"),
              ("Kásip tańlaw hám xalıqaralıq hamkorlıq", "Career guidance and international partnerships", "Kasb tanlash va xalqaro hamkorlik", "Профориентация и международное сотрудничество")],
  "psych": [("Oqıwshılardıń psixologiyalıq jaǵdayı hám qollap-quwatlaw", "Students’ wellbeing and psychological support", "O‘quvchilarning psixologik holati va qo‘llab-quvvatlash", "Психологическое благополучие и поддержка учеников"),

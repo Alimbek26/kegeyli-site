@@ -7,7 +7,7 @@ import offers as OF
 
 SUB = "counseling/"
 L = lambda a, b, c, d: (a, b, c, d)
-NAME = L("Universitetke túsiw boyınsha másláhát", "College counselling", "Universitetga kirish bo‘yicha maslahat", "Консультации по поступлению")
+NAME = L("Universitetke kiriw boyınsha másláhát", "College counselling", "Universitetga kirish bo‘yicha maslahat", "Консультации по поступлению")
 DESC = L("Mektep konsultantı oqıwshılarǵa 9-klasstan universitetke shekem qalay járdem beredi hám universitetlerge qanday hújjetler jiberemiz.",
          "How our school counselor guides students from Grade 9 to university, and what we send to universities: transcripts, recommendations, School Profile.",
          "Maktab maslahatchisi o‘quvchilarga 9-sinfdan universitetgacha qanday yordam beradi va universitetlarga qanday hujjatlar yuboramiz.",

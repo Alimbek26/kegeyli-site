@@ -123,7 +123,7 @@ LAWS.append(dict(
     "В рамках Сообщества учреждается нагрудный знак для поощрения специалистов с активной гражданской позицией, вносящих вклад в развитие страны.")),
  ],
  table=dict(h=("7-qosımsha: mektep másláhátshilerine bir mártelik sıylıq", "Annex 7: one-off bonus for school counselors", "7-ilova: maktab maslahatchilariga bir martalik mukofot", "Приложение 7: единовременная премия консультантам"),
-   cols=(("Universitet reytingi", "Keminde neshe oqıwshı túsiwi kerek", "Sıylıq (BHM)"), ("University ranking", "Students admitted (at least)", "Bonus (× base amount)"),
+   cols=(("Universitet reytingi", "Keminde neshe oqıwshı kiriwi kerek", "Sıylıq (BHM)"), ("University ranking", "Students admitted (at least)", "Bonus (× base amount)"),
          ("Oliygoh reytingi", "Qabul qilingan o‘quvchilar (kamida)", "Mukofot (BHM)"), ("Рейтинг вуза", "Поступивших учеников (не менее)", "Премия (× БРВ)")),
    rows=[("Ivy League", "1", "500"), ("Times Higher Education TOP-50", "3", "300"), ("Times Higher Education TOP-100", "4", "200")],
    note=("BHM — bazalıq esaplaw muǵdarı. Sıylıq eń joqarı reytingli universitettegi oqıwshılar sanı boyınsha tólenedi.",
