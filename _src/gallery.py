@@ -35,4 +35,6 @@ PHOTOS += [
  _e("trip-presidential-school", "Oqıwshılarımız Prezident mektebinde", "Our students at the Presidential School", "O‘quvchilarimiz Prezident maktabida", "Наши ученики в Президентской школе", date="2025-04-30", tag="trip"),
  _e("trip-youth-centre", "Jaslar orayına sapar", "Visit to the Youth Centre", "Yoshlar markaziga tashrif", "Посещение Молодёжного центра", date="2025-04-30", tag="trip"),
  _e("trip-savitsky-museum", "I. V. Savickiy atındaǵı mámleketlik kórkem óner muzeyine sapar", "Visit to the Savitsky State Museum of Art", "I. V. Savitskiy nomidagi davlat san’at muzeyiga sayohat", "Экскурсия в Государственный музей искусств им. И. В. Савицкого", tag="trip"),
+ _e("yosh-contest-winner", "«YOSH» tańlawınıń jeńimpazı: diplom hám jeńimpaz komandaǵa biypul sayaxat jollaması", "Winner of the “YOSH” contest: a diploma and a free-trip voucher for the winning team", "«YOSH» tanlovi g‘olibi: diplom va g‘olib jamoaga bepul sayohat yo‘llanmasi", "Победитель конкурса «YOSH»: диплом и путёвка на бесплатную поездку для команды-победителя", date="2025-05-22",
+    note="poster: team 'Mind-Masters'; diploma looks like 1st place; add student name/class, who the adult is, and consent"),
 ]
