@@ -201,7 +201,6 @@ def page(i, href, tabs):
                      f'<dl class="ofdl">{dl}</dl>{nl}</article>')
     return (f'{tabs(SUB, i, href)}<p class="lead2">{X["lead"][i]}</p><div class="stats ofstats">{tiles}</div>'
             f'<div class="ofgrid">{"".join(cards)}</div>'
-            + (f'<a class="card satprev satban ofban" href="{href(PSUB)}"><div class="sph"><span class="acbi" style="--ac:{PICON[1]}"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{PICON[0]}</svg></span><div><h3>{PNAME[i]} · {len(PROGRAMMES)}</h3><p>{X["prog_p"][i]}</p></div><span class="acgo2">→</span></div></a>' if PROGRAMMES else "")
             + f'<div class="card ofcta"><div><h3>{X["cta_h"][i]}</h3><p>{X["cta_p"][i]}</p></div><a class="btn p" href="{href("abroad/")}">{X["cta_b"][i]} →</a></div>'
             f'<p class="note">{X["qs_src"][i]} {X["note"][i]}</p>')
 
