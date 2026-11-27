@@ -24,6 +24,12 @@ EMPTY = ("Jańalıqlar tez arada.", "News coming soon.", "Yangiliklar tez orada.
 TG_BTN = ("Telegram kanalımız", "Our Telegram channel", "Telegram kanalimiz", "Наш Telegram-канал")
 ALL = ("Barlıq jańalıqlar", "All news", "Barcha yangiliklar", "Все новости")
 NEWS = [
+ dict(date="2025-01-20", tag="result",
+  title=("Ayjamal Abdullaeva Colorado State University-ge qabıl etildi", "Ayjamal Abdullaeva admitted to Colorado State University", "Ayjamal Abdullayeva Colorado State University’ga qabul qilindi", "Айжамал Абдуллаева принята в Colorado State University"),
+  text=("Mektebimizdiń 11-«a» klass oqıwshısı Ayjamal Abdullaeva AQShtıń Colorado State University-diń Economics (ekonomika) baǵdarına oqıwǵa qabıl etildi. Ayjamalǵa áwmet tileymiz hám basqa pitkeriwshilerimizden de jaqsı jańalıqlar kútemiz!",
+        "Ayjamal Abdullaeva, a Grade 11-A student at our school, has been admitted to Colorado State University in the USA to study Economics. We wish Ayjamal every success and look forward to more good news from our graduates!",
+        "Maktabimizning 11-«a» sinf o‘quvchisi Ayjamal Abdullayeva AQShning Colorado State University’dagi Economics (iqtisodiyot) yo‘nalishiga o‘qishga qabul qilindi. Ayjamalga omad tilaymiz va boshqa bitiruvchilarimizdan ham yaxshi xabarlar kutamiz!",
+        "Ученица 11 «А» класса нашей школы Айжамал Абдуллаева принята в Colorado State University (США) на направление Economics (экономика). Желаем Айжамал успехов и ждём хороших новостей от других выпускников!")),
  dict(date="2025-01-05", tag="result", photo="gallery/events/ismailova-cambridge-programme.jpg",
   title=("Oqıwshımız eki AQSh universitetine qabıl etildi", "Our student admitted to two US universities", "O‘quvchimiz AQShning ikki universitetiga qabul qilindi", "Наша ученица принята в два университета США"),
   text=("Kegeyli rayonı qánigelestirilgen mektebiniń 11-«a» klass oqıwshısı Húrshida Ismailova AQSh universitetlerinen biri — Pennsylvania Western University-ge oqıwǵa qabıl etildi hám oǵan 7000 dollar muǵdarında grant ajıratıldı. Sonday-aq ol Colorado State University-diń Computer Science (kompyuter ilimleri) baǵdarına 2025-jıl gúzgi semestrine qabıl etildi. Fotoda: Húrshida Kembridj universitetiniń programmasında.",

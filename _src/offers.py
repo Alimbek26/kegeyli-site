@@ -28,10 +28,10 @@ OFFERS = [
       prog=None, term=None, grant=7000, date="2025-01-05", news=True),
 ]
 OFFERS.append(
- dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls=None, grad="2024/2025",
+ dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls="11-A", grad="2024/2025",
       uni="Colorado State University", country="us", city="Fort Collins, Colorado",
       prog=("Economics (ekonomika)", "Economics", "Economics (iqtisodiyot)", "Economics (экономика)"),
-      term="2025-fall", grant=None, date="2025", news=False))
+      term="2025-fall", grant=None, date="2025-01-20", news=True))
 PROGRAMMES = [
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
       country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme-t.jpg"),
