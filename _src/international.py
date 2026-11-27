@@ -17,11 +17,11 @@ T = dict(
  tgt_h=L("2027-jıl noyabrge maqsetler", "Targets for November 2027", "2027-yil noyabrga maqsadlar", "Цели к ноябрю 2027 года"),
  measure=L("Kórsetkish", "Measure", "Ko‘rsatkich", "Показатель"), now=L("Házir", "Now", "Hozir", "Сейчас"), target=L("Maqset", "Target", "Maqsad", "Цель"),
  part_h=L("Shet eldegi mektepler hám universitetler ushın", "For schools and universities abroad", "Xorijdagi maktab va universitetlar uchun", "Для школ и университетов за рубежом"),
- part_p=L("Sheriklik, onlayn sabaqlar, almasıw yamasa oqıwshılarımız haqqında sorawlar ushın mektep konsultantına jazıń.",
+ part_p=L("Sheriklik, onlayn sabaqlar, almasıw yamasa oqıwshılarımız haqqında sorawlar ushın mektep másláhátshisine jazıń.",
           "For partnerships, online lessons, exchanges or questions about our students, write to the school counselor.",
           "Hamkorlik, onlayn darslar, almashinuv yoki o‘quvchilarimiz haqida savollar uchun maktab maslahatchisiga yozing.",
           "По вопросам партнёрства, онлайн-уроков, обменов или о наших учениках пишите школьному консультанту."),
- counselor=L("Alimbek Jumamuratov, mektep konsultantı", "Alimbek Jumamuratov, School Counselor", "Alimbek Jumamuratov, maktab maslahatchisi", "Алимбек Жумамуратов, школьный консультант"),
+ counselor=L("Alimbek Jumamuratov, mektep másláhátshisi", "Alimbek Jumamuratov, School Counselor", "Alimbek Jumamuratov, maktab maslahatchisi", "Алимбек Жумамуратов, школьный консультант"),
  profile=L("Mektep profili (PDF)", "School Profile (PDF)", "Maktab profili (PDF)", "Профиль школы (PDF)"),
  offers=L("Shet el universitetleriniń usınısları", "Offers from universities abroad", "Xorijiy universitetlar takliflari", "Предложения зарубежных университетов"),
 )

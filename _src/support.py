@@ -19,7 +19,7 @@ T = dict(
         "Barcha yordam maktabning rasmiy tartibi orqali rasmiylashtiriladi va faqat kelishilgan maqsadga sarflanadi (masalan, test to‘lovi to‘g‘ridan-to‘g‘ri test markaziga to‘lanadi).",
         "Вся поддержка оформляется через официальные процедуры школы и идёт только на согласованную цель (например, оплата теста перечисляется напрямую в тестовый центр)."),
  contact_h=L("Baylanıs", "Get in touch", "Bog‘lanish", "Связаться"),
- counselor=L("Alimbek Jumamuratov, mektep konsultantı", "Alimbek Jumamuratov, School Counselor", "Alimbek Jumamuratov, maktab maslahatchisi", "Алимбек Жумамуратов, школьный консультант"),
+ counselor=L("Alimbek Jumamuratov, mektep másláhátshisi", "Alimbek Jumamuratov, School Counselor", "Alimbek Jumamuratov, maktab maslahatchisi", "Алимбек Жумамуратов, школьный консультант"),
  partners=L("Házirgi sheriklerimiz", "Our current partners", "Hozirgi hamkorlarimiz", "Наши партнёры"),
  profile=L("Mektep profili (PDF)", "School Profile (PDF)", "Maktab profili (PDF)", "Профиль школы (PDF)"),
 )

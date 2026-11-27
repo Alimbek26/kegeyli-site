@@ -8,7 +8,7 @@ import offers as OF
 SUB = "counseling/"
 L = lambda a, b, c, d: (a, b, c, d)
 NAME = L("Universitetke kiriw boyınsha másláhát", "College counselling", "Universitetga kirish bo‘yicha maslahat", "Консультации по поступлению")
-DESC = L("Mektep konsultantı oqıwshılarǵa 9-klasstan universitetke shekem qalay járdem beredi hám universitetlerge qanday hújjetler jiberemiz.",
+DESC = L("Mektep másláhátshisi oqıwshılarǵa 9-klasstan universitetke shekem qalay járdem beredi hám universitetlerge qanday hújjetler jiberemiz.",
          "How our school counselor guides students from Grade 9 to university, and what we send to universities: transcripts, recommendations, School Profile.",
          "Maktab maslahatchisi o‘quvchilarga 9-sinfdan universitetgacha qanday yordam beradi va universitetlarga qanday hujjatlar yuboramiz.",
          "Как школьный консультант ведёт учеников от 9 класса до университета и какие документы мы отправляем в университеты.")
@@ -17,13 +17,13 @@ ICON = ('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5
 T = dict(
  eyebrow=L("Universitetke tayarlıq bólimi", "College Counselling Office", "Universitetga tayyorlov bo‘limi", "Отдел подготовки к поступлению"),
  name=L("Alimbek Jumamuratov", "Alimbek Jumamuratov", "Alimbek Jumamuratov", "Алимбек Жумамуратов"),
- role=L("Mektep konsultantı · IELTS dizimge alıw punktiniń juwapkeri", "School Counselor · IELTS Registration Point contact", "Maktab maslahatchisi · IELTS ro‘yxatga olish nuqtasi mas’uli", "Школьный консультант · ответственный за пункт регистрации IELTS"),
+ role=L("Mektep másláhátshisi · IELTS dizimge alıw punktiniń juwapkeri", "School Counselor · IELTS Registration Point contact", "Maktab maslahatchisi · IELTS ro‘yxatga olish nuqtasi mas’uli", "Школьный консультант · ответственный за пункт регистрации IELTS"),
  mission=L("Bizdiń maqsetimiz — hár bir oqıwshıǵa Ózbekstanda yamasa shet elde ózi ósetuǵın universitetti tabıwǵa járdem beriw hám universitetlerge hár bir talapker haqqında ádil, tolıq maǵlıwmat beriw.",
            "Our aim is to help every student find the university where they will grow, in Uzbekistan or abroad, and to give universities an honest, complete picture of each applicant.",
            "Maqsadimiz — har bir o‘quvchiga O‘zbekistonda yoki xorijda o‘zi o‘sadigan universitetni topishga yordam berish va universitetlarga har bir abituriyent haqida halol, to‘liq ma’lumot berish.",
            "Наша цель — помочь каждому ученику найти университет, где он будет расти, в Узбекистане или за рубежом, и дать университетам честную и полную картину о каждом абитуриенте."),
  book=L("Ushırasıwǵa jazılıw", "Book a meeting", "Uchrashuvga yozilish", "Записаться на встречу"),
- profile_p=L("Konsultant profili", "Counselor profile", "Maslahatchi profili", "Профиль консультанта"),
+ profile_p=L("Másláhátshi profili", "Counselor profile", "Maslahatchi profili", "Профиль консультанта"),
  rec_h=L("Nátiyjelerimiz", "Our record", "Natijalarimiz", "Наши результаты"),
  rec_note=L("Barlıq sanlar saytta tolıq kórsetilgen hám tekseriwge boladı.", "Every figure is published in full on this website and can be checked.", "Barcha raqamlar saytda to‘liq ko‘rsatilgan va tekshirish mumkin.", "Все цифры полностью опубликованы на сайте и их можно проверить."),
  r_uni=L("pitkeriwshilerimizdiń {g} nan universitetke tústi ({y})", "of our {g} graduates went on to university ({y})", "bitiruvchilarimizdan {g} tadan universitetga kirdi ({y})", "из {g} выпускников поступили в университет ({y})"),
@@ -31,9 +31,9 @@ T = dict(
  r_off=L("shet eldegi {u} universitetten usınıs", "offers from {u} universities abroad", "xorijdagi {u} universitetdan taklif", "предложений от {u} зарубежных университетов"),
  r_top=L("dúnyanıń top-100 universitetinen usınıs (QS 2025)", "offers from world top-100 universities (QS 2025)", "dunyoning top-100 universitetidan taklif (QS 2025)", "предложения от университетов мирового топ-100 (QS 2025)"),
  road_h=L("9-klasstan universitetke shekem", "From Grade 9 to university", "9-sinfdan universitetgacha", "От 9 класса до университета"),
- road_p=L("Hár bir basqıshta oqıwshı ne isleydi hám konsultant qalay járdem beredi.", "What the student does at each stage, and how the counselor helps.", "Har bir bosqichda o‘quvchi nima qiladi va maslahatchi qanday yordam beradi.", "Что делает ученик на каждом этапе и как помогает консультант."),
+ road_p=L("Hár bir basqıshta oqıwshı ne isleydi hám másláhátshi qalay járdem beredi.", "What the student does at each stage, and how the counselor helps.", "Har bir bosqichda o‘quvchi nima qiladi va maslahatchi qanday yordam beradi.", "Что делает ученик на каждом этапе и как помогает консультант."),
  you=L("Oqıwshı", "Student", "O‘quvchi", "Ученик"),
- we=L("Konsultant", "Counselor", "Maslahatchi", "Консультант"),
+ we=L("Másláhátshi", "Counselor", "Maslahatchi", "Консультант"),
  serv_h=L("Biz ne usınamız", "What we offer", "Biz nima taklif qilamiz", "Что мы предлагаем"),
  fam_h=L("Oqıwshılar hám ata-analar ushın", "For students and families", "O‘quvchilar va ota-onalar uchun", "Ученикам и родителям"),
  uni_h=L("Universitetler ushın", "For universities", "Universitetlar uchun", "Университетам"),
@@ -117,7 +117,7 @@ FAMILY = [
 UNIS = [
  ("doc", L("Mektep profili (PDF): oqıw baǵdarlaması, bahalaw, nátiyjeler", "School Profile (PDF): curriculum, grading, results", "Maktab profili (PDF): o‘quv dasturi, baholash, natijalar", "Профиль школы (PDF): программа, оценивание, результаты")),
  ("grade", L("Inglis tilindegi rásmiy transkript, 5 ballıq shkala túsindirilgen", "Official transcript in English, with the 5-point scale explained", "Ingliz tilidagi rasmiy transkript, 5 ballik shkala tushuntirilgan", "Официальный транскрипт на английском с пояснением 5-балльной шкалы")),
- ("mail", L("Konsultant hám muǵallimlerdiń usınıs xatları — tikkeley jiberiledi", "Counselor and teacher recommendations, sent directly", "Maslahatchi va o‘qituvchilarning tavsiyanomalari — to‘g‘ridan-to‘g‘ri yuboriladi", "Рекомендации консультанта и учителей — отправляются напрямую")),
+ ("mail", L("Másláhátshi hám muǵallimlerdiń usınıs xatları — tikkeley jiberiledi", "Counselor and teacher recommendations, sent directly", "Maslahatchi va o‘qituvchilarning tavsiyanomalari — to‘g‘ridan-to‘g‘ri yuboriladi", "Рекомендации консультанта и учителей — отправляются напрямую")),
  ("check", L("Soraw boyınsha bahalar hám hújjetlerdi tastıyıqlaw", "Verification of grades and documents on request", "So‘rov bo‘yicha baholar va hujjatlarni tasdiqlash", "Подтверждение оценок и документов по запросу")),
  ("code", L("College Board (CEEB) kodı: soralǵan; berilgenshe mektepti atı menen kórsetiń", "College Board (CEEB) code: requested; until issued, please list the school by name", "College Board (CEEB) kodi: so‘ralgan; berilgunga qadar maktabni nomi bilan ko‘rsating", "Код College Board (CEEB): запрошен; до его выдачи указывайте школу по названию")),
 ]
