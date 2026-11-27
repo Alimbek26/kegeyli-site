@@ -21,10 +21,10 @@ DESCR = {
   "Президентская школа Республики Узбекистан в Нукусе: государственная школа с образованием международного уровня."
  ],
  "British Council": [
-  "Birlesken Korollik xalıqaralıq mádeniy qatnaslar hám bilim beriw shólkemi. Inglis tili, IELTS hám oqıw imkaniyatları boyınsha járdem beredi.",
-  "The UK’s international organisation for cultural relations and educational opportunities. Supports English-language learning, IELTS and study opportunities.",
-  "Buyuk Britaniyaning xalqaro madaniy aloqalar va ta’lim imkoniyatlari tashkiloti. Ingliz tili, IELTS va o‘qish imkoniyatlari bo‘yicha yordam beradi.",
-  "Международная организация Великобритании по культурным связям и образовательным возможностям. Поддерживает изучение английского, IELTS и учёбу за рубежом."
+  "Birlesken Korollik xalıqaralıq mádeniy qatnaslar hám bilim beriw shólkemi. Inglis tili, IELTS hám oqıw imkaniyatları boyınsha járdem beredi. 2026-jıl yanvardan mektebimiz British Council-dıń rásmiy IELTS dizimge alıw punkti.",
+  "The UK’s international organisation for cultural relations and educational opportunities. Supports English-language learning, IELTS and study opportunities. Since January 2026 our school is an official IELTS Registration Point in partnership with the British Council.",
+  "Buyuk Britaniyaning xalqaro madaniy aloqalar va ta’lim imkoniyatlari tashkiloti. Ingliz tili, IELTS va o‘qish imkoniyatlari bo‘yicha yordam beradi. 2026-yil yanvaridan maktabimiz British Council bilan hamkorlikda rasmiy IELTS ro‘yxatga olish nuqtasi.",
+  "Международная организация Великобритании по культурным связям и образовательным возможностям. Поддерживает изучение английского, IELTS и учёбу за рубежом. С января 2026 года наша школа — официальный пункт регистрации на IELTS в партнёрстве с British Council."
  ]
 }
 PARTNERS = [

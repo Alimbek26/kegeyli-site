@@ -15,6 +15,12 @@ SUBJ_EN = {"Matematika": "Mathematics", "Fizika": "Physics", "Inglis til": "Engl
            "Biologiya": "Biology", "Ximiya": "Chemistry", "Geografiya": "Geography", "Texnologiya": "Technology", "ART": "Art"}
 
 
+SHORT = {"Matematika": "mathematics", "Fizika": "physics", "Inglis til": "English", "Informatika": "computer science", "Ozbek til": "Uzbek", "Russ til": "Russian", "Ana til": "Karakalpak"}
+def _join(xs):
+    t = ", ".join(xs[:-1]) + " and " + xs[-1] if len(xs) > 1 else "".join(xs)
+    return t[:1].upper() + t[1:]
+
+
 def _weekly(root, cls):
     d = json.load(open(os.path.join(root, "timetable.json"), encoding="utf-8"))["classes"][cls]
     cnt, split = collections.Counter(), set()
@@ -125,7 +131,7 @@ def build(root, domain="https://kegeyliqm.uz/"):
 <h2>The school</h2>
 <p>A <b>state (public) specialized secondary school</b> for exact and natural sciences, founded in 2022. It is governed by the
 <b>Agency for Specialized Educational Institutions under the Ministry of Education and Science of the Republic of Uzbekistan</b>,
-which runs Uzbekistan’s Presidential, creative and specialized schools. The school is in Kegeyli, a rural district of the Republic of Karakalpakstan.</p>
+which runs Uzbekistan’s Presidential, creative and specialized schools. The school is in Kegeyli, a rural district of the Republic of Karakalpakstan. Since January 2026 it has been an <b>official IELTS Registration Point</b> in partnership with the British Council.</p>
 <p><b>Admission is selective:</b> students enter through competitive entrance examinations held by the Agency at <b>Grade 5 and Grade 7</b>. Tuition is free.</p>
 <div class="facts">{facts_h}</div>
 <h2>Calendar</h2>
@@ -137,7 +143,7 @@ which runs Uzbekistan’s Presidential, creative and specialized schools. The sc
 <p>National curriculum of Uzbekistan with an <b>extended programme in mathematics, physics and English</b>. All courses are compulsory; the school does not offer AP or IB courses and does not weight grades.</p>
 <table><tr><th>Grades 10–11: weekly periods (45 min)</th><th class="n">Periods</th></tr>{rows}
 <tr class="tot"><td>Total per week</td><td class="n">{lessons}</td></tr></table>
-<p class="small">{", ".join(SUBJ_EN[x] for x in order if x in split).capitalize()} are taught in half-class groups. Biology, chemistry, geography, art and technology are taught in the lower grades.</p>
+<p class="small">{_join([SHORT.get(x, SUBJ_EN[x]) for x in order if x in split])} are taught in half-class groups. Biology, chemistry, geography, art and technology are taught in the lower grades.</p>
 <h2>Grading</h2>
 <table><tr><th>Mark</th><th>Meaning</th><th>Approx. US</th></tr>{grade_rows}</table>
 <p class="small">The school does not rank students. US equivalents are approximate and for guidance only.</p>

@@ -135,6 +135,24 @@ JS = r"""
 })();
 """
 
+REG = dict(
+ h=("Rásmiy IELTS dizimge alıw punkti", "Official IELTS Registration Point", "Rasmiy IELTS ro‘yxatga olish nuqtasi", "Официальный пункт регистрации на IELTS"),
+ p=("2026-jıl 29-yanvardan baslap mektebimiz British Council menen sheriklikte rásmiy IELTS dizimge alıw punkti bolıp islemekte. Barlıq xızmetler biypul.",
+    "Since 29 January 2026 our school has been an official IELTS Registration Point in partnership with the British Council. All services are free.",
+    "2026-yil 29-yanvardan maktabimiz British Council bilan hamkorlikda rasmiy IELTS ro‘yxatga olish nuqtasi sifatida faoliyat yuritmoqda. Barcha xizmatlar bepul.",
+    "С 29 января 2026 года наша школа — официальный пункт регистрации на IELTS в партнёрстве с British Council. Все услуги бесплатные."),
+ items=(("IELTS Academic hám General Training imtixanlarına rásmiy dizimge alıw", "Imtixan sánesi, orınları hám tártibi haqqında isenimli maǵlıwmat", "Hújjetlerdi tayarlaw hám tapsırıwda másláhát"),
+        ("Official registration for IELTS Academic and IELTS General Training", "Reliable information on test dates, venues and procedures", "Advice on preparing and submitting your documents"),
+        ("IELTS Academic va IELTS General Training imtihonlariga rasmiy ro‘yxatdan o‘tkazish", "Imtihon sanalari, joylashuvi va topshirish tartibi bo‘yicha ishonchli ma’lumot", "Hujjatlarni tayyorlash va topshirishda maslahat"),
+        ("Официальная регистрация на IELTS Academic и IELTS General Training", "Надёжная информация о датах, местах и порядке сдачи", "Консультации по подготовке и подаче документов")),
+ who=("Juwaplı: Alimbek Jumamuratov", "Contact: Alimbek Jumamuratov", "Mas’ul shaxs: Alimbek Jumamuratov", "Ответственный: Алимбек Жумамуратов"),
+ free=("Biypul", "Free", "Bepul", "Бесплатно"),
+)
+def reg_point(i):
+    li = "".join(f"<li>{x}</li>" for x in REG["items"][i])
+    return (f'<div class="card iereg"><span class="iefree">{REG["free"][i]}</span><h2>{REG["h"][i]}</h2><p>{REG["p"][i]}</p><ul>{li}</ul>'
+            f'<p class="iewho"><b>{REG["who"][i]}</b> · <a href="tel:+998906543398">+998 90 654 33 98</a> · <a href="mailto:ixm013@piima.uz">ixm013@piima.uz</a></p></div>')
+
 def body(lang, i):
     import json, html
     bsel = lambda sel, lo=3.0: "".join(f'<option value="{v / 2}"{" selected" if v / 2 == sel else ""}>{str(v / 2).replace(".", "," if lang != "en" else ".")}</option>' for v in range(int(lo * 2), 19))
@@ -151,7 +169,7 @@ def body(lang, i):
     total = sum(BANDS.values())
     bars = "".join(f'<div class="py"><span>{str(b).replace(".", "," if lang != "en" else ".")}</span><div class="pbar"><i style="width:{n / max(BANDS.values()) * 100:.0f}%"></i></div><b>{n}</b></div>' for b, n in sorted(BANDS.items()))
     data = {"n": {"L": "Listening", "R": "Reading", "W": "Writing", "S": "Speaking"}, "reached": S["reached"][i], "below": S["below"][i], "focus": S["focus"][i], "w": len(WORDS), "dec": "." if lang == "en" else ","}
-    return (f'<p class="lead2">{S["intro"][i]}</p>'
+    return (f'<p class="lead2">{S["intro"][i]}</p>{reg_point(i)}'
             f'<h2>{S["parts_h"][i]}</h2><div class="grid2">{parts}</div><p class="note" style="margin-top:12px">{S["scale"][i]}</p>'
             f'<h2 style="margin-top:34px">{S["calc_h"][i]}</h2><p>{S["calc_p"][i]}</p>'
             f'<div class="two"><div class="card icalc">'
