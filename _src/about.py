@@ -43,7 +43,8 @@ H_NUM = ("Nátiyjeler", "Results", "Natijalar", "Результаты")
 H_GO = ("Keyingi bólimler", "Explore more", "Keyingi bo‘limlar", "Узнать больше")
 GO = [("leadership/", ("Basshılıq", "Leadership", "Rahbariyat", "Руководство")), ("teachers/", ("Muǵallimler", "Teachers", "O‘qituvchilar", "Учителя")),
       ("admission/", ("Qabıllaw", "Admission", "Qabul", "Приём")), ("abroad/", ("Shet elde oqıw", "Study abroad", "Chet elda o‘qish", "Учёба за рубежом")),
-      ("partners/", ("Sheriklerimiz", "Partners", "Hamkorlar", "Партнёры")), ("documents/", ("Hújjetler", "Documents", "Hujjatlar", "Документы"))]
+      ("partners/", ("Sheriklerimiz", "Partners", "Hamkorlar", "Партнёры")), ("documents/", ("Hújjetler", "Documents", "Hujjatlar", "Документы")),
+      ("international/", ("Xalıqaralıq maqsetlerimiz", "Our international goals", "Xalqaro maqsadlarimiz", "Наши международные цели"))]
 
 # Status and accreditation (for universities, College Board and partners abroad)
 ST_H = ("Mekteptiń statusı hám akkreditaciyası", "Status and accreditation", "Maktab maqomi va akkreditatsiyasi", "Статус и аккредитация")

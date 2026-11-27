@@ -202,7 +202,7 @@ def page(i, href, tabs):
     return (f'{tabs(SUB, i, href)}<p class="lead2">{X["lead"][i]}</p><div class="stats ofstats">{tiles}</div>'
             f'<div class="ofgrid">{"".join(cards)}</div>'
             + f'<div class="card ofcta"><div><h3>{X["cta_h"][i]}</h3><p>{X["cta_p"][i]}</p></div><a class="btn p" href="{href("abroad/")}">{X["cta_b"][i]} →</a></div>'
-            f'<p class="note">{X["qs_src"][i]} {X["note"][i]} <a href="{{UP}}school-profile/">School Profile (PDF) →</a></p>')
+            f'<p class="note">{X["qs_src"][i]} {X["note"][i]} <a href="{{UP}}school-profile/">School Profile (PDF) →</a> · <a href="{href("international/")}">{__import__("international").NAME[i]} →</a></p>')
 
 
 PX = dict(
