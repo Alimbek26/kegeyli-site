@@ -178,4 +178,5 @@ def body(sub, lang, i, t, root, ctx):
             + __import__("laws").doc_cards(i, UP) +
             f'<h2 style="margin-top:34px">{X["d_h3"][i]}</h2><div class="linklist">'
             f'<a href="{UP}files/kegeyli-school-profile-2026-2027.pdf" download><b>PDF</b> — {X["d_sp"][i]} →</a>'
-            f'<a href="{UP}school-profile/"><b>Web</b> — {X["d_sp_web"][i]} →</a></div><p class="note">{X["d_p3"][i]}</p>')
+            f'<a href="{UP}school-profile/"><b>Web</b> — {X["d_sp_web"][i]} →</a>'
+            f'<a href="{UP}{"" if lang == "kaa" else lang + "/"}policies/"><b>Web</b> — {__import__("policies").NAME[i]} →</a></div><p class="note">{X["d_p3"][i]}</p>')

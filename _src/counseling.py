@@ -182,7 +182,7 @@ def body(i, up, href, ctx, tools):
             + f'<h2>{T["rec_h"][i]}</h2><div class="csrec">{rec}</div><p class="note">{T["rec_note"][i]}</p>'
             + f'<h2>{T["road_h"][i]}</h2><p class="lead2">{T["road_p"][i]}</p><ol class="csroad">{steps}</ol>'
             + f'<h2>{T["serv_h"][i]}</h2>{serv}'
-            + f'<h2>{T["prin_h"][i]}</h2><div class="csprs">{prin}</div>'
+            + f'<h2>{T["prin_h"][i]}</h2><div class="csprs">{prin}</div><p class="btns" style="margin:-20px 0 36px"><a class="btn s" href="{href("policies/")}">{__import__("policies").NAME[i]} →</a></p>'
             + f'<h2>{T["tool_h"][i]}</h2><p>{T["tool_p"][i]}</p><div class="cstls">{tool}</div>'
             + f'<div class="cscta"><div><h2>{T["cta_h"][i]}</h2><p>{T["cta_p"][i]}</p></div><p class="btns">{btns}</p></div>'
             + f'<p class="btns"><a class="btn s" href="{href("achievements/offers/")}">{T["offers"][i]} →</a><a class="btn s" href="{href("graduates/")}">{T["grads"][i]} →</a></p>')
