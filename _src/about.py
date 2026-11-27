@@ -45,6 +45,29 @@ GO = [("leadership/", ("Basshılıq", "Leadership", "Rahbariyat", "Руково�
       ("admission/", ("Qabıllaw", "Admission", "Qabul", "Приём")), ("abroad/", ("Shet elde oqıw", "Study abroad", "Chet elda o‘qish", "Учёба за рубежом")),
       ("partners/", ("Sheriklerimiz", "Partners", "Hamkorlar", "Партнёры")), ("documents/", ("Hújjetler", "Documents", "Hujjatlar", "Документы"))]
 
+# Status and accreditation (for universities, College Board and partners abroad)
+ST_H = ("Mekteptiń statusı hám akkreditaciyası", "Status and accreditation", "Maktab maqomi va akkreditatsiyasi", "Статус и аккредитация")
+AGENCY_URL = "https://gov.uz/oz/ima"
+STATUS = [
+ (("Túri", "Type", "Turi", "Тип"),
+  ("Mámleketlik qánigelestirilgen ulıwma orta bilim beriw mektebi", "State (public) specialized general secondary school", "Davlat ixtisoslashtirilgan umumiy o‘rta ta’lim maktabi", "Государственная специализированная общеобразовательная школа")),
+ (("Tiykar salınǵan", "Founded", "Tashkil etilgan", "Основана"), ("2022", "2022", "2022", "2022")),
+ (("Basqarıw organı", "Governing authority", "Boshqaruv organi", "Орган управления"),
+  ("Ózbekstan Respublikası Mektepke shekemgi hám mektep bilimlendiriw ministrligi janındaǵı Qánigelestirilgen bilimlendiriw mekemeleri agentligi",
+   "Agency for Specialized Educational Institutions under the Ministry of Preschool and School Education of the Republic of Uzbekistan",
+   "O‘zbekiston Respublikasi Maktabgacha va maktab ta’limi vazirligi huzuridagi Ixtisoslashtirilgan ta’lim muassasalari agentligi",
+   "Агентство специализированных образовательных учреждений при Министерстве дошкольного и школьного образования Республики Узбекистан")),
+ (("Klasslar", "Grades", "Sinflar", "Классы"), ("5–11", "5–11", "5–11", "5–11")),
+ (("Pitkeriwshilerge beriledi", "Graduates receive", "Bitiruvchilarga beriladi", "Выпускники получают"),
+  ("Ulıwma orta bilim haqqında mámleketlik attestat", "State certificate (attestat) of complete general secondary education", "Umumiy o‘rta ta’lim to‘g‘risida davlat attestati", "Государственный аттестат о полном общем среднем образовании")),
+ (("Bahalaw sisteması", "Grading scale", "Baholash tizimi", "Система оценок"),
+  ("5 ballıq: 5 — ayrıqsha, 4 — jaqsı, 3 — qanaatlandırarlı, 2 — qanaatlandırarlı emes", "5-point scale: 5 = excellent, 4 = good, 3 = satisfactory, 2 = unsatisfactory",
+   "5 ballik: 5 — a’lo, 4 — yaxshi, 3 — qoniqarli, 2 — qoniqarsiz", "5-балльная: 5 — отлично, 4 — хорошо, 3 — удовлетворительно, 2 — неудовлетворительно")),
+]
+def status_card(i):
+    rows = "".join(f"<dt>{k[i]}</dt><dd>{v[i]}" + (f' <a href="{AGENCY_URL}" target="_blank" rel="noopener">gov.uz/ima ↗</a>' if n == 2 else "") + "</dd>" for n, (k, v) in enumerate(STATUS))
+    return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl></section>'
+
 def body(i, up, t, hrefs):
     tl = "".join(f'<li><span class="aty">{y}</span><div class="atc card"><h3>{h[i]}</h3><p>{p[i]}</p></div></li>' for y, h, p in TIMELINE)
     vals = "".join(f'<div class="card avc" style="--mc:{c}"><span class="mi"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span><h3>{h[i]}</h3><p>{p[i]}</p></div>' for h, p, c, ic in VALUES)
@@ -53,7 +76,7 @@ def body(i, up, t, hrefs):
     go = "".join(f'<a class="btn s" href="{hrefs[k]}">{n[i]} →</a>' for k, n in GO)
     return (f'<div class="ahero"><img src="{up}photos/school.jpg" alt="{FULL[i]}" fetchpriority="high"></div>'
             f'<div class="card aname"><small>{OFFICIAL[i]}</small><h2>{FULL[i]}</h2><p>{SUB[i]}</p></div>'
-            f'<p class="lead2">{t["about1"]}</p><p>{t["about2"]}</p>'
+            f'<p class="lead2">{t["about1"]}</p><p>{t["about2"]}</p>{status_card(i)}'
             f'<h2 class="ah">{H_TL[i]}</h2><ol class="atl">{tl}</ol>'
             f'<h2 class="ah">{H_MV[i]}</h2><p class="amis">{MISSION[i]}</p><div class="avgrid">{vals}</div>'
             f'<h2 class="ah">{H_NUM[i]}</h2><div class="angrid">{nums}</div>'
