@@ -33,7 +33,7 @@ SEMINARS = [
  dict(date="2027-01-23", who=["Артикова Шахноза"], subj="phys", topic=""),
  dict(date="2027-01-30", who=["Зарипбаев Ажиняз"], subj="inf", topic=""),
  dict(date="2027-02-06", who=["Айтмуратова Дилфуза"], subj="eng", topic=""),
- dict(date="2027-02-13", who=[], subj="rus", topic=""),
+ dict(date="2027-02-13", who=["Тажимуратова Зияда"], subj="chem", topic=""),
  dict(date="2027-02-20", who=["Жолдасбаев Базарбай"], subj="kaa", topic=""),
  dict(date="2027-02-27", who=["Кеунимжаев Абдуғаний"], subj="phys", topic=""),
  dict(date="2027-03-06", who=["Есбергенов Атабек"], subj="math", topic=""),
