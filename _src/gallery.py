@@ -38,3 +38,17 @@ PHOTOS += [
  _e("yosh-contest-winner", "«YOSH» tańlawınıń jeńimpazı: diplom hám jeńimpaz komandaǵa biypul sayaxat jollaması", "Winner of the “YOSH” contest: a diploma and a free-trip voucher for the winning team", "«YOSH» tanlovi g‘olibi: diplom va g‘olib jamoaga bepul sayohat yo‘llanmasi", "Победитель конкурса «YOSH»: диплом и путёвка на бесплатную поездку для команды-победителя", date="2025-05-22",
     note="poster: team 'Mind-Masters'; diploma looks like 1st place; add student name/class, who the adult is, and consent"),
 ]
+
+# ---- batch 2 of 28.11.2026 (drafts: consent, dates and event names to confirm)
+PHOTOS += [
+ _e("welcome-balloons", "Oqıwshılar ustazlardı sharlar menen kútip almaqta", "Students welcome teachers with balloons", "O‘quvchilar ustozlarni sharlar bilan kutib olmoqda", "Ученики встречают учителей с шарами", note="which event? Teachers' Day (1 October)?"),
+ _e("teacher-nominations", "Ustazlardı nominaciyalar boyınsha sıylaw: «Eń quwnaq ustaz», «Eń talabshań ustaz» hám basqalar", "Teachers honoured in nominations such as “Most cheerful teacher” and “Most demanding teacher”", "Ustozlarni nominatsiyalar bo‘yicha taqdirlash: «Eng quvnoq ustoz», «Eng talabchan ustoz» va boshqalar", "Награждение учителей в номинациях «Самый весёлый учитель», «Самый требовательный учитель» и др.", note="one certificate shows 'Ismailova Gúlmira'; confirm names, event and date"),
+ _e("english-day-guests", "Mehmanlar «Tuesday — English Day» múyeshinde", "Guests at our “Tuesday — English Day” corner", "Mehmonlar «Tuesday — English Day» burchagida", "Гости у уголка «Tuesday — English Day»", note="who are the guests? date?"),
+ _e("autumn-costumes", "Gúz bayramı: oqıwshılar óz qolı menen tayarlaǵan kiyimler", "Autumn festival: costumes the students made themselves", "Kuz bayrami: o‘quvchilar o‘z qo‘llari bilan tayyorlagan liboslar", "Осенний праздник: костюмы, сделанные учениками своими руками", note="event name?"),
+ _e("karakalpak-language-day-dance", "1-dekabr — Qaraqalpaq tiline mámleketlik til mártebesi berilgen kún: milliy biy", "1 December, Karakalpak Language Day: a national dance", "1-dekabr — Qoraqalpoq tiliga davlat tili maqomi berilgan kun: milliy raqs", "1 декабря — День придания каракалпакскому языку статуса государственного: национальный танец", tag="language-day", note="year? banner partly hidden - check wording"),
+ _e("new-year-staff-gifts", "Jańa jıl bayramında ayal xızmetkerlerimizge sawǵalar", "New Year gifts for our female staff", "Yangi yil bayramida xodimalarimizga sovg‘alar", "Новогодние подарки нашим сотрудницам", tag="new-year", note="year?"),
+ _e("new-year-group", "Jańa jıl bayramı: oqıwshılar hám ustazlar birge", "New Year celebration: students and teachers together", "Yangi yil bayrami: o‘quvchilar va ustozlar birga", "Новогодний праздник: ученики и учителя вместе", tag="new-year", note="year?"),
+ _e("staff-celebration-stage", "Mektebimiz jámáátı bayram keshesinde", "Our school staff at a celebration", "Maktabimiz jamoasi bayram kechasida", "Коллектив школы на праздничном вечере", tag="staff-event", note="cropped table/coats at bottom; which celebration?"),
+ _e("staff-game-men", "Muǵallimler arasındaǵı oyın", "A game among the teachers", "O‘qituvchilar o‘rtasidagi o‘yin", "Игра среди учителей", tag="staff-event"),
+ _e("staff-game-women", "Muǵallimler arasındaǵı tańlaw", "A contest among the teachers", "O‘qituvchilar o‘rtasidagi tanlov", "Конкурс среди учителей", tag="staff-event", note="cropped audience heads at bottom"),
+]
