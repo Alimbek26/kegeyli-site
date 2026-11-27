@@ -164,7 +164,11 @@ _KAA = {"а":"a","ә":"á","б":"b","в":"v","г":"g","ғ":"ǵ","д":"d","е":"e
  "н":"n","ң":"ń","о":"o","ө":"ó","п":"p","р":"r","с":"s","т":"t","у":"u","ү":"ú","ў":"w","ф":"f","х":"x","ҳ":"h","ц":"ts","ч":"ch","ш":"sh",
  "щ":"sh","ъ":"","ы":"ı","ь":"","э":"e","ю":"yu","я":"ya"}
 _SUF = {"улы": "ulı", "ули": "uli", "ўғли": "o‘g‘li", "қызы": "qızı", "қизи": "qizi"}
+# Spellings confirmed by the school (Latin), overriding the automatic transliteration
+LATIN_EXACT = {"Исмайлова Хуршида Юсупбек қызы": "Ismailova Khurshida Yusupbek qızı"}
 def latin_name(s):
+    if s in LATIN_EXACT:
+        return LATIN_EXACT[s]
     out = ""
     for w in s.split():
         if w.lower() in _SUF:
