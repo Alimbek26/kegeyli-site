@@ -933,7 +933,7 @@ def page(lang, sub=""):
     school = {
       "@context": "https://schema.org", "@type": "School", "name": t["brand"],
       "alternateName": [T[l]["brand"] for l in ORDER if l != lang] + ["Kegeyli QM", "Kegeyli IM"],
-      "url": DOMAIN + path(lang), "telephone": PHONE, "email": EMAIL, "sameAs": [TG], "logo": DOMAIN + "logo-512.png",
+      "url": DOMAIN + path(lang), "telephone": PHONE, "email": EMAIL, "sameAs": [TG, MAP], "logo": DOMAIN + "logo-512.png",
       "openingHours": "Mo-Sa 08:30-17:00", "hasMap": MAP,
       "geo": {"@type": "GeoCoordinates", "latitude": LAT, "longitude": LNG}, "inLanguage": t["html_lang"],
       "address": {"@type": "PostalAddress", "streetAddress": t["street"], "addressLocality": t["town"],
