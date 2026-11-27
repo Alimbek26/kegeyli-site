@@ -47,8 +47,10 @@ X = {
  "d_gov": ("Mámleketlik xızmetler portalı", "Public services portal", "Davlat xizmatlari portali", "Портал госуслуг"),
  "d_ariza": ("Onlayn arza tapsırıw", "Online application", "Onlayn ariza topshirish", "Подача онлайн-заявления"),
  "d_hot": ("PIIMA isenim telefonı", "PIIMA hotline", "PIIMA ishonch telefoni", "Телефон доверия PIIMA"),
+ "d_sp": ("Mektep profili 2026–2027, universitetler ushın (inglis tilinde)", "School Profile 2026–2027 for universities (English)", "Maktab profili 2026–2027, universitetlar uchun (ingliz tilida)", "Профиль школы 2026–2027 для университетов (на английском)"),
+ "d_sp_web": ("Mektep profili — onlayn kóriw", "School Profile — view online", "Maktab profili — onlayn ko‘rish", "Профиль школы — смотреть онлайн"),
  "d_h3": ("Mektep hújjetleri", "School documents", "Maktab hujjatlari", "Документы школы"),
- "d_p3": ("Mektep nızamı, qaǵıydalar hám esabatlar usı jerde járiyalanadı.", "The school charter, rules and reports will be published here.", "Maktab nizomi, qoidalar va hisobotlar shu yerda e’lon qilinadi.", "Устав школы, правила и отчёты будут опубликованы здесь."),
+ "d_p3": ("Mektep nızamı, qaǵıydalar hám esabatlar de usı jerde járiyalanadı.", "The school charter, rules and reports will also be published here.", "Maktab nizomi, qoidalar va hisobotlar ham shu yerda e’lon qilinadi.", "Устав школы, правила и отчёты также будут опубликованы здесь."),
 }
 HOT = "+998 71 207 40 48"
 
@@ -174,4 +176,6 @@ def body(sub, lang, i, t, root, ctx):
             f'<a href="https://ariza.piima.uz" rel="noopener"><b>ariza.piima.uz</b> — {X["d_ariza"][i]} →</a>'
             f'<a href="tel:+998712074048"><b>{HOT}</b> — {X["d_hot"][i]} →</a></div>'
             + __import__("laws").doc_cards(i, UP) +
-            f'<h2 style="margin-top:34px">{X["d_h3"][i]}</h2><div class="card"><p>{X["d_p3"][i]}</p></div>')
+            f'<h2 style="margin-top:34px">{X["d_h3"][i]}</h2><div class="linklist">'
+            f'<a href="{UP}files/kegeyli-school-profile-2026-2027.pdf" download><b>PDF</b> — {X["d_sp"][i]} →</a>'
+            f'<a href="{UP}school-profile/"><b>Web</b> — {X["d_sp_web"][i]} →</a></div><p class="note">{X["d_p3"][i]}</p>')
