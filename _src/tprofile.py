@@ -1,6 +1,6 @@
 # Individual teacher profile pages: teachers/<slug>/ (4 languages). Built from teachers.py, profiles.py, heads.py and timetable.json.
 import html as _html, json, os, re
-from teachers import TEACHERS, SUBJECTS, CATS, latin, latin_raw
+from teachers import TEACHERS, SUBJECTS, CATS, latin, latin_raw, shown
 from profiles import PROFILES, UNI, DEG, SPEC
 import heads as HD
 
@@ -30,7 +30,7 @@ LB_JS = ("<dialog class=\"tplb\" id=\"tplb\"><button type=\"button\" class=\"tpl
 def sub_of(j):
     return f"teachers/{slug(TEACHERS[j][0])}/"
 def name(j, lang):
-    return TEACHERS[j][0] if lang == "ru" else latin(TEACHERS[j][0])
+    return shown(TEACHERS[j][0], lang)
 
 # timetable "Surname I" -> teacher index
 def _norm(s):

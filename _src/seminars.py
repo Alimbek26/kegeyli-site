@@ -10,7 +10,7 @@
 #   topic   : the seminar topic as written (leave "" if not decided yet - shown as "topic to be announced")
 # Past/upcoming is worked out from today's date automatically (also in the visitor's browser).
 import datetime as _dt, html as _html, json
-from teachers import TEACHERS, LEADERS, SUBJECTS, ROLES, latin
+from teachers import TEACHERS, LEADERS, SUBJECTS, ROLES, latin, shown
 
 TIME = "10:00"
 SEMINARS = [
@@ -130,7 +130,7 @@ def person(w, lang, href, tp_sub, lp_sub):
         n = _LIDX[w[5:]]; la, cy, r = LEADERS[n]
         return (cy if lang == "ru" else la), href(lp_sub(n))
     j = _TIDX[w]
-    return (w if lang == "ru" else latin(w)), href(tp_sub(j))
+    return shown(w, lang), href(tp_sub(j))
 def today():
     return _dt.date.today().isoformat()
 def counts():

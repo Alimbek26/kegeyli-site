@@ -1,5 +1,5 @@
 # Class teachers (klass basshıları), 2026/2027. Value = surname as in teachers.py (Latin) — resolved to the full teacher entry.
-from teachers import TEACHERS, latin, latin_raw
+from teachers import TEACHERS, latin, latin_raw, shown
 HEADS = [("5-A", "Aynazarov Qurbanazar"), ("5-B", "Begalieva"), ("6-A", "Qarlibaeva"), ("6-B", "Xudaybergenova"),
          ("7-A", "Qutlimuratov"), ("7-B", "Erejepov"), ("7-C", "Qudaybergenov"), ("8-A", "Orazalieva"), ("8-B", "Oserbaeva"),
          ("9-A", "Salieva"), ("9-B", "Shukirillaev"), ("9-C", "Joldasbaev"), ("10-A", "Nazbergenova"), ("10-B", "Davirxanov"),
@@ -11,7 +11,7 @@ def _find(key):
 HEAD = {c: _find(k) for c, k in HEADS}          # class -> (cyrillic, subject, category)
 def name(c, lang):
     cy = HEAD[c][0]
-    return cy if lang == "ru" else latin(cy)
+    return shown(cy, lang)
 T = {
  "h": ("Klass basshıları", "Class teachers", "Sinf rahbarlari", "Классные руководители"),
  "p": ("2026/2027 oqıw jılı: {n} klass hám olardıń basshıları. Atına basıń — muǵallimniń kartası ashıladı.",

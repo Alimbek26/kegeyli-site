@@ -87,7 +87,7 @@ PROFILES = [
  dict(edu=[(2026, "nspi", "ba")], spec="math_inf", train=None, ach=[SAT,
    ("CEFR B2 sertifikatı", "CEFR B2 certificate", "CEFR B2 sertifikati", "Сертификат CEFR B2"),
    ("«Ulıǵbek» atındaǵı mámleketlik stipendiya iyesi (2025/2026)", "“Ulugbek” State Scholarship holder (2025/2026)", "«Ulug‘bek» nomidagi davlat stipendiyasi sohibi (2025/2026)", "Обладатель государственной стипендии имени Улугбека (2025/2026)")]),
- # 10 Dáwirxanov Jeńisbay
+ # 10 Daurxanov Jenisbay Torexan ulı
  dict(edu=[(2021, "nspi", "ba"), (2023, "nspi", "ma")], spec="method_sci", train=2026,
       pos=("Kásiplik awqam baslıǵı", "Chair of the trade union committee", "Kasaba uyushmasi raisi", "Председатель профсоюзного комитета"), ach=[
    ("«Eurasian Journal of Academic Research» xalıqaralıq jurnalında 1 hám respublikalıq konferenciyalarda 2 maqala", "1 article in the international “Eurasian Journal of Academic Research” and 2 at national conferences", "«Eurasian Journal of Academic Research» xalqaro jurnalida 1 ta va respublika konferensiyalarida 2 ta maqola", "1 статья в международном журнале «Eurasian Journal of Academic Research» и 2 на республиканских конференциях"),

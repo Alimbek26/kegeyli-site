@@ -3,7 +3,7 @@
 # Each new school year: change YEAR, TERMS, BREAKS and DAYS_OFF below and run  python3 _src/build.py
 import datetime as _dt, html as _html, json
 import seminars as SEM
-from teachers import latin
+from teachers import latin, shown
 
 YEAR = "2026/2027"
 SUB = "calendar/"
@@ -135,7 +135,7 @@ def fdate(d, lang, wd=False, year=False):
 def _sem_map(lang):
     out = {}
     for s in SEM.SEMINARS:
-        who = ", ".join((w[5:] if w.startswith("lead:") else (w if lang == "ru" else latin(w))) for w in s["who"]) or SEM.T["nobody"][LANGS.index(lang)]
+        who = ", ".join((w[5:] if w.startswith("lead:") else shown(w, lang)) for w in s["who"]) or SEM.T["nobody"][LANGS.index(lang)]
         out[s["date"]] = (who, SEM.subj_name(s["subj"], LANGS.index(lang)), s["topic"])
     return out
 

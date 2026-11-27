@@ -24,7 +24,7 @@ import lprofile as LP
 import tbadges as TB
 import tgfeed as TGF
 import laws as LW
-from teachers import TEACHERS, LEADERS, ROLES, SUBJECTS, CATS, latin, LEADER_INFO, latin_raw as _latin_raw
+from teachers import TEACHERS, LEADERS, ROLES, SUBJECTS, CATS, latin, LEADER_INFO, latin_raw as _latin_raw, shown as _shown
 from profiles import PROFILES, UNI, DEG, SPEC
 import re as _re, html as _html
 LI = {"kaa": 0, "en": 1, "uz": 2, "ru": 3}
@@ -827,7 +827,7 @@ def heads_html(lang, pre=""):
 
 def teacher_cards(lang, up):
     i = LI[lang]; esc = _html.escape
-    nm = (lambda c: c) if lang == "ru" else latin
+    nm = (lambda c: _shown(c, "ru")) if lang == "ru" else latin
     chips = f'<button type="button" class="chip on" data-s="all">{TL["all"][i]} <em>{len(TEACHERS)}</em></button>' + "".join(
         f'<button type="button" class="chip" data-s="{k}">{v[lang]} <em>{sum(1 for x in TEACHERS if x[1] == k)}</em></button>'
         for k, v in SUBJECTS.items() if any(x[1] == k for x in TEACHERS))
