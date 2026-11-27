@@ -197,6 +197,7 @@ def body(sub, lang, i, t, href, ctx):
     if sub == "abroad/":
         stages = "".join(f'<li class="stage"><h3>{h}</h3><ul>{"".join(f"<li>{x}</li>" for x in xs)}</ul></li>' for h, xs in T["stages"][i])
         return (f'{tb}{PL.banner(i, href("abroad/plan/"))}<p class="lead2">{T["intro"][i]}</p><h2>{T["road_h"][i]}</h2><ol class="road">{stages}</ol><p class="note">{T["road_note"][i]}</p>'
+                f'<a class="cshub" href="{href("counseling/")}"><img src="{{UP}}photos/leaders/alimbek-jumamuratov-s.jpg" alt="" width="56" height="56"><span><b>{__import__("counseling").NAME[i]}</b><small>{__import__("counseling").DESC[i]}</small></span><em>→</em></a>'
                 f'<div class="btns"><a class="btn p" href="{href("abroad/applications/")}">{T["go_tracker"][i]}</a><a class="btn s" href="{href("abroad/scholarships/")}">{T["go_schol"][i]}</a></div>'
                 f'<h2 style="margin-top:34px">{T["touch_h"][i]}</h2><p>{T["touch_p"][i]}</p><div class="btns"><a class="btn p" href="tel:{ctx["PHONE"]}">{T["call"][i]} {ctx["PHONE_TXT"]}</a>'
                 f'<a class="btn s" href="{ctx["TG"]}" rel="noopener">Telegram</a></div>')
