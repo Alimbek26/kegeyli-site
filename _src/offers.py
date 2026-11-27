@@ -28,6 +28,11 @@ OFFERS = [
       prog=None, term=None, grant=7000, date="2025-01-05", news=True),
 ]
 OFFERS.append(
+ dict(student=_XH, cls="11-A", grad="2024/2025", uni="University of Cincinnati — Clermont College", country="us", city="Batavia, Ohio",
+      prog=("Computer Aided Design (sertifikat programması)", "Computer Aided Design (certificate programme)", "Computer Aided Design (sertifikat dasturi)", "Computer Aided Design (сертификатная программа)"),
+      term="2025-fall", grant=None, date="2025", news=True,
+      award=("Grant penen qabıl etildi", "Admitted with a grant", "Grant bilan qabul qilindi", "Принята с грантом")))
+OFFERS.append(
  dict(student=_XH, cls="11-A", grad="2024/2025", uni="University of Minnesota Twin Cities", country="us", city="Minneapolis–Saint Paul, Minnesota",
       prog=("College of Science and Engineering (Ilim hám injeneriya kolledji)", "College of Science and Engineering", "College of Science and Engineering (Fan va muhandislik kolleji)", "College of Science and Engineering (Колледж науки и инженерии)"),
       term="2025-fall", grant=None, date="2025", news=True))
