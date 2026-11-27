@@ -1425,3 +1425,23 @@ section.plsec:not(.card){padding:0!important}
 .gtzs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:6px 0 18px}
 .gtz{display:block;aspect-ratio:1;border-radius:14px;overflow:hidden}.gtz img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.gtz:hover img{transform:scale(1.06)}
 @media(max-width:800px){.gtzs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* ---- Offers from abroad ---- */
+.ofstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:0 0 22px}
+.ofstats .stat{background:var(--card);border:1px solid var(--line);border-top:4px solid #2563eb;padding:16px 18px}
+.ofstats .stat b{color:#2563eb;font-size:clamp(26px,3.4vw,36px)}.ofstats .stat span{color:var(--soft);font-size:14.5px}
+.ofgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:16px}
+.ofcard{padding:20px!important;border-left:5px solid #2563eb;display:flex;flex-direction:column;gap:12px}
+.ofhead{display:flex;gap:14px;align-items:flex-start}
+.offlag{flex:none;display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:var(--tealbg);font-size:32px;line-height:1}
+.offlag.sm{width:40px;height:40px;font-size:24px;border-radius:10px;margin-bottom:6px}
+.ofok{display:inline-block;font-size:12.5px;font-weight:700;color:#15803d;background:color-mix(in srgb,#16a34a 13%,transparent);padding:2px 9px;border-radius:999px;margin-bottom:6px}
+.ofhead h3{margin:0 0 2px;font-size:20px}.ofloc{margin:0;color:var(--soft);font-size:14.5px}
+.ofdl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:0;padding-top:12px;border-top:1px dashed var(--line);font-size:15px}
+.ofdl dt{color:var(--soft)}.ofdl dd{margin:0}.ofgr{color:#15803d;font-size:17px}
+.oflink{align-self:flex-start;font-weight:600;font-size:14.5px}
+.ofh2{margin-top:34px}
+.ofprogs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:14px}
+.ofprog{display:flex;gap:14px;align-items:center;padding:12px!important}.ofprog img{width:96px;height:120px;object-fit:cover;object-position:50% 30%;border-radius:10px;flex:none}
+.ofprog h3{margin:0 0 4px;font-size:17px}.ofprog p{margin:0;color:var(--soft)}
+.ofcta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin:28px 0 10px;padding:20px!important;background:linear-gradient(120deg,color-mix(in srgb,#2563eb 10%,var(--card)),var(--card))}
+.ofcta h3{margin:0 0 4px}.ofcta p{margin:0;color:var(--soft)}

@@ -9,14 +9,16 @@
 import collections
 import graduates as G
 import natcert as NC
+import offers as OF
 
 T4 = lambda a, b, c, d: (a, b, c, d)
-SUBS = ["achievements/", "achievements/olympiads/", "achievements/certificates/", NC.SUB, "achievements/sat/", "achievements/ielts/"]
+SUBS = ["achievements/", "achievements/olympiads/", "achievements/certificates/", NC.SUB, OF.SUB, "achievements/sat/", "achievements/ielts/"]
 NAME = {
  "achievements/": ("Jetiskenlikler", "Achievements", "Yutuqlar", "Достижения"),
  "achievements/olympiads/": ("Olimpiadalar", "Olympiads", "Olimpiadalar", "Олимпиады"),
  "achievements/certificates/": ("Sertifikatlar", "Certificates", "Sertifikatlar", "Сертификаты"),
  NC.SUB: NC.NAME,
+ OF.SUB: OF.NAME,
  "achievements/sat/": ("SAT nátiyjeleri", "SAT results", "SAT natijalari", "Результаты SAT"),
  "achievements/ielts/": ("IELTS nátiyjeleri", "IELTS results", "IELTS natijalari", "Результаты IELTS"),
 }
@@ -34,6 +36,7 @@ DESC = {
                                 "Bitiruvchilarning milliy, CEFR, IELTS va SAT sertifikatlari: fanlar, darajalar va o‘sish.",
                                 "Национальные, CEFR, IELTS и SAT сертификаты выпускников: предметы, уровни и рост."),
  NC.SUB: NC.DESC,
+ OF.SUB: OF.DESC,
  "achievements/sat/": ("Oqıwshılarımızdıń rásmiy SAT nátiyjeleri: jalpı ball, bólimler, procentiller hám 8 bilim tarawı.",
                        "Our students’ official SAT results: total scores, sections, percentiles and the 8 skill areas.",
                        "O‘quvchilarimizning rasmiy SAT natijalari: umumiy ball, bo‘limlar, persentillar va 8 ta bilim sohasi.",
@@ -46,6 +49,7 @@ DESC = {
 ICON = {
  "achievements/": ('<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>', "#b45309"),
  "achievements/olympiads/": ('<circle cx="12" cy="15" r="6"/><path d="M8.500 10.200L5 3h4l3 6 3-6h4l-3.500 7.200"/><path d="M12 12.500v5M10.500 13.500l1.500-1"/>', "#d97706"),
+ OF.SUB: OF.ICON,
  NC.SUB: ('<circle cx="12" cy="9" r="6"/><path d="M9 14.5L7.5 22l4.500-2.500L16.500 22 15 14.500"/><path d="M10 9l1.500 1.500L14.500 7.500"/>', "#a3202c"),
  "achievements/sat/": ('<path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/>', "#7c3aed"),
  "achievements/ielts/": ('<path d="M4 5h16v11H9l-4 4v-4H4z"/><path d="M8 9h8M8 12h5"/>', "#d6452f"),
@@ -305,6 +309,7 @@ def hub(i, href):
     hls = "".join(f'<li style="--ac:{c}"><b>{v}</b><span>{t}</span></li>' for v, t, c in hl)
     return (f'{tabs("achievements/", i, href)}<p class="lead2">{X["lead"][i]}</p>{tiles}'
             f'<div class="acbigs">{big("achievements/olympiads/", s_ol, "#d97706")}{big("achievements/certificates/", s_ce, "#0b7a8f")}</div>'
+            f'<a class="card satprev satban ofban" href="{href(OF.SUB)}"><div class="sph"><span class="acbi" style="--ac:{OF.ICON[1]}">{_svg(OF.ICON[0], 26)}</span><div><h3>{OF.NAME[i]} · {OF.stats()["n"]}</h3><p>{OF.X["hub"][i]}</p></div><span class="acgo2">→</span></div></a>'
             f'<h2>{X["hl_h"][i]}</h2><ul class="achl">{hls}</ul>'
             f'<div class="btns"><a class="btn s" href="{href("graduates/")}">{X["grad_link"][i]} →</a></div>')
 
@@ -494,4 +499,4 @@ def body(sub, i, href, subjn=None):
     if subjn:
         SUBJN.update(subjn)
     return {"achievements/": hub, "achievements/olympiads/": olympiads, "achievements/certificates/": certificates, "achievements/sat/": sat_page, "achievements/ielts/": ielts_page,
-            NC.SUB: lambda i, href: NC.page(i, href, tabs)}[sub](i, href)
+            NC.SUB: lambda i, href: NC.page(i, href, tabs), OF.SUB: lambda i, href: OF.page(i, href, tabs)}[sub](i, href)

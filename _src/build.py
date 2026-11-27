@@ -56,7 +56,7 @@ TOP = ("director", "dep_edu", "dep_spirit", "dep_econ")
 import extra as EX
 import ielts as IE
 import abroad as AB
-PAGES = ["", "about/", "news/", "admission/", "teachers/", "leadership/", "timetable/", "study/", "graduates/", "achievements/", "achievements/olympiads/", "achievements/certificates/", "achievements/national/", "achievements/sat/", "achievements/ielts/", "abroad/", "abroad/plan/", "abroad/applications/", "abroad/scholarships/", "abroad/countries/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "partners/", "abroad/sat/", "abroad/essay/", "abroad/top10/", "abroad/commonapp/", "abroad/ucas/", "ielts/", "parents/", "canteen/", "canteen/not-allowed/", "documents/"] + RS.SUBS + ["teachers/class-teachers/", "teachers/by-class/", SEM.SUB, CAL.SUB, GAL.SUB] + list(TP.SUB) + list(LP.SUB) + [l["sub"] for l in LW.LAWS]
+PAGES = ["", "about/", "news/", "admission/", "teachers/", "leadership/", "timetable/", "study/", "graduates/", "achievements/", "achievements/olympiads/", "achievements/certificates/", "achievements/national/", "achievements/offers/", "achievements/sat/", "achievements/ielts/", "abroad/", "abroad/plan/", "abroad/applications/", "abroad/scholarships/", "abroad/countries/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "partners/", "abroad/sat/", "abroad/essay/", "abroad/top10/", "abroad/commonapp/", "abroad/ucas/", "ielts/", "parents/", "canteen/", "canteen/not-allowed/", "documents/"] + RS.SUBS + ["teachers/class-teachers/", "teachers/by-class/", SEM.SUB, CAL.SUB, GAL.SUB] + list(TP.SUB) + list(LP.SUB) + [l["sub"] for l in LW.LAWS]
 import posixpath
 def href(fl, fs, tl, ts):
     a = path(fl) + fs; b = path(tl) + ts
