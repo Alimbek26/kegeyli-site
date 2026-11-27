@@ -53,6 +53,10 @@ PHOTOS += [
  _e("staff-game-women", "Muǵallimler arasındaǵı tańlaw", "A contest among the teachers", "O‘qituvchilar o‘rtasidagi tanlov", "Конкурс среди учителей", date="2025", tag="staff-event", note="cropped audience heads at bottom"),
 ]
 
+PHOTOS += [
+ _e("pdp-grant-saparniyazov", "Artıqbay Saparniyazov — PDP University-diń 12 mln swmlıq grantınıń iyesi", "Artıqbay Saparniyazov won a 12 million so‘m grant from PDP University", "Artiqbay Saparniyazov — PDP Universityning 12 mln so‘mlik granti sohibi", "Артыкбай Сапарниязов — обладатель гранта PDP University на 12 млн сумов", date="2023-02-07"),
+]
+
 # ======================= Gallery page =======================
 import html as _html, json as _json, os as _os
 SUB = "gallery/"
@@ -80,7 +84,7 @@ ALBUM_OF = {
  "karakalpak-language-day-dance": "holidays", "new-year-staff-gifts": "holidays", "new-year-group": "holidays",
  "uzbek-language-teachers": "staff", "staff-group": "staff", "teacher-nominations": "staff", "welcome-balloons": "staff",
  "staff-celebration-stage": "staff", "staff-game-men": "staff", "staff-game-women": "staff",
- "olympiad-diploma": "awards", "hakim-cup-ceremony": "awards", "hakim-cup-winners": "awards", "yosh-contest-winner": "awards",
+ "olympiad-diploma": "awards", "pdp-grant-saparniyazov": "awards", "hakim-cup-ceremony": "awards", "hakim-cup-winners": "awards", "yosh-contest-winner": "awards",
  "trip-presidential-school": "trips", "trip-youth-centre": "trips", "trip-savitsky-museum": "trips",
  "outdoor-lesson": "life", "bake-sale": "life", "autumn-costumes": "life", "english-day-guests": "life",
 }

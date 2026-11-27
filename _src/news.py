@@ -24,6 +24,12 @@ EMPTY = ("Jańalıqlar tez arada.", "News coming soon.", "Yangiliklar tez orada.
 TG_BTN = ("Telegram kanalımız", "Our Telegram channel", "Telegram kanalimiz", "Наш Telegram-канал")
 ALL = ("Barlıq jańalıqlar", "All news", "Barcha yangiliklar", "Все новости")
 NEWS = [
+ dict(date="2023-02-07", tag="result", photo="gallery/events/pdp-grant-saparniyazov.jpg",
+  title=("Oqıwshımız PDP University grantın jeńip aldı", "Our student wins a PDP University grant", "O‘quvchimiz PDP University grantini yutdi", "Наш ученик выиграл грант PDP University"),
+  text=("Kegeyli rayonı qánigelestirilgen mektebiniń 10-klass oqıwshısı Artıqbay Saparniyazov matematikadan Respublika pán olimpiadasınıń saralaw basqıshında joqarı ball alıp, PDP University tárepinen 12 000 000 swmlıq granttıń iyesi boldı.",
+        "Artıqbay Saparniyazov, a Grade 10 student at Kegeyli District Specialized School, scored highly in the qualifying round of the Republican Mathematics Olympiad and was awarded a grant of 12,000,000 so‘m by PDP University.",
+        "Kegeyli tumani ixtisoslashtirilgan maktabining 10-sinf o‘quvchisi Artiqbay Saparniyazov matematika bo‘yicha Respublika fan olimpiadasining saralash bosqichida yuqori ball to‘plab, PDP University tomonidan 12 000 000 so‘mlik grant sohibi bo‘ldi.",
+        "Ученик 10 класса Кегейлийской районной специализированной школы Артыкбай Сапарниязов набрал высокий балл на отборочном этапе Республиканской олимпиады по математике и получил грант PDP University на 12 000 000 сумов.")),
  dict(date="2026-11-20", tag="event",
   title=('Belsendi oqıwshılar ushırasıwı', 'Meeting of active students', 'Faol o‘quvchilar uchrashuvi', 'Встреча активных учеников'),
   text=('Qaraqalpaqstan Respublikası jaslar isleri basqarması hám Balalar shólkemi shólkemlestirgen 10–18 jastaǵı belsendi oqıwshılar ushırasıwına mektebimiz oqıwshıları da qatnastı.', "Our students took part in a meeting of active young people aged 10–18, organized by the Youth Affairs Department of the Republic of Karakalpakstan and the Children's Organization.", 'Qoraqalpog‘iston Respublikasi yoshlar ishlari boshqarmasi va Bolalar tashkiloti tashkil etgan 10–18 yoshdagi faol o‘quvchilar uchrashuvida maktabimiz o‘quvchilari ham qatnashdi.', 'Наши ученики приняли участие во встрече активной молодёжи 10–18 лет, организованной Управлением по делам молодёжи Республики Каракалпакстан и Детской организацией.')),

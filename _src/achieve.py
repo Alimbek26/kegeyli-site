@@ -78,6 +78,10 @@ AWARD = {  # text, colour
  "prize": (("Sıylıq iyesi", "Prize-winner", "Sovrindor", "Призёр"), "#7c3aed"),
 }
 OLYMP = [
+ dict(year="2022/2023", stage="republic", award="prize", subj="math",
+      name=("Matematikadan Respublika pán olimpiadası, saralaw basqıshı", "Republican Mathematics Olympiad, qualifying round", "Matematika bo‘yicha Respublika fan olimpiadasi, saralash bosqichi", "Республиканская олимпиада по математике, отборочный этап"),
+      who=("Artıqbay Saparniyazov, 10-klass", "Artıqbay Saparniyazov, Grade 10", "Artiqbay Saparniyazov, 10-sinf", "Артыкбай Сапарниязов, 10 класс"),
+      extra=("PDP University-diń 12 000 000 swmlıq grantı", "12,000,000 so‘m grant from PDP University", "PDP Universityning 12 000 000 so‘mlik granti", "Грант PDP University на 12 000 000 сумов")),
  dict(year="2025/2026", stage="republic", award="bronze", subj="stem",
       name=("AKHU STEM olimpiadası", "AKHU STEM Olympiad", "AKHU STEM olimpiadasi", "Олимпиада AKHU STEM")),
  dict(year=None, stage="republic", award="final", subj="stem",
