@@ -1233,7 +1233,6 @@ def home_body(lang, t, i, up):
 <section id="news" class="band alt news">
   <div class="wrap">
     <h2>{t['nav'][3]}</h2>
-    {TGF.html(i, 2, False)}
     <div class="ngrid">{NW.cards(i, 3, up)}</div>
     <p class="btns" style="margin-top:20px"><a class="btn p" href="news/">{NW.ALL[i]} →</a><a class="btn s" href="{TG}" rel="noopener">{t['news_btn']}</a></p>
   </div>
