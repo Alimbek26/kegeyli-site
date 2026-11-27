@@ -62,4 +62,4 @@ def body(i, up, ctx):
         cards += (f'<article class="card pcard"><div class="plogo{" pinv" if p.get("dark") else ""}">{logo}</div><h3>{p["name"]}</h3><p>{d}</p>'
                   f'<a class="btn s" href="{p["url"]}" target="_blank" rel="noopener">{X["visit"][i]} →</a></article>')
     return (f'<p class="lead2">{P[i]}</p><div class="pgrid">{cards}</div>'
-            f'<div class="card pjoin"><h3>{X["join_h"][i]}</h3><p>{X["join_p"][i]}</p><div class="btns"><a class="btn p" href="mailto:{ctx["EMAIL"]}">{ctx["EMAIL"]}</a><a class="btn s" href="{ctx["TG"]}" rel="noopener">Telegram</a><a class="btn s" href="tel:{ctx["PHONE"]}">{ctx["PHONE_TXT"]}</a></div></div>')
+            f'<div class="card pjoin"><h3>{X["join_h"][i]}</h3><p>{X["join_p"][i]}</p><div class="btns"><a class="btn p" href="{ctx.get("SUP_HREF", "")}">{__import__("support").NAME[i]} →</a><a class="btn p" href="mailto:{ctx["EMAIL"]}">{ctx["EMAIL"]}</a><a class="btn s" href="{ctx["TG"]}" rel="noopener">Telegram</a><a class="btn s" href="tel:{ctx["PHONE"]}">{ctx["PHONE_TXT"]}</a></div></div>')

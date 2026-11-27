@@ -1425,3 +1425,10 @@ background:rgba(255,255,255,.15);box-shadow:0 18px 40px rgba(0,0,0,.28),0 0 0 8p
 .iereg{position:relative;padding:20px 22px!important;margin:18px 0 26px;border-left:5px solid #e4002b}.iereg h2{margin:0 0 8px;font-size:clamp(20px,2.6vw,26px)}
 .iereg ul{margin:6px 0 10px;padding-left:20px}.iefree{position:absolute;top:16px;right:18px;background:#16a34a;color:#fff;font-weight:700;font-size:13px;padding:3px 12px;border-radius:999px}
 .iewho{margin:0;font-size:15px}
+.spways{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:22px}
+.spway{padding:18px!important;border-top:4px solid var(--sc)}.spway h3{margin:10px 0 6px}.spway p{margin:0;color:var(--soft)}
+.spic{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;color:var(--sc);background:color-mix(in srgb,var(--sc) 12%,transparent)}
+.sptwo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}.sptwo .card{padding:20px!important}.sptwo h2{margin-top:0;font-size:clamp(20px,2.4vw,24px)}
+.spget{margin:0;padding-left:20px}.spget li{margin:6px 0}
+.sphow{list-style:none;margin:0;padding:0}.sphow li{display:flex;gap:12px;align-items:flex-start;margin:0 0 12px}.sphow b{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff}
+.spcta{margin-top:10px}.spcta .btns{margin:8px 0 0}

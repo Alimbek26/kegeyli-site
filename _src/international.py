@@ -87,4 +87,5 @@ def body(i, up, href, email):
             f'<h2>{T["plan_h"][i]}</h2><ol class="iaphs">{phases}</ol>'
             f'<h2>{T["tgt_h"][i]}</h2><div class="tablewrap"><table class="iatgt"><thead><tr><th>{T["measure"][i]}</th><th>{T["now"][i]}</th><th>{T["target"][i]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
             f'<div class="card ofcta iapart"><div><h3>{T["part_h"][i]}</h3><p>{T["part_p"][i]}</p><p><b>{T["counselor"][i]}</b> · <a href="mailto:{email}">{email}</a></p></div>'
-            f'<a class="btn p" href="{up}school-profile/">{T["profile"][i]} →</a></div>')
+            f'<a class="btn p" href="{up}school-profile/">{T["profile"][i]} →</a></div>'
+            f'<p class="btns"><a class="btn s" href="{href("support/")}">{__import__("support").NAME[i]} →</a></p>')
