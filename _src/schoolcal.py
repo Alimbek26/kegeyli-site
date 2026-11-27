@@ -14,8 +14,11 @@ TERMS = [("1", "2026-09-02", "2026-11-03"), ("2", "2026-11-10", "2026-12-27"),
 # (key, first day, last day) - pupils' holidays (kanikul)
 BREAKS = [("autumn", "2026-11-04", "2026-11-09"), ("winter", "2026-12-28", "2027-01-10"),
           ("spring", "2027-03-20", "2027-03-28"), ("summer", "2027-05-26", "2027-08-31")]
-# Public holidays that fall on a weekday inside a term (no lessons)
-DAYS_OFF = [("2026-10-01", "teachers"), ("2026-12-08", "constitution"), ("2027-03-08", "women")]
+# Non-working days for everyone (pupils and teachers): public holidays on weekdays and decreed extra days off.
+# 31.12.2026 - 02.01.2027: New Year days off under the presidential decree of 24.12.2025 on 2026 holidays.
+# Navruz, Ramadan Hayit, Kurban Hayit and other 2027 days off: add when the 2027 decree is published.
+DAYS_OFF = [("2026-10-01", "teachers"), ("2026-12-08", "constitution"), ("2026-12-31", "ny_extra"),
+            ("2027-01-01", "newyear"), ("2027-01-02", "ny_off"), ("2027-03-08", "women")]
 MONTHS = [(2026, m) for m in range(9, 13)] + [(2027, m) for m in range(1, 6)]   # September - May
 
 LANGS = ["kaa", "en", "uz", "ru"]
@@ -36,6 +39,9 @@ UNTIL = {"autumn": ("Gúzgi kanikulǵa shekem", "until the autumn holiday", "Kuz
          "summer": ("Jazǵı kanikulǵa shekem", "until the summer holiday", "Yozgi ta’tilgacha", "до летних каникул")}
 OFF = {"teachers": ("Muǵallimler hám ustazlar kúni", "Teachers’ and Mentors’ Day", "O‘qituvchi va murabbiylar kuni", "День учителей и наставников"),
        "constitution": ("Konstituciya kúni", "Constitution Day", "Konstitutsiya kuni", "День Конституции"),
+       "ny_extra": ("Qosımsha dem alıs kúni (Jańa jıl)", "Extra day off (New Year)", "Qo‘shimcha dam olish kuni (Yangi yil)", "Дополнительный выходной (Новый год)"),
+       "newyear": ("Jańa jıl", "New Year", "Yangi yil", "Новый год"),
+       "ny_off": ("Jańa jıl dem alısı", "New Year day off", "Yangi yil dam olish kuni", "Новогодний выходной"),
        "women": ("Xalıqaralıq hayal-qızlar kúni", "International Women’s Day", "Xalqaro xotin-qizlar kuni", "Международный женский день")}
 TCOL = {"1": "#d99a1e", "2": "#3b6fd8", "3": "#2f9e5b", "4": "#b04ac9"}
 MON = {"kaa": ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
