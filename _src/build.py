@@ -1288,6 +1288,8 @@ for l in ORDER:
         open(out, "w", encoding="utf-8").write(page(l, sub))
 open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(sitemap())
 open(os.path.join(ROOT, CAL.ICS), "w", encoding="utf-8", newline="").write(CAL.ics())
+import school_profile as SP
+SP.build(ROOT, DOMAIN)
 for l in ORDER:
     man = {"name": T[l]["brand"], "short_name": "Kegeyli QM", "lang": T[l]["html_lang"], "start_url": "timetable/", "scope": "/",
            "display": "standalone", "background_color": "#ffffff", "theme_color": "#0b5f78",
