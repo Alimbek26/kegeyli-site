@@ -20,6 +20,12 @@ DESCR = {
   "Nukusdagi O‘zbekiston Respublikasi Prezident maktabi: xalqaro darajadagi ta’lim beradigan davlat maktabi.",
   "Президентская школа Республики Узбекистан в Нукусе: государственная школа с образованием международного уровня."
  ],
+ "New Uzbekistan University": [
+  "Jańa Ózbekstan universiteti (Tashkent, 2021): injeneriya, kompyuter ilimleri, jasalma intellekt hám basqa da STEM baǵdarları boyınsha inglis tilindegi programmalar.",
+  "New Uzbekistan University (Tashkent, opened in 2021): English-taught programmes in engineering, computer science, AI and other STEM fields.",
+  "Yangi O‘zbekiston universiteti (Toshkent, 2021): muhandislik, kompyuter fanlari, sun’iy intellekt va boshqa STEM yo‘nalishlarida ingliz tilidagi dasturlar.",
+  "Университет Новый Узбекистан (Ташкент, открыт в 2021 году): программы на английском языке по инженерии, компьютерным наукам, ИИ и другим STEM-направлениям."
+ ],
  "British Council": [
   "Birlesken Korollik xalıqaralıq mádeniy qatnaslar hám bilim beriw shólkemi. Inglis tili, IELTS hám oqıw imkaniyatları boyınsha járdem beredi. 2026-jıl yanvardan mektebimiz British Council-dıń rásmiy IELTS dizimge alıw punkti.",
   "The UK’s international organisation for cultural relations and educational opportunities. Supports English-language learning, IELTS and study opportunities. Since January 2026 our school is an official IELTS Registration Point in partnership with the British Council.",
@@ -32,6 +38,7 @@ PARTNERS = [
  dict(name="British Council", url="https://www.britishcouncil.uz/en", logo="britishcouncil.png", dark=True),
  dict(name="PIIMA", url="https://piima.uz", logo="piima.png", dark=True),
  dict(name="Ájiniyaz atındaǵı NMPI", url="https://ndpi.uz", logo="nmpi.png"),
+ dict(name="New Uzbekistan University", url="https://newuu.uz", logo="newuu.png"),
 ]
 H = ("Hámkarlarımız", "Our partners", "Hamkorlarimiz", "Наши партнёры")
 P = ("Biz menen birge islesetuǵın shólkemler. Logotipti basıp, olardıń saytına ótiń.",
@@ -39,10 +46,10 @@ P = ("Biz menen birge islesetuǵın shólkemler. Logotipti basıp, olardıń say
      "Biz bilan hamkorlik qiluvchi tashkilotlar. Logotipni bosib, ularning saytiga o‘ting.",
      "Организации, с которыми мы сотрудничаем. Нажмите на логотип, чтобы перейти на их сайт.")
 
-PAGE_DESC = ("Mektepimizdiń hámkarları: PIIMA, Ájiniyaz atındaǵı NMPI, Prezident mektebi hám British Council.",
-             "The partners of Kegeyli specialized school: PIIMA, Nukus State Pedagogical Institute, the Presidential School and the British Council.",
-             "Kegeyli ixtisoslashtirilgan maktabining hamkorlari: PIIMA, Nukus davlat pedagogika instituti, Prezident maktabi va British Council.",
-             "Партнёры Кегейлийской специализированной школы: PIIMA, Нукусский педагогический институт, Президентская школа и British Council.")
+PAGE_DESC = ("Mektepimizdiń hámkarları: PIIMA, Ájiniyaz atındaǵı NMPI, Prezident mektebi, Jańa Ózbekstan universiteti hám British Council.",
+             "The partners of Kegeyli specialized school: PIIMA, Nukus State Pedagogical Institute, the Presidential School, New Uzbekistan University and the British Council.",
+             "Kegeyli ixtisoslashtirilgan maktabining hamkorlari: PIIMA, Nukus davlat pedagogika instituti, Prezident maktabi, Yangi O‘zbekiston universiteti va British Council.",
+             "Партнёры Кегейлийской специализированной школы: PIIMA, Нукусский педагогический институт, Президентская школа, Университет Новый Узбекистан и British Council.")
 X = {"visit": ("Saytqa ótiw", "Visit website", "Saytga o‘tish", "Перейти на сайт"),
      "join_h": ("Hámkar bolǵıńız keledi me?", "Want to partner with us?", "Hamkor bo‘lmoqchimisiz?", "Хотите стать партнёром?"),
      "join_p": ("Birgelikte oqıw, ótkeriletuǵın ilajlar yamasa ǵárezsiz jobalar boyınsha usınısıńız bolsa, bizge jazıń.", "If you have an idea for joint lessons, events or projects, write to us.", "Qo‘shma darslar, tadbirlar yoki loyihalar bo‘yicha taklifingiz bo‘lsa, bizga yozing.", "Если у вас есть идея совместных занятий, мероприятий или проектов, напишите нам."),
