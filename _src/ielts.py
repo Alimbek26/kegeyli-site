@@ -145,7 +145,7 @@ REG = dict(
         ("Official registration for IELTS Academic and IELTS General Training", "Reliable information on test dates, venues and procedures", "Advice on preparing and submitting your documents"),
         ("IELTS Academic va IELTS General Training imtihonlariga rasmiy ro‘yxatdan o‘tkazish", "Imtihon sanalari, joylashuvi va topshirish tartibi bo‘yicha ishonchli ma’lumot", "Hujjatlarni tayyorlash va topshirishda maslahat"),
         ("Официальная регистрация на IELTS Academic и IELTS General Training", "Надёжная информация о датах, местах и порядке сдачи", "Консультации по подготовке и подаче документов")),
- who=("Juwaplı: Alimbek Jumamuratov", "Contact: Alimbek Jumamuratov", "Mas’ul shaxs: Alimbek Jumamuratov", "Ответственный: Алимбек Жумамуратов"),
+ who=("Juwapker: Alimbek Jumamuratov", "Contact: Alimbek Jumamuratov", "Mas’ul shaxs: Alimbek Jumamuratov", "Ответственный: Алимбек Жумамуратов"),
  free=("Biypul", "Free", "Bepul", "Бесплатно"),
 )
 def reg_point(i):
