@@ -928,7 +928,8 @@ def page(lang, sub=""):
                      f'<div class="pmar" role="list"><div class="ptrack">{"".join(_pl * _rep)}</div><div class="ptrack" aria-hidden="true">{"".join(x.replace("<a ", "<a tabindex=-1 ") for x in _pl * _rep)}</div></div></section>') if (_pl and sub != "partners/") else ""
     SOC = {"tg": _I('<path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/>'), "ph": _I('<path d="M6 3h3l2 5-2 1.500a11 11 0 0 0 6 6L16.500 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/>'), "ml": _I('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>'), "pin": _I('<path d="M12 21s-6-5.600-6-10.500a6 6 0 0 1 12 0C18 15.400 12 21 12 21z"/><circle cx="12" cy="10.500" r="2.200"/>'), "clk": _I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')}
     _fl = lambda L: "".join(f'<li><a href="{h}">{n}</a></li>' for h, n in L)
-    foot_school = _fl([(href(lang, sub, lang, "about/"), t["nav"][0]), (href(lang, sub, lang, "leadership/"), t["lead_h"]), (href(lang, sub, lang, "teachers/"), t["teach_h"]), (href(lang, sub, lang, "timetable/"), TT_TXT["title"][i]), (href(lang, sub, lang, CAL.SUB), CAL.NAME[i]), (href(lang, sub, lang, GAL.SUB), GAL.NAME[i]), (href(lang, sub, lang, "study/"), STD.NAME[i]), (href(lang, sub, lang, "graduates/"), GT["title"][i]), (href(lang, sub, lang, "achievements/"), ACH.NAME["achievements/"][i]), (href(lang, sub, lang, "results/"), RS.NAME[i]), (href(lang, sub, lang, "admission/"), t["nav"][2]), (href(lang, sub, lang, "parents/"), EX.NAME["parents/"][i]), (href(lang, sub, lang, "canteen/"), CN.NAME[i])])
+    SPN = {"kaa": "Mektep profili (EN, PDF)", "en": "School Profile (PDF)", "uz": "Maktab profili (EN, PDF)", "ru": "Профиль школы (EN, PDF)"}[lang]
+    foot_school = _fl([(href(lang, sub, lang, "about/"), t["nav"][0]), (f"{up}school-profile/", SPN), (href(lang, sub, lang, "leadership/"), t["lead_h"]), (href(lang, sub, lang, "teachers/"), t["teach_h"]), (href(lang, sub, lang, "timetable/"), TT_TXT["title"][i]), (href(lang, sub, lang, CAL.SUB), CAL.NAME[i]), (href(lang, sub, lang, GAL.SUB), GAL.NAME[i]), (href(lang, sub, lang, "study/"), STD.NAME[i]), (href(lang, sub, lang, "graduates/"), GT["title"][i]), (href(lang, sub, lang, "achievements/"), ACH.NAME["achievements/"][i]), (href(lang, sub, lang, "results/"), RS.NAME[i]), (href(lang, sub, lang, "admission/"), t["nav"][2]), (href(lang, sub, lang, "parents/"), EX.NAME["parents/"][i]), (href(lang, sub, lang, "canteen/"), CN.NAME[i])])
     foot_abroad = _fl([(href(lang, sub, lang, k), AB.SUBNAME[k][i]) for k in ("abroad/", "abroad/plan/", "abroad/scholarships/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "abroad/sat/", "ielts/")])
     school = {
       "@context": "https://schema.org", "@type": "School", "name": t["brand"],
@@ -1278,6 +1279,7 @@ def sitemap():
         for l in ORDER:
             alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{a}" href="{DOMAIN + path(a) + sub}"/>' for a in ORDER)
             rows.append(f"  <url>\n    <loc>{DOMAIN + path(l) + sub}</loc>{alts}\n    <lastmod>{_dt.date.today().isoformat()}</lastmod>\n  </url>")
+    rows.append(f"  <url>\n    <loc>{DOMAIN}school-profile/</loc>\n    <lastmod>{_dt.date.today().isoformat()}</lastmod>\n  </url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
             'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(rows) + "\n</urlset>\n")
 
