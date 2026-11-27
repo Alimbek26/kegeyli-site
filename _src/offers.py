@@ -41,6 +41,25 @@ OFFERS.append(
       uni="Colorado State University", country="us", city="Fort Collins, Colorado",
       prog=("Economics (ekonomika)", "Economics", "Economics (iqtisodiyot)", "Economics (экономика)"),
       term="2025-fall", grant=None, date="2025-01-20", news=True))
+OFFERS.append(
+ dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls="11-A", grad="2024/2025",
+      uni="University of Glasgow", country="uk", city="Glasgow, Scotland", news=True,
+      rank="QS 2025: #78",
+      via=("Glasgow International College (Kaplan) arqalı: 2 semestrlik foundation, keyin universitet", "Through Glasgow International College (Kaplan): a two-term foundation year, then the university",
+           "Glasgow International College (Kaplan) orqali: 2 semestrlik foundation, so‘ng universitet", "Через Glasgow International College (Kaplan): подготовительный год (2 семестра), затем университет"),
+      prog=("Foundation (Business and Social Sciences) → MA (Hons) Economics", "Foundation (Business and Social Sciences) → MA (Hons) Economics",
+            "Foundation (Business and Social Sciences) → MA (Hons) Economics", "Foundation (Business and Social Sciences) → MA (Hons) Economics"),
+      term="2025-fall", grant=None, date="2025-04-04",
+      award=None, status=("Shártli usınıs", "Conditional offer", "Shartli taklif", "Условное предложение")))
+OFFERS.append(
+ dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls="11-A", grad="2024/2025",
+      uni="University of Birmingham", country="uk", city="Birmingham, England", news=True,
+      rank="QS 2025: #80",
+      via=("University of Birmingham Foundation Pathways (Kaplan) arqalı: foundation jılı qosılǵan 4 jıllıq bakalavriat", "Through University of Birmingham Foundation Pathways (Kaplan): a four-year bachelor’s degree with an integrated foundation year",
+           "University of Birmingham Foundation Pathways (Kaplan) orqali: foundation yili qo‘shilgan 4 yillik bakalavriat", "Через University of Birmingham Foundation Pathways (Kaplan): 4-летний бакалавриат с подготовительным годом"),
+      prog=("BSc (Hons) Economics", "BSc (Hons) Economics", "BSc (Hons) Economics", "BSc (Hons) Economics"),
+      term="2025-fall", grant=None, date="2025-04-04",
+      award=None, status=("Shártli usınıs", "Conditional offer", "Shartli taklif", "Условное предложение")))
 PROGRAMMES = [
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
       country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme-t.jpg"),
@@ -56,6 +75,10 @@ X = dict(
  t_cty=("mámleket", "countries", "ta davlat", "стран"),
  t_grant=("grantlar", "in grants", "grantlar", "в грантах"),
  admitted=("Qabıl etildi", "Admitted", "Qabul qilindi", "Принят(а)"),
+ offered=("Usınıs alındı", "Offer received", "Taklif olindi", "Получено предложение"),
+ via=("Jol", "Route", "Yo‘l", "Путь"),
+ status=("Túri", "Type", "Turi", "Тип"),
+ rank=("Dúnya reytingi", "World ranking", "Jahon reytingi", "Мировой рейтинг"),
  prog=("Baǵdar", "Programme", "Yo‘nalish", "Направление"),
  start=("Baslanıwı", "Start", "Boshlanishi", "Начало"),
  grant=("Grant", "Grant", "Grant", "Грант"),
@@ -80,10 +103,10 @@ X = dict(
        "Names are published with the students’ permission. If you have received an offer, please let the school know.",
        "Ismlar o‘quvchilarning roziligi bilan e’lon qilinadi. Yangi taklif olgan bo‘lsangiz, maktab rahbariyatiga xabar bering.",
        "Имена публикуются с согласия учеников. Если вы получили предложение, сообщите об этом школе."),
- hub=("Oqıwshılarımız AQSh universitetlerine qabıl etildi — barlıq usınıslar bir betde.",
-      "Our students have been admitted to universities in the USA — all offers on one page.",
-      "O‘quvchilarimiz AQSh universitetlariga qabul qilindi — barcha takliflar bir sahifada.",
-      "Наши ученики приняты в университеты США — все предложения на одной странице."),
+ hub=("AQSh hám Ullı Britaniya universitetleriniń usınısları, sonıń ishinde dúnyanıń top-100 universitetleri — barlıǵı bir betde.",
+      "Offers from universities in the USA and the UK, including world top-100 universities — all on one page.",
+      "AQSh va Buyuk Britaniya universitetlari takliflari, jumladan dunyoning top-100 universitetlari — barchasi bir sahifada.",
+      "Предложения университетов США и Великобритании, включая топ-100 мира, — всё на одной странице."),
 )
 MON = (["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr"],
        ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -116,12 +139,14 @@ def page(i, href, tabs):
         if o.get("prog"): rows.append((X["prog"][i], o["prog"][i]))
         if o.get("term"): rows.append((X["start"][i], _term(o["term"], i)))
         if o.get("grant"): rows.append((X["grant"][i], f'<b class="ofgr">${o["grant"]:,}</b>'))
+        if o.get("via"): rows.insert(0, (X["via"][i], o["via"][i]))
+        if o.get("status"): rows.append((X["status"][i], o["status"][i]))
         if o.get("award"): rows.append((X["grant"][i], f'<b class="ofgr">{o["award"][i]}</b>'))
         rows.append((X["student"][i], f'{e(o["student"][i])} · {(_cls(o["cls"], i) + " · ") if o.get("cls") else ""}{(X["grad"][i] + " " + o["grad"]) if i == 3 else (o["grad"] + " " + X["grad"][i])}'))
         dl = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in rows)
         nl = f'<a class="oflink" href="{href("news/")}">{X["news"][i]} →</a>' if o.get("news") else ""
         cards.append(f'<article class="card ofcard"><div class="ofhead"><span class="offlag" aria-hidden="true">{fl}</span>'
-                     f'<div><span class="ofok">✓ {X["admitted"][i]} · {_date(o["date"], i)}</span><h3>{e(o["uni"])}</h3><p class="ofloc">{e(o["city"])}, {cn[i]}</p></div></div>'
+                     f'<div><span class="ofok">✓ {X["offered" if o.get("status") else "admitted"][i]} · {_date(o["date"], i)}</span><h3>{e(o["uni"])}</h3><p class="ofloc">{e(o["city"])}, {cn[i]}{f' · <span class="ofrank">{o["rank"]}</span>' if o.get("rank") else ""}</p></div></div>'
                      f'<dl class="ofdl">{dl}</dl>{nl}</article>')
     progs = "".join(f'<article class="card ofprog">' + (f'<img src="{{UP}}photos/{p["photo"]}" alt="" loading="lazy">' if p.get("photo") else "")
                     + f'<div><span class="offlag sm" aria-hidden="true">{COUNTRY[p["country"]][0]}</span><h3>{p["name"][i]}</h3><p>{e(p["student"][i])}' + (f' · {p["year"]}' if p.get("year") else "") + '</p></div></article>'

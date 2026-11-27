@@ -1445,3 +1445,4 @@ section.plsec:not(.card){padding:0!important}
 .ofprog h3{margin:0 0 4px;font-size:17px}.ofprog p{margin:0;color:var(--soft)}
 .ofcta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin:28px 0 10px;padding:20px!important;background:linear-gradient(120deg,color-mix(in srgb,#2563eb 10%,var(--card)),var(--card))}
 .ofcta h3{margin:0 0 4px}.ofcta p{margin:0;color:var(--soft)}
+.ofrank{display:inline-block;font-weight:700;color:#7c3aed;background:color-mix(in srgb,#7c3aed 12%,transparent);padding:0 8px;border-radius:999px;font-size:13px}
