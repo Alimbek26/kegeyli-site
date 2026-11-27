@@ -7,24 +7,24 @@ YEARS = [  # (label, graduates)
 
 # (institution, field category) per graduate who continues studying
 PLACED = {
- "2022/2023": [("art_nukus","soc"),("nstu","eng"),("ksu","econ"),("ksu","eng"),("nstu","econ"),("navoiu","edu"),("coll_health2","med"),
-               ("ksu","sci"),("ksu","eng"),("art","soc"),("nstu","eng"),("nspi","sci"),("nstu","econ"),("ksu","lang")],
- "2023/2024": [("nii","edu"),("kaai","econ"),("ksu","sci"),("tsue","econ"),("kaai","eng"),("ksu","econ"),("ksu","eng"),("nspi","sci"),
-               ("nspi","edu"),("nspi","edu"),("mil","mil"),("ksu","econ"),("nii","edu"),("uzswlu","lang"),("nspi","sci"),("ksu","soc"),
-               ("nii","edu"),("urgmi","med"),("ksu","sci"),("nspi","sci"),("nii","edu"),("ksu","eng"),("ksu","econ"),("ksu","soc"),
-               ("ksu","lang"),("nspi","sci"),("navoiu","med"),("ksu","sci"),("ksu","soc"),("nstu","eng")],
+ "2022/2023": [("art_nukus","soc"),("nstu","eng"),("ksu","econ"),("ksu","eng"),("nstu","econ"),("navoiu","edu"),("coll_health2","med"),("ksu","sci"),
+               ("ksu","eng"),("art","soc"),("nstu","eng"),("nspi","sci"),("nstu","econ"),("ksu","lang")],
+ "2023/2024": [("nii","edu"),("kaai","econ"),("ksu","sci"),("tsue","econ"),("kaai","eng"),("ksu","econ"),("ksu","eng"),("nspi","sci"),("nspi","edu"),
+               ("nspi","edu"),("mil","mil"),("ksu","econ"),("nii","edu"),("uzswlu","lang"),("nspi","sci"),("ksu","soc"),("nii","edu"),("urgmi","med"),
+               ("ksu","sci"),("nspi","sci"),("nii","edu"),("ksu","eng"),("ksu","econ"),("ksu","soc"),("ksu","lang"),("ubs","med"),("navoiu","med"),
+               ("ksu","sci"),("ksu","soc"),("nstu","eng"),("keg3","eng")],
  "2024/2025": [("mephi","eng"),("tsue","econ"),("ksu","econ"),("ksu","lang"),("kmi","med"),("tsmu_ch","med"),("uzswlu","lang"),("ksu","soc"),
-               ("ksu","lang"),("tuit","eng"),("ksu","econ"),("ksu","sci"),("nuu","sci"),("ksu","soc"),("ksu","lang"),("ksu","soc"),
-               ("samsmu","med"),("nspi","edu"),("ksu","lang"),("ksu","sci"),("ksu","sci"),("ksu","eng"),("mil","mil"),("ksu","edu"),
-               ("ksu","sci"),("kmi","med"),("nuu_new","econ"),("ksu","lang"),("ksu","econ"),("kaai","econ"),("coll_aral","med"),("uit","soc"),
-               ("coll_aral","med"),("ksu","lang"),("ksu","econ"),("coll_health1","lang"),("ksu","edu"),("coll_health2","med"),("mil","mil")],
- "2025/2026": [("ksu","econ"),("cyber","eng"),("karshi","soc"),("asmi","med"),("kmi","med"),("ksu","sci"),("ksu","econ"),("kmi","med"),
-               ("uzswlu","lang"),("ksu","econ"),("ksu","econ"),("ksu","sci"),("ksu","econ"),("uzswlu","lang"),("ksu","lang"),("samvet_nukus","econ"),
-               ("nstu","eng"),("ksu","sci"),("ksu","lang"),("samspi","lang"),("ksu","econ"),("namangan","soc"),("ksu","lang"),("nspi","lang"),
-               ("ksu","econ"),("urgu","soc"),("art_nukus","soc"),("nstu","eng"),("nspi","edu"),("tsmu_ch","med"),("ksu","econ"),("ranch","econ"),
-               ("ksu","sci"),("nstu","eng"),("nii","eng"),("nspi","lang"),("nstu","econ"),("urgmi","med"),("ksu","sci"),("nspi","lang"),
-               ("ksu","lang"),("uit","edu"),("ksu","lang"),("ksu","soc"),("ksu","sci"),("ksu","econ"),("ksu","sci"),("nspi","edu"),
-               ("ksu","econ"),("ksu","lang"),("ksu","lang"),("nstu","econ"),("termiz","soc")],
+               ("ksu","lang"),("tuit","eng"),("ksu","econ"),("ksu","sci"),("nuu","sci"),("ksu","soc"),("ksu","lang"),("ksu","soc"),("samsmu","med"),
+               ("nspi","edu"),("ksu","lang"),("ksu","sci"),("ksu","sci"),("ksu","eng"),("mil","mil"),("ksu","edu"),("ksu","sci"),("kmi","med"),
+               ("nuu_new","econ"),("ksu","lang"),("ksu","econ"),("kaai","econ"),("coll_aral","med"),("uit","soc"),("coll_aral","med"),("ksu","lang"),
+               ("ksu","econ"),("coll_health1","med"),("ksu","edu"),("coll_health2","med"),("mil","mil")],
+ "2025/2026": [("ksu","econ"),("cyber","eng"),("karshi","soc"),("asmi","med"),("kmi","med"),("ksu","sci"),("ksu","econ"),("kmi","med"),("uzswlu","lang"),
+               ("ksu","econ"),("ksu","econ"),("ksu","sci"),("ksu","econ"),("uzswlu","lang"),("ksu","lang"),("samvet_nukus","econ"),("nstu","eng"),
+               ("ksu","sci"),("ksu","lang"),("samspi","lang"),("ksu","econ"),("namangan","soc"),("ksu","lang"),("nspi","lang"),("ksu","econ"),
+               ("urgu","soc"),("art_nukus","soc"),("nstu","eng"),("nspi","edu"),("tsmu_ch","med"),("ksu","econ"),("ranch","econ"),("ksu","sci"),
+               ("nstu","econ"),("uit","eng"),("nspi","lang"),("nstu","econ"),("urgmi","med"),("ksu","sci"),("nspi","lang"),("ksu","lang"),("uit","edu"),
+               ("ksu","lang"),("ksu","soc"),("ksu","sci"),("ksu","econ"),("ksu","sci"),("nspi","edu"),("ksu","econ"),("ksu","lang"),("ksu","lang"),
+               ("nstu","econ"),("termiz","soc")]
 }
 
 # key: (kaa, en, uz, ru, city key, kind) kind: "uni" or "college"
@@ -60,11 +60,14 @@ INST = {
  "termiz": ("Termiz mámleketlik universiteti", "Termez State University", "Termiz davlat universiteti", "Термезский государственный университет", "surkhandarya", "uni"),
  "coll_health1": ("Abu Áli ibn Sina atındaǵı Nókis 1-sanlı jámiyet salamatlıǵı texnikumı", "Nukus Public Health College No. 1 named after Ibn Sina", "Abu Ali ibn Sino nomidagi 1-son Nukus jamoat salomatligi texnikumi", "Нукусский техникум общественного здоровья № 1 им. Ибн Сины", "nukus", "college"),
  "coll_health2": ("Abu Áli ibn Sina atındaǵı Nókis 2-sanlı jámiyet salamatlıǵı texnikumı", "Nukus Public Health College No. 2 named after Ibn Sina", "Abu Ali ibn Sino nomidagi 2-son Nukus jamoat salomatligi texnikumi", "Нукусский техникум общественного здоровья № 2 им. Ибн Сины", "nukus", "college"),
+ "ubs": ("University of Business and Science Tashkent filialı", "University of Business and Science, Tashkent branch", "University of Business and Science Toshkent filiali", "University of Business and Science, Ташкентский филиал", "tashkent", "uni"),
+ "keg3": ("Kegeyli rayonı 3-sanlı texnikumı", "Kegeyli District College No. 3", "Kegeyli tumani 3-sonli texnikumi", "Техникум №3 Кегейлийского района", "kegeyli", "college"),
  "coll_aral": ("Aralboyı medicina hám transport texnikumı", "Aralboyi Medical and Transport College", "Orolbo‘yi tibbiyot va transport texnikumi", "Приаральский медицинский и транспортный техникум", "nukus", "college"),
 }
 
 CITY = {
  "nukus": ("Nókis", "Nukus", "Nukus", "Нукус"),
+ "kegeyli": ("Kegeyli", "Kegeyli", "Kegeyli", "Кегейли"),
  "tashkent": ("Tashkent", "Tashkent", "Toshkent", "Ташкент"),
  "samarkand": ("Samarqand", "Samarkand", "Samarqand", "Самарканд"),
  "khorezm": ("Urgench", "Urgench", "Urganch", "Ургенч"),
@@ -93,9 +96,12 @@ CERTS = {
  "2022/2023": dict(with_=0, top=0, ielts=0, sat=0),
  "2023/2024": dict(with_=7, top=0, ielts=1, sat=0),
  "2024/2025": dict(with_=28, top=5, ielts=5, sat=2),
- "2025/2026": dict(with_=53, top=7, ielts=4, sat=2),
+ "2025/2026": dict(with_=53, top=8, ielts=4, sat=2),
 }
 BEST_SAT = 1310
+
+# Cities counted as "home" (in Karakalpakstan, not "outside")
+HOME = ("nukus", "kegeyli")
 
 # Map positions (latitude, longitude) of the cities
 GEO = {"kegeyli": (42.78, 59.62), "nukus": (42.46, 59.60), "tashkent": (41.31, 69.24), "samarkand": (39.65, 66.96),
@@ -111,14 +117,14 @@ STORIES = []
 ABBR = {"ksu": "QMU", "nspi": "NMPI", "nstu": "NMTU", "nii": "NII", "kmi": "QMI", "kaai": "QAXI", "art_nukus": "ÓMI", "samvet_nukus": "SVMU",
         "ranch": "RANCH", "uit": "UIT", "cyber": "CYBER", "tsue": "TSUE", "tuit": "TUIT", "nuu": "NUUz", "mephi": "MEPhI", "nuu_new": "NewUU",
         "uzswlu": "UzSWLU", "mil": "HXMU", "art": "ÓMI", "tsmu_ch": "TSMU", "samsmu": "SamMU", "samspi": "SamPI", "urgmi": "UrMI",
-        "urgu": "UrDU", "asmi": "ADTI", "navoiu": "NavDU", "karshi": "QarDU", "namangan": "NamDU", "termiz": "TerDU", "coll_health1": "JST1", "coll_health2": "JST2", "coll_aral": "AMTT"}
+        "urgu": "UrDU", "asmi": "ADTI", "navoiu": "NavDU", "karshi": "QarDU", "namangan": "NamDU", "termiz": "TerDU", "coll_health1": "JST1", "coll_health2": "JST2", "coll_aral": "AMTT", "ubs": "UBS", "keg3": "KT3"}
 
 # Full names of graduates who continue their education (published with permission), same order as PLACED.
 NAMES = {
  "2022/2023": ["Аманбаева Қанзада Жубандық қызы", "Атаханова Назира Назирбай қызы", "Бахтыбаева Шахноза Махмуд қызы", "Инятов Азизбек Рафатдин улы",
    "Жалғасбаева Жулдыз Абатбай қызы", "Жарылқасинова Диана Елмурза қызы", "Жолдасбаева Дилназ Мухаматдин қызы", "Жумабаев Адилбек Азат улы",
    "Жумахметов Жаңабай Пердебай улы", "Қайпбаева Диларам Артықбай қызы", "Шалабаева Феруза Бахтияр қызы", "Шерниязова Салтанат Қуўат қызы",
-   "Умирбаев Элбрус Ерназар улы", "Уразбаева Шахноза Оралбай қызы"],
+   "Умирбаев Елбрус Ерназар улы", "Уразбаева Шахноза Оралбай қызы"],
  "2023/2024": ["Алламбергенова Айсара Адилбай қызы", "Аманбаева Мерўерт Бахтияр қызы", "Ахназарова Алтинай Қалхназар қизи", "Айбарова Зарина Бахтияр қызы",
    "Айтмуратов Шамшет", "Азаматова Арайлым Азамат қызы", "Базарбаев Жасурбек Байрамбай улы", "Бекбергенова Шахнозабану Анибек қизи",
    "Ерназарова Нилуфар Еркинбай қызы", "Ешмуратова Гулферуз Жеңисбаевна", "Иқласбаев Аллаяр Алпамисович", "Жалгасбаева Гулхумар Кеунимжай қызы",
@@ -126,7 +132,8 @@ NAMES = {
    "Кайратдинов Пахратдин Асематдийин ули", "Муратбаева Жузимгул Даўлетбай қизи", "Ниетуллаева Шахнозабану Нажиматдин қизи", "Нуратдинов Сайыпбек Махсетбай улы",
    "Пирданова Бегзада", "Сапарбаева Гулайда Махсетбай қызы", "Сапарниязов Артықбай Азирбаевич", "Сарсенбаева Дилфуза Бахадир қызы",
    "Сметуллаева Феруза Насир қызы", "Тажетдинова Нурзада Жақсимбай қизи", "Төлепбергенова Айсулыў Жалғасбай қызы", "Торениязова Нурсулиў Тенелбай қизи",
-   "Турғанбаева Зияда Бахадыр қызы", "Узакбаева Айжамал Музапбар қызы"],
+   "Турғанбаева Зияда Бахадыр қызы", "Узакбаева Айжамал Музапбар қызы",
+   "Юсупова Умида Бахтияр қизи"],
  "2024/2025": ["Абатов Едилбек Адилбекович", "Абдуллаева Айжамал Саламат қизи", "Алламбергенов Мухаммеддин Қадирбай ўғли", "Алланиязова Гулзада Жанибек қызы",
    "Аймуратов Тазабай Байрамбай улы", "Бабаханова Риана Матимурат қизи", "Базарбаева Гулзар Муратбай қизи", "Бердимуратова Алима Исмайил қизи",
    "Даўлетбаева Сайёра Сағийдулла қизи", "Дуйсенбаев Турсинбай Есенбай ули", "Ембергенов Нурполат Адилбай ули", "Ешимбетова Малика Арепбай қизи",
@@ -139,18 +146,18 @@ NAMES = {
    "Жадигерова Зарина Амангелди қизи", "Караматдинова Гулқумар Садатдин қизи", "Каримбаев Асадбек Данияр улы"],
  "2025/2026": ["Абдуллаева Сабрина Сипатдин қызы", "Әдилбаев Әрман Нурлыбай улы", "Аяпбергенов Шахрухбек Бекберген улы", "Айбаров Ғайрат Бахтияр улы",
    "Базарбаев Батыр Саламат улы", "Бегмуратова Гүлдана Азамат қызы", "Бекбаўлиев Мырзабек Байрамович", "Даулетбаева Шахсанем Азамат қызы",
-   "Дәўлетбаева Алфия Палуанбай қызы", "Досназаров Ақылбек Жумағали улы", "Эсемуратов Жахангир Албертович", "Ҳамидуллаева Айнур Дәўлетовна",
+   "Дәўлетбаева Алфия Палуанбай қызы", "Досназаров Ақылбек Жумағали улы", "Есемуратов Жахангир Албертович", "Хамидуллаева Айнур Дәўлетовна",
    "Исакова Гүлдана Қошқарбай қызы", "Жалғасбаева Гулнура Камалатдин қызы", "Жаңабаева Элмира Сәлменовна", "Жаңабаева Гүлзада Иляс қызы",
-   "Жиемуратов Султанбек Тошкентбай улы", "Жумамабетова Гүлсима Зийнатдин қызы", "Жумамуратова Мехрибан Бегжан қызы", "Жумамуратова Рамила Хожамуратовна",
+   "Жиемуратов Султанбек Тошкентбай улы", "Жумамбетова Гүлсима Зийнатдин қызы", "Жумамуратова Мехрибан Бегжан қызы", "Жумамуратова Рамила Хожамуратовна",
    "Калдибаева Дилафруз Айболсын қызы", "Камалатдинов Даулетияр Илхам улы", "Кеңесбаева Гүлсевар Алийшер қызы", "Кеңесбаева Динара Парахат қызы",
    "Кеунимжаева Бийбиназ Саламат қызы", "Мамбеткаримов Рамазан Шәмшетдин улы", "Маратов Бекполат Илхаматдин улы", "Махсетбаев Уснатдин Айдосович",
    "Мнажатдинов Салауатдин Махмутдин улы", "Мнажатдинова Шахноза Азамат қызы", "Муратбаева Диана Байрамбай қызы", "Муратбаева Гүлбәҳәр Досназар қызы",
    "Муратов Әлишер Дәўлет улы", "Муханов Мийрас Жалғасбай улы", "Нурниязов Абзал", "Оңғарбаева Нилуфар Ерполатовна",
    "Полатов Марат Фурхат улы", "Қудиярова Зарина Хожабай қызы", "Қуўанышбаева Нағийма Бахтияровна", "Рзамбетова Перижамал Боранбай қызы",
    "Сейтекова Наргиза Халықназар қызы", "Шамшиева Сапарай Рахат қызы", "Таңатарова Гулмира Қалбай қызы", "Тлепбаева Турсынай Саламат қызы",
-   "Толебаев Мухаммед Асанбекович", "Толыбаева Айдынай Жалалатдин қызы", "Толыбаева Ҳурлиха Батырбай қызы", "Турғанбаева Айзада Ерполатовна",
+   "Толебаев Мухаммед Асанбекович", "Толыбаева Айдынай Жалалатдин қызы", "Толыбаева Хурлиха Батырбай қызы", "Турғанбаева Айзада Ерполат қызы",
    "Турғанбаева Улбосын Оңғарбай қызы", "Убайдуллаева Гүлбаныў Исметулла қызы", "Умарбаева Мадина Давлеткелди қызы", "Уразбаева Хансулыў Өскинбай қызы",
-   "Усенов Қаҳраман Куанишбай ули"],
+   "Усенов Қахраман Куанишбай ули"],
 }
 # Note: the 2025/2026 list follows table 8.4 minus the three graduates without a university/college entry.
 _KAA = {"а":"a","ә":"á","б":"b","в":"v","г":"g","ғ":"ǵ","д":"d","е":"e","ё":"yo","ж":"j","з":"z","и":"i","й":"y","к":"k","қ":"q","л":"l","м":"m",
@@ -168,7 +175,6 @@ def latin_name(s):
 
 # Graduates with no university/college listed in the school records (index = position in the year's list)
 UNPLACED = {
-    "2023/2024": [(30, "Юсупова Умида Бахтияр қизи")],
     "2024/2025": [(39, "Муратбаева Согдиана Артуровна")],
     "2025/2026": [(1, "Абеков Рашид Балтабай улы"), (5, "Балғабаева Нурзада Дарябай қызы"), (9, "Далибаева Зийба Рүстем қызы")],
 }
@@ -185,8 +191,8 @@ _C = lambda s: [x.split(";") if x else [] for x in s.split("|")]
 CERT_SUBJ = {
  "2022/2023": [[] for _ in range(14)],
  "2023/2024": _C("|||E:B2||E:B1||||||M:B|E:B2||E:B2||||||||||||E:B2||||".replace("||||", "||||")),
- "2024/2025": _C("M:C;P:C+|M:B|M:B;E:B1|E:B2;U:C+|C:C+;B:A|B:C|E:B2;U:B|H:B+|E:B2;Q:C+|M:A+;P:B|E:B1||P:C+;M:C+|H:C;G:C|E:B2;U:B|E:B2;H:A+|C:C;B:C|Q:C+;B:C+|E:B2|C:C|||M:B;P:C+||||M:A;E:B2|E:B2;U:B|E:B2;M:C|E:B1||||E:B2;Q:A|E:B1||Q:B||M:B;P:C"),
- "2025/2026": _C("M:B;T:B2|M:C+;P:C+|L:C|B:C+;H:B|C:C+;B:C+;L:B;H:C|C:C+;B:B;L:C|M:C+;H:A;E:B2|C:C;B:B+|M:C;L:A;H:C|M:C+;E:B2|M:C;E:B1|M:A;P:A;H:C+|M:C+;T:B2|M:C;L:C+;E:B2|L:B+;E:B2|E:B1|M:B;P:C+|C:C+;B:B+;L:B+;H:A|L:C;H:C;E:B1|L:B;E:B2|L:B;H:A+;E:B1|H:C;E:B1|M:B;L:B+;H:C+;E:B2|M:B;L:B+;H:C+;E:B2|M:B;T:B1|E:B1|H:C|M:B+;P:C+|L:C+|C:B;B:C+|M:C+|L:B;H:C+||M:B;E:B2||L:C+;H:B|M:C+;E:B1|B:C;L:C+;H:C|C:C+;L:C+;H:C|L:B+;H:B;E:B2|L:B;H:C;E:B2||E:B2|M:C;L:B;H:C+|C:A;B:B+;L:B;H:C+|M:B;L:C+;T:B2|M:A+;P:A;L:B+;H:B|B:C;L:C+|M:C+;E:B1|M:B;H:B|L:B;H:C+;E:B2|M:B|L:C;H:C"),
+ "2024/2025": _C("M:C+;P:C+|M:B|M:B;E:B1|E:B2;U:C+|C:C+;B:A|B:C|E:B2;U:B|H:B+|E:B2;Q:C+|M:A+;P:B|E:B1||P:C+;M:C+|H:C;G:C|E:B2;U:B|E:B2;H:A+|C:C;B:C|Q:C+;B:C+|E:B2|C:C+|||M:B;P:C+||||M:A;E:B2|E:B2;U:B|E:B2;M:C|E:B1||||E:B2;Q:A|E:B1||Q:B||M:B;P:C"),
+ "2025/2026": _C("M:B;T:B2|M:C+;P:C+|L:C|B:C+;H:B|C:C+;B:C+;L:B;H:C|C:C+;B:B;L:C|M:C+;H:A;E:B2|C:C;B:B+|M:C;L:A;H:C|M:C+;E:B2|M:C;E:B1|M:A;P:A;H:C+|M:C+;T:B2|M:C;L:C+;E:B2|L:B+;E:B2|E:B1|M:B;P:C+|C:C+;B:B+;L:B+;H:A|L:C;H:C;E:B1|L:B;E:B2|L:B;H:A+;E:B1|H:C;E:B1|M:B;L:B+;H:C+;E:B2|E:B2|M:B;T:B1|E:B1|H:C;L:B|M:B+;P:C+|L:C+|C:B;B:C+|M:C+|L:B;H:C+||M:B;E:B2||L:C+;H:B|M:C+;E:B1|B:C;L:C+;H:C|C:C+;B:B;L:C+;H:C|L:B+;H:B;E:B2|L:B;H:C;E:B2||E:B2|M:C;L:B;H:C+|C:A;B:B+;L:B;H:C+|M:B;L:C+;T:B2|M:A+;P:A;L:B+;H:B|B:C;L:C+|M:C+;E:B1|M:B;H:B;L:A+|L:B;H:C+;E:B2|M:B|L:C;H:C"),
 }
-_C23 = ["", "", "", "E:B2", "", "E:B1", "", "", "", "", "M:B", "E:B2", "", "E:B2", "", "", "", "", "", "", "", "", "", "", "E:B2", "", "", "", "", ""]
+_C23 = ["", "", "", "E:B2", "", "E:B1", "", "", "", "", "M:B", "E:B2", "", "E:B2", "", "", "", "", "", "", "", "", "", "", "E:B2", "", "", "", "", "", ""]
 CERT_SUBJ["2023/2024"] = [x.split(";") if x else [] for x in _C23]

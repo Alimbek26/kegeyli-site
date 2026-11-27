@@ -563,7 +563,7 @@ def grad_body(lang, i):
         bars = "".join(f'<div class="mb"><span class="mv">{fmt(v)}</span><i style="height:{max(v / m * 100, 2):.0f}%;background:{col}"></i><small>{y[2:4]}/{y[7:]}</small></div>' for v, (y, _) in zip(vals, G.YEARS))
         return f'<div class="mini card"><h3>{title}</h3><div class="mbars">{bars}</div></div>'
     cpct = [round(C[y]["with_"] / n * 100) for y, n in G.YEARS]
-    outside = [sum(1 for k, _ in G.PLACED[y] if G.INST[k][4] != "nukus") for y, _ in G.YEARS]
+    outside = [sum(1 for k, _ in G.PLACED[y] if G.INST[k][4] not in G.HOME) for y, _ in G.YEARS]
     medeng = [sum(1 for _, f in G.PLACED[y] if f in ("med", "eng")) for y, _ in G.YEARS]
     trends = (mini(GT2["t_cert"][i], cpct, lambda v: f"{v}%", "#f2b134") + mini(GT2["t_out"][i], outside, str, "#0b5f78")
               + mini(GT2["t_me"][i], medeng, str, "#a3202c"))
@@ -589,7 +589,7 @@ def grad_body(lang, i):
         fs = fld.most_common()
         stack = "".join(f'<i style="width:{n / n_ * 100:.2f}%;background:{G.FIELD[k][4]}" title="{G.FIELD[k][i]}"></i>' for k, n in fs)
         legend = "".join(f'<li><span class="sw" style="background:{G.FIELD[k][4]}"></span><b>{G.FIELD[k][i]}</b><em>{n} · {round(n / n_ * 100)}%</em></li>' for k, n in fs)
-        out = sum(n for c, n in city.items() if c != "nukus")
+        out = sum(n for c, n in city.items() if c not in G.HOME)
         # map: real outline of Uzbekistan (equirectangular, cos-lat scaled)
         import math
         LO0, LO1, LA0, LA1 = 55.6, 75.2, 36.9, 45.9; k_ = math.cos(math.radians(41.3))
@@ -600,18 +600,22 @@ def grad_body(lang, i):
         outline = " ".join("M" + " L".join(f"{xy((p[1], p[0]))[0]:.1f} {xy((p[1], p[0]))[1]:.1f}" for p in ring) + " Z" for poly in UZB for ring in poly)
         kx, ky = xy("kegeyli"); svg = f'<path d="{outline}" class="land"/>'
         for c, n in sorted(city.items(), key=lambda kv: kv[1]):
+            if c == "kegeyli":
+                continue  # same spot as the school marker
             x_, y_ = xy(c); r = min(5 + (n ** 0.5) * 2.2, 18)
             if c != "nukus":
                 svg += f'<path d="M{kx:.0f} {ky:.0f} Q{(kx + x_) / 2:.0f} {min(ky, y_) - 30:.0f} {x_:.0f} {y_:.0f}" class="arc"/>'
             svg += f'<circle cx="{x_:.0f}" cy="{y_:.0f}" r="{r:.1f}" class="cdot{" home" if c == "nukus" else ""}"/>'
         for c, n in city.items():
+            if c == "kegeyli":
+                continue
             x_, y_ = xy(c); r = min(5 + (n ** 0.5) * 2.2, 18)
             pos = {"namangan": ("middle", 0, -r - 8), "andijan": ("start", r + 5, r + 10), "tashkent": ("end", -r - 6, -r - 2), "nukus": ("start", r + 6, 16),
                    "khorezm": ("start", r + 6, 10), "navoi": ("end", -r - 6, 4)}.get(c, ("start", r + 6, 4))
             svg += f'<text x="{x_ + pos[1]:.0f}" y="{y_ + pos[2]:.0f}" text-anchor="{pos[0]}" class="clab">{G.CITY[c][i]} <tspan>{n}</tspan></text>'
         svg += f'<circle cx="{kx:.0f}" cy="{ky:.0f}" r="5" class="school"/><text x="{kx - 6:.0f}" y="{ky - 14:.0f}" class="clab sch">{GT2["school"][i]}</text>'
         mapsvg = f'<div class="gmap"><svg viewBox="0 0 {W} {H}" role="img" aria-label="{GT["city_h"][i]}">{svg}</svg></div>'
-        beyond = sorted(((k, n) for k, n in inst.items() if G.INST[k][4] != "nukus"), key=lambda kv: (-kv[1], G.INST[kv[0]][i]))
+        beyond = sorted(((k, n) for k, n in inst.items() if G.INST[k][4] not in G.HOME), key=lambda kv: (-kv[1], G.INST[kv[0]][i]))
         bcards = "".join(f'<div class="bcard">{seal(k)}<div><small>{G.CITY[G.INST[k][4]][i]}</small><b>{G.INST[k][i]}</b></div><span class="bn">{n}</span></div>' for k, n in beyond)
         return (f'<div class="gview" data-y="{key}"{"" if key == "all" else " hidden"}>'
                 f'<div class="gsec two"><div><h2>{GT["where_h"][i]}</h2>{ih}</div>'
