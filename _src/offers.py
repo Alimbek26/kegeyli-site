@@ -53,7 +53,6 @@ OFFERS.append(
 OFFERS.append(
  dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls="11-A", grad="2024/2025",
       uni="University of Glasgow", country="uk", city="Glasgow, Scotland", news=True,
-      rank="QS 2025: #78",
       via=("Glasgow International College (Kaplan) arqalı: 2 semestrlik foundation, keyin universitet", "Through Glasgow International College (Kaplan): a two-term foundation year, then the university",
            "Glasgow International College (Kaplan) orqali: 2 semestrlik foundation, so‘ng universitet", "Через Glasgow International College (Kaplan): подготовительный год (2 семестра), затем университет"),
       prog=("Foundation (Business and Social Sciences) → MA (Hons) Economics", "Foundation (Business and Social Sciences) → MA (Hons) Economics",
@@ -63,7 +62,6 @@ OFFERS.append(
 OFFERS.append(
  dict(student=("Ayjamal Abdullaeva", "Ayjamal Abdullaeva", "Ayjamal Abdullayeva", "Айжамал Абдуллаева"), cls="11-A", grad="2024/2025",
       uni="University of Birmingham", country="uk", city="Birmingham, England", news=True,
-      rank="QS 2025: #80",
       via=("University of Birmingham Foundation Pathways (Kaplan) arqalı: foundation jılı qosılǵan 4 jıllıq bakalavriat", "Through University of Birmingham Foundation Pathways (Kaplan): a four-year bachelor’s degree with an integrated foundation year",
            "University of Birmingham Foundation Pathways (Kaplan) orqali: foundation yili qo‘shilgan 4 yillik bakalavriat", "Через University of Birmingham Foundation Pathways (Kaplan): 4-летний бакалавриат с подготовительным годом"),
       prog=("BSc (Hons) Economics", "BSc (Hons) Economics", "BSc (Hons) Economics", "BSc (Hons) Economics"),
@@ -72,6 +70,20 @@ OFFERS.append(
 OFFERS.append(
  dict(student=("Aynura Turǵanbaeva", "Aynura Turganbaeva", "Aynura Turg‘anbayeva", "Айнура Турганбаева"), cls="11-A", grad="2024/2025",
       uni="University of Arizona", country="us", city="Tucson, Arizona", prog=None, term=None, grant=16000, date="2025-05-17", news=True))
+# Official website and QS World University Rankings 2025 position (the edition current when the offers were made).
+# qs: number for sorting, text as shown; None = not in the QS ranking. note: shown after the rank.
+UNI = {
+ "University of Glasgow": ("https://www.gla.ac.uk", 78, "78"),
+ "University of Birmingham": ("https://www.birmingham.ac.uk", 80, "80"),
+ "University of Minnesota Twin Cities": ("https://twin-cities.umn.edu", 203, "=203"),
+ "University of Arizona": ("https://www.arizona.edu", 293, "=293"),
+ "Colorado State University": ("https://www.colostate.edu", 442, "=442"),
+ "Iowa State University": ("https://www.iastate.edu", 470, "470"),
+ "University of Cincinnati — Clermont College": ("https://ucclermont.edu", 761, "761–770"),
+ "Pennsylvania Western University": ("https://www.pennwest.edu", None, None),
+ "Caldwell University": ("https://www.caldwell.edu", None, None),
+}
+UNI_NOTE = {"University of Cincinnati — Clermont College": ("University of Cincinnati reytingi", "University of Cincinnati as a whole", "University of Cincinnati reytingi", "рейтинг University of Cincinnati в целом")}
 PROGRAMMES = [
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
       country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme-t.jpg"),
@@ -91,6 +103,13 @@ X = dict(
  via=("Jol", "Route", "Yo‘l", "Путь"),
  status=("Túri", "Type", "Turi", "Тип"),
  rank=("Dúnya reytingi", "World ranking", "Jahon reytingi", "Мировой рейтинг"),
+ site=("Rásmiy sayt", "Official website", "Rasmiy sayt", "Официальный сайт"),
+ noqs=("QS reytinginde joq", "Not in the QS ranking", "QS reytingida yo‘q", "Нет в рейтинге QS"),
+ t_top=("dúnyanıń top-100 universiteti", "world top-100 universities", "ta dunyo top-100 universiteti", "университета из мирового топ-100"),
+ qs_src=("Reyting: QS World University Rankings 2025 (usınıslar alınǵan waqıttaǵı basılım), topuniversities.com.",
+         "Rankings: QS World University Rankings 2025 (the edition current when the offers were made), topuniversities.com.",
+         "Reyting: QS World University Rankings 2025 (takliflar olingan paytdagi nashr), topuniversities.com.",
+         "Рейтинг: QS World University Rankings 2025 (издание, действовавшее на момент предложений), topuniversities.com."),
  prog=("Baǵdar", "Programme", "Yo‘nalish", "Направление"),
  start=("Baslanıwı", "Start", "Boshlanishi", "Начало"),
  grant=("Grant", "Grant", "Grant", "Грант"),
@@ -136,14 +155,24 @@ def _term(t, i):
 def _cls(c, i):
     return f'{X["cls"][i]} {c}' if i == 1 else f'{c} {X["cls"][i]}'
 
+def _rank(uni, i):
+    u = UNI.get(uni)
+    if not u: return ""
+    if u[1] is None:
+        return f'<p class="ofqs none">{X["noqs"][i]}</p>'
+    top = ' top' if u[1] <= 100 else ''
+    note = f' <small>({UNI_NOTE[uni][i]})</small>' if uni in UNI_NOTE else ""
+    return f'<p class="ofqs{top}"><b>QS 2025: #{u[2]}</b>{note}</p>'
+
 def stats():
     return dict(n=len(OFFERS), students=len({o["student"][1] for o in OFFERS}), uni=len({o["uni"] for o in OFFERS}), cty=len({o["country"] for o in OFFERS}),
-                grant=sum(o["grant"] or 0 for o in OFFERS))
+                grant=sum(o["grant"] or 0 for o in OFFERS),
+                top=len({o["uni"] for o in OFFERS if (UNI.get(o["uni"], (0, None))[1] or 9999) <= 100}))
 
 def page(i, href, tabs):
     e = _html.escape; st = stats()
     tiles = "".join(f'<div class="stat"><b>{v}</b><span>{l}</span></div>' for v, l in [
-        (st["n"], X["t_off"][i]), (st["uni"], X["t_uni"][i]), (st["cty"], X["t_cty"][i]), (f'${st["grant"]:,}', X["t_grant"][i])])
+        (st["n"], X["t_off"][i]), (st["uni"], X["t_uni"][i]), (st["top"], X["t_top"][i]), (st["cty"], X["t_cty"][i]), (f'${st["grant"]:,}', X["t_grant"][i])])
     cards = []
     for o in sorted(OFFERS, key=lambda o: o["date"], reverse=True):
         fl, cn = COUNTRY[o["country"]]
@@ -156,9 +185,12 @@ def page(i, href, tabs):
         if o.get("award"): rows.append((X["grant"][i], f'<b class="ofgr">{o["award"][i]}</b>'))
         rows.append((X["student"][i], f'{e(o["student"][i])} · {(_cls(o["cls"], i) + " · ") if o.get("cls") else ""}{(X["grad"][i] + " " + o["grad"]) if i == 3 else (o["grad"] + " " + X["grad"][i])}'))
         dl = "".join(f"<dt>{a}</dt><dd>{b}</dd>" for a, b in rows)
-        nl = f'<a class="oflink" href="{href("news/")}">{X["news"][i]} →</a>' if o.get("news") else ""
+        site = UNI.get(o["uni"], (None,))[0]
+        sl = f'<a class="oflink ofsite" href="{site}" target="_blank" rel="noopener">{X["site"][i]}: {site.split("//")[1]} ↗</a>' if site else ""
+        nl = sl + (f'<a class="oflink" href="{href("news/")}">{X["news"][i]} →</a>' if o.get("news") else "")
+        nl = f'<div class="oflinks">{nl}</div>'
         cards.append(f'<article class="card ofcard"><div class="ofhead"><span class="offlag" aria-hidden="true">{fl}</span>'
-                     f'<div><span class="ofok">✓ {X["offered" if o.get("status") else "admitted"][i]} · {_date(o["date"], i)}</span><h3>{e(o["uni"])}</h3><p class="ofloc">{e(o["city"])}, {cn[i]}{f' · <span class="ofrank">{o["rank"]}</span>' if o.get("rank") else ""}</p></div></div>'
+                     f'<div><span class="ofok">✓ {X["offered" if o.get("status") else "admitted"][i]} · {_date(o["date"], i)}</span><h3>{e(o["uni"])}</h3><p class="ofloc">{e(o["city"])}, {cn[i]}</p>{_rank(o["uni"], i)}</div></div>'
                      f'<dl class="ofdl">{dl}</dl>{nl}</article>')
     progs = "".join(f'<article class="card ofprog">' + (f'<img src="{{UP}}photos/{p["photo"]}" alt="" loading="lazy">' if p.get("photo") else "")
                     + f'<div><span class="offlag sm" aria-hidden="true">{COUNTRY[p["country"]][0]}</span><h3>{p["name"][i]}</h3><p>{e(p["student"][i])}' + (f' · {p["year"]}' if p.get("year") else "") + '</p></div></article>'
@@ -167,4 +199,4 @@ def page(i, href, tabs):
             f'<div class="ofgrid">{"".join(cards)}</div>'
             + (f'<h2 class="ofh2">{X["prog_h"][i]}</h2><p>{X["prog_p"][i]}</p><div class="ofprogs">{progs}</div>' if PROGRAMMES else "")
             + f'<div class="card ofcta"><div><h3>{X["cta_h"][i]}</h3><p>{X["cta_p"][i]}</p></div><a class="btn p" href="{href("abroad/")}">{X["cta_b"][i]} →</a></div>'
-            f'<p class="note">{X["note"][i]}</p>')
+            f'<p class="note">{X["qs_src"][i]} {X["note"][i]}</p>')

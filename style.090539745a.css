@@ -1397,3 +1397,7 @@ background:rgba(255,255,255,.15);box-shadow:0 18px 40px rgba(0,0,0,.28),0 0 0 8p
 .ofcta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin:28px 0 10px;padding:20px!important;background:linear-gradient(120deg,color-mix(in srgb,#2563eb 10%,var(--card)),var(--card))}
 .ofcta h3{margin:0 0 4px}.ofcta p{margin:0;color:var(--soft)}
 .ofrank{display:inline-block;font-weight:700;color:#7c3aed;background:color-mix(in srgb,#7c3aed 12%,transparent);padding:0 8px;border-radius:999px;font-size:13px}
+.ofqs{margin:6px 0 0;font-size:13px}.ofqs b{display:inline-block;padding:1px 9px;border-radius:999px;background:color-mix(in srgb,#2563eb 11%,transparent);color:#1d4ed8}
+.ofqs.top b{background:color-mix(in srgb,#7c3aed 14%,transparent);color:#6d28d9}.ofqs.top b::before{content:"★ "}
+.ofqs.none{color:var(--soft)}.ofqs small{color:var(--soft)}
+.oflinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto}.ofsite{color:var(--soft)}
