@@ -1696,3 +1696,5 @@ background:radial-gradient(90% 140% at 100% 0%,color-mix(in srgb,var(--sc) 14%,t
 .nptext p{font-size:17.5px;line-height:1.75;margin:0 0 14px;max-width:none}
 .npost~.spnav,.npost~.btns{max-width:780px;margin-left:auto;margin-right:auto}
 .nviews[hidden]{display:none}
+.asgov{display:flex;align-items:center;gap:14px}.asgov .asag{flex:none;border-radius:8px;box-shadow:none}.asgov .asag img{width:150px;max-width:none}
+@media(max-width:560px){.asgov{flex-direction:column;align-items:flex-start;gap:8px}.asgov .asag img{width:150px}}
