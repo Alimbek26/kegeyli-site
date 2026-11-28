@@ -16,8 +16,8 @@ H_TL = ("Mektep tariyxı", "School history", "Maktab tarixi", "История ш
 TIMELINE = [
  ("2022", ("Mektep ashıldı", "The school opens", "Maktab ochildi", "Открытие школы"),
   ("Kegeyli rayonında anıq hám tábiyiy pánlerge qánigelestirilgen mektep jumısın basladı.", "A school specializing in exact and natural sciences starts work in Kegeyli District.", "Kegeli tumanida aniq va tabiiy fanlarga ixtisoslashgan maktab faoliyatini boshladi.", "В Кегейлийском районе начала работу школа, специализирующаяся на точных и естественных науках.")),
- ("2023", ("Xalıqaralıq imtihanlar", "International exams begin", "Xalqaro imtihonlar", "Международные экзамены"),
-  ("Birinshi oqıwshılar IELTS imtihanın tapsırdı. 2023–2026 jıllarda 10 oqıwshı IELTS tapsırdı.", "The first students sit the IELTS exam. Between 2023 and 2026, 10 students took IELTS.", "Birinchi o‘quvchilar IELTS imtihonini topshirdi. 2023–2026 yillarda 10 nafar o‘quvchi IELTS topshirdi.", "Первые ученики сдали IELTS. В 2023–2026 годах IELTS сдали 10 учеников.")),
+ ("2024", ("Xalıqaralıq imtihanlar", "International exams begin", "Xalqaro imtihonlar", "Международные экзамены"),
+  ("Oqıwshılarımız birinshi IELTS sertifikatların aldı. Búgin {n} oqıwshınıń IELTS sertifikatı bar.", "Our students receive their first IELTS certificates. Today {n} students hold one.", "O‘quvchilarimiz birinchi IELTS sertifikatlarini oldi. Bugun {n} nafar o‘quvchining IELTS sertifikati bor.", "Ученики получают первые сертификаты IELTS. Сегодня сертификат IELTS есть у {n} учеников.")),
  ("2025", ("Milliy sertifikat hám olimpiada", "National certificates and olympiads", "Milliy sertifikat va olimpiada", "Нацсертификаты и олимпиады"),
   ("2025/2026 oqıw jılında 95 milliy sertifikat imtihanı tapsırıldı (aldıńǵı jılı 32). AKHU STEM olimpiadasında bronza medal.", "In 2025/2026 students took 95 national certificate exams (32 a year earlier) and won a bronze medal at the AKHU STEM Olympiad.", "2025/2026 o‘quv yilida 95 ta milliy sertifikat imtihoni topshirildi (avvalgi yili 32). AKHU STEM olimpiadasida bronza medal.", "В 2025/2026 учебном году сдано 95 нацсертификатов (годом ранее 32) и получена бронзовая медаль на олимпиаде AKHU STEM.")),
  ("2026", ("Sayt hám Study abroad orayı", "Website and Study abroad center", "Sayt va Study abroad markazi", "Сайт и центр Study abroad"),
@@ -72,7 +72,8 @@ def status_card(i):
     return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl><p class="aspl btns"><a class="btn p" href="{{UP}}school-profile/">{sp} →</a><a class="btn s" href="{{UP}}files/kegeyli-school-profile-2026-2027.pdf" download>PDF ↓</a></p></section>'
 
 def body(i, up, t, hrefs):
-    tl = "".join(f'<li><span class="aty">{y}</span><div class="atc card"><h3>{h[i]}</h3><p>{p[i]}</p></div></li>' for y, h, p in TIMELINE)
+    import achieve as _A
+    tl = "".join(f'<li><span class="aty">{y}</span><div class="atc card"><h3>{h[i]}</h3><p>{p[i].replace("{n}", str(len(_A.IELTS)))}</p></div></li>' for y, h, p in TIMELINE)
     vals = "".join(f'<div class="card avc" style="--mc:{c}"><span class="mi"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span><h3>{h[i]}</h3><p>{p[i]}</p></div>' for h, p, c, ic in VALUES)
     facts = "".join(f"<li><b>{k}</b><span>{v}</span></li>" for k, v in t["facts"])
     nums = "".join(f'<div class="card anc"><b>{n}</b><span>{l}</span></div>' for n, l in t["results"])
@@ -80,7 +81,7 @@ def body(i, up, t, hrefs):
     return (f'<div class="ahero"><img src="{up}photos/school.jpg" alt="{FULL[i]}" fetchpriority="high"></div>'
             f'<div class="card aname"><small>{OFFICIAL[i]}</small><h2>{FULL[i]}</h2><p>{SUB[i]}</p></div>'
             f'<p class="lead2">{t["about1"]}</p><p>{t["about2"]}</p>{status_card(i)}'
-            f'<h2 class="ah">{H_TL[i]}</h2><ol class="atl">{tl}</ol>'
+            f'<h2 class="ah">{H_TL[i]}</h2><ol class="atl">{tl}</ol><p class="btns"><a class="btn p" href="{hrefs["history/"]}">{__import__("history").NAME[i]} →</a></p>'
             f'<h2 class="ah">{H_MV[i]}</h2><p class="amis">{MISSION[i]}</p><div class="avgrid">{vals}</div>'
             f'<h2 class="ah">{H_NUM[i]}</h2><div class="angrid">{nums}</div>'
             f'<h2 class="ah">{H_FACTS[i]}</h2><ul class="facts afacts">{facts}</ul>'

@@ -1654,3 +1654,42 @@ section.plsec:not(.card){padding:0!important}
 @media (max-width:600px){.clstages li{margin-left:calc(var(--n) * 8px)}}
 .jbad input,.jbad select{border-color:var(--red)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 18%,transparent)}.jchk.jbad span{color:var(--red)}.jok{color:var(--soft)!important;font-weight:500!important;font-size:14px}
 .cldone{list-style:none;padding:0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin:0 0 16px!important}.cldone li{margin:0!important;padding:16px 18px;border-radius:16px;font-weight:600;background:color-mix(in srgb,var(--c) 9%,var(--card));border-left:5px solid var(--c)}
+/* History page */
+.hhero{position:relative;overflow:hidden;padding:clamp(24px,4vw,48px);border-radius:28px;margin:0 0 22px;color:#fff;
+ background:radial-gradient(70% 120% at 100% 0%,rgba(124,58,237,.55),transparent 60%),radial-gradient(60% 100% at 0% 100%,rgba(217,119,6,.35),transparent 60%),linear-gradient(135deg,#0b5f78,#0e2f3b)}
+.hhero:after{content:"";position:absolute;inset:auto -60px -60px auto;width:260px;height:260px;border-radius:50%;border:40px solid rgba(255,255,255,.06)}
+.hhy{display:flex;align-items:center;gap:16px;font:700 clamp(40px,8vw,84px)/1 Unbounded,Inter,sans-serif;letter-spacing:-1px}
+.hhy i{flex:1;max-width:220px;height:6px;border-radius:6px;background:linear-gradient(90deg,#f2b134,#e0606a,#a78bfa)}
+.hlead{font-size:clamp(17px,2vw,21px);max-width:58ch;margin:18px 0 26px;color:#e3eef2}
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative;z-index:1}
+.hstats div{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(4px)}
+.hstats b{display:block;font:700 clamp(28px,4vw,40px)/1.05 Unbounded,Inter,sans-serif;color:#f2b134}.hstats span{font-size:14.5px;color:#e3eef2}
+.hchart{padding:20px 22px!important;margin:0 0 24px}.hchart h3{margin:0 0 6px}.hchart svg{width:100%;max-width:640px;height:auto;display:block}
+.hcb{fill:color-mix(in srgb,var(--teal) 18%,transparent)}.hcu{fill:var(--teal);transform-origin:bottom;transform-box:fill-box;animation:hgrow .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--k) * .12s)}
+@keyframes hgrow{from{transform:scaleY(0)}}
+.hcn{font:700 16px Unbounded,Inter,sans-serif;fill:var(--ink);text-anchor:middle}.hcy{font:600 14px Inter,sans-serif;fill:var(--soft);text-anchor:middle}
+.hcleg{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--soft);margin:8px 0 0}.hcl{display:inline-block;width:14px;height:14px;border-radius:4px;margin-left:8px}.hcl1{background:color-mix(in srgb,var(--teal) 25%,transparent);margin-left:0}.hcl2{background:var(--teal)}
+.hyn{position:sticky;top:76px;z-index:3;display:flex;gap:6px;width:max-content;max-width:100%;overflow-x:auto;margin:10px auto 8px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line)}
+.hyn a{padding:7px 16px;border-radius:999px;text-decoration:none;font:700 15px Unbounded,Inter,sans-serif;color:var(--ink)}.hyn a:hover{background:var(--tealbg);color:var(--teal)}
+.htl{list-style:none;margin:0;padding:10px 0 0;position:relative}
+.htl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;border-radius:4px;background:linear-gradient(#0b5f78,#047857,#d97706,#2563eb,#7c3aed)}
+.hyr{position:relative;display:flex;justify-content:center;margin:26px 0 18px;scroll-margin-top:140px}
+.hyr span{position:relative;z-index:1;padding:8px 22px;border-radius:999px;background:var(--ink);color:var(--bg);font:700 22px Unbounded,Inter,sans-serif;box-shadow:0 0 0 6px var(--bg)}
+.hnow span{background:var(--tealbg);color:var(--teal)}
+.hev{position:relative;width:50%;box-sizing:border-box;margin:0 0 18px}
+.hev.l{padding-right:44px}.hev.r{margin-left:50%;padding-left:44px}
+.hdot{position:absolute;top:18px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--c);color:#fff;box-shadow:0 0 0 5px var(--bg);z-index:1}
+.hev.l .hdot{right:-19px}.hev.r .hdot{left:-19px}
+.hcard{position:relative;padding:18px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);transition:transform .2s,box-shadow .2s}
+.hcard:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(0,0,0,.45)}
+.hev.big .hcard{border:0;color:#fff;background:radial-gradient(100% 140% at 100% 0%,rgba(255,255,255,.18),transparent 55%),linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 45%,#0e2f3b))}
+.hev.big .hcard h3{font-size:23px}.hev.big .hcard p,.hev.big .hmeta time{color:rgba(255,255,255,.9)}.hev.big .hcat{background:rgba(255,255,255,.2);color:#fff}.hev.big .hmore{color:#fff}
+.hev.big .hdot{width:46px;height:46px;top:14px}.hev.big.l .hdot{right:-23px}.hev.big.r .hdot{left:-23px}
+.hmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 6px}.hcat{padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.hmeta time{font-weight:600;color:var(--soft);font-size:14px}.hcard h3{margin:0 0 6px;font-size:20px}.hcard p{margin:0 0 8px;max-width:none}.hmore{font-weight:700;text-decoration:none;color:var(--c)}
+.hnext{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end;margin:20px 0 14px;padding:clamp(20px,3vw,32px);border-radius:24px;border:2px dashed color-mix(in srgb,var(--teal) 40%,var(--line));background:var(--tealbg)}
+.hnext h2{margin:0 0 4px}.hnext p{margin:0 0 10px;color:var(--soft)}.hnext ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.hnext li{padding:7px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:14.5px}
+@media (max-width:760px){.hstats{grid-template-columns:1fr 1fr}.htl:before{left:19px}.hyr{justify-content:flex-start}.hev,.hev.r{width:100%;margin-left:0;padding:0 0 0 54px!important}
+ .hev .hdot,.hev.big .hdot{left:0!important;right:auto!important}.hyn{margin-left:0}}
+@media (prefers-reduced-motion:reduce){.hcu{animation:none}.hcard{transition:none}}

@@ -26,6 +26,7 @@ import support as SUP
 import counseling as CSL
 import policies as POL
 import clubs as CLB
+import history as HIS
 import lprofile as LP
 import tbadges as TB
 import tgfeed as TGF
@@ -61,7 +62,7 @@ TOP = ("director", "dep_edu", "dep_spirit", "dep_econ")
 import extra as EX
 import ielts as IE
 import abroad as AB
-PAGES = ["", "about/", "news/", "admission/", "teachers/", "leadership/", "timetable/", "study/", "graduates/", "achievements/", "achievements/olympiads/", "achievements/certificates/", "achievements/national/", "achievements/offers/", "achievements/programmes/", "achievements/sat/", "achievements/ielts/", "abroad/", "abroad/plan/", "abroad/applications/", "abroad/scholarships/", "abroad/countries/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "partners/", "abroad/sat/", "abroad/essay/", "abroad/top10/", "abroad/commonapp/", "abroad/ucas/", "ielts/", "parents/", "canteen/", "canteen/not-allowed/", "documents/"] + RS.SUBS + ["teachers/class-teachers/", "teachers/by-class/", SEM.SUB, CAL.SUB, GAL.SUB, INTL.SUB, SUP.SUB, CSL.SUB, POL.SUB, CLB.SUB, CLB.JSUB] + list(CLB.CSUBS) + list(TP.SUB) + list(LP.SUB) + [l["sub"] for l in LW.LAWS]
+PAGES = ["", "about/", "news/", "admission/", "teachers/", "leadership/", "timetable/", "study/", "graduates/", "achievements/", "achievements/olympiads/", "achievements/certificates/", "achievements/national/", "achievements/offers/", "achievements/programmes/", "achievements/sat/", "achievements/ielts/", "abroad/", "abroad/plan/", "abroad/applications/", "abroad/scholarships/", "abroad/countries/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "partners/", "abroad/sat/", "abroad/essay/", "abroad/top10/", "abroad/commonapp/", "abroad/ucas/", "ielts/", "parents/", "canteen/", "canteen/not-allowed/", "documents/"] + RS.SUBS + ["teachers/class-teachers/", "teachers/by-class/", SEM.SUB, CAL.SUB, GAL.SUB, INTL.SUB, SUP.SUB, CSL.SUB, POL.SUB, CLB.SUB, CLB.JSUB, HIS.SUB] + list(CLB.CSUBS) + list(TP.SUB) + list(LP.SUB) + [l["sub"] for l in LW.LAWS]
 import posixpath
 def href(fl, fs, tl, ts):
     a = path(fl) + fs; b = path(tl) + ts
@@ -173,6 +174,7 @@ NAV_ICON = {
  "counseling": (_I(CSL.ICON[0]), CSL.ICON[1]),
  "policies": (_I(POL.ICON[0]), POL.ICON[1]),
  "clubs": (_I(CLB.ICON[0]), CLB.ICON[1]),
+ "history": (_I(HIS.ICON[0]), HIS.ICON[1]),
  "abroad": (_I('<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/>'), "#0891b2"),
  "ielts": (_I('<path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 14.5l2-5 2 5"/><path d="M9.2 13h2.6"/><path d="M15 9.5v5"/>'), "#0891b2"),
  "parents": (_I('<circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M17 14.2a4 4 0 0 1 4 3.8v1.5"/>'), "#d97706"),
@@ -905,6 +907,7 @@ def page(lang, sub=""):
         (href(lang, sub, lang, CSL.SUB), CSL.NAME[i], CSL.SUB, "counseling"),
         (href(lang, sub, lang, POL.SUB), POL.NAME[i], POL.SUB, "policies"),
         (href(lang, sub, lang, CLB.SUB), CLB.NAME[i], CLB.SUB, "clubs"),
+        (href(lang, sub, lang, HIS.SUB), HIS.NAME[i], HIS.SUB, "history"),
         (pre + "#subjects", t["nav"][1], "", "subjects"),
         (href(lang, sub, lang, "teachers/"), t["teach_h"], "teachers/", "teachers"),
         (href(lang, sub, lang, "leadership/"), t["lead_h"], "leadership/", "leadership"),
@@ -919,7 +922,7 @@ def page(lang, sub=""):
     def _cur(s_):
         return bool(s_ and (s_ == sub or (s_ == CLB.SUB and (sub == CLB.JSUB or sub in CLB.CSUBS)) or (s_ == "abroad/" and sub in AB.GROUP) or (s_ == "achievements/" and sub in ACH.SUBS) or (s_ == "canteen/" and sub in CN.SUBS) or (s_ == "results/" and sub in RS.SUBS) or (s_ == "teachers/" and (sub in TP.SUB or sub in ("teachers/class-teachers/", "teachers/by-class/", SEM.SUB))) or (s_ == "leadership/" and sub in LP.SUB) or (s_ == "documents/" and sub.startswith("documents/"))))
     NI = {x[3]: x for x in navitems}
-    groups = [("school", NAVG["school"][i], "about", ["about", "leadership", "teachers", "subjects", "news", "partners"]),
+    groups = [("school", NAVG["school"][i], "about", ["about", "history", "leadership", "teachers", "subjects", "news", "partners"]),
               ("students", NAVG["students"][i], "timetable", ["timetable", "calendar", "clubs", "study", "canteen"]),
               ("results", NAVG["results"][i], "results", ["results", "tests", "graduates"]),
               ("abroad", NAVG["abroad"][i], "abroad", ["admission", "abroad", "counseling"]),
@@ -942,7 +945,7 @@ def page(lang, sub=""):
     SOC = {"tg": _I('<path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/>'), "ph": _I('<path d="M6 3h3l2 5-2 1.500a11 11 0 0 0 6 6L16.500 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/>'), "ml": _I('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>'), "pin": _I('<path d="M12 21s-6-5.600-6-10.500a6 6 0 0 1 12 0C18 15.400 12 21 12 21z"/><circle cx="12" cy="10.500" r="2.200"/>'), "clk": _I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')}
     _fl = lambda L: "".join(f'<li><a href="{h}">{n}</a></li>' for h, n in L)
     SPN = {"kaa": "Mektep profili (EN, PDF)", "en": "School Profile (PDF)", "uz": "Maktab profili (EN, PDF)", "ru": "Профиль школы (EN, PDF)"}[lang]
-    foot_school = _fl([(href(lang, sub, lang, "about/"), t["nav"][0]), (href(lang, sub, lang, INTL.SUB), INTL.NAME[i]), (href(lang, sub, lang, SUP.SUB), SUP.NAME[i]), (f"{up}school-profile/", SPN), (href(lang, sub, lang, POL.SUB), POL.NAME[i]), (href(lang, sub, lang, "leadership/"), t["lead_h"]), (href(lang, sub, lang, "teachers/"), t["teach_h"]), (href(lang, sub, lang, "timetable/"), TT_TXT["title"][i]), (href(lang, sub, lang, CAL.SUB), CAL.NAME[i]), (href(lang, sub, lang, GAL.SUB), GAL.NAME[i]), (href(lang, sub, lang, CLB.SUB), CLB.NAME[i]), (href(lang, sub, lang, "study/"), STD.NAME[i]), (href(lang, sub, lang, "graduates/"), GT["title"][i]), (href(lang, sub, lang, "achievements/"), ACH.NAME["achievements/"][i]), (href(lang, sub, lang, "results/"), RS.NAME[i]), (href(lang, sub, lang, "admission/"), t["nav"][2]), (href(lang, sub, lang, "parents/"), EX.NAME["parents/"][i]), (href(lang, sub, lang, "canteen/"), CN.NAME[i])])
+    foot_school = _fl([(href(lang, sub, lang, "about/"), t["nav"][0]), (href(lang, sub, lang, HIS.SUB), HIS.NAME[i]), (href(lang, sub, lang, INTL.SUB), INTL.NAME[i]), (href(lang, sub, lang, SUP.SUB), SUP.NAME[i]), (f"{up}school-profile/", SPN), (href(lang, sub, lang, POL.SUB), POL.NAME[i]), (href(lang, sub, lang, "leadership/"), t["lead_h"]), (href(lang, sub, lang, "teachers/"), t["teach_h"]), (href(lang, sub, lang, "timetable/"), TT_TXT["title"][i]), (href(lang, sub, lang, CAL.SUB), CAL.NAME[i]), (href(lang, sub, lang, GAL.SUB), GAL.NAME[i]), (href(lang, sub, lang, CLB.SUB), CLB.NAME[i]), (href(lang, sub, lang, "study/"), STD.NAME[i]), (href(lang, sub, lang, "graduates/"), GT["title"][i]), (href(lang, sub, lang, "achievements/"), ACH.NAME["achievements/"][i]), (href(lang, sub, lang, "results/"), RS.NAME[i]), (href(lang, sub, lang, "admission/"), t["nav"][2]), (href(lang, sub, lang, "parents/"), EX.NAME["parents/"][i]), (href(lang, sub, lang, "canteen/"), CN.NAME[i])])
     foot_abroad = _fl([(href(lang, sub, lang, CSL.SUB), CSL.NAME[i])] + [(href(lang, sub, lang, k), AB.SUBNAME[k][i]) for k in ("abroad/", "abroad/plan/", "abroad/scholarships/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "abroad/sat/", "ielts/")])
     school = {
       "@context": "https://schema.org", "@type": "School", "name": t["brand"],
@@ -960,9 +963,9 @@ def page(lang, sub=""):
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]})
         body = home_body(lang, t, i, up)
     else:
-        name = {"abroad/": AB.NAME[i], "abroad/applications/": AB.SUBNAME["abroad/applications/"][i], "abroad/scholarships/": AB.SUBNAME["abroad/scholarships/"][i], "abroad/top10/": AB.TP.NAME[i], "abroad/countries/": AB.CO.NAME[i], "abroad/calendar/": AB.DLN.NAME[i], "abroad/checklist/": AB.CKL.NAME[i], "abroad/calculator/": AB.CAL.NAME[i], "abroad/sat/": AB.SAT.NAME[i], "abroad/plan/": AB.PL.TITLE[i], "abroad/essay/": AB.ESS.NAME[i], "abroad/commonapp/": AB.AP.NAME["abroad/commonapp/"][i], "abroad/ucas/": AB.AP.NAME["abroad/ucas/"][i], "ielts/": IE.NAME[i], "partners/": PT.H[i], CAL.SUB: CAL.NAME[i], GAL.SUB: GAL.NAME[i], INTL.SUB: INTL.NAME[i], SUP.SUB: SUP.NAME[i], CSL.SUB: CSL.NAME[i], POL.SUB: POL.NAME[i], CLB.SUB: CLB.NAME[i], CLB.JSUB: CLB.JNAME[i], **{k: CLB.cname(k, i) for k in CLB.CSUBS}, "about/": AU.NAME[i], "news/": NW.NAME[i], "study/": STD.NAME[i], "admission/": t["nav"][2], "parents/": EX.NAME["parents/"][i], "documents/": EX.NAME["documents/"][i], "teachers/": t["teach_h"], "leadership/": t["lead_h"], "timetable/": TT_TXT["title"][i], "graduates/": GT["title"][i], **{k: CN.NAMES[k][i] for k in CN.SUBS}, **RS.names(i), **LW.names(i), "teachers/class-teachers/": HD.T["h"][i], "teachers/by-class/": BYC["h"][i], SEM.SUB: SEM.NAME[i], **{k: TP.name(j, lang) for k, j in TP.SUB.items()}, **{k: LP.name(n, lang) for k, n in LP.SUB.items()}, **{k: ACH.NAME[k][i] for k in ACH.SUBS}}[sub]
+        name = {"abroad/": AB.NAME[i], "abroad/applications/": AB.SUBNAME["abroad/applications/"][i], "abroad/scholarships/": AB.SUBNAME["abroad/scholarships/"][i], "abroad/top10/": AB.TP.NAME[i], "abroad/countries/": AB.CO.NAME[i], "abroad/calendar/": AB.DLN.NAME[i], "abroad/checklist/": AB.CKL.NAME[i], "abroad/calculator/": AB.CAL.NAME[i], "abroad/sat/": AB.SAT.NAME[i], "abroad/plan/": AB.PL.TITLE[i], "abroad/essay/": AB.ESS.NAME[i], "abroad/commonapp/": AB.AP.NAME["abroad/commonapp/"][i], "abroad/ucas/": AB.AP.NAME["abroad/ucas/"][i], "ielts/": IE.NAME[i], "partners/": PT.H[i], CAL.SUB: CAL.NAME[i], GAL.SUB: GAL.NAME[i], INTL.SUB: INTL.NAME[i], SUP.SUB: SUP.NAME[i], CSL.SUB: CSL.NAME[i], POL.SUB: POL.NAME[i], CLB.SUB: CLB.NAME[i], HIS.SUB: HIS.NAME[i], CLB.JSUB: CLB.JNAME[i], **{k: CLB.cname(k, i) for k in CLB.CSUBS}, "about/": AU.NAME[i], "news/": NW.NAME[i], "study/": STD.NAME[i], "admission/": t["nav"][2], "parents/": EX.NAME["parents/"][i], "documents/": EX.NAME["documents/"][i], "teachers/": t["teach_h"], "leadership/": t["lead_h"], "timetable/": TT_TXT["title"][i], "graduates/": GT["title"][i], **{k: CN.NAMES[k][i] for k in CN.SUBS}, **RS.names(i), **LW.names(i), "teachers/class-teachers/": HD.T["h"][i], "teachers/by-class/": BYC["h"][i], SEM.SUB: SEM.NAME[i], **{k: TP.name(j, lang) for k, j in TP.SUB.items()}, **{k: LP.name(n, lang) for k, n in LP.SUB.items()}, **{k: ACH.NAME[k][i] for k in ACH.SUBS}}[sub]
         title = f"{name} — {t['brand']}"
-        desc = {"abroad/": AB.DESC["abroad/"], "abroad/applications/": AB.DESC["abroad/applications/"], "abroad/scholarships/": AB.DESC["abroad/scholarships/"], "abroad/top10/": AB.DESC["abroad/top10/"], "abroad/countries/": AB.DESC["abroad/countries/"], "abroad/calendar/": AB.DESC["abroad/calendar/"], "abroad/checklist/": AB.DESC["abroad/checklist/"], "abroad/calculator/": AB.DESC["abroad/calculator/"], "abroad/sat/": AB.DESC["abroad/sat/"], "abroad/plan/": AB.DESC["abroad/plan/"], "abroad/essay/": AB.DESC["abroad/essay/"], "abroad/commonapp/": AB.DESC["abroad/commonapp/"], "abroad/ucas/": AB.DESC["abroad/ucas/"], "ielts/": IE.DESC, "partners/": PT.PAGE_DESC, CAL.SUB: CAL.DESC, GAL.SUB: GAL.DESC, INTL.SUB: INTL.DESC, SUP.SUB: SUP.DESC, CSL.SUB: CSL.DESC, POL.SUB: POL.DESC, CLB.SUB: CLB.DESC, CLB.JSUB: CLB.JDESC, **{k: CLB.cdesc(k) for k in CLB.CSUBS}, "about/": AU.DESC, "news/": NW.DESC, "study/": STD.DESC, "admission/": EX.DESC["admission/"], "parents/": EX.DESC["parents/"], "documents/": EX.DESC["documents/"], "teachers/": TL["teach_desc"], "leadership/": TL["lead_desc"], "timetable/": TT_TXT["desc"], "graduates/": GT["desc"], **CN.DESCS, **RS.descs(), **LW.descs(), "teachers/class-teachers/": HD.DESC, "teachers/by-class/": BYC["desc"], SEM.SUB: SEM.DESC, **{k: TP.desc(j) for k, j in TP.SUB.items()}, **{k: LP.desc(n) for k, n in LP.SUB.items()}, **ACH.DESC}[sub][i].format(b=t["brand"], n=len(TEACHERS))
+        desc = {"abroad/": AB.DESC["abroad/"], "abroad/applications/": AB.DESC["abroad/applications/"], "abroad/scholarships/": AB.DESC["abroad/scholarships/"], "abroad/top10/": AB.DESC["abroad/top10/"], "abroad/countries/": AB.DESC["abroad/countries/"], "abroad/calendar/": AB.DESC["abroad/calendar/"], "abroad/checklist/": AB.DESC["abroad/checklist/"], "abroad/calculator/": AB.DESC["abroad/calculator/"], "abroad/sat/": AB.DESC["abroad/sat/"], "abroad/plan/": AB.DESC["abroad/plan/"], "abroad/essay/": AB.DESC["abroad/essay/"], "abroad/commonapp/": AB.DESC["abroad/commonapp/"], "abroad/ucas/": AB.DESC["abroad/ucas/"], "ielts/": IE.DESC, "partners/": PT.PAGE_DESC, CAL.SUB: CAL.DESC, GAL.SUB: GAL.DESC, INTL.SUB: INTL.DESC, SUP.SUB: SUP.DESC, CSL.SUB: CSL.DESC, POL.SUB: POL.DESC, CLB.SUB: CLB.DESC, HIS.SUB: HIS.DESC, CLB.JSUB: CLB.JDESC, **{k: CLB.cdesc(k) for k in CLB.CSUBS}, "about/": AU.DESC, "news/": NW.DESC, "study/": STD.DESC, "admission/": EX.DESC["admission/"], "parents/": EX.DESC["parents/"], "documents/": EX.DESC["documents/"], "teachers/": TL["teach_desc"], "leadership/": TL["lead_desc"], "timetable/": TT_TXT["desc"], "graduates/": GT["desc"], **CN.DESCS, **RS.descs(), **LW.descs(), "teachers/class-teachers/": HD.DESC, "teachers/by-class/": BYC["desc"], SEM.SUB: SEM.DESC, **{k: TP.desc(j) for k, j in TP.SUB.items()}, **{k: LP.desc(n) for k, n in LP.SUB.items()}, **ACH.DESC}[sub][i].format(b=t["brand"], n=len(TEACHERS))
         ld.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": TL["home"][i], "item": DOMAIN + path(lang)},
             {"@type": "ListItem", "position": 2, "name": name, "item": url}]})
@@ -994,7 +997,7 @@ def page(lang, sub=""):
             inner = EX.body(sub, lang, i, t, ROOT, {"BELLS": BELLS, "href_tt": href(lang, sub, lang, "timetable/"), "href_cn": href(lang, sub, lang, "canteen/not-allowed/"), "cn": CN.NAMES["canteen/not-allowed/"][i], "cnd": CN.X["hero_h"][i], "tt": TT_TXT["title"][i], "href_gr": href(lang, sub, lang, "graduates/"), "gr": GT["title"][i],
                                                     "TG": TG, "PHONE": PHONE, "PHONE_TXT": PHONE_TXT, "EMAIL": EMAIL, "MAP": MAP, "KEY": WEB3FORMS_KEY, "FX": FORM_X[lang]})
         elif sub == "about/":
-            inner = AU.body(i, up, t, {k: href(lang, sub, lang, k) for k, _ in AU.GO})
+            inner = AU.body(i, up, t, {**{k: href(lang, sub, lang, k) for k, _ in AU.GO}, "history/": href(lang, sub, lang, "history/")})
         elif sub == "study/":
             inner = STD.body(i, up, [(v_[:4], v_[4]) for v_ in TT_SUBJ.values()])
         elif sub == "news/":
@@ -1003,6 +1006,8 @@ def page(lang, sub=""):
             inner = CAL.body(lang, lambda k: href(lang, sub, lang, k), up)
         elif sub in CLB.CSUBS:
             inner = CLB.club_body(sub, i, up, lambda k: href(lang, sub, lang, k))
+        elif sub == HIS.SUB:
+            inner = HIS.body(i, up, lambda k: href(lang, sub, lang, k))
         elif sub == CLB.JSUB:
             inner = CLB.join_body(i, up, lambda k: href(lang, sub, lang, k), list(TT["classes"]), {"EMAIL": EMAIL, "TG": "https://t.me/mr_successor"})
         elif sub == CLB.SUB:
