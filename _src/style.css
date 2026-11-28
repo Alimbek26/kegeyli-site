@@ -1629,3 +1629,14 @@ section.plsec:not(.card){padding:0!important}
 .tpclub{display:flex;align-items:center;gap:16px;margin:0 0 30px;padding:16px 18px;border-radius:18px;text-decoration:none;color:var(--ink);border:1px solid color-mix(in srgb,var(--c) 30%,var(--line));background:radial-gradient(90% 140% at 100% 0%,color-mix(in srgb,var(--c) 12%,transparent),transparent 60%),var(--card)}
 .tpclub:hover{border-color:var(--c)}.tpclub .clic{width:56px;height:56px;border-radius:16px}.tpclub span:nth-child(2){display:flex;flex-direction:column;flex:1}
 .tpclub small{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--soft)}.tpclub b{font-size:19px}.tpclub em{font-style:normal;color:var(--soft)}.tpclub i{font-style:normal;color:var(--c);font-size:22px}
+.clwhys{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.clwhy{padding:18px;border-radius:18px;background:radial-gradient(100% 120% at 100% 0%,color-mix(in srgb,var(--c) 11%,transparent),transparent 65%),var(--card);border:1px solid color-mix(in srgb,var(--c) 22%,var(--line))}
+.clwhy .clic{width:48px;height:48px;border-radius:14px}.clwhy h3{margin:12px 0 4px;font-size:18px;text-transform:none;letter-spacing:0;color:var(--ink)}.clwhy p{margin:0;color:var(--soft);font-size:15px}
+.clfaqs{display:grid;gap:10px}
+.clfaq{border-radius:14px;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.clfaq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;font-weight:700;font-size:16.5px}
+.clfaq summary::-webkit-details-marker{display:none}.clfaq summary:after{content:"+";flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--c);font-size:20px;transition:transform .2s}
+.clfaq[open] summary:after{transform:rotate(45deg)}.clfaq[open]{border-color:color-mix(in srgb,var(--c) 40%,var(--line))}
+.clfaq p{margin:0;padding:0 18px 16px;color:var(--soft);max-width:none}
+.clnext{display:flex;align-items:center;gap:14px;margin:12px 0 0;padding:14px 16px;border-radius:16px;color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 50%,#0b5f78))}
+.clnext .clic{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.18);box-shadow:none}.clnext div{display:flex;flex-direction:column}.clnext small{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;opacity:.85}.clnext b{font-size:19px}.clnext em{font-style:normal;opacity:.9}

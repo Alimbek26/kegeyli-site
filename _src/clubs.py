@@ -43,6 +43,11 @@ T = dict(
  all=L("Barlıq klublar", "All clubs", "Barcha to‘garaklar", "Все клубы"),
  club_lead=L("{c} basshısı", "Leads the {c}", "{c} rahbari", "Руководитель: {c}"),
  clubs_h=L("Klublar", "Clubs", "To‘garaklar", "Клубы"),
+ why_h=L("Nege qosılıw kerek", "Why join", "Nega qo‘shilish kerak", "Зачем вступать"),
+ faq_h=L("Kóp beriletuǵın sorawlar", "Questions and answers", "Ko‘p beriladigan savollar", "Вопросы и ответы"),
+ next=L("Keyingi ushırasıw", "Next meeting", "Keyingi mashg‘ulot", "Следующее занятие"),
+ today=L("búgin", "today", "bugun", "сегодня"), tomorrow=L("erteń", "tomorrow", "ertaga", "завтра"),
+ indays=L("{n} kúnnen keyin", "in {n} days", "{n} kundan keyin", "через {n} дн."),
  decree=L("PF-55 Pármanın oqıw", "Read Decree PF-55", "PF-55 Farmonini o‘qish", "Читать Указ УП-55"),
 )
 
@@ -64,13 +69,41 @@ CLUBS = [
       leader=("Toti Elmuratova", "elmuratova-toti",
               L("biologiya muǵallimi", "Biology teacher", "biologiya o‘qituvchisi", "учитель биологии")),
       teacher=None,
-      when=L("Eki háptede bir ret, siyshembi kúni", "Every other Tuesday", "Ikki haftada bir marta, seshanba kuni", "Раз в две недели, по вторникам"),
-      where=None,
+      when=L("Eki háptede bir ret, siyshembi kúni, 15:00", "Every other Tuesday, 15:00", "Ikki haftada bir marta, seshanba kuni, 15:00", "Раз в две недели, по вторникам, 15:00"),
+      where=L("Akademik kelgende — konferenc-zal; basqa waqıtta — bos klass yamasa laboratoriya", "Conference room when an academician visits; otherwise a free classroom or laboratory",
+              "Akademik kelganda — konferens-zal; boshqa paytda — bo‘sh sinf yoki laboratoriya", "Конференц-зал, когда приходит академик; в остальное время — свободный класс или лаборатория"),
+      anchor="2026-12-01",   # date of one real meeting "YYYY-MM-DD" (a Tuesday); turns on the next-meeting countdown
+      every=14, mtime="15:00",  # cycle in days; start time e.g. "15:00"
+      why=[("lab", L("Haqıyqıy ilimpazlar menen islew", "Work with real scientists", "Haqiqiy olimlar bilan ishlash", "Работа с настоящими учёными"),
+             L("Pánler akademiyasınıń akademikleri menen ushırasıw hám olardan tikkeley úyreniw.", "Meet academicians of the Academy of Sciences and learn from them directly.", "Fanlar akademiyasi akademiklari bilan uchrashish va ulardan bevosita o‘rganish.", "Встречи с академиками Академии наук и обучение у них напрямую.")),
+           ("bulb", L("Óz joybarıń", "Your own project", "O‘z loyihang", "Свой проект"),
+             L("Ideyadan nátiyjege shekem ilimiy joybar islew — bul bilimińdi ámelde kórsetedi.", "Take a science project from idea to result, and put what you learn into practice.", "G‘oyadan natijagacha ilmiy loyiha qilish — bu bilimingni amalda ko‘rsatadi.", "Довести научный проект от идеи до результата и применить знания на практике.")),
+           ("cap", L("Universitetke arza ushın", "Stronger university applications", "Universitetga ariza uchun", "Сильнее заявка в университет"),
+             L("Ilimiy iskerlik hám joybarlar shet el hám Ózbekstan universitetleri ushın arzanıń kúshli tárepi boladı.", "Research activity and projects are a strong point in applications to universities abroad and in Uzbekistan.", "Ilmiy faoliyat va loyihalar xorijiy va O‘zbekiston universitetlariga arizada kuchli tomon bo‘ladi.", "Научная деятельность и проекты — сильная сторона заявки в зарубежные и узбекские университеты.")),
+           ("trophy", L("Jarıslarǵa tayarlıq", "Ready for competitions", "Musobaqalarga tayyorgarlik", "Подготовка к конкурсам"),
+             L("«Ixtirochilikka qadam» hám basqa ilimiy tańlawlarǵa joybar menen qatnasıw.", "Enter “Ixtirochilikka qadam” and other science contests with your project.", "«Ixtirochilikka qadam» va boshqa ilmiy tanlovlarda loyiha bilan qatnashish.", "Участие с проектом в конкурсе «Ixtirochilikka qadam» и других научных конкурсах."))],
+      faq=[(L("Kim qosıla aladı?", "Who can join?", "Kim qo‘shilishi mumkin?", "Кто может вступить?"),
+            L("5-klasstan 11-klassqa shekemgi barlıq oqıwshılar.", "Students of any grade, from 5 to 11.", "5-sinfdan 11-sinfgacha barcha o‘quvchilar.", "Ученики любого класса, с 5 по 11.")),
+           (L("Tólem bar ma?", "Does it cost anything?", "To‘lov bormi?", "Это платно?"),
+            L("Yaq, klub tolıq biypul.", "No, the club is completely free.", "Yo‘q, to‘garak butunlay bepul.", "Нет, клуб полностью бесплатный.")),
+           (L("Qashan ótkeriledi?", "When does it meet?", "Qachon o‘tkaziladi?", "Когда проходят занятия?"),
+            L("Eki háptede bir ret, siyshembi kúni saat 15:00 de.", "Every other Tuesday at 15:00.", "Ikki haftada bir marta, seshanba kuni soat 15:00 da.", "Раз в две недели, по вторникам в 15:00.")),
+           (L("Qay jerde?", "Where?", "Qayerda?", "Где?"),
+            L("Akademik kelgende — konferenc-zalda; basqa waqıtlarda — bos klassta yamasa laboratoriyada.", "In the conference room when an academician visits; otherwise in a free classroom or laboratory.", "Akademik kelganda — konferens-zalda; boshqa paytda — bo‘sh sinfda yoki laboratoriyada.", "В конференц-зале, когда приходит академик; в остальное время — в свободном классе или лаборатории.")),
+           (L("Ózim menen ne alıp keliwim kerek?", "What should I bring?", "O‘zim bilan nima olib kelishim kerak?", "Что взять с собой?"),
+            L("Dápter. Noutbuk bolsa, alıp keliw usınıladı.", "A notebook. A laptop is recommended if you have one.", "Daftar. Noutbuk bo‘lsa, olib kelish tavsiya etiladi.", "Тетрадь. Если есть ноутбук, его рекомендуется взять.")),
+           (L("Qalay qosılaman?", "How do I join?", "Qanday qo‘shilaman?", "Как вступить?"),
+            L("Usı saytta qısqa arzanı toltırıp, Telegram yamasa pochta arqalı jiberiń.", "Fill in the short application on this website and send it by Telegram or email.", "Ushbu saytda qisqa arizani to‘ldirib, Telegram yoki pochta orqali yuboring.", "Заполните короткую заявку на этом сайте и отправьте в Telegram или по почте."), "join")],
       since=L("2024-jıl 1-aprel", "1 April 2024", "2024-yil 1-aprel", "1 апреля 2024 г."),
       done=[], photo=None, join=True, log=[], projects=[], members=[]),
 ]
 
 
+WHY_I = {"lab": '<path d="M9 3h6"/><path d="M10 3v6L4.500 19a1.500 1.500 0 0 0 1.300 2.200h12.400a1.500 1.500 0 0 0 1.300-2.200L14 9V3"/><path d="M7.500 14h9"/>',
+         "bulb": '<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.700V17h8v-2.300A7 7 0 0 0 12 2z"/>',
+         "cap": '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
+         "trophy": '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'}
+CAL_I = '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>'
 DOC_I = '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>'
 
 
@@ -163,15 +196,25 @@ def club_body(sub, i, up, href):
     memh = ("<ul class=\"clmem\">" + "".join(f"<li><b>{n}</b><span>{k}</span></li>" for n, k in mem) + "</ul>") if mem else f'<p class="clempty">{T["mem_empty"][i]}</p>'
     done = ("<ul class=\"cldone\">" + "".join(f"<li>{d[i]}</li>" for d in c["done"]) + "</ul>") if c.get("done") else f'<p class="clempty">{T["done_empty"][i]}</p>'
     ph = f'<img class="clph" src="{up}photos/clubs/{c["photo"]}" alt="{c["name"][i]}">' if c.get("photo") else ""
-    nav = "".join(f'<a href="#{k}">{T[h][i]}</a>' for k, h in (("about", "about_h"), ("log", "log_h"), ("projects", "proj_h"), ("members", "mem_h"), ("results", "done")))
+    why = "".join(f'<div class="clwhy"><span class="clic">{_svg(WHY_I[k], 24)}</span><h3>{t[i]}</h3><p>{d[i]}</p></div>' for k, t, d in c.get("why", []))
+    whyh = f'<section class="clsec" id="why" style="--c:{c["colour"]}"><h2>{T["why_h"][i]}</h2><div class="clwhys">{why}</div></section>' if why else ""
+    faq = "".join(f'<details class="clfaq"><summary>{q[0][i]}</summary><p>{q[1][i]}' + (f' <a href="{href(JSUB)}?club={c["key"]}">{T["join_btn"][i]} →</a>' if len(q) > 2 else "") + '</p></details>' for q in c.get("faq", []))
+    faqh = f'<section class="clsec" id="faq" style="--c:{c["colour"]}"><h2>{T["faq_h"][i]}</h2><div class="clfaqs">{faq}</div></section>' if faq else ""
+    nxt = ""
+    if c.get("anchor"):
+        import json as _j
+        nd = _j.dumps({"a": c["anchor"], "e": c.get("every", 14), "t": c.get("mtime") or "", "l": i, "lab": {k: T[k][i] for k in ("today", "tomorrow", "indays")}}, ensure_ascii=False)
+        nxt = (f'<div class="clnext" id="clnext" hidden><span class="clic">{_svg(CAL_I, 24)}</span><div><small>{T["next"][i]}</small><b id="clnd"></b><em id="clnin"></em></div></div>'
+               f'<script>var CN={nd};' + NEXT_JS + '</script>')
+    nav = "".join(f'<a href="#{k}">{T[h][i]}</a>' for k, h in (("about", "about_h"), ("why", "why_h"), ("log", "log_h"), ("projects", "proj_h"), ("members", "mem_h"), ("faq", "faq_h")) if (k != "why" or whyh) and (k != "faq" or faqh))
     return (f'<article class="clcard clpage" style="--c:{c["colour"]}">{head}{ph}<p class="clintro">{c["intro"][i]}</p>{lead}{fx}'
-            f'<p class="btns clbtns">{join}</p></article>'
+            f'{nxt}<p class="btns clbtns">{join}</p></article>'
             f'<nav class="clnav" style="--c:{c["colour"]}">{nav}</nav>'
             f'<section class="clsec" id="about" style="--c:{c["colour"]}"><h2>{T["what"][i]}</h2><ul class="clwhat">{what}</ul>{law}</section>'
-            f'<section class="clsec" id="log" style="--c:{c["colour"]}"><h2>{T["log_h"][i]}</h2>{logh}</section>'
+            f'{whyh}<section class="clsec" id="log" style="--c:{c["colour"]}"><h2>{T["log_h"][i]}</h2>{logh}</section>'
             f'<section class="clsec" id="projects" style="--c:{c["colour"]}"><h2>{T["proj_h"][i]}</h2>{prh}</section>'
             f'<section class="clsec" id="members" style="--c:{c["colour"]}"><h2>{T["mem_h"][i]}</h2>{memh}</section>'
-            f'<section class="clsec" id="results" style="--c:{c["colour"]}"><h2>{T["done"][i]}</h2>{done}</section>'
+            f'<section class="clsec" id="results" style="--c:{c["colour"]}"><h2>{T["done"][i]}</h2>{done}</section>{faqh}'
             + (f'<div class="cscta clcta"><div><h2>{T["join_h"][i]}</h2><p>{T["join_cta"][i]}</p></div><p class="btns">{join}</p></div>' if join else "")
             + f'<p class="btns"><a class="btn s" href="{href(SUB)}">← {T["all"][i]}</a></p>')
 
@@ -249,3 +292,12 @@ function guard(e){if(!ok()){e.preventDefault();$('jerr').hidden=false;return fal
 $('jmail').addEventListener('click',guard);
 $('jtg').addEventListener('click',function(e){if(!guard(e))return;var t=text();try{navigator.clipboard.writeText(t).then(function(){$('jok').hidden=false})}catch(x){}});
 })();"""
+
+
+NEXT_JS = r"""(function(){var D=CN,M=[["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr"],["January","February","March","April","May","June","July","August","September","October","November","December"],["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentabr","oktabr","noyabr","dekabr"],["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]],
+W=[["Siyshembi"],["Tuesday"],["Seshanba"],["Вторник"]];
+var p=D.a.split('-'),a=new Date(+p[0],p[1]-1,+p[2]),n=new Date();n.setHours(0,0,0,0);
+var d=Math.round((n-a)/864e5),k=d<=0?0:Math.ceil(d/D.e),x=new Date(a.getTime()+k*D.e*864e5);x.setHours(0,0,0,0);
+var g=Math.round((x-n)/864e5),L=D.l,s=(L==1?W[1][0]+', '+x.getDate()+' '+M[1][x.getMonth()]:W[L][0]+', '+x.getDate()+' '+M[L][x.getMonth()])+(D.t?' · '+D.t:'');
+document.getElementById('clnd').textContent=s;document.getElementById('clnin').textContent=g==0?D.lab.today:g==1?D.lab.tomorrow:D.lab.indays.replace('{n}',g);
+document.getElementById('clnext').hidden=false})();"""
