@@ -1652,3 +1652,4 @@ section.plsec:not(.card){padding:0!important}
  background:color-mix(in srgb,var(--c) calc(8% + var(--n) * 9%),var(--card));color:var(--ink)}
 .clstages li:first-child{margin-left:0}.clstages span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font:700 12px Unbounded,Inter,sans-serif}
 @media (max-width:600px){.clstages li{margin-left:calc(var(--n) * 8px)}}
+.jbad input,.jbad select{border-color:var(--red)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 18%,transparent)}.jchk.jbad span{color:var(--red)}.jok{color:var(--soft)!important;font-weight:500!important;font-size:14px}

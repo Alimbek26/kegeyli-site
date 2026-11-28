@@ -303,7 +303,7 @@ J = dict(
  preview=L("Siziń arzańız", "Your application", "Sizning arizangiz", "Ваша заявка"),
  tg=L("Telegram arqalı jiberiw", "Send by Telegram", "Telegram orqali yuborish", "Отправить в Telegram"),
  mail=L("Pochta arqalı jiberiw", "Send by email", "Pochta orqali yuborish", "Отправить по почте"),
- copied=L("Arza tekstı kóshirildi. Telegramda «Qoyıw» (Paste) basıń hám jiberiń.", "Application text copied. In Telegram, tap Paste and send.", "Ariza matni nusxalandi. Telegramda «Qo‘yish» (Paste) ni bosing va yuboring.", "Текст заявки скопирован. В Telegram нажмите «Вставить» и отправьте."),
+ copied=L("Telegramda arza teksti jazıw qatarında boladı — tek «Jiberiw»di basıń.", "In Telegram the application will already be typed in: just tap Send.", "Telegramda ariza matni yozish qatorida bo‘ladi — faqat «Yuborish»ni bosing.", "В Telegram текст заявки уже будет набран — просто нажмите «Отправить»."),
  need=L("Atıńızdı, klassıńızdı kiritiń hám ata-ana belgisin qoyıń.", "Please enter your name and class, and tick the parent box.", "Ismingiz, sinfingizni kiriting va ota-ona belgisini qo‘ying.", "Укажите имя, класс и отметьте согласие родителей."),
  hello=L("Assalawma áleykum! Klubqa qosılǵım keledi.", "Hello! I would like to join a club.", "Assalomu alaykum! To‘garakka qo‘shilmoqchiman.", "Здравствуйте! Хочу вступить в клуб."),
  privacy=L("Sayt bul maǵlıwmatlardı saqlamaydı: arza tek siz jibergen waqıtta bizge keledi.", "The website does not store this information: the application reaches us only when you send it.", "Sayt bu ma’lumotlarni saqlamaydi: ariza faqat siz yuborganingizda bizga keladi.", "Сайт не сохраняет эти данные: заявка попадёт к нам, только когда вы её отправите."),
@@ -335,7 +335,7 @@ def join_body(i, up, href, classes, ctx):
             f'<label class="jchk"><input type="checkbox" id="jpar"><span>{J["parent"][i]}</span></label></form>'
             f'<div class="card jprev"><h3>{J["preview"][i]}</h3><pre id="jtext"></pre><p class="jerr" id="jerr" hidden>{J["need"][i]}</p>'
             f'<div class="jbtns"><a class="btn p" id="jtg" href="{ctx["TG"]}" rel="noopener">{J["tg"][i]}</a><a class="btn s" id="jmail" href="mailto:{ctx["EMAIL"]}">{J["mail"][i]}</a></div>'
-            f'<p class="jok" id="jok" hidden>{J["copied"][i]}</p><p class="note">{J["privacy"][i]}</p></div></div>'
+            f'<p class="jok" id="jok">{J["copied"][i]}</p><p class="note">{J["privacy"][i]}</p></div></div>'
             f'<p class="btns"><a class="btn s" href="{href(SUB)}">← {J["back"][i]}</a></p>'
             f'<script>var JD={data};' + JOIN_JS + '</script>')
 
@@ -345,13 +345,18 @@ var q=new URLSearchParams(location.search).get('club');if(q&&$('jclub').querySel
 function text(){var s=[].map.call(document.querySelectorAll('.jchip input:checked'),function(x){return x.value}).join(', ');
 var c=$('jclub');var t=D.hello+'\n\n'+D.lab.club+': '+c.options[c.selectedIndex].text+'\n'+D.lab.name+': '+($('jname').value.trim()||'—')+'\n'+D.lab.cls+': '+($('jcls').value||'—');
 if(s)t+='\n'+D.lab.int+' '+s;var w=$('jwhy').value.trim();if(w)t+='\n'+D.lab.why+': '+w;return t}
-function ok(){return $('jname').value.trim().length>1&&$('jcls').value&&$('jpar').checked}
-function upd(){var t=text();$('jtext').textContent=t;$('jmail').href='mailto:'+D.mail+'?subject='+encodeURIComponent(D.subj)+'&body='+encodeURIComponent(t);
-document.querySelector('.jbtns').classList.toggle('off',!ok());if(ok())$('jerr').hidden=true}
+function miss(){var m=[];if($('jname').value.trim().length<2)m.push('jname');if(!$('jcls').value)m.push('jcls');if(!$('jpar').checked)m.push('jpar');return m}
+function upd(){var t=text();$('jtext').textContent=t;
+$('jtg').href=D.tg+'?text='+encodeURIComponent(t);
+$('jmail').href='mailto:'+D.mail+'?subject='+encodeURIComponent(D.subj)+'&body='+encodeURIComponent(t);
+var m=miss();document.querySelector('.jbtns').classList.toggle('off',m.length>0);
+['jname','jcls','jpar'].forEach(function(k){$(k).closest('label').classList.toggle('jbad',m.indexOf(k)>=0&&$('jf').dataset.tried)});
+if(!m.length)$('jerr').hidden=true}
 $('jf').addEventListener('input',upd);$('jf').addEventListener('change',upd);upd();
-function guard(e){if(!ok()){e.preventDefault();$('jerr').hidden=false;return false}return true}
+function guard(e){var m=miss();if(m.length){e.preventDefault();$('jf').dataset.tried=1;$('jerr').hidden=false;upd();
+var f=$(m[0]);f.closest('label').scrollIntoView({behavior:'smooth',block:'center'});if(f.focus)setTimeout(function(){f.focus()},350);return false}return true}
 $('jmail').addEventListener('click',guard);
-$('jtg').addEventListener('click',function(e){if(!guard(e))return;var t=text();try{navigator.clipboard.writeText(t).then(function(){$('jok').hidden=false})}catch(x){}});
+$('jtg').addEventListener('click',function(e){if(!guard(e))return;try{navigator.clipboard.writeText(text())}catch(x){}});
 })();"""
 
 
