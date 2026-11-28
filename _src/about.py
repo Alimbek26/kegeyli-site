@@ -71,6 +71,27 @@ def status_card(i):
     sp = ("Universitetler ushın: mektep profili (inglis tilinde, PDF)", "For universities: School Profile (PDF)", "Universitetlar uchun: maktab profili (ingliz tilida, PDF)", "Для университетов: профиль школы (на английском, PDF)")[i]
     return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl><p class="aspl btns"><a class="btn p" href="{{UP}}school-profile/">{sp} →</a><a class="btn s" href="{{UP}}files/kegeyli-school-profile-2026-2027.pdf" download>PDF ↓</a></p></section>'
 
+H_CAMPUS = ("Mektebimiz", "Our campus", "Maktabimiz", "Наша школа")
+CAMPUS_P = ("Jarıq klasslar, laboratoriyalar hám keń kirisiw zalı — oqıwshılarımız kúnin usı jerde ótkeredi.",
+            "Bright classrooms, laboratories and a spacious entrance hall: this is where our students spend their day.",
+            "Yorug‘ sinflar, laboratoriyalar va keng kirish zali — o‘quvchilarimiz kunini shu yerda o‘tkazadi.",
+            "Светлые классы, лаборатории и просторный холл — здесь проходит день наших учеников.")
+CAMPUS_ALL = ("Barlıq súwretler", "All campus photos", "Barcha suratlar", "Все фотографии")
+
+
+def campus(i, up, gal_href):
+    import gallery as G
+    ps = [p for p in G.PHOTOS if G.ALBUM_OF.get(p["file"].split("/")[-1]) == "campus"]
+    if not ps:
+        return ""
+    cells = ""
+    for k, p in enumerate(ps[:5]):
+        f = p["file"]; src = f"{up}photos/gallery/{f}.jpg" if k == 0 else f"{up}photos/gallery/{f}-t.jpg"
+        cells += f'<a class="acp{" big" if k == 0 else ""}" href="{gal_href}#campus"><img src="{src}" alt="{p["cap"][i]}" loading="lazy"><span>{p["cap"][i]}</span></a>'
+    return (f'<h2 class="ah">{H_CAMPUS[i]}</h2><p>{CAMPUS_P[i]}</p><div class="acgrid n{min(len(ps), 5)}">{cells}</div>'
+            f'<p class="btns"><a class="btn s" href="{gal_href}#campus">{CAMPUS_ALL[i]} ({len(ps)}) →</a></p>')
+
+
 def body(i, up, t, hrefs):
     import achieve as _A
     tl = "".join(f'<li><span class="aty">{y}</span><div class="atc card"><h3>{h[i]}</h3><p>{p[i].replace("{n}", str(len(_A.IELTS)))}</p></div></li>' for y, h, p in TIMELINE)
@@ -80,7 +101,7 @@ def body(i, up, t, hrefs):
     go = "".join(f'<a class="btn s" href="{hrefs[k]}">{n[i]} →</a>' for k, n in GO)
     return (f'<div class="ahero"><img src="{up}photos/school.jpg" alt="{FULL[i]}" fetchpriority="high"></div>'
             f'<div class="card aname"><small>{OFFICIAL[i]}</small><h2>{FULL[i]}</h2><p>{SUB[i]}</p></div>'
-            f'<p class="lead2">{t["about1"]}</p><p>{t["about2"]}</p>{status_card(i)}'
+            f'<p class="lead2">{t["about1"]}</p><p>{t["about2"]}</p>{status_card(i)}' + campus(i, up, hrefs["gallery/"]) +
             f'<h2 class="ah">{H_TL[i]}</h2><ol class="atl">{tl}</ol><p class="btns"><a class="btn p" href="{hrefs["history/"]}">{__import__("history").NAME[i]} →</a></p>'
             f'<h2 class="ah">{H_MV[i]}</h2><p class="amis">{MISSION[i]}</p><div class="avgrid">{vals}</div>'
             f'<h2 class="ah">{H_NUM[i]}</h2><div class="angrid">{nums}</div>'

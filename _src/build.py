@@ -1001,7 +1001,7 @@ def page(lang, sub=""):
             inner = EX.body(sub, lang, i, t, ROOT, {"BELLS": BELLS, "href_tt": href(lang, sub, lang, "timetable/"), "href_cn": href(lang, sub, lang, "canteen/not-allowed/"), "cn": CN.NAMES["canteen/not-allowed/"][i], "cnd": CN.X["hero_h"][i], "tt": TT_TXT["title"][i], "href_gr": href(lang, sub, lang, "graduates/"), "gr": GT["title"][i],
                                                     "TG": TG, "PHONE": PHONE, "PHONE_TXT": PHONE_TXT, "EMAIL": EMAIL, "MAP": MAP, "KEY": WEB3FORMS_KEY, "FX": FORM_X[lang]})
         elif sub == "about/":
-            inner = AU.body(i, up, t, {**{k: href(lang, sub, lang, k) for k, _ in AU.GO}, "history/": href(lang, sub, lang, "history/")})
+            inner = AU.body(i, up, t, {**{k: href(lang, sub, lang, k) for k, _ in AU.GO}, "history/": href(lang, sub, lang, "history/"), "gallery/": href(lang, sub, lang, "gallery/")})
         elif sub == "study/":
             inner = STD.body(i, up, [(v_[:4], v_[4]) for v_ in TT_SUBJ.values()])
         elif sub == "news/":
