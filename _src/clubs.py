@@ -30,6 +30,17 @@ T = dict(
           "Спросите классного руководителя или школьного консультанта — они подскажут."),
  more=L("Basqa klublar tez arada qosıladı.", "More clubs will be added soon.", "Boshqa to‘garaklar tez orada qo‘shiladi.", "Скоро добавим другие клубы."),
  join_btn=L("Klubqa arza beriw", "Apply to join", "To‘garakka ariza berish", "Подать заявку"),
+ more_btn=L("Klub haqqında tolıǵıraq", "More about the club", "To‘garak haqida batafsil", "Подробнее о клубе"),
+ about_h=L("Klub haqqında", "About", "To‘garak haqida", "О клубе"),
+ log_h=L("Ushırasıwlar", "Meeting log", "Mashg‘ulotlar", "Занятия"),
+ proj_h=L("Joybarlar", "Projects", "Loyihalar", "Проекты"),
+ mem_h=L("Aǵzalar", "Members", "A’zolar", "Участники"),
+ log_empty=L("Ushırasıwlar haqqında maǵlıwmatlar tez arada qosıladı.", "Reports from club meetings will appear here soon.", "Mashg‘ulotlar haqida ma’lumotlar tez orada qo‘shiladi.", "Отчёты о занятиях скоро появятся здесь."),
+ proj_empty=L("Oqıwshılar joybarları tez arada qosıladı.", "Student projects will appear here soon.", "O‘quvchilar loyihalari tez orada qo‘shiladi.", "Проекты учеников скоро появятся здесь."),
+ mem_empty=L("Aǵzalar dizimi tez arada qosıladı.", "The members list will be added soon.", "A’zolar ro‘yxati tez orada qo‘shiladi.", "Список участников скоро будет добавлен."),
+ done_empty=L("Házirshe jetiskenlikler joq — birinshi nátiyjeler aldıda.", "No results yet: the first ones are ahead.", "Hozircha yutuqlar yo‘q — birinchi natijalar oldinda.", "Пока достижений нет — первые результаты впереди."),
+ join_cta=L("Arzanı toltırıń hám Telegram yamasa pochta arqalı jiberiń.", "Fill in a short application and send it by Telegram or email.", "Qisqa arizani to‘ldiring va Telegram yoki pochta orqali yuboring.", "Заполните короткую заявку и отправьте в Telegram или по почте."),
+ all=L("Barlıq klublar", "All clubs", "Barcha to‘garaklar", "Все клубы"),
  decree=L("PF-55 Pármanın oqıw", "Read Decree PF-55", "PF-55 Farmonini o‘qish", "Читать Указ УП-55"),
 )
 
@@ -52,9 +63,9 @@ CLUBS = [
               L("biologiya muǵallimi", "Biology teacher", "biologiya o‘qituvchisi", "учитель биологии")),
       teacher=None,
       when=L("Eki háptede bir ret, siyshembi kúni", "Every other Tuesday", "Ikki haftada bir marta, seshanba kuni", "Раз в две недели, по вторникам"),
-      where=None, members=None,
+      where=None,
       since=L("2024-jıl 1-aprel", "1 April 2024", "2024-yil 1-aprel", "1 апреля 2024 г."),
-      done=[], photo=None, join=True),
+      done=[], photo=None, join=True, log=[], projects=[], members=[]),
 ]
 
 
@@ -65,32 +76,102 @@ def _svg(p, s=22):
     return f'<svg viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{p}</svg>'
 
 
-def _card(c, i, up, href):
-    facts = [(T[k][i], c[k][i] if isinstance(c[k], tuple) else c[k]) for k in ("teacher", "when", "where", "members", "since") if c.get(k)]
+def _parts(c, i, up, href):
+    facts = [(T[k][i], c[k][i] if isinstance(c[k], tuple) else c[k]) for k in ("teacher", "when", "where", "since") if c.get(k)]
+    if c.get("members"):
+        facts.append((T["members"][i], str(len(c["members"]))))
     fx = ("<dl class=\"clfacts\">" + "".join(f"<div><dt>{a}</dt><dd>{b}</dd></div>" for a, b in facts) + "</dl>") if facts else ""
+    lead = ""
     if c.get("leader"):
         nm, sl, rl = c["leader"]
-        fx = (f'<a class="cllead" href="{href("teachers/" + sl + "/")}"><img src="{up}photos/teachers/{sl}-s.jpg" alt="" width="56" height="56" loading="lazy">'
-              f'<span><small>{T["leader"][i]}</small><b>{nm}</b><em>{rl[i]}</em></span><i aria-hidden="true">→</i></a>') + fx
-    done = (f'<h3>{T["done"][i]}</h3><ul class="cldone">' + "".join(f"<li>{d[i]}</li>" for d in c["done"]) + "</ul>") if c.get("done") else ""
-    ph = f'<img class="clph" src="{up}photos/clubs/{c["photo"]}" alt="{c["name"][i]}" loading="lazy">' if c.get("photo") else ""
+        lead = (f'<a class="cllead" href="{href("teachers/" + sl + "/")}"><img src="{up}photos/teachers/{sl}-s.jpg" alt="" width="56" height="56" loading="lazy">'
+                f'<span><small>{T["leader"][i]}</small><b>{nm}</b><em>{rl[i]}</em></span><i aria-hidden="true">→</i></a>')
     law = (f'<a class="cllaw" href="{href(c["law"])}"><span class="clli">{_svg(DOC_I, 20)}</span>'
            f'<span><small>{T["basis"][i]}</small><b>{c["basis"][i]}</b></span><em>{T["decree"][i]} →</em></a>') if c.get("law") else ""
-    return (f'<article class="clcard" id="{c["key"]}" style="--c:{c["colour"]}">'
-            f'<div class="clhead"><span class="clic">{_svg(c["icon"], 34)}</span><div><span class="cltag">{c["tag"][i]}</span><h2>{c["name"][i]}</h2></div></div>'
-            f'{ph}<p class="clintro">{c["intro"][i]}</p>{fx}'
-            f'<h3>{T["what"][i]}</h3><ul class="clwhat">' + "".join(f'<li><span>{n + 1}</span>{w[i]}</li>' for n, w in enumerate(c["what"])) + '</ul>'
-            f'{done}{law}'
-            + (f'<a class="btn p cljbtn" href="{href(JSUB)}?club={c["key"]}">{T["join_btn"][i]} →</a>' if c.get("join") else "")
-            + '</article>')
+    head = (f'<div class="clhead"><span class="clic">{_svg(c["icon"], 34)}</span><div><span class="cltag">{c["tag"][i]}</span>'
+            f'<h2>{c["name"][i]}</h2></div></div>')
+    join = f'<a class="btn p" href="{href(JSUB)}?club={c["key"]}">{T["join_btn"][i]} →</a>' if c.get("join") else ""
+    return fx, lead, law, head, join
+
+
+def csub(c):
+    return f"clubs/{c['key']}/"
+
+
+def _card(c, i, up, href):
+    """Summary card on the Clubs page; the title and button open the club's own page."""
+    fx, lead, law, head, join = _parts(c, i, up, href)
+    head = head.replace(f'<h2>{c["name"][i]}</h2>', f'<h2><a class="clh" href="{href(csub(c))}">{c["name"][i]}</a></h2>')
+    return (f'<article class="clcard" id="{c["key"]}" style="--c:{c["colour"]}">{head}'
+            f'<p class="clintro">{c["intro"][i]}</p>{lead}{fx}'
+            f'<p class="btns clbtns"><a class="btn s clmore" href="{href(csub(c))}">{T["more_btn"][i]} →</a>{join}</p></article>')
 
 
 def body(i, up, href):
     cards = "".join(_card(c, i, up, href) for c in CLUBS)
     return (f'<p class="lead2">{T["lead"][i]}</p><div class="clubs">{cards}</div>'
             f'<div class="card cljoin"><h3>{T["join_h"][i]}</h3><p>{T["join_p"][i]}</p>'
-            f'<p class="btns"><a class="btn s" href="{href("counseling/")}">{__import__("counseling").NAME[i]} →</a></p></div>'
+            f'<p class="btns"><a class="btn p" href="{href(JSUB)}">{T["join_btn"][i]} →</a><a class="btn s" href="{href("counseling/")}">{__import__("counseling").NAME[i]} →</a></p></div>'
             f'<p class="note">{T["more"][i]}</p>')
+
+
+# ---------- One page per club: clubs/<key>/
+# Content lists, each shown only when it has entries (an "empty" note otherwise):
+#   log:      [dict(date="2026-11-25", topic=L(...), text=L(...) or None, photo="file.jpg" or None)]   (photos in photos/clubs/)
+#   projects: [dict(title=L(...), who="names" or None, text=L(...), photo=None)]
+#   members:  [("Name Surname", "9-B")]   only students who agreed to be shown
+CSUBS = {csub(c): n for n, c in enumerate(CLUBS)}
+
+
+def cname(sub, i):
+    return CLUBS[CSUBS[sub]]["name"][i]
+
+
+def cdesc(sub):
+    return CLUBS[CSUBS[sub]]["intro"]
+
+
+def _date(d, i):
+    y, m, dd = (d.split("-") + ["", ""])[:3]
+    M = [("yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr"),
+         ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+         ("yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"),
+         ("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря")]
+    if not dd:
+        return y
+    return f"{int(dd)} {M[i][int(m) - 1]} {y}" if i != 1 else f"{int(dd)} {M[1][int(m) - 1]} {y}"
+
+
+def club_body(sub, i, up, href):
+    c = CLUBS[CSUBS[sub]]
+    fx, lead, law, head, join = _parts(c, i, up, href)
+    what = "".join(f'<li><span>{n + 1}</span>{w[i]}</li>' for n, w in enumerate(c["what"]))
+    log = sorted(c.get("log", []), key=lambda e: e["date"], reverse=True)
+    logh = ("<ol class=\"cllog\">" + "".join(
+        f'<li><time>{_date(e["date"], i)}</time><div class="card"><h3>{e["topic"][i]}</h3>'
+        + (f'<p>{e["text"][i]}</p>' if e.get("text") else "")
+        + (f'<img src="{up}photos/clubs/{e["photo"]}" alt="{e["topic"][i]}" loading="lazy">' if e.get("photo") else "")
+        + "</div></li>" for e in log) + "</ol>") if log else f'<p class="clempty">{T["log_empty"][i]}</p>'
+    pr = c.get("projects", [])
+    prh = ("<div class=\"clprs\">" + "".join(
+        f'<div class="card clpr">' + (f'<img src="{up}photos/clubs/{p["photo"]}" alt="" loading="lazy">' if p.get("photo") else "")
+        + f'<h3>{p["title"][i]}</h3>' + (f'<p class="clwho">{p["who"]}</p>' if p.get("who") else "") + f'<p>{p["text"][i]}</p></div>' for p in pr) + "</div>") \
+        if pr else f'<p class="clempty">{T["proj_empty"][i]}</p>'
+    mem = c.get("members", [])
+    memh = ("<ul class=\"clmem\">" + "".join(f"<li><b>{n}</b><span>{k}</span></li>" for n, k in mem) + "</ul>") if mem else f'<p class="clempty">{T["mem_empty"][i]}</p>'
+    done = ("<ul class=\"cldone\">" + "".join(f"<li>{d[i]}</li>" for d in c["done"]) + "</ul>") if c.get("done") else f'<p class="clempty">{T["done_empty"][i]}</p>'
+    ph = f'<img class="clph" src="{up}photos/clubs/{c["photo"]}" alt="{c["name"][i]}">' if c.get("photo") else ""
+    nav = "".join(f'<a href="#{k}">{T[h][i]}</a>' for k, h in (("about", "about_h"), ("log", "log_h"), ("projects", "proj_h"), ("members", "mem_h"), ("results", "done")))
+    return (f'<article class="clcard clpage" style="--c:{c["colour"]}">{head}{ph}<p class="clintro">{c["intro"][i]}</p>{lead}{fx}'
+            f'<p class="btns clbtns">{join}</p></article>'
+            f'<nav class="clnav" style="--c:{c["colour"]}">{nav}</nav>'
+            f'<section class="clsec" id="about" style="--c:{c["colour"]}"><h2>{T["what"][i]}</h2><ul class="clwhat">{what}</ul>{law}</section>'
+            f'<section class="clsec" id="log" style="--c:{c["colour"]}"><h2>{T["log_h"][i]}</h2>{logh}</section>'
+            f'<section class="clsec" id="projects" style="--c:{c["colour"]}"><h2>{T["proj_h"][i]}</h2>{prh}</section>'
+            f'<section class="clsec" id="members" style="--c:{c["colour"]}"><h2>{T["mem_h"][i]}</h2>{memh}</section>'
+            f'<section class="clsec" id="results" style="--c:{c["colour"]}"><h2>{T["done"][i]}</h2>{done}</section>'
+            + (f'<div class="cscta clcta"><div><h2>{T["join_h"][i]}</h2><p>{T["join_cta"][i]}</p></div><p class="btns">{join}</p></div>' if join else "")
+            + f'<p class="btns"><a class="btn s" href="{href(SUB)}">← {T["all"][i]}</a></p>')
 
 
 # ---------- Join page: the student fills in a short application in the browser, then sends it
