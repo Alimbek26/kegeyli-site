@@ -7,6 +7,7 @@
 #   who     : list of trainers - a teacher's name exactly as in teachers.TEACHERS (Cyrillic),
 #             or "lead:<Latin name>" for someone in teachers.LEADERS. Empty list = name not published.
 #   subj    : a key of teachers.SUBJECTS, or "lead" for school leadership
+#   done    : True once the seminar has taken place (moves it to "held" on the same day)
 #   topic   : the seminar topic as written (leave "" if not decided yet - shown as "topic to be announced")
 # Past/upcoming is worked out from today's date automatically (also in the visitor's browser).
 import datetime as _dt, html as _html, json
@@ -25,7 +26,7 @@ SEMINARS = [
  dict(date="2026-10-31", who=["Елмуратова Тоти"], subj="bio", topic="Qızıqlı biologiya"),
  dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic="АК-47 автоматы, Ф-1 ҳәм РГД-5 қол гранаталары"),
  dict(date="2026-11-14", who=["lead:Islam Pirniyazov"], subj="lead", topic="«Pedagog maqomi»: qaror va hujjatlar bilan tanishtiruv"),
- dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları",
+ dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları", done=True,
       attended=ATT_2026_11_28),
  dict(date="2026-12-05", who=["Жалғасова Оркенай"], subj="eng", topic=""),
  dict(date="2026-12-12", who=["Узақбаева Айсанем"], subj="rus", topic=""),
@@ -148,7 +149,7 @@ def person(w, lang, href, tp_sub, lp_sub):
 def today():
     return _dt.date.today().isoformat()
 def counts():
-    t = today(); held = [s for s in SEMINARS if s["date"] < t]
+    t = today(); held = [s for s in SEMINARS if s["date"] < t or s.get("done")]
     who = {w for s in SEMINARS for w in s["who"]}
     return len(held), len(SEMINARS) - len(held), len(who)
 
@@ -161,7 +162,7 @@ def _row(s, lang, href, tp, lp, cls=""):
     who = ", ".join(names) or f'<span class="smuted">{T["nobody"][i]}</span>'
     col = SUBJ_COL.get(s["subj"], "#5b6472")
     topic = (f'<p class="smtopic"><a href="{href(psub(s))}">{esc(s["topic"])}</a></p>' if s["topic"] else f'<p class="smtopic tba"><a href="{href(psub(s))}">{T["tba"][i]}</a></p>')
-    return (f'<li class="smrow{cls}" data-d="{s["date"]}" data-s="{s["subj"]}" style="--sc:{col}">'
+    return (f'<li class="smrow{cls}" data-d="{s["date"]}"{" data-done=1" if s.get("done") else ""} data-s="{s["subj"]}" style="--sc:{col}">'
             f'<time class="smdate" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
             f'<div class="smbody"><div class="smmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
             f'<span class="smtoday" hidden>{T["today"][i]}</span></div>{topic}<p class="smwho">{who}</p>'
@@ -173,7 +174,7 @@ def _next_card(s, lang, href, tp, lp, shown):
     names = ", ".join(f'<a href="{l}">{esc(n)}</a>' for n, l in (person(w, lang, href, tp, lp) for w in s["who"])) or T["nobody"][i]
     topic = esc(s["topic"]) if s["topic"] else f'<span class="tba">{T["tba"][i]}</span>'
     col = SUBJ_COL.get(s["subj"], "#5b6472")
-    return (f'<div class="smnext card" data-d="{s["date"]}" style="--sc:{col}"{"" if shown else " hidden"}>'
+    return (f'<div class="smnext card" data-d="{s["date"]}"{" data-done=1" if s.get("done") else ""} style="--sc:{col}"{"" if shown else " hidden"}>'
             f'<p class="smkick">{T["next_h"][i]} · <span class="smtoday" hidden>{T["today"][i]} · </span>{fmt_long(s["date"], lang)}, {TIME}</p>'
             f'<h2>{topic}</h2><p class="smwho"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span> {names}</p></div>')
 
@@ -181,8 +182,8 @@ def body(lang, href, tp, lp):
     """Page body. href(sub) -> relative link; tp(j) / lp(n) -> sub of teacher / leader profile."""
     i = LANGS.index(lang); t = today()
     held, up, who = counts()
-    past = sorted((s for s in SEMINARS if s["date"] < t), key=lambda s: s["date"], reverse=True)
-    fut = sorted((s for s in SEMINARS if s["date"] >= t), key=lambda s: s["date"])
+    past = sorted((s for s in SEMINARS if s["date"] < t or s.get("done")), key=lambda s: s["date"], reverse=True)
+    fut = sorted((s for s in SEMINARS if s["date"] >= t and not s.get("done")), key=lambda s: s["date"])
     stats = "".join(f'<div class="stat"><b{(" id=" + q) if q else ""}>{v}</b><span>{l}</span></div>' for v, l, q in [
         (held, T["s_held"][i], "smh"), (up, T["s_next"][i], "smu"), (who, T["s_who"][i], ""), (TIME, T["s_when"][i], "")])
     nexts = "".join(_next_card(s, lang, href, tp, lp, k == 0) for k, s in enumerate(fut))
@@ -191,9 +192,9 @@ def body(lang, href, tp, lp):
              + "".join(f'<button type="button" class="chip" data-s="{k}" style="--sc:{SUBJ_COL.get(k, "#5b6472")}">{_html.escape(subj_name(k, i))}</button>' for k in used))
     js = """<script>(function(){var t=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tashkent'}).format(new Date());
 var up=document.getElementById('smup'),pa=document.getElementById('smpast');
-[].slice.call(up.children).forEach(function(r){if(r.dataset.d<t){pa.insertBefore(r,pa.firstChild)}});
+[].slice.call(up.children).forEach(function(r){if(r.dataset.d<t||r.dataset.done){pa.insertBefore(r,pa.firstChild)}});
 document.querySelectorAll('.smrow,.smnext').forEach(function(r){if(r.dataset.d===t)r.querySelectorAll('.smtoday').forEach(function(x){x.hidden=false})});
-var n=null;document.querySelectorAll('.smnext').forEach(function(c){var ok=!n&&c.dataset.d>=t;if(ok)n=c;c.hidden=!ok});
+var n=null;document.querySelectorAll('.smnext').forEach(function(c){var ok=!n&&c.dataset.d>=t&&!c.dataset.done;if(ok)n=c;c.hidden=!ok});
 document.getElementById('smh').textContent=pa.children.length;document.getElementById('smu').textContent=up.children.length;
 document.getElementById('smuph').hidden=!up.children.length;document.getElementById('smpasth').hidden=!pa.children.length;
 var cs=document.querySelectorAll('.smchips .chip'),run=function(k){var v=0;document.querySelectorAll('.smrow').forEach(function(r){var ok=k==='all'||r.dataset.s===k;r.hidden=!ok;if(ok)v++});document.getElementById('smnone').hidden=v>0};
@@ -210,7 +211,7 @@ def for_person(key, lang, href, tp, lp):
     mine = sorted((s for s in SEMINARS if key in s["who"]), key=lambda s: s["date"], reverse=True)
     if not mine:
         return ""
-    rows = "".join(_row(s, lang, href, tp, lp, " past" if s["date"] < today() else "") for s in mine)
+    rows = "".join(_row(s, lang, href, tp, lp, " past" if (s["date"] < today() or s.get("done")) else "") for s in mine)
     return (f'<h2>{T["prof_h"][i]}</h2><ol class="smlist">{rows}</ol>'
             f'<p><a class="btn s" href="{href(SUB)}">{T["all_link"][i]} →</a></p>')
 
@@ -253,7 +254,7 @@ def page(sub, lang, href, tp, lp, up):
     topic = esc(s["topic"]) if s["topic"] else f'<span class="tba">{T["tba"][i]}</span>'
     hero = (f'<div class="sphero" style="--sc:{col}"><time class="spcal" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
             f'<div class="sphx"><p class="spmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
-            f'<span class="spst" data-d="{s["date"]}" data-h="{T["p_held"][i]}" data-u="{T["p_upc"][i]}" data-t="{T["today"][i]}"></span></p>'
+            f'<span class="spst" data-d="{"0000-00-00" if s.get("done") else s["date"]}" data-h="{T["p_held"][i]}" data-u="{T["p_upc"][i]}" data-t="{T["today"][i]}"></span></p>'
             f'<h2>{topic}</h2><p class="spwhen">{fmt_long(s["date"], lang)} · {TIME}</p><div class="sptrs">{trainers}</div></div></div>')
     about = f'<h2>{T["p_about"][i]}</h2><p class="lead2">{esc(s["about"][i])}</p>' if s.get("about") else ""
     att = ""
