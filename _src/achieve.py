@@ -394,8 +394,8 @@ def sat_block(i):
             seg = "".join(f'<i class="{"on" if j < v else ""}"></i>' for j in range(7))
             return f'<li><span>{DOMS[k][i]}</span><div class="smeter" style="--ac:{c}">{seg}</div><small>{BANDS[v - 1]}</small></li>'
         rwc, mc = "#7c3aed", "#2a7fd1"
-        det = (f'<div class="sdet"><h4>{SX["skills"][i]}</h4><div class="sdom"><div><h5 style="color:{rwc}">{SX["rw"][i]}</h5><ul>{"".join(dom(k, rwc) for k in range(4))}</ul></div>'
-               f'<div><h5 style="color:{mc}">{SX["math"][i]}</h5><ul>{"".join(dom(k, mc) for k in range(4, 8))}</ul></div></div></div>')
+        det = (f'<div class="sdet"><h4>{SX["skills"][i]}</h4><div class="sdom"><div><h5 class="icol" style="--ic:{rwc}">{SX["rw"][i]}</h5><ul>{"".join(dom(k, rwc) for k in range(4))}</ul></div>'
+               f'<div><h5 class="icol" style="--ic:{mc}">{SX["math"][i]}</h5><ul>{"".join(dom(k, mc) for k in range(4, 8))}</ul></div></div></div>')
         cards += (f'<details class="satcard card" style="--ac:{col}"><summary><span class="srank">{r}</span>'
                   f'<div class="sgauge">{ring}<div><b>{x["total"]}</b><small>/1600</small></div></div>'
                   f'<div class="sinfo"><h3>{_nm(x["name"])}</h3><p class="sdate">{SX["date"][i]}: {NW.fmt(x["date"], i)}</p><div class="sbadges">{badges}</div>'
@@ -451,7 +451,7 @@ def ielts_block(i):
             if x[2 + k] == 9.0:
                 badges += f'<span class="sbadge gold">★ {IX["perfect"][i].format(s=SKILLS[k][i])}</span>'
         rows = "".join(f'<div class="isk"><span>{SKILLS[k][i]}</span><div class="iskb" style="--ac:{SKILLS[k][4]}">' + "".join(f'<i class="{"on" if j < x[2 + k] * 2 else ""}"></i>' for j in range(18)) +
-                       f'</div><b style="color:{SKILLS[k][4]}">{_f(x[2 + k], i)}</b></div>' for k in range(4))
+                       f'</div><b class="icol" style="--ic:{SKILLS[k][4]}">{_f(x[2 + k], i)}</b></div>' for k in range(4))
         cards += (f'<article class="ilcard card" style="--ac:{col}"><span class="srank">{r}</span><div class="ilt">'
                   f'<div class="sgauge">{ring}<div><b>{_f(x[6], i)}</b><small>/9</small></div></div>'
                   f'<div class="sinfo"><h3>{_nm(x[0])}</h3><p class="sdate">{SX["date"][i]}: {NW.fmt(x[1], i)}</p><div class="sbadges">{badges}</div></div></div>'
@@ -489,7 +489,7 @@ def certificates(i, href):
     srows = "".join(row(s, c) for s, c in subs)
     def levels(order):
         m = max(d["lv"][l] for l in order) or 1
-        return "".join(f'<div class="aclv"><span class="aclt" style="background:{LVCOL[l]}">{l}</span><div class="aclb"><i style="width:{d["lv"][l] / m * 100:.0f}%;background:{LVCOL[l]}"></i></div><b>{d["lv"][l]}</b></div>' for l in order if d["lv"][l])
+        return "".join(f'<div class="aclv"><span class="aclt" style="--lc:{LVCOL[l]}">{l}</span><div class="aclb"><i style="width:{d["lv"][l] / m * 100:.0f}%;background:{LVCOL[l]}"></i></div><b>{d["lv"][l]}</b></div>' for l in order if d["lv"][l])
     intl = (f'<div class="acintl"><div><b>{d["ielts"]}</b><span>{X["c_ielts"][i]}</span></div><div><b>{d["sat"]}</b><span>{X["c_satn"][i]}</span></div>'
             f'<div><b>{BEST}</b><span>{X["c_best"][i]}</span></div></div>')
     nst = NC.stats()

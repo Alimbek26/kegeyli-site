@@ -81,6 +81,8 @@ DOMAIN = "https://kegeyliqm.uz/"
 SRC = os.path.dirname(__file__)
 ROOT = os.path.dirname(SRC)
 STYLE = open(os.path.join(SRC, "style.css"), encoding="utf-8").read()
+from contrast import guard as _cguard
+STYLE += _cguard(STYLE)
 def gal_who(c, lang):
     """Gallery: link a person in a photo to their profile."""
     import tprofile as _TP, lprofile as _LP
@@ -1182,8 +1184,8 @@ def home_body(lang, t, i, up):
     _hi = sum(1 for x in TEACHERS if x[2] == "high"); _ns = len({x[1] for x in TEACHERS})
     teach_stats = (f'<div class="tstats"><div><b>{len(TEACHERS)}</b><span>{TSTAT[lang][0]}</span></div><div><b>{_ns}</b><span>{TSTAT[lang][1]}</span></div><div><b>{_hi}</b><span>{CATS["high"][lang]}</span></div></div>')
     high = sum(1 for x in TEACHERS if x[2] == "high")
-    _RI = [(_I('<path d="M12 4l9 4-9 4-9-4z"/><path d="M7 10.500v4.500c0 1.400 2.200 3 5 3s5-1.600 5-3v-4.500M21 8v6"/>'), "#e8b94a"), (_I('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'), "#7dd3a8"), (_I('<rect x="4" y="3.500" width="16" height="14" rx="2"/><path d="M8 8h8M8 11.500h5"/><circle cx="16" cy="18" r="3"/><path d="M14.500 20.500L14 23l2-1 2 1-.5-2.500"/>'), "#f0a07a"),
-           (_I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'), "#8cc8f0"), (_I('<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.500 2.700-6 6-6s6 2.500 6 6M16 5.500a3 3 0 0 1 0 5.500M18 14.500c2 .8 3 2.800 3 5.500"/>'), "#c4a6f5"), (_I('<circle cx="12" cy="9" r="5.500"/><path d="M8.500 13.500L7 21l5-3 5 3-1.500-7.500"/>'), "#e0a15a")]
+    _RI = [(_I('<path d="M12 4l9 4-9 4-9-4z"/><path d="M7 10.500v4.500c0 1.400 2.200 3 5 3s5-1.600 5-3v-4.500M21 8v6"/>'), "#e9bc53"), (_I('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'), "#7dd3a8"), (_I('<rect x="4" y="3.500" width="16" height="14" rx="2"/><path d="M8 8h8M8 11.500h5"/><circle cx="16" cy="18" r="3"/><path d="M14.500 20.500L14 23l2-1 2 1-.5-2.500"/>'), "#f6b896"),
+           (_I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'), "#92cbf1"), (_I('<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.500 2.700-6 6-6s6 2.500 6 6M16 5.500a3 3 0 0 1 0 5.500M18 14.500c2 .8 3 2.800 3 5.500"/>'), "#d0b8f7"), (_I('<circle cx="12" cy="9" r="5.500"/><path d="M8.500 13.500L7 21l5-3 5 3-1.500-7.500"/>'), "#e9bd8c")]
     def _rs(k, n, l):
         m = _re.match(r"^(\d+(?:[.,]\d+)?)%$", n)
         ring = ""
