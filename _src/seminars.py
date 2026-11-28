@@ -94,6 +94,7 @@ T = {
  "none": ("Bul pán boyınsha seminar joq", "No seminars for this subject", "Bu fan bo‘yicha seminar yo‘q", "По этому предмету семинаров нет"),
  "lang_note": ("Seminar temaları seminar ótkerilgen tilde berilgen.", "Seminar topics are given in the language the seminar was held in.", "Seminar mavzulari seminar o‘tkazilgan tilda berilgan.", "Темы семинаров приведены на языке, на котором проходил семинар."),
  "prof_h": ("Kásiplik rawajlanıw kúni seminarları", "Professional Development Day seminars", "Kasbiy rivojlanish kuni seminarlari", "Семинары Дня профессионального развития"),
+ "p_pdf": ("Seminar esabatın júklew", "Download seminar report", "Seminar hisobotini yuklab olish", "Скачать отчёт о семинаре"),
  "p_photos": ("Seminar súwretleri", "Seminar photos", "Seminar suratlari", "Фотографии семинара"),
  "p_nophotos": ("Súwretler seminardan keyin qosıladı.", "Photos will be added after the seminar.", "Suratlar seminardan keyin qo‘shiladi.", "Фотографии будут добавлены после семинара."),
  "p_trainer": ("Seminar-trener", "Seminar trainer", "Seminar-trener", "Ведущий семинара"),
@@ -276,5 +277,8 @@ def page(sub, lang, href, tp, lp, up):
           + (f'<a class="r" href="{href(psub(nxt))}"><small>{T["p_next"][i]} →</small><b>{esc(pname(psub(nxt), i))}</b></a>' if nxt else "<span></span>") + '</nav>'
     js = ('<script>(function(){var e=document.querySelector(".spst"),t=new Date(),y=t.getFullYear()+"-"+("0"+(t.getMonth()+1)).slice(-2)+"-"+("0"+t.getDate()).slice(-2);'
           'e.textContent=e.dataset.d<y?e.dataset.h:e.dataset.d==y?e.dataset.t:e.dataset.u;e.className+=" "+(e.dataset.d<y?"h":e.dataset.d==y?"t":"u")})();</script>')
-    return (hero + about + f'<h2>{T["p_photos"][i]}</h2>{gal}' + att + nav
+    pdf = f'files/seminars/{s["date"]}-{lang}.pdf'
+    dl = (f'<a class="btn p spdl" href="{up}{pdf}" download><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>'
+          f'{T["p_pdf"][i]} <small>PDF · {_os.path.getsize(pdf) // 1024} KB</small></a>') if _os.path.exists(pdf) else ""
+    return (hero + (f'<p class="btns">{dl}</p>' if dl else "") + about + f'<h2>{T["p_photos"][i]}</h2>{gal}' + att + nav
             + f'<p class="btns"><a class="btn s" href="{href(SUB)}">← {T["all_link"][i]}</a></p>' + js)

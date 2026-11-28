@@ -1725,3 +1725,5 @@ section.plsec:not(.card){padding:0!important}
 .ncteaser b{font-size:18px}.ncteaser .nclv{flex:none}
 @media (max-width:600px){.ncteaser{align-items:flex-start}.ncteaser .acgo2{margin-left:0;width:100%;padding-top:10px;border-top:1px solid var(--line)}}
 .nlink{display:inline-block;margin-top:10px;font-weight:700;color:var(--mc);text-decoration:none}.nlink:hover{text-decoration:underline}
+.spdl{gap:8px;align-items:center}.spdl small{opacity:.75;font-weight:500}.sphero+.btns{margin:-8px 0 8px}
+.spdl{display:inline-flex!important;flex-wrap:nowrap}.spdl small{white-space:nowrap}.sphero+.btns{margin:-8px 0 18px}@media (max-width:600px){.spdl{width:100%;justify-content:center;font-size:15px}.spdl small{display:none}}
