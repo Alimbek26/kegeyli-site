@@ -1685,3 +1685,6 @@ background:radial-gradient(90% 140% at 100% 0%,color-mix(in srgb,var(--sc) 14%,t
 .amc h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--teal)}.amc.mis h3{color:#b07d10}
 .amc p{margin:0 0 10px;line-height:1.65;max-width:none}.amc p:last-child{margin:0}
 @media(max-width:760px){.amgrid{grid-template-columns:1fr}}
+.ashead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin:0 0 14px}.ashead h2{margin:0!important}
+.asag{display:block;border-radius:10px;overflow:hidden;line-height:0;box-shadow:0 6px 16px -10px rgba(0,0,0,.5)}.asag img{width:240px;height:auto;display:block}
+@media(max-width:560px){.asag img{width:100%;max-width:300px}}

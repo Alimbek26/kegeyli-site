@@ -80,7 +80,9 @@ STATUS = [
 def status_card(i):
     rows = "".join(f"<dt>{k[i]}</dt><dd>{v[i]}" + (f' <a href="{AGENCY_URL}" target="_blank" rel="noopener">gov.uz/ima ↗</a>' if k[1] == "Governing authority" else "") + "</dd>" for n, (k, v) in enumerate(STATUS))
     sp = ("Universitetler ushın: mektep profili (inglis tilinde, PDF)", "For universities: School Profile (PDF)", "Universitetlar uchun: maktab profili (ingliz tilida, PDF)", "Для университетов: профиль школы (на английском, PDF)")[i]
-    return f'<section class="card astatus" id="status"><h2>{ST_H[i]}</h2><dl>{rows}</dl><p class="aspl btns"><a class="btn p" href="{{UP}}school-profile/">{sp} →</a><a class="btn s" href="{{UP}}files/kegeyli-school-profile-2026-2027.pdf" download>PDF ↓</a></p></section>'
+    alt = ("Qánigelestirilgen bilimlendiriw mekemeleri agentligi", "Agency for Specialized Educational Institutions", "Ixtisoslashtirilgan ta’lim muassasalari agentligi", "Агентство специализированных образовательных учреждений")[i]
+    logo = f'<a class="asag" href="{AGENCY_URL}" target="_blank" rel="noopener"><img src="{{UP}}photos/agency-logo.png" alt="{alt}" width="320" height="87" loading="lazy"></a>'
+    return f'<section class="card astatus" id="status"><div class="ashead"><h2>{ST_H[i]}</h2>{logo}</div><dl>{rows}</dl><p class="aspl btns"><a class="btn p" href="{{UP}}school-profile/">{sp} →</a><a class="btn s" href="{{UP}}files/kegeyli-school-profile-2026-2027.pdf" download>PDF ↓</a></p></section>'
 
 H_CAMPUS = ("Mektebimiz", "Our campus", "Maktabimiz", "Наша школа")
 CAMPUS_P = ("Jarıq klasslar, laboratoriyalar hám keń kirisiw zalı — oqıwshılarımız kúnin usı jerde ótkeredi.",
