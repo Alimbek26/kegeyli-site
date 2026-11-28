@@ -57,6 +57,7 @@ PHOTOS += [
  _e("arislanbaev-portrait", "Arıslanbaev Dawıtbek: fizika A+, matematika A, rus tili B+, IELTS 7.5, SAT 1440", "Dawitbek Arislanbaev: Physics A+, Mathematics A, Russian B+, IELTS 7.5, SAT 1440", "Dawitbek Arislanbaev: fizika A+, matematika A, rus tili B+, IELTS 7.5, SAT 1440", "Dawitbek Arislanbaev: физика A+, математика A, русский B+, IELTS 7.5, SAT 1440", date="2026-11"),
  _e("abdullaeva-portrait", "Ayjamal Abdullaeva — University of Glasgow hám University of Birmingham usınısları", "Ayjamal Abdullaeva: offers from the University of Glasgow and the University of Birmingham", "Ayjamal Abdullayeva — University of Glasgow va University of Birmingham takliflari", "Айжамал Абдуллаева — предложения от University of Glasgow и University of Birmingham", date="2025-04-04"),
  _e("turganbaeva-arizona", "Aynura Turǵanbaeva — University of Arizona-nıń 16 000 dollarlıq grantınıń iyesi", "Aynura Turganbaeva, winner of a $16,000 grant from the University of Arizona", "Aynura Turg‘anbayeva — University of Arizona’ning 16 000 dollarlik granti sohibi", "Айнура Турганбаева — обладательница гранта University of Arizona на $16 000", date="2025-05-17"),
+ _e("campus-entrance-hall", "Mekteptiń kirisiw zalı: «Jańa Ózbekstan mektep bosaǵasınan baslanadı»", "The school entrance hall: “New Uzbekistan begins at the school threshold”", "Maktabning kirish zali: «Yangi O‘zbekiston maktab ostonasidan boshlanadi»", "Входной холл школы: «Новый Узбекистан начинается с порога школы»", date="2026-11"),
  _e("junior-academy-profile", "Gulnur Abdullaeva — Nyu-York pánler akademiyasınıń The Junior Academy aǵzası", "Gulnur Abdullaeva, member of The Junior Academy of the New York Academy of Sciences", "Gulnur Abdullaeva — Nyu-York fanlar akademiyasining The Junior Academy a’zosi", "Гульнур Абдуллаева — участница The Junior Academy Нью-Йоркской академии наук", date="2026-11"),
  _e("junior-academy-project", "The Junior Academy: xalıqaralıq komandanıń «GreenShift Infrastructure» joybarı", "The Junior Academy: the international team project GreenShift Infrastructure", "The Junior Academy: xalqaro jamoaning «GreenShift Infrastructure» loyihasi", "The Junior Academy: проект международной команды GreenShift Infrastructure", date="2026-11"),
  _e("iaac-2026-prefinal", "Gulnur Abdullaeva — IAAC 2026 xalıqaralıq astronomiya jarısınıń yarım finalistı", "Gulnur Abdullaeva, semifinalist of the International Astronomy and Astrophysics Competition 2026", "Gulnur Abdullaeva — IAAC 2026 xalqaro astronomiya musobaqasi yarim finalchisi", "Гульнур Абдуллаева — полуфиналистка международного соревнования IAAC 2026", date="2026-06-15"),
@@ -89,10 +90,12 @@ ALBUMS = {
             ("Jeńimpazlarımızdı sıylaw", "Celebrating our winners", "G‘oliblarimizni taqdirlash", "Награждение наших победителей"), "#d97706"),
  "trips": (("Saparlar", "Trips", "Sayohatlar", "Экскурсии"),
            ("Muzeyler, Prezident mektebi hám Jaslar orayı", "Museums, the Presidential School and the Youth Centre", "Muzeylar, Prezident maktabi va Yoshlar markazi", "Музеи, Президентская школа и Молодёжный центр"), "#0891b2"),
+ "campus": (("Mektebimiz", "Our campus", "Maktabimiz", "Наша школа"),
+            ("Mektep imaratı, klasslar hám laboratoriyalar", "The school building, classrooms and laboratories", "Maktab binosi, sinflar va laboratoriyalar", "Здание школы, классы и лаборатории"), "#0b5f78"),
  "life": (("Mektep turmısı", "School life", "Maktab hayoti", "Школьная жизнь"),
           ("Sabaqlar, jármeńkeler, ińglis tili kúni hám basqa da kúnlerimiz", "Lessons, fairs, English Day and our everyday", "Darslar, yarmarkalar, ingliz tili kuni va kundalik hayotimiz", "Уроки, ярмарки, День английского и наши будни"), "#16a34a"),
 }
-ALBUM_OF = {
+ALBUM_OF = {"campus-entrance-hall": "campus", 
  "navruz-teachers": "holidays", "navruz-girls-costumes": "holidays", "navruz-national-table": "holidays", "navruz-audience": "holidays",
  "karakalpak-language-day-dance": "holidays", "new-year-staff-gifts": "holidays", "new-year-group": "holidays",
  "uzbek-language-teachers": "staff", "staff-group": "staff", "teacher-nominations": "staff", "welcome-balloons": "staff",
@@ -101,7 +104,7 @@ ALBUM_OF = {
  "trip-presidential-school": "trips", "trip-youth-centre": "trips", "trip-savitsky-museum": "trips",
  "outdoor-lesson": "life", "bake-sale": "life", "autumn-costumes": "life", "english-day-guests": "life",
 }
-COVER = {"holidays": "karakalpak-language-day-dance", "staff": "teacher-nominations", "awards": "hakim-cup-winners", "trips": "trip-savitsky-museum", "life": "autumn-costumes"}
+COVER = {"campus": "campus-entrance-hall", "holidays": "karakalpak-language-day-dance", "staff": "teacher-nominations", "awards": "hakim-cup-winners", "trips": "trip-savitsky-museum", "life": "autumn-costumes"}
 TAGS = {"navruz": ("Náwrız", "Navruz", "Navro‘z", "Навруз"), "new-year": ("Jańa jıl", "New Year", "Yangi yil", "Новый год"),
         "language-day": ("Til kúni", "Language Day", "Til kuni", "День языка"), "hakim-cup": ("Hákim kubogı", "Governor’s Cup", "Hokim kubogi", "Кубок хокима"),
         "trip": None, "staff-event": None}
@@ -156,7 +159,7 @@ def body(lang, href, up, who_link):
     for a, (tt, dd, col) in ALBUMS.items():
         if not counts[a]: continue
         cv = f"{up}photos/gallery/events/{COVER[a]}-t.jpg"
-        alb_cards.append(f'<button type="button" class="galb" data-a="{a}" style="--ac:{col}" aria-pressed="false"><img src="{cv}" alt="" loading="lazy" width="600" height="450"><span class="galbt"><b>{tt[i]}</b><small>{dd[i]}</small><em>{counts[a]} {T["photos"][i]}</em></span></button>')
+        alb_cards.append(f'<button type="button" class="galb" data-a="{a}" style="--ac:{col}" aria-pressed="false"><img src="{cv}" alt="" loading="lazy" width="600" height="450"><span class="galbt"><b>{tt[i]}</b><small>{dd[i]}</small><em>{counts[a]} {("photo" if counts[a] == 1 and i == 1 else T["photos"][i])}</em></span></button>')
     chips = f'<button type="button" class="chip on" data-a="">{T["all"][i]} <em>{len(ps)}</em></button>' + "".join(
         f'<button type="button" class="chip" data-a="{a}" style="--ac:{v[2]}">{v[0][i]} <em>{counts[a]}</em></button>' for a, v in ALBUMS.items() if counts[a])
     figs, data = [], []
