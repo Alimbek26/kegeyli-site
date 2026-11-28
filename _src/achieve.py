@@ -93,7 +93,7 @@ OLYMP = [
       extra=("Ekewine de PDP University-diń 12 000 000 swmlıq grantı", "A 12,000,000 so‘m PDP University grant for each of them", "Ikkalasiga ham PDP Universityning 12 000 000 so‘mlik granti", "Каждому — грант PDP University на 12 000 000 сумов")),
  dict(year="2025/2026", stage="intl", award="semi", subj="astro",
       name=("Xalıqaralıq astronomiya hám astrofizika jarısı (IAAC 2026)", "International Astronomy and Astrophysics Competition (IAAC 2026)", "Xalqaro astronomiya va astrofizika musobaqasi (IAAC 2026)", "Международное соревнование по астрономии и астрофизике (IAAC 2026)"),
-      who=("Gulnur Abdullaeva (11-B klass)", "Gulnur Abdullaeva (Grade 11-B)", "Gulnur Abdullaeva (11-B sinf)", "Гульнур Абдуллаева (11-Б класс)"),
+      who=("Gulnur Abdullaeva (10-klass)", "Gulnur Abdullaeva (Grade 10)", "Gulnur Abdullaeva (10-sinf)", "Гульнур Абдуллаева (10 класс)"),
       extra=("Saralaw basqıshınan ótip, yarım final (Pre-Final) basqıshına qatnastı", "Passed the Qualification Round and took part in the Pre-Final (semi-final) Round", "Saralash bosqichidan o‘tib, yarim final (Pre-Final) bosqichida qatnashdi", "Прошла отборочный тур и участвовала в полуфинале (Pre-Final Round)")),
  dict(year="2025/2026", stage="republic", award="bronze", subj="stem",
       name=("AKHU STEM olimpiadası", "AKHU STEM Olympiad", "AKHU STEM olimpiadasi", "Олимпиада AKHU STEM")),
