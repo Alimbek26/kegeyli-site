@@ -66,6 +66,7 @@ SUBJ = {
  "inf": ("Informatika", "Computer science", "Informatika", "Информатика"),
  "eng": ("Ingliz tili", "English", "Ingliz tili", "Английский язык"),
  "stem": ("STEM", "STEM", "STEM", "STEM"),
+ "astro": ("Astronomiya", "Astronomy", "Astronomiya", "Астрономия"),
 }
 STAGE = {  # order = ladder from bottom to top
  "school": ("Mektep basqıshı", "School stage", "Maktab bosqichi", "Школьный этап"),
@@ -83,12 +84,17 @@ AWARD = {  # text, colour
  "p3": (("3-orın", "3rd place", "3-o‘rin", "3-е место"), "#b4693a"),
  "final": (("Finalist", "Finalist", "Finalchi", "Финалист"), "#0b7a8f"),
  "prize": (("Sıylıq iyesi", "Prize-winner", "Sovrindor", "Призёр"), "#7c3aed"),
+ "semi": (("Yarım finalist", "Semifinalist", "Yarim finalchi", "Полуфиналист"), "#2563eb"),
 }
 OLYMP = [
  dict(year="2022/2023", stage="republic", award="prize", subj="math",
       name=("Matematikadan Respublika pán olimpiadası, saralaw basqıshı", "Republican Mathematics Olympiad, qualifying round", "Matematika bo‘yicha Respublika fan olimpiadasi, saralash bosqichi", "Республиканская олимпиада по математике, отборочный этап"),
       who=("Artıqbay Saparniyazov (10-klass) hám Ádilbek Jumabaev (11-klass)", "Artıqbay Saparniyazov (Grade 10) and Adilbek Jumabaev (Grade 11)", "Artiqbay Saparniyazov (10-sinf) va Adilbek Jumabaev (11-sinf)", "Артыкбай Сапарниязов (10 класс) и Адилбек Жумабаев (11 класс)"),
       extra=("Ekewine de PDP University-diń 12 000 000 swmlıq grantı", "A 12,000,000 so‘m PDP University grant for each of them", "Ikkalasiga ham PDP Universityning 12 000 000 so‘mlik granti", "Каждому — грант PDP University на 12 000 000 сумов")),
+ dict(year="2025/2026", stage="intl", award="semi", subj="astro",
+      name=("Xalıqaralıq astronomiya hám astrofizika jarısı (IAAC 2026)", "International Astronomy and Astrophysics Competition (IAAC 2026)", "Xalqaro astronomiya va astrofizika musobaqasi (IAAC 2026)", "Международное соревнование по астрономии и астрофизике (IAAC 2026)"),
+      who=("Gulnur Abdullaeva (11-B klass)", "Gulnur Abdullaeva (Grade 11-B)", "Gulnur Abdullaeva (11-B sinf)", "Гульнур Абдуллаева (11-Б класс)"),
+      extra=("Saralaw basqıshınan ótip, yarım final (Pre-Final) basqıshına qatnastı", "Passed the Qualification Round and took part in the Pre-Final (semi-final) Round", "Saralash bosqichidan o‘tib, yarim final (Pre-Final) bosqichida qatnashdi", "Прошла отборочный тур и участвовала в полуфинале (Pre-Final Round)")),
  dict(year="2025/2026", stage="republic", award="bronze", subj="stem",
       name=("AKHU STEM olimpiadası", "AKHU STEM Olympiad", "AKHU STEM olimpiadasi", "Олимпиада AKHU STEM")),
  dict(year=None, stage="republic", award="final", subj="stem",
