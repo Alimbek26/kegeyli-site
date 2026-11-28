@@ -135,6 +135,8 @@ def body(sub, lang, up, href, ctx):
     av = f'<img src="{up}photos/teachers/{sl}.jpg" alt="{esc(nm)}">' if photo else f'<span>{ini}</span>'
     port = portrait("teachers", sl, up, esc(nm), esc(nm + " — " + X["teacher"][i].format(s=subj)))
     leads = [c for c in HD.HEAD if HD.HEAD[c][0] == cy]
+    import clubs as _CLB
+    clubs = [c for c in _CLB.CLUBS if c.get("leader") and c["leader"][1] == sl]
     S = schedule(j, tt, M)
     per_cls = {}
     for (d, p), xs in S.items():
@@ -144,7 +146,8 @@ def body(sub, lang, up, href, ctx):
     chips = (f'<span class="tpchip" style="--ac:{col}">{_svg(I_BOOK, 16)} {X["teacher"][i].format(s=subj)}</span>'
              + (f'<span class="tpchip gold">{_svg(I_STAR, 16)} {CATS[ck][lang]}</span>' if ck else "")
              + "".join(f'<span class="tpchip lead">{_svg(I_USR, 16)} {X["lead"][i].format(c=c)}</span>' for c in leads)
-             + (f'<span class="tpchip lead">{_svg(I_STAR, 16)} {pr["pos"][i]}</span>' if pr.get("pos") else ""))
+             + (f'<span class="tpchip lead">{_svg(I_STAR, 16)} {pr["pos"][i]}</span>' if pr.get("pos") else "")
+             + "".join(f'<a class="tpchip lead" href="{href(_CLB.csub(c))}">{_svg(c["icon"], 16)} {_CLB.T["club_lead"][i].format(c=c["name"][i])}</a>' for c in clubs))
     share = (f'<div class="tpshare"><button type="button" class="btn s" id="tpsh">{_svg(I_SHARE, 18)} {X["share"][i]}</button>'
              f'<a class="btn s" id="tptg" href="#" rel="noopener">{_svg(I_TG, 18)} Telegram</a><span id="tpok" role="status"></span></div>')
     hero = (f'<p class="rsback"><a href="{href("teachers/")}">← {X["back"][i]}</a></p>'
@@ -177,6 +180,10 @@ def body(sub, lang, up, href, ctx):
             ic, c = _ach_icon(a[1] + " " + a[i])
             cards += f'<li style="--ac:{c}"><span>{_svg(ic, 20)}</span><p>{esc(a[i])}</p></li>'
         ach = f'<h2>{X["ach_h"][i]}</h2><ul class="tpach">{cards}</ul>'
+    if clubs:
+        ach += f'<h2>{_CLB.T["clubs_h"][i]}</h2>' + "".join(
+            f'<a class="tpclub" href="{href(_CLB.csub(c))}" style="--c:{c["colour"]}"><span class="clic">{_svg(c["icon"], 28)}</span>'
+            f'<span><small>{_CLB.T["leader"][i]}</small><b>{c["name"][i]}</b><em>{c["when"][i] if c.get("when") else ""}</em></span><i aria-hidden="true">→</i></a>' for c in clubs)
     # classes
     cls = ""
     if per_cls:

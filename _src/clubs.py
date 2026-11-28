@@ -41,6 +41,8 @@ T = dict(
  done_empty=L("Házirshe jetiskenlikler joq — birinshi nátiyjeler aldıda.", "No results yet: the first ones are ahead.", "Hozircha yutuqlar yo‘q — birinchi natijalar oldinda.", "Пока достижений нет — первые результаты впереди."),
  join_cta=L("Arzanı toltırıń hám Telegram yamasa pochta arqalı jiberiń.", "Fill in a short application and send it by Telegram or email.", "Qisqa arizani to‘ldiring va Telegram yoki pochta orqali yuboring.", "Заполните короткую заявку и отправьте в Telegram или по почте."),
  all=L("Barlıq klublar", "All clubs", "Barcha to‘garaklar", "Все клубы"),
+ club_lead=L("{c} basshısı", "Leads the {c}", "{c} rahbari", "Руководитель: {c}"),
+ clubs_h=L("Klublar", "Clubs", "To‘garaklar", "Клубы"),
  decree=L("PF-55 Pármanın oqıw", "Read Decree PF-55", "PF-55 Farmonini o‘qish", "Читать Указ УП-55"),
 )
 
