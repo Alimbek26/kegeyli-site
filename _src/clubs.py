@@ -170,9 +170,50 @@ CLUBS.append(dict(key="ielts-club", colour="#2563eb",
            ("talk", L("Erkin sóylew", "Speak with confidence", "Erkin gapirish", "Уверенная речь"),
              L("Hár ushırasıwda inglis tilinde sóylesiw — imtixanda da, turmısta da paydalı.", "Speak English at every meeting: useful in the test and in life.", "Har uchrashuvda ingliz tilida gaplashish — imtihonda ham, hayotda ham foydali.", "Говорим по-английски на каждой встрече — пригодится и на экзамене, и в жизни."))],
       leader=None, teacher=None, when=None, where=None, since=None,
-      done=_ielts_stats(), done_link="achievements/ielts/", photo=None, join=True, log=[], projects=[], members=[],
+      done=_ielts_stats(), done_link="achievements/ielts/", extra_link=("ielts/", L("IELTS", "IELTS", "IELTS", "IELTS")), photo=None, join=True, log=[], projects=[], members=[],
       faq=[(L("Imtixanǵa qalay dizimge alınaman?", "How do I register for the IELTS test?", "Imtihonga qanday ro‘yxatdan o‘taman?", "Как записаться на экзамен IELTS?"),
             L("Mektepte, rásmiy IELTS dizimge alıw punktinde — biypul. Juwapker: Alimbek Jumamuratov.", "At school, at our official IELTS Registration Point, free of charge. Contact: Alimbek Jumamuratov.", "Maktabda, rasmiy IELTS ro‘yxatga olish nuqtasida — bepul. Mas’ul: Alimbek Jumamuratov.", "В школе, в официальном пункте регистрации IELTS, бесплатно. Ответственный: Алимбек Жумамуратов.")),
+           (L("Qalay qosılaman?", "How do I join the club?", "To‘garakka qanday qo‘shilaman?", "Как вступить в клуб?"),
+            L("Usı saytta arzanı toltırıp, Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте и отправьте в Telegram или по почте."), "join")]))
+
+
+def _sat_stats():
+    try:
+        import achieve as _A
+        xs = sorted(x["total"] for x in _A.SAT)
+    except Exception:
+        return []
+    if not xs:
+        return []
+    n, best, s13 = len(xs), xs[-1], sum(1 for x in xs if x >= 1300)
+    return [L(f"{n} oqıwshımız SAT tapsırdı", f"{n} of our students have taken the SAT", f"{n} nafar o‘quvchimiz SAT topshirdi", f"{n} наших учеников сдали SAT"),
+            L(f"Eń joqarı nátiyje — {best} / 1600", f"Highest score: {best} / 1600", f"Eng yuqori natija — {best} / 1600", f"Лучший результат — {best} / 1600"),
+            L(f"{s13} oqıwshı 1300 hám onnan joqarı aldı", f"{s13} students scored 1300 or higher", f"{s13} nafar o‘quvchi 1300 va undan yuqori oldi", f"{s13} учеников набрали 1300 и выше")]
+
+
+CLUBS.append(dict(key="sat-club", colour="#0b7a8f",
+      icon='<path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/>',
+      name=L("SAT klubı", "SAT club", "SAT to‘garagi", "Клуб SAT"),
+      tag=L("AQSh universitetlerine jol", "The road to US universities", "AQSh universitetlariga yo‘l", "Путь в университеты США"),
+      intro=L("Sanlı SAT imtixanına tayarlıq: matematika hám «Oqıw hám jazıw» bólimleri. SAT nátiyjesi AQSh-taǵı kóp universitetlerge arza beriwde hám grant alıwda járdem beredi.",
+              "Preparation for the digital SAT: the Math and Reading and Writing sections. A strong SAT score helps with applications and scholarships at many universities in the USA.",
+              "Raqamli SAT imtihoniga tayyorgarlik: matematika va «O‘qish va yozish» bo‘limlari. SAT natijasi AQShdagi ko‘plab universitetlarga ariza berishda va grant olishda yordam beradi.",
+              "Подготовка к цифровому SAT: разделы «Математика» и «Чтение и письмо». Высокий балл SAT помогает при поступлении и получении стипендий во многих университетах США."),
+      what=[L("Matematika máseleleri (Desmos kalkulyatorı menen)", "Math practice, including the Desmos calculator", "Matematika masalalari (Desmos kalkulyatori bilan)", "Математика, в том числе с калькулятором Desmos"),
+            L("Oqıw hám jazıw bólimine tayarlıq", "Reading and Writing practice", "O‘qish va yozish bo‘limiga tayyorgarlik", "Подготовка к разделу «Чтение и письмо»"),
+            L("Bluebook-ta tolıq sınaq testler", "Full practice tests in Bluebook", "Bluebook’da to‘liq sinov testlari", "Полные пробные тесты в Bluebook"),
+            L("Qátelerdi talqılaw", "Reviewing mistakes together", "Xatolarni tahlil qilish", "Разбор ошибок")],
+      why=[("cap", L("AQSh universitetlerine arza", "Applying to US universities", "AQSh universitetlariga ariza", "Поступление в университеты США"),
+             L("Kúshli SAT nátiyjesi arzańızdı bekkemleydi.", "A strong SAT score makes your application stronger.", "Kuchli SAT natijasi arizangizni mustahkamlaydi.", "Высокий балл SAT усиливает заявку.")),
+           ("trophy", L("Grantlar", "Scholarships", "Grantlar", "Стипендии"),
+             L("Kóp universitetler SAT nátiyjesine qarap grant beredi.", "Many universities consider SAT scores when awarding merit scholarships.", "Ko‘plab universitetlar SAT natijasiga qarab grant beradi.", "Многие университеты учитывают SAT при назначении стипендий.")),
+           ("bulb", L("Matematika — kúshli tárepimiz", "Maths is our strength", "Matematika — kuchli tomonimiz", "Математика — наша сильная сторона"),
+             L("Qánigelestirilgen mektep oqıwshıları ushın SAT matematikası — joqarı ball alıw imkaniyatı.", "For specialized-school students, SAT Math is a real chance for a high score.", "Ixtisoslashtirilgan maktab o‘quvchilari uchun SAT matematikasi — yuqori ball olish imkoniyati.", "Для учеников специализированной школы SAT Math — реальный шанс на высокий балл."))],
+      leader=None, teacher=None, when=None, where=None, since=None,
+      done=_sat_stats(), done_link="achievements/sat/", res_label=L("Barlıq SAT nátiyjeleri", "All SAT results", "Barcha SAT natijalari", "Все результаты SAT"), extra_link=("abroad/sat/", L("SAT basshılıǵı", "SAT guide", "SAT qo‘llanmasi", "Руководство по SAT")),
+      photo=None, join=True, log=[], projects=[], members=[],
+      faq=[(L("SAT-qa qalay dizimge alınaman?", "How do I register for the SAT?", "SATga qanday ro‘yxatdan o‘taman?", "Как записаться на SAT?"),
+            L("College Board saytında (satsuite.collegeboard.org) óz akkauntıńız arqalı. Mektep másláhátshisi dizimge alınıwǵa járdem beredi.", "Through your own account on the College Board website (satsuite.collegeboard.org). The school counselor can help you register.", "College Board saytida (satsuite.collegeboard.org) o‘z akkauntingiz orqali. Maktab maslahatchisi ro‘yxatdan o‘tishga yordam beradi.", "Через свой аккаунт на сайте College Board (satsuite.collegeboard.org). Школьный консультант поможет с регистрацией.")),
            (L("Qalay qosılaman?", "How do I join the club?", "To‘garakka qanday qo‘shilaman?", "Как вступить в клуб?"),
             L("Usı saytta arzanı toltırıp, Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте и отправьте в Telegram или по почте."), "join")]))
 
@@ -277,7 +318,7 @@ def club_body(sub, i, up, href):
     memh = ("<ul class=\"clmem\">" + "".join(f"<li><b>{n}</b><span>{k}</span></li>" for n, k in mem) + "</ul>") if mem else f'<p class="clempty">{T["mem_empty"][i]}</p>'
     done = ("<ul class=\"cldone\">" + "".join(f"<li>{d[i]}</li>" for d in c["done"]) + "</ul>") if c.get("done") else f'<p class="clempty">{T["done_empty"][i]}</p>'
     if c.get("done_link"):
-        done += f'<p class="btns"><a class="btn s" href="{href(c["done_link"])}">{T["see_res"][i]} →</a><a class="btn s" href="{href("ielts/")}">IELTS →</a></p>'
+        done += f'<p class="btns"><a class="btn s" href="{href(c["done_link"])}">{c.get("res_label", T["see_res"])[i]} →</a>' + (f'<a class="btn s" href="{href(c["extra_link"][0])}">{c["extra_link"][1][i]} →</a>' if c.get("extra_link") else "") + '</p>'
     ph = f'<img class="clph" src="{up}photos/clubs/{c["photo"]}" alt="{c["name"][i]}">' if c.get("photo") else ""
     why = "".join(f'<div class="clwhy"><span class="clic">{_svg(WHY_I[k], 24)}</span><h3>{t[i]}</h3><p>{d[i]}</p></div>' for k, t, d in c.get("why", []))
     whyh = f'<section class="clsec" id="why" style="--c:{c["colour"]}"><h2>{T["why_h"][i]}</h2><div class="clwhys">{why}</div></section>' if why else ""
