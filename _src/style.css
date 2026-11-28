@@ -1721,3 +1721,6 @@ section.plsec:not(.card){padding:0!important}
 .spnav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 18px}.spnav a{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--ink)}
 .spnav a:hover{border-color:var(--teal)}.spnav a.r{text-align:right}.spnav small{color:var(--soft);font-weight:700}
 @media (max-width:600px){.sphero{flex-direction:column}.spcal{flex-direction:row;gap:8px;width:auto;height:auto;padding:8px 16px}.spcal b{font-size:24px}.spnav{grid-template-columns:1fr}}
+.ncteaser{flex-wrap:wrap}.ncteaser div{flex:1 1 220px;min-width:0}.ncteaser .acgo2{font-size:16px;white-space:nowrap;align-self:center}
+.ncteaser b{font-size:18px}.ncteaser .nclv{flex:none}
+@media (max-width:600px){.ncteaser{align-items:flex-start}.ncteaser .acgo2{margin-left:0;width:100%;padding-top:10px;border-top:1px solid var(--line)}}
