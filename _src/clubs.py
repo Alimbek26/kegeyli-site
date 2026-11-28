@@ -52,6 +52,7 @@ T = dict(
  tbc=L("Muǵallim hám waqıt tez arada kórsetiledi", "Teacher and schedule coming soon", "O‘qituvchi va vaqt tez orada ko‘rsatiladi", "Учитель и расписание скоро"),
  steps_h=L("Qalay qabıl etiledi", "How students are selected", "Qanday qabul qilinadi", "Как проходит отбор"),
  stages_h=L("Olimpiada basqıshları", "Olympiad stages", "Olimpiada bosqichlari", "Этапы олимпиад"),
+ see_res=L("Barlıq IELTS nátiyjeleri", "All IELTS results", "Barcha IELTS natijalari", "Все результаты IELTS"),
  decree=L("PF-55 Pármanın oqıw", "Read Decree PF-55", "PF-55 Farmonini o‘qish", "Читать Указ УП-55"),
 )
 
@@ -136,7 +137,49 @@ CLUBS.append(dict(key="olympiad-groups", colour="#d97706",
             L("Usı saytta arzanı toltırıp, pánlerdi belgileń hám Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website, tick your subjects and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, fanlarni belgilang va Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте, отметьте предметы и отправьте в Telegram или по почте."), "join")]))
 
 
-WHY_I = {"lab": '<path d="M9 3h6"/><path d="M10 3v6L4.500 19a1.500 1.500 0 0 0 1.300 2.200h12.400a1.500 1.500 0 0 0 1.300-2.200L14 9V3"/><path d="M7.500 14h9"/>',
+def _ielts_stats():
+    try:
+        import achieve as _A
+        xs = sorted(r[6] for r in _A.IELTS)
+    except Exception:
+        return []
+    if not xs:
+        return []
+    n, best, s7 = len(xs), xs[-1], sum(1 for x in xs if x >= 7)
+    return [L(f"{n} oqıwshımızdıń IELTS sertifikatı bar", f"{n} of our students hold IELTS certificates", f"{n} nafar o‘quvchimizning IELTS sertifikati bor", f"У {n} наших учеников есть сертификат IELTS"),
+            L(f"Eń joqarı nátiyje — {best}", f"Highest overall band: {best}", f"Eng yuqori natija — {best}", f"Лучший общий балл — {best}"),
+            L(f"{s7} oqıwshı 7.0 hám onnan joqarı aldı", f"{s7} students scored 7.0 or higher", f"{s7} nafar o‘quvchi 7.0 va undan yuqori oldi", f"{s7} учеников получили 7.0 и выше")]
+
+
+CLUBS.append(dict(key="ielts-club", colour="#2563eb",
+      icon='<path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M17 9h3a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-3.500-3H13"/>',
+      name=L("IELTS klubı", "IELTS club", "IELTS to‘garagi", "Клуб IELTS"),
+      tag=L("Rásmiy IELTS dizimge alıw punkti menen", "With our official IELTS Registration Point", "Rasmiy IELTS ro‘yxatga olish nuqtasi bilan", "При официальном пункте регистрации IELTS"),
+      intro=L("IELTS Academic imtixanına tayarlıq: tıńlaw, oqıw, jazıw hám sóylew. Mektep British Council penen sheriklikte rásmiy IELTS dizimge alıw punkti bolǵanı ushın imtixanǵa dizimge alınıw da mektepte biypul.",
+              "Preparation for the IELTS Academic test: listening, reading, writing and speaking. Our school is an official IELTS Registration Point in partnership with the British Council, so students can also register for the test at school, free of charge.",
+              "IELTS Academic imtihoniga tayyorgarlik: tinglash, o‘qish, yozish va gapirish. Maktab British Council bilan hamkorlikda rasmiy IELTS ro‘yxatga olish nuqtasi bo‘lgani uchun imtihonga ro‘yxatdan o‘tish ham maktabda bepul.",
+              "Подготовка к IELTS Academic: аудирование, чтение, письмо и говорение. Школа — официальный пункт регистрации IELTS в партнёрстве с British Council, поэтому записаться на экзамен можно прямо в школе бесплатно."),
+      what=[L("Sóylew praktikası", "Speaking practice", "Gapirish amaliyoti", "Практика говорения"),
+            L("Esse jazıw hám pikir alıw", "Essay writing with feedback", "Insho yozish va fikr olish", "Эссе с обратной связью"),
+            L("Tolıq sınaq testler", "Full mock tests", "To‘liq sinov testlari", "Полные пробные тесты"),
+            L("Tıńlaw hám oqıw strategiyaları", "Listening and reading strategies", "Tinglash va o‘qish strategiyalari", "Стратегии аудирования и чтения")],
+      why=[("cap", L("Shet elde oqıw ushın", "For study abroad", "Xorijda o‘qish uchun", "Для учёбы за рубежом"),
+             L("IELTS sertifikatı AQSh, Ullı Britaniya hám basqa mámleketlerdegi universitetlerge arza ushın kerek.", "An IELTS certificate is needed to apply to universities in the UK, the USA and many other countries.", "IELTS sertifikati AQSh, Buyuk Britaniya va boshqa davlatlardagi universitetlarga ariza uchun kerak.", "Сертификат IELTS нужен для поступления в университеты Великобритании, США и многих других стран.")),
+           ("test", L("Mektepte biypul dizimge alıw", "Free registration at school", "Maktabda bepul ro‘yxatdan o‘tish", "Бесплатная регистрация в школе"),
+             L("Tayar bolǵanıńızda imtixanǵa mektepte, rásmiy punktte dizimge alınasız.", "When you are ready, you register for the test right here at our official Registration Point.", "Tayyor bo‘lganingizda imtihonga maktabda, rasmiy nuqtada ro‘yxatdan o‘tasiz.", "Когда будете готовы, запишитесь на экзамен прямо в школе, в официальном пункте.")),
+           ("talk", L("Erkin sóylew", "Speak with confidence", "Erkin gapirish", "Уверенная речь"),
+             L("Hár ushırasıwda inglis tilinde sóylesiw — imtixanda da, turmısta da paydalı.", "Speak English at every meeting: useful in the test and in life.", "Har uchrashuvda ingliz tilida gaplashish — imtihonda ham, hayotda ham foydali.", "Говорим по-английски на каждой встрече — пригодится и на экзамене, и в жизни."))],
+      leader=None, teacher=None, when=None, where=None, since=None,
+      done=_ielts_stats(), done_link="achievements/ielts/", photo=None, join=True, log=[], projects=[], members=[],
+      faq=[(L("Imtixanǵa qalay dizimge alınaman?", "How do I register for the IELTS test?", "Imtihonga qanday ro‘yxatdan o‘taman?", "Как записаться на экзамен IELTS?"),
+            L("Mektepte, rásmiy IELTS dizimge alıw punktinde — biypul. Juwapker: Alimbek Jumamuratov.", "At school, at our official IELTS Registration Point, free of charge. Contact: Alimbek Jumamuratov.", "Maktabda, rasmiy IELTS ro‘yxatga olish nuqtasida — bepul. Mas’ul: Alimbek Jumamuratov.", "В школе, в официальном пункте регистрации IELTS, бесплатно. Ответственный: Алимбек Жумамуратов.")),
+           (L("Qalay qosılaman?", "How do I join the club?", "To‘garakka qanday qo‘shilaman?", "Как вступить в клуб?"),
+            L("Usı saytta arzanı toltırıp, Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте и отправьте в Telegram или по почте."), "join")]))
+
+
+WHY_I = {"test": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+         "talk": '<path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>',
+         "lab": '<path d="M9 3h6"/><path d="M10 3v6L4.500 19a1.500 1.500 0 0 0 1.300 2.200h12.400a1.500 1.500 0 0 0 1.300-2.200L14 9V3"/><path d="M7.500 14h9"/>',
          "bulb": '<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.700V17h8v-2.300A7 7 0 0 0 12 2z"/>',
          "cap": '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
          "trophy": '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'}
@@ -233,6 +276,8 @@ def club_body(sub, i, up, href):
     mem = c.get("members", [])
     memh = ("<ul class=\"clmem\">" + "".join(f"<li><b>{n}</b><span>{k}</span></li>" for n, k in mem) + "</ul>") if mem else f'<p class="clempty">{T["mem_empty"][i]}</p>'
     done = ("<ul class=\"cldone\">" + "".join(f"<li>{d[i]}</li>" for d in c["done"]) + "</ul>") if c.get("done") else f'<p class="clempty">{T["done_empty"][i]}</p>'
+    if c.get("done_link"):
+        done += f'<p class="btns"><a class="btn s" href="{href(c["done_link"])}">{T["see_res"][i]} →</a><a class="btn s" href="{href("ielts/")}">IELTS →</a></p>'
     ph = f'<img class="clph" src="{up}photos/clubs/{c["photo"]}" alt="{c["name"][i]}">' if c.get("photo") else ""
     why = "".join(f'<div class="clwhy"><span class="clic">{_svg(WHY_I[k], 24)}</span><h3>{t[i]}</h3><p>{d[i]}</p></div>' for k, t, d in c.get("why", []))
     whyh = f'<section class="clsec" id="why" style="--c:{c["colour"]}"><h2>{T["why_h"][i]}</h2><div class="clwhys">{why}</div></section>' if why else ""
