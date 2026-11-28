@@ -91,6 +91,16 @@ T = {
  "none": ("Bul pán boyınsha seminar joq", "No seminars for this subject", "Bu fan bo‘yicha seminar yo‘q", "По этому предмету семинаров нет"),
  "lang_note": ("Seminar temaları seminar ótkerilgen tilde berilgen.", "Seminar topics are given in the language the seminar was held in.", "Seminar mavzulari seminar o‘tkazilgan tilda berilgan.", "Темы семинаров приведены на языке, на котором проходил семинар."),
  "prof_h": ("Kásiplik rawajlanıw kúni seminarları", "Professional Development Day seminars", "Kasbiy rivojlanish kuni seminarlari", "Семинары Дня профессионального развития"),
+ "p_photos": ("Seminar súwretleri", "Seminar photos", "Seminar suratlari", "Фотографии семинара"),
+ "p_nophotos": ("Súwretler seminardan keyin qosıladı.", "Photos will be added after the seminar.", "Suratlar seminardan keyin qo‘shiladi.", "Фотографии будут добавлены после семинара."),
+ "p_trainer": ("Seminar-trener", "Seminar trainer", "Seminar-trener", "Ведущий семинара"),
+ "p_att_h": ("Qatnasıwshılar", "Participants", "Ishtirokchilar", "Участники"),
+ "p_held": ("Ótkerildi", "Held", "O‘tkazildi", "Проведён"),
+ "p_upc": ("Aldaǵı", "Upcoming", "Kelgusi", "Предстоящий"),
+ "p_prev": ("Aldıńǵı seminar", "Previous seminar", "Oldingi seminar", "Предыдущий семинар"),
+ "p_next": ("Keyingi seminar", "Next seminar", "Keyingi seminar", "Следующий семинар"),
+ "p_title": ("Seminar · {d}", "Seminar · {d}", "Seminar · {d}", "Семинар · {d}"),
+ "p_about": ("Seminar haqqında", "About the seminar", "Seminar haqida", "О семинаре"),
  "all_link": ("Barlıq seminarlar", "All seminars", "Barcha seminarlar", "Все семинары"),
 }
 MON = {"kaa": ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr"],
@@ -150,7 +160,7 @@ def _row(s, lang, href, tp, lp, cls=""):
         names.append(f'<a href="{link}">{esc(nm)}</a>')
     who = ", ".join(names) or f'<span class="smuted">{T["nobody"][i]}</span>'
     col = SUBJ_COL.get(s["subj"], "#5b6472")
-    topic = f'<p class="smtopic">{esc(s["topic"])}</p>' if s["topic"] else f'<p class="smtopic tba">{T["tba"][i]}</p>'
+    topic = (f'<p class="smtopic"><a href="{href(psub(s))}">{esc(s["topic"])}</a></p>' if s["topic"] else f'<p class="smtopic tba"><a href="{href(psub(s))}">{T["tba"][i]}</a></p>')
     return (f'<li class="smrow{cls}" data-d="{s["date"]}" data-s="{s["subj"]}" style="--sc:{col}">'
             f'<time class="smdate" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
             f'<div class="smbody"><div class="smmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
@@ -203,3 +213,65 @@ def for_person(key, lang, href, tp, lp):
     rows = "".join(_row(s, lang, href, tp, lp, " past" if s["date"] < today() else "") for s in mine)
     return (f'<h2>{T["prof_h"][i]}</h2><ol class="smlist">{rows}</ol>'
             f'<p><a class="btn s" href="{href(SUB)}">{T["all_link"][i]} →</a></p>')
+
+
+
+# ---------- One page per seminar: teachers/seminars/<date>/
+#   photos : list of files in photos/seminars/ (each "<name>.jpg" plus "<name>-t.jpg" thumbnail)
+#   about  : optional (kaa, en, uz, ru) short description of what happened
+import os as _os
+def psub(s):
+    return f"{SUB}{s['date']}/"
+_ORDER = sorted(SEMINARS, key=lambda s: s["date"])
+PSUBS = {psub(s): s for s in _ORDER}
+
+def pname(sub, i):
+    s = PSUBS[sub]
+    return s["topic"] or T["p_title"][i].format(d=fmt_long(s["date"], LANGS[i]))
+
+def pdesc(sub):
+    s = PSUBS[sub]
+    return tuple(f'{fmt_long(s["date"], L)}, {TIME} · {subj_name(s["subj"], k)}' + (f' · {s["topic"]}' if s["topic"] else "") for k, L in enumerate(LANGS))
+
+def _avatar(w, tp, lp):
+    if w.startswith("lead:"):
+        sub = lp(_LIDX[w[5:]]); folder = "leaders"
+    else:
+        sub = tp(_TIDX[w]); folder = "teachers"
+    sl = sub.rstrip("/").split("/")[-1]
+    f = f"photos/{folder}/{sl}-s.jpg"
+    return f if _os.path.exists(f) else None
+
+def page(sub, lang, href, tp, lp, up):
+    i = LANGS.index(lang); esc = _html.escape; s = PSUBS[sub]
+    col = SUBJ_COL.get(s["subj"], "#5b6472"); d = _date(s["date"])
+    trainers = ""
+    for w in s["who"]:
+        nm, link = person(w, lang, href, tp, lp); av = _avatar(w, tp, lp)
+        img = f'<img src="{up}{av}" alt="" width="56" height="56" loading="lazy">' if av else '<span class="spav"></span>'
+        trainers += f'<a class="sptr" href="{link}">{img}<span><small>{T["p_trainer"][i]}</small><b>{esc(nm)}</b></span></a>'
+    topic = esc(s["topic"]) if s["topic"] else f'<span class="tba">{T["tba"][i]}</span>'
+    hero = (f'<div class="sphero" style="--sc:{col}"><time class="spcal" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
+            f'<div class="sphx"><p class="spmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
+            f'<span class="spst" data-d="{s["date"]}" data-h="{T["p_held"][i]}" data-u="{T["p_upc"][i]}" data-t="{T["today"][i]}"></span></p>'
+            f'<h2>{topic}</h2><p class="spwhen">{fmt_long(s["date"], lang)} · {TIME}</p><div class="sptrs">{trainers}</div></div></div>')
+    about = f'<h2>{T["p_about"][i]}</h2><p class="lead2">{esc(s["about"][i])}</p>' if s.get("about") else ""
+    att = ""
+    if s.get("attended"):
+        att = (f'<h2>{T["p_att_h"][i]} <span class="spn">{len(s["attended"])}</span></h2><ul class="spatt" style="--sc:{col}">'
+               + "".join(f"<li>{esc(n)}</li>" for n in s["attended"]) + "</ul>")
+    ph = s.get("photos", [])
+    if ph:
+        gal = (f'<div class="spgal">' + "".join(
+            f'<button type="button" class="spimg" data-full="{up}photos/seminars/{f}"><img src="{up}photos/seminars/{f[:-4]}-t.jpg" alt="{esc(pname(sub, i))}" loading="lazy"></button>' for f in ph)
+            + '</div><dialog class="splb" id="splb"><img alt=""><form method="dialog"><button class="splbx" aria-label="close">×</button></form></dialog>'
+            '<script>(function(){var d=document.getElementById("splb"),im=d.querySelector("img");document.querySelectorAll(".spimg").forEach(function(b){b.onclick=function(){im.src=b.dataset.full;d.showModal()}});d.onclick=function(e){if(e.target===d)d.close()}})();</script>')
+    else:
+        gal = f'<p class="spempty">{T["p_nophotos"][i]}</p>'
+    k = _ORDER.index(s); prv = _ORDER[k - 1] if k else None; nxt = _ORDER[k + 1] if k + 1 < len(_ORDER) else None
+    nav = '<nav class="spnav">' + (f'<a href="{href(psub(prv))}"><small>← {T["p_prev"][i]}</small><b>{esc(pname(psub(prv), i))}</b></a>' if prv else "<span></span>") \
+          + (f'<a class="r" href="{href(psub(nxt))}"><small>{T["p_next"][i]} →</small><b>{esc(pname(psub(nxt), i))}</b></a>' if nxt else "<span></span>") + '</nav>'
+    js = ('<script>(function(){var e=document.querySelector(".spst"),t=new Date(),y=t.getFullYear()+"-"+("0"+(t.getMonth()+1)).slice(-2)+"-"+("0"+t.getDate()).slice(-2);'
+          'e.textContent=e.dataset.d<y?e.dataset.h:e.dataset.d==y?e.dataset.t:e.dataset.u;e.className+=" "+(e.dataset.d<y?"h":e.dataset.d==y?"t":"u")})();</script>')
+    return (hero + about + f'<h2>{T["p_photos"][i]}</h2>{gal}' + att + nav
+            + f'<p class="btns"><a class="btn s" href="{href(SUB)}">← {T["all_link"][i]}</a></p>' + js)
