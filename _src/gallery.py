@@ -59,6 +59,7 @@ PHOTOS += [
  _e("turganbaeva-arizona", "Aynura Turǵanbaeva — University of Arizona-nıń 16 000 dollarlıq grantınıń iyesi", "Aynura Turganbaeva, winner of a $16,000 grant from the University of Arizona", "Aynura Turg‘anbayeva — University of Arizona’ning 16 000 dollarlik granti sohibi", "Айнура Турганбаева — обладательница гранта University of Arizona на $16 000", date="2025-05-17"),
  _e("morning-assembly-students", "Azańǵı saplanıw: oqıwshılar hám muǵallimler Mámleketlik gimndı atqaradı", "Morning assembly: students and teachers sing the National Anthem", "Ertalabki saf: o‘quvchilar va o‘qituvchilar Davlat madhiyasini ijro etmoqda", "Утренняя линейка: ученики и учителя исполняют Государственный гимн", tag="assembly"),
  _e("morning-assembly-teachers", "Azańǵı saplanıw: muǵallimler Mámleketlik gimndı atqaradı", "Morning assembly: teachers singing the National Anthem", "Ertalabki saf: o‘qituvchilar Davlat madhiyasini ijro etmoqda", "Утренняя линейка: учителя исполняют Государственный гимн", tag="assembly"),
+ _e("campus-front", "Kegeyli rayonı qánigelestirilgen mektebiniń imaratı", "The main building of Kegeyli District Specialized School", "Kegeyli tumani ixtisoslashtirilgan maktabining binosi", "Главное здание Кегейлийской районной специализированной школы"),
  _e("campus-entrance-hall", "Mekteptiń kirisiw zalı: «Jańa Ózbekstan mektep bosaǵasınan baslanadı»", "The school entrance hall: “New Uzbekistan begins at the school threshold”", "Maktabning kirish zali: «Yangi O‘zbekiston maktab ostonasidan boshlanadi»", "Входной холл школы: «Новый Узбекистан начинается с порога школы»", date="2026-11"),
  _e("junior-academy-profile", "Gulnur Abdullaeva — Nyu-York pánler akademiyasınıń The Junior Academy aǵzası", "Gulnur Abdullaeva, member of The Junior Academy of the New York Academy of Sciences", "Gulnur Abdullaeva — Nyu-York fanlar akademiyasining The Junior Academy a’zosi", "Гульнур Абдуллаева — участница The Junior Academy Нью-Йоркской академии наук", date="2026-11"),
  _e("junior-academy-project", "The Junior Academy: xalıqaralıq komandanıń «GreenShift Infrastructure» joybarı", "The Junior Academy: the international team project GreenShift Infrastructure", "The Junior Academy: xalqaro jamoaning «GreenShift Infrastructure» loyihasi", "The Junior Academy: проект международной команды GreenShift Infrastructure", date="2026-11"),
@@ -97,7 +98,7 @@ ALBUMS = {
  "life": (("Mektep turmısı", "School life", "Maktab hayoti", "Школьная жизнь"),
           ("Sabaqlar, jármeńkeler, ińglis tili kúni hám basqa da kúnlerimiz", "Lessons, fairs, English Day and our everyday", "Darslar, yarmarkalar, ingliz tili kuni va kundalik hayotimiz", "Уроки, ярмарки, День английского и наши будни"), "#16a34a"),
 }
-ALBUM_OF = {"campus-entrance-hall": "campus", "morning-assembly-students": "life", "morning-assembly-teachers": "life", 
+ALBUM_OF = {"campus-front": "campus", "campus-entrance-hall": "campus", "morning-assembly-students": "life", "morning-assembly-teachers": "life", 
  "navruz-teachers": "holidays", "navruz-girls-costumes": "holidays", "navruz-national-table": "holidays", "navruz-audience": "holidays",
  "karakalpak-language-day-dance": "holidays", "new-year-staff-gifts": "holidays", "new-year-group": "holidays",
  "uzbek-language-teachers": "staff", "staff-group": "staff", "teacher-nominations": "staff", "welcome-balloons": "staff",
@@ -106,7 +107,7 @@ ALBUM_OF = {"campus-entrance-hall": "campus", "morning-assembly-students": "life
  "trip-presidential-school": "trips", "trip-youth-centre": "trips", "trip-savitsky-museum": "trips",
  "outdoor-lesson": "life", "bake-sale": "life", "autumn-costumes": "life", "english-day-guests": "life",
 }
-COVER = {"campus": "campus-entrance-hall", "holidays": "karakalpak-language-day-dance", "staff": "teacher-nominations", "awards": "hakim-cup-winners", "trips": "trip-savitsky-museum", "life": "autumn-costumes"}
+COVER = {"campus": "campus-front", "holidays": "karakalpak-language-day-dance", "staff": "teacher-nominations", "awards": "hakim-cup-winners", "trips": "trip-savitsky-museum", "life": "autumn-costumes"}
 TAGS = {"assembly": ("Azańǵı saplanıw", "Morning assembly", "Ertalabki saf", "Утренняя линейка"), "navruz": ("Náwrız", "Navruz", "Navro‘z", "Навруз"), "new-year": ("Jańa jıl", "New Year", "Yangi yil", "Новый год"),
         "language-day": ("Til kúni", "Language Day", "Til kuni", "День языка"), "hakim-cup": ("Hákim kubogı", "Governor’s Cup", "Hokim kubogi", "Кубок хокима"),
         "trip": None, "staff-event": None}
