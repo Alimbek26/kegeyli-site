@@ -166,15 +166,63 @@ def body(i, up, tg):
             f'<p style="margin-top:22px"><a class="btn p" href="{tg}" rel="noopener">{TG_BTN[i]} →</a></p>' + VIEWS_JS)
 
 
+SITE = "https://kegeyliqm.uz/"
+SCHOOL = ("Kegeyli rayonı qánigelestirilgen mektebi", "Kegeyli District Specialized School", "Kegeyli tumani ixtisoslashtirilgan maktabi", "Кегейлийская районная специализированная школа")
+PRESS = ("Mektep baspasóz xızmeti", "School press office", "Maktab matbuot xizmati", "Пресс-служба школы")
+MIN = ("min oqıw", "min read", "daqiqa o‘qish", "мин чтения")
+SHARE = ("Bólisiw", "Share", "Ulashish", "Поделиться")
+COPY = ("Siltemeni kóshiriw", "Copy link", "Havolani nusxalash", "Копировать ссылку")
+COPIED = ("Kóshirildi", "Copied", "Nusxalandi", "Скопировано")
+MORE = ("Basqa jańalıqlar", "More news", "Boshqa yangiliklar", "Другие новости")
+PUB = ("Járiyalandı", "Published", "E’lon qilindi", "Опубликовано")
+
+_IC = {
+ "tg": '<path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/>',
+ "fb": '<path d="M15 3h-2.500A3.500 3.500 0 0 0 9 6.500V9H7v3.500h2V21h3.500v-8.500H15l.500-3.500h-3V7a1 1 0 0 1 1-1H15z"/>',
+ "wa": '<path d="M20 11.500A8.500 8.500 0 0 1 7.400 19L3.500 20.500 5 16.700A8.500 8.500 0 1 1 20 11.500z"/><path d="M9 8.500c0 3 2.500 5.500 5.500 5.500l1-1.500-2-1-1 .700a4 4 0 0 1-2-2l.700-1-1-2z"/>',
+ "x": '<path d="M4 4l16 16M20 4L4 20"/>',
+ "ln": '<path d="M10 14a4 4 0 0 0 5.700 0l3-3a4 4 0 0 0-5.700-5.700l-1 1"/><path d="M14 10a4 4 0 0 0-5.700 0l-3 3a4 4 0 0 0 5.700 5.700l1-1"/>',
+}
+def _i(k, s=18):
+    return f'<svg viewBox="0 0 24 24" width="{s}" height="{s}" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{_IC[k]}</svg>'
+
+
+def _mins(t):
+    return max(1, round(len(t.split()) / 180))
+
+
 def page(sub, i, up, href):
+    import json as _j
+    from urllib.parse import quote
     n = PSUBS[sub]; tg = n.get("tag", "announce")
+    url = SITE + LP[i] + psub(n); qt = quote(n["title"][i]); qu = quote(url)
     ph = f'<figure class="npph"><img src="{up}photos/{n["photo"]}" alt="{n["title"][i]}"></figure>' if n.get("photo") else ""
     paras = "".join(f"<p>{x}</p>" for x in n["text"][i].split("\n\n"))
     extra = (f'<a class="btn p" href="{href(n["link"])}">{n["link_t"][i]} →</a>' if n.get("link") else "") + \
             (f'<a class="btn s" href="{n["url"]}" rel="noopener" target="_blank">{ORIG[i]} →</a>' if n.get("url") else "")
+    byline = (f'<div class="nby"><img src="{up}logo-80.png" alt="" width="44" height="44"><div><b>{PRESS[i]}</b><span>{SCHOOL[i]}</span></div>'
+              f'<div class="nbymeta"><span>{PUB[i]}: <time datetime="{n["date"]}">{fmt(n["date"], i)}</time></span><span>{_mins(n["text"][i])} {MIN[i]}</span>{views(n, i)}</div></div>')
+    shares = [("tg", "Telegram", f"https://t.me/share/url?url={qu}&text={qt}"), ("fb", "Facebook", f"https://www.facebook.com/sharer/sharer.php?u={qu}"),
+              ("wa", "WhatsApp", f"https://wa.me/?text={qt}%20{qu}"), ("x", "X", f"https://twitter.com/intent/tweet?url={qu}&text={qt}")]
+    share = (f'<div class="nshare"><span>{SHARE[i]}</span>' + "".join(f'<a class="ns-{k}" href="{h}" target="_blank" rel="noopener" aria-label="{lab}" title="{lab}">{_i(k)}</a>' for k, lab, h in shares)
+             + f'<button type="button" class="ns-ln" data-u="{url}" data-ok="{COPIED[i]}" title="{COPY[i]}" aria-label="{COPY[i]}">{_i("ln")}</button></div>')
     k = _ORDER.index(n); newer = _ORDER[k - 1] if k else None; older = _ORDER[k + 1] if k + 1 < len(_ORDER) else None
     nav = ('<nav class="spnav">' + (f'<a href="{href(psub(older))}"><small>← {PREV[i]}</small><b>{older["title"][i]}</b></a>' if older else "<span></span>")
            + (f'<a class="r" href="{href(psub(newer))}"><small>{NEXT[i]} →</small><b>{newer["title"][i]}</b></a>' if newer else "<span></span>") + '</nav>')
-    return (f'<article class="npost" style="--mc:{TAGCOL[tg]}"><div class="nmeta"><span class="ntag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{TAGICON[tg]}</svg>{TAGS[tg][i]}</span>'
-            f'<time datetime="{n["date"]}">{fmt(n["date"], i)}</time>{views(n, i)}</div>{ph}<div class="nptext">{paras}</div>'
-            + (f'<p class="btns">{extra}</p>' if extra else "") + f'</article>{nav}<p class="btns"><a class="btn s" href="{href("news/")}">← {BACK[i]}</a></p>' + VIEWS_JS)
+    rel = [x for x in _ORDER if x is not n and x.get("tag") == tg][:3]
+    rel += [x for x in _ORDER if x is not n and x not in rel][:3 - len(rel)]
+    relh = "".join(f'<a class="nrel" href="{href(psub(x))}">' + (f'<img src="{up}photos/{x["photo"]}" alt="" loading="lazy">' if x.get("photo") else "")
+                   + f'<span><time>{fmt(x["date"], i)}</time><b>{x["title"][i]}</b></span></a>' for x in rel)
+    ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["title"][i][:110], "datePublished": n["date"],
+          "inLanguage": ("kaa", "en", "uz", "ru")[i], "mainEntityOfPage": url,
+          "author": {"@type": "Organization", "name": SCHOOL[i], "url": SITE},
+          "publisher": {"@type": "Organization", "name": SCHOOL[i], "logo": {"@type": "ImageObject", "url": SITE + "logo.png"}}}
+    if n.get("photo"):
+        ld["image"] = SITE + "photos/" + n["photo"]
+    js = ('<script>(function(){var b=document.querySelector(".ns-ln");if(!b)return;b.onclick=function(){var u=b.dataset.u;'
+          '(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){b.classList.add("ok");b.title=b.dataset.ok;setTimeout(function(){b.classList.remove("ok")},1800)}).catch(function(){prompt("",u)})}})();</script>')
+    return (f'<article class="npost" style="--mc:{TAGCOL[tg]}"><div class="nmeta"><span class="ntag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{TAGICON[tg]}</svg>{TAGS[tg][i]}</span></div>'
+            f'{byline}{ph}<div class="nptext">{paras}</div>' + (f'<p class="btns">{extra}</p>' if extra else "") + share + '</article>'
+            + nav + (f'<section class="nmore"><h2>{MORE[i]}</h2><div class="nrels">{relh}</div></section>' if relh else "")
+            + f'<p class="btns nback"><a class="btn s" href="{href("news/")}">← {BACK[i]}</a></p>'
+            + f'<script type="application/ld+json">{_j.dumps(ld, ensure_ascii=False)}</script>' + js + VIEWS_JS)
