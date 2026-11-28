@@ -27,6 +27,8 @@ SEMINARS = [
  dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic="АК-47 автоматы, Ф-1 ҳәм РГД-5 қол гранаталары"),
  dict(date="2026-11-14", who=["lead:Islam Pirniyazov"], subj="lead", topic="«Pedagog maqomi»: qaror va hujjatlar bilan tanishtiruv"),
  dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları", done=True,
+      photos=['2026-11-28-1.jpg', '2026-11-28-2.jpg', '2026-11-28-3.jpg', '2026-11-28-4.jpg', '2026-11-28-5.jpg', '2026-11-28-6.jpg', '2026-11-28-7.jpg', '2026-11-28-8.jpg'],
+      about=("Seminar 1-dekabr — qaraqalpaq tiline mámleketlik til biyligi berilgen kúnge (1989-jıl) baǵıshlandı; bıyıl bul waqıyaǵa 37 jıl. Muǵallimler toparlarǵa bólinip, ana tilimizdiń imkaniyatları boyınsha tapsırmalar orınladı hám óz jumısların tanıstırdı.", "The seminar was dedicated to 1 December, the day the Karakalpak language was given state language status (1989); this year marks 37 years. Teachers worked in groups on tasks about the possibilities of our native language and presented their work.", "Seminar 1-dekabr — qoraqalpoq tiliga davlat tili maqomi berilgan kunga (1989-yil) bag‘ishlandi; bu yil ushbu voqeaga 37 yil to‘ladi. O‘qituvchilar guruhlarga bo‘linib, ona tilimiz imkoniyatlari bo‘yicha topshiriqlarni bajarishdi va o‘z ishlarini taqdim etishdi.", "Семинар был посвящён 1 декабря — дню, когда каракалпакскому языку был придан статус государственного (1989); в этом году исполняется 37 лет. Учителя работали в группах над заданиями о возможностях родного языка и представили свои работы."),
       attended=ATT_2026_11_28),
  dict(date="2026-12-05", who=["Жалғасова Оркенай"], subj="eng", topic=""),
  dict(date="2026-12-12", who=["Узақбаева Айсанем"], subj="rus", topic=""),
