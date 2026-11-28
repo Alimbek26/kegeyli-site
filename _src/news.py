@@ -191,6 +191,50 @@ def _mins(t):
     return max(1, round(len(t.split()) / 180))
 
 
+# ---- Comments (Cusdis cloud; every comment waits for moderator approval) ----
+# Paste the App ID from cusdis.com → your website → Embed code (data-app-id). Empty = section hidden.
+CUSDIS_APP_ID = ""
+CM_H = ("Pikirler", "Comments", "Fikrlar", "Комментарии")
+CM_NOTE = ("Pikirler moderator maqullaǵannan keyin kórinedi. Familiya, telefon yamasa mánzil sıyaqlı jeke maǵlıwmatlardı jazbań.",
+           "Comments appear after a moderator approves them. Please don't post personal details such as a phone number or address.",
+           "Fikrlar moderator tasdiqlaganidan keyin ko‘rinadi. Telefon raqami yoki manzil kabi shaxsiy ma’lumotlarni yozmang.",
+           "Комментарии появляются после одобрения модератором. Не публикуйте личные данные, например телефон или адрес.")
+CM_LOCALE = (
+ dict(powered_by="Cusdis arqalı", post_comment="Jiberiw", loading="Júklenbekte", email="Email (májbúriy emes)", nickname="Atıńız",
+      reply_placeholder="Pikirińizdi jazıń...", reply_btn="Juwap beriw", sending="jiberilmekte...", mod_badge="MODERATOR",
+      content_is_required="Pikir jazıń", nickname_is_required="Atıńızdı jazıń",
+      comment_has_been_sent="Pikirińiz jiberildi. Moderator maqullaǵannan keyin kórinedi."),
+ dict(powered_by="Comments powered by Cusdis", post_comment="Post comment", loading="Loading", email="Email (optional)", nickname="Your name",
+      reply_placeholder="Write a comment...", reply_btn="Reply", sending="sending...", mod_badge="MODERATOR",
+      content_is_required="Please write a comment", nickname_is_required="Please enter your name",
+      comment_has_been_sent="Your comment has been sent. It will appear after a moderator approves it."),
+ dict(powered_by="Cusdis orqali", post_comment="Yuborish", loading="Yuklanmoqda", email="Email (ixtiyoriy)", nickname="Ismingiz",
+      reply_placeholder="Fikringizni yozing...", reply_btn="Javob berish", sending="yuborilmoqda...", mod_badge="MODERATOR",
+      content_is_required="Fikr yozing", nickname_is_required="Ismingizni yozing",
+      comment_has_been_sent="Fikringiz yuborildi. Moderator tasdiqlaganidan keyin ko‘rinadi."),
+ dict(powered_by="Комментарии на Cusdis", post_comment="Отправить", loading="Загрузка", email="Email (необязательно)", nickname="Ваше имя",
+      reply_placeholder="Напишите комментарий...", reply_btn="Ответить", sending="отправка...", mod_badge="МОДЕРАТОР",
+      content_is_required="Напишите комментарий", nickname_is_required="Введите имя",
+      comment_has_been_sent="Комментарий отправлен. Он появится после одобрения модератором."))
+
+
+def comments(n, i, url):
+    import json as _j, html as _h
+    if not CUSDIS_APP_ID:
+        return ""
+    pid = psub(n)  # one thread per post, shared by all 4 languages
+    return (f'<section class="ncom" id="comments"><h2>{CM_H[i]}</h2><p class="ncnote">{CM_NOTE[i]}</p>'
+            f'<div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="{CUSDIS_APP_ID}" data-page-id="{pid}" '
+            f'data-page-url="{url}" data-page-title="{_h.escape(n["title"][1])}"></div></section>'
+            f'<script>window.CUSDIS_LOCALE={_j.dumps(CM_LOCALE[i], ensure_ascii=False)};'
+            '(function(){function th(){var r=document.documentElement.dataset.theme;return r||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")}'
+            'function set(){window.CUSDIS&&CUSDIS.setTheme&&CUSDIS.setTheme(th())}'
+            'addEventListener("message",function(e){try{var d=JSON.parse(e.data);if(d.from==="cusdis"&&d.event==="onload")set()}catch(x){}});'
+            'new MutationObserver(set).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});'
+            'matchMedia("(prefers-color-scheme:dark)").addEventListener("change",set)})();</script>'
+            '<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>')
+
+
 def page(sub, i, up, href):
     import json as _j
     from urllib.parse import quote
@@ -222,7 +266,7 @@ def page(sub, i, up, href):
     js = ('<script>(function(){var b=document.querySelector(".ns-ln");if(!b)return;b.onclick=function(){var u=b.dataset.u;'
           '(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){b.classList.add("ok");b.title=b.dataset.ok;setTimeout(function(){b.classList.remove("ok")},1800)}).catch(function(){prompt("",u)})}})();</script>')
     return (f'<article class="npost" style="--mc:{TAGCOL[tg]}"><div class="nmeta"><span class="ntag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{TAGICON[tg]}</svg>{TAGS[tg][i]}</span></div>'
-            f'{byline}{ph}<div class="nptext">{paras}</div>' + (f'<p class="btns">{extra}</p>' if extra else "") + share + '</article>'
+            f'{byline}{ph}<div class="nptext">{paras}</div>' + (f'<p class="btns">{extra}</p>' if extra else "") + share + '</article>' + comments(n, i, url)
             + nav + (f'<section class="nmore"><h2>{MORE[i]}</h2><div class="nrels">{relh}</div></section>' if relh else "")
             + f'<p class="btns nback"><a class="btn s" href="{href("news/")}">← {BACK[i]}</a></p>'
             + f'<script type="application/ld+json">{_j.dumps(ld, ensure_ascii=False)}</script>' + js + VIEWS_JS)
