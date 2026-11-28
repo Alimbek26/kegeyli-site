@@ -104,6 +104,52 @@ ORIG = ("Telegramdaǵı original", "Original on Telegram", "Telegramdagi asl pos
 def _src(n, i):
     return f'<a class="nsrc" href="{n["url"]}" rel="noopener" target="_blank">{ORIG[i]} →</a>' if n.get("url") else ""
 
+import re as _re
+LP = ("", "en/", "uz/", "ru/")
+READ = ("Tolıq oqıw", "Read more", "To‘liq o‘qish", "Читать полностью")
+VIEWS = ("ret oqıldı", "views", "marta o‘qildi", "просмотров")
+BACK = ("Barlıq jańalıqlar", "All news", "Barcha yangiliklar", "Все новости")
+PREV = ("Aldıńǵı jańalıq", "Previous", "Oldingi yangilik", "Предыдущая")
+NEXT = ("Keyingi jańalıq", "Next", "Keyingi yangilik", "Следующая")
+
+
+def slug(n):
+    w = _re.sub(r"[^a-z0-9]+", "-", n["title"][1].lower().replace("’", "")).strip("-").split("-")
+    return f'{n["date"]}-' + "-".join(w[:6])
+
+
+def psub(n):
+    return f"news/{slug(n)}/"
+
+
+_ORDER = sorted(NEWS, key=lambda n: n["date"], reverse=True)
+PSUBS = {psub(n): n for n in _ORDER}
+assert len(PSUBS) == len(NEWS), "duplicate news slugs"
+
+
+def pname(sub, i):
+    return PSUBS[sub]["title"][i]
+
+
+def pdesc(sub):
+    n = PSUBS[sub]
+    return tuple((t[:155] + "…") if len(t) > 160 else t for t in n["text"])
+
+
+def _eye():
+    return '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.500-7 10-7 10 7 10 7-3.500 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>'
+
+
+def views(n, i):
+    # filled in by VIEWS_JS from GoatCounter (all 4 languages counted together)
+    return f'<span class="nviews" data-gcp="/{psub(n)}" hidden>{_eye()}<b>…</b> {VIEWS[i]}</span>'
+
+
+VIEWS_JS = ("<script>(function(){if(/^(localhost|127\\.)/.test(location.hostname))return;"
+            "document.querySelectorAll('[data-gcp]').forEach(function(e){fetch('https://alimbek26.goatcounter.com/counter/'+encodeURIComponent(e.dataset.gcp)+'.json')"
+            ".then(function(r){return r.ok?r.json():{count:'0'}}).then(function(j){e.querySelector('b').textContent=j.count;e.hidden=false}).catch(function(){})})})();</script>")
+
+
 def cards(i, limit=None, up=""):
     items = sorted(NEWS, key=lambda n: n["date"], reverse=True)[:limit]
     out = ""
@@ -111,10 +157,24 @@ def cards(i, limit=None, up=""):
         tg = n.get("tag", "announce")
         ph = f'<img class="nph" src="{up}photos/{n["photo"]}" alt="" loading="lazy">' if n.get("photo") else ""
         out += (f'<article class="card ncard" style="--mc:{TAGCOL[tg]}">{ph}<div class="nbody"><div class="nmeta"><span class="ntag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{TAGICON[tg]}</svg>{TAGS[tg][i]}</span>'
-                f'<time datetime="{n["date"]}">{fmt(n["date"], i)}</time></div><h3>{n["title"][i]}</h3><p>{n["text"][i]}</p>{_src(n, i)}'
-                + (f'<a class="nlink" href="{up}{("", "en/", "uz/", "ru/")[i]}{n["link"]}">{n["link_t"][i]} →</a>' if n.get("link") else "") + '</div></article>')
+                f'<time datetime="{n["date"]}">{fmt(n["date"], i)}</time>{views(n, i)}</div><h3><a class="nhl" href="{up}{LP[i]}{psub(n)}">{n["title"][i]}</a></h3><p class="nclamp">{n["text"][i]}</p>'
+                f'<a class="nlink" href="{up}{LP[i]}{psub(n)}">{READ[i]} →</a></div></article>')
     return out or f'<p>{EMPTY[i]}</p>'
 
 def body(i, up, tg):
     return (f'<div class="ngrid">{cards(i, None, up)}</div>'
-            f'<p style="margin-top:22px"><a class="btn p" href="{tg}" rel="noopener">{TG_BTN[i]} →</a></p>')
+            f'<p style="margin-top:22px"><a class="btn p" href="{tg}" rel="noopener">{TG_BTN[i]} →</a></p>' + VIEWS_JS)
+
+
+def page(sub, i, up, href):
+    n = PSUBS[sub]; tg = n.get("tag", "announce")
+    ph = f'<figure class="npph"><img src="{up}photos/{n["photo"]}" alt="{n["title"][i]}"></figure>' if n.get("photo") else ""
+    paras = "".join(f"<p>{x}</p>" for x in n["text"][i].split("\n\n"))
+    extra = (f'<a class="btn p" href="{href(n["link"])}">{n["link_t"][i]} →</a>' if n.get("link") else "") + \
+            (f'<a class="btn s" href="{n["url"]}" rel="noopener" target="_blank">{ORIG[i]} →</a>' if n.get("url") else "")
+    k = _ORDER.index(n); newer = _ORDER[k - 1] if k else None; older = _ORDER[k + 1] if k + 1 < len(_ORDER) else None
+    nav = ('<nav class="spnav">' + (f'<a href="{href(psub(older))}"><small>← {PREV[i]}</small><b>{older["title"][i]}</b></a>' if older else "<span></span>")
+           + (f'<a class="r" href="{href(psub(newer))}"><small>{NEXT[i]} →</small><b>{newer["title"][i]}</b></a>' if newer else "<span></span>") + '</nav>')
+    return (f'<article class="npost" style="--mc:{TAGCOL[tg]}"><div class="nmeta"><span class="ntag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{TAGICON[tg]}</svg>{TAGS[tg][i]}</span>'
+            f'<time datetime="{n["date"]}">{fmt(n["date"], i)}</time>{views(n, i)}</div>{ph}<div class="nptext">{paras}</div>'
+            + (f'<p class="btns">{extra}</p>' if extra else "") + f'</article>{nav}<p class="btns"><a class="btn s" href="{href("news/")}">← {BACK[i]}</a></p>' + VIEWS_JS)

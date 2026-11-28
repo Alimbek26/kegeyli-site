@@ -1688,3 +1688,11 @@ background:radial-gradient(90% 140% at 100% 0%,color-mix(in srgb,var(--sc) 14%,t
 .ashead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin:0 0 14px}.ashead h2{margin:0!important}
 .asag{display:block;border-radius:10px;overflow:hidden;line-height:0;box-shadow:0 6px 16px -10px rgba(0,0,0,.5)}.asag img{width:240px;height:auto;display:block}
 @media(max-width:560px){.asag img{width:100%;max-width:300px}}
+.nhl{color:inherit;text-decoration:none}.nhl:hover{color:var(--mc);text-decoration:underline}
+.nclamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.nviews{display:inline-flex;align-items:center;gap:5px;margin-left:auto;font-size:13px;color:var(--soft);font-weight:600}.nviews b{color:var(--ink)}
+.npost{max-width:780px;margin:0 auto 26px}.npost .nmeta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 16px}
+.npph{margin:0 0 20px}.npph img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;border-radius:18px;background:var(--tealbg)}
+.nptext p{font-size:17.5px;line-height:1.75;margin:0 0 14px;max-width:none}
+.npost~.spnav,.npost~.btns{max-width:780px;margin-left:auto;margin-right:auto}
+.nviews[hidden]{display:none}
