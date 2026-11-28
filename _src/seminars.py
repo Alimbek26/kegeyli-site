@@ -24,7 +24,7 @@ SEMINARS = [
  dict(date="2026-10-17", who=["Қудайбергенов Махмут"], subj="geo", topic="Racional awqatlanıw"),
  dict(date="2026-10-24", who=["Жарилқасинов Айназар"], subj="hist", topic="Tariyx pániniń rawajlanıw basqıshları: dáslepki jazıwdan jasalma intellektke shekem"),
  dict(date="2026-10-31", who=["Елмуратова Тоти"], subj="bio", topic="Qızıqlı biologiya"),
- dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic="АК-47 автоматы, Ф-1 ҳәм РГД-5 қол гранаталары"),
+ dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic="AK-47 avtomatı, F-1 hám RGD-5 qol granataları"),
  dict(date="2026-11-14", who=["lead:Islam Pirniyazov"], subj="lead", topic="«Pedagog maqomi»: qaror va hujjatlar bilan tanishtiruv"),
  dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları", done=True,
       photos=['2026-11-28-1.jpg', '2026-11-28-2.jpg', '2026-11-28-3.jpg', '2026-11-28-4.jpg', '2026-11-28-5.jpg', '2026-11-28-6.jpg', '2026-11-28-7.jpg', '2026-11-28-8.jpg'],
