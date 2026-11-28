@@ -131,6 +131,7 @@ SUBJ_VIS = {  # icon path, colour
 }
 HKICK = {"kaa": "Anıq hám tábiyiy pánlerge qánigelestirilgen mektep", "en": "School for exact and natural sciences", "uz": "Aniq va tabiiy fanlar maktabi", "ru": "Школа точных и естественных наук"}
 TSTAT = {"kaa": ("muǵallim", "pán"), "en": ("teachers", "subjects"), "uz": ("o‘qituvchi", "fan"), "ru": ("учителей", "предметов")}
+FOOT2 = {"kaa": ("Oqıwshılar hám ata-analar", "Nátiyjeler"), "en": ("Students & parents", "Results"), "uz": ("O‘quvchilar va ota-onalar", "Natijalar"), "ru": ("Ученикам и родителям", "Результаты")}
 FOOT = {  # tagline, school, abroad, contact, top, since
  "kaa": ("2022-jıldan beri aniq hám tábiyiy pánlerge qánigelestirilgen mektep. Matematika, inglis tili hám STEM.", "Mektep", "Shet elde oqıw", "Baylanıs", "Joqarıǵa", "2022-jıldan beri", "Sayt administratorı"),
  "en": ("A specialized school for exact and natural sciences since 2022: Maths, English and STEM.", "School", "Study abroad", "Contact", "Back to top", "Since 2022", "Website administrator"),
@@ -945,7 +946,10 @@ def page(lang, sub=""):
     SOC = {"tg": _I('<path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/>'), "ph": _I('<path d="M6 3h3l2 5-2 1.500a11 11 0 0 0 6 6L16.500 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/>'), "ml": _I('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>'), "pin": _I('<path d="M12 21s-6-5.600-6-10.500a6 6 0 0 1 12 0C18 15.400 12 21 12 21z"/><circle cx="12" cy="10.500" r="2.200"/>'), "clk": _I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')}
     _fl = lambda L: "".join(f'<li><a href="{h}">{n}</a></li>' for h, n in L)
     SPN = {"kaa": "Mektep profili (EN, PDF)", "en": "School Profile (PDF)", "uz": "Maktab profili (EN, PDF)", "ru": "Профиль школы (EN, PDF)"}[lang]
-    foot_school = _fl([(href(lang, sub, lang, "about/"), t["nav"][0]), (href(lang, sub, lang, HIS.SUB), HIS.NAME[i]), (href(lang, sub, lang, INTL.SUB), INTL.NAME[i]), (href(lang, sub, lang, SUP.SUB), SUP.NAME[i]), (f"{up}school-profile/", SPN), (href(lang, sub, lang, POL.SUB), POL.NAME[i]), (href(lang, sub, lang, "leadership/"), t["lead_h"]), (href(lang, sub, lang, "teachers/"), t["teach_h"]), (href(lang, sub, lang, "timetable/"), TT_TXT["title"][i]), (href(lang, sub, lang, CAL.SUB), CAL.NAME[i]), (href(lang, sub, lang, GAL.SUB), GAL.NAME[i]), (href(lang, sub, lang, CLB.SUB), CLB.NAME[i]), (href(lang, sub, lang, "study/"), STD.NAME[i]), (href(lang, sub, lang, "graduates/"), GT["title"][i]), (href(lang, sub, lang, "achievements/"), ACH.NAME["achievements/"][i]), (href(lang, sub, lang, "results/"), RS.NAME[i]), (href(lang, sub, lang, "admission/"), t["nav"][2]), (href(lang, sub, lang, "parents/"), EX.NAME["parents/"][i]), (href(lang, sub, lang, "canteen/"), CN.NAME[i])])
+    _fh = lambda k: href(lang, sub, lang, k)
+    foot_school = _fl([(_fh("about/"), t["nav"][0]), (_fh(HIS.SUB), HIS.NAME[i]), (_fh("leadership/"), t["lead_h"]), (_fh("teachers/"), t["teach_h"]), (_fh(INTL.SUB), INTL.NAME[i]), (_fh(POL.SUB), POL.NAME[i]), (f"{up}school-profile/", SPN), (_fh(SUP.SUB), SUP.NAME[i])])
+    foot_results = _fl([(_fh("graduates/"), GT["title"][i]), (_fh("achievements/"), ACH.NAME["achievements/"][i]), (_fh("results/"), RS.NAME[i])])
+    foot_students = _fl([(_fh("admission/"), t["nav"][2]), (_fh("parents/"), EX.NAME["parents/"][i]), (_fh("timetable/"), TT_TXT["title"][i]), (_fh(CAL.SUB), CAL.NAME[i]), (_fh(CLB.SUB), CLB.NAME[i]), (_fh("study/"), STD.NAME[i]), (_fh("canteen/"), CN.NAME[i]), (_fh(GAL.SUB), GAL.NAME[i])])
     foot_abroad = _fl([(href(lang, sub, lang, CSL.SUB), CSL.NAME[i])] + [(href(lang, sub, lang, k), AB.SUBNAME[k][i]) for k in ("abroad/", "abroad/plan/", "abroad/scholarships/", "abroad/calendar/", "abroad/checklist/", "abroad/calculator/", "abroad/sat/", "ielts/")])
     school = {
       "@context": "https://schema.org", "@type": "School", "name": t["brand"],
@@ -1110,7 +1114,8 @@ def page(lang, sub=""):
       <p>{FOOT[lang][0]}</p>
       <div class="sfsoc"><a href="{TG}" rel="noopener" aria-label="Telegram">{SOC['tg']}</a><a href="tel:{PHONE}" aria-label="{PHONE_TXT}">{SOC['ph']}</a><a href="mailto:{EMAIL}" aria-label="{EMAIL}">{SOC['ml']}</a></div>
     </div>
-    <nav class="sfcol" aria-label="{FOOT[lang][1]}"><h4>{FOOT[lang][1]}</h4><ul>{foot_school}</ul></nav>
+    <nav class="sfcol" aria-label="{FOOT[lang][1]}"><h4>{FOOT[lang][1]}</h4><ul>{foot_school}</ul><h4 class="sfh2">{FOOT2[lang][1]}</h4><ul>{foot_results}</ul></nav>
+    <nav class="sfcol" aria-label="{FOOT2[lang][0]}"><h4>{FOOT2[lang][0]}</h4><ul>{foot_students}</ul></nav>
     <nav class="sfcol" aria-label="{FOOT[lang][2]}"><h4>{FOOT[lang][2]}</h4><ul>{foot_abroad}</ul></nav>
     <div class="sfcol sfcontact"><h4>{FOOT[lang][3]}</h4><ul>
       <li>{SOC['pin']}<span>{t['addr_full']}</span></li>

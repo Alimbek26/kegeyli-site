@@ -1727,3 +1727,7 @@ section.plsec:not(.card){padding:0!important}
 .nlink{display:inline-block;margin-top:10px;font-weight:700;color:var(--mc);text-decoration:none}.nlink:hover{text-decoration:underline}
 .spdl{gap:8px;align-items:center}.spdl small{opacity:.75;font-weight:500}.sphero+.btns{margin:-8px 0 8px}
 .spdl{display:inline-flex!important;flex-wrap:nowrap}.spdl small{white-space:nowrap}.sphero+.btns{margin:-8px 0 18px}@media (max-width:600px){.spdl{width:100%;justify-content:center;font-size:15px}.spdl small{display:none}}
+.sfh2{margin-top:26px!important}
+@media(min-width:760px){.sfgrid{grid-template-columns:repeat(4,1fr)!important}.sfbrand{grid-column:1/-1;max-width:560px}}
+@media(min-width:1180px){.sfgrid{grid-template-columns:1.35fr 1fr 1fr 1fr 1.2fr!important}.sfbrand{grid-column:auto;max-width:none}}
+@media(max-width:759px){.sfgrid{grid-template-columns:1fr 1fr!important;gap:26px 18px!important}.sfbrand,.sfcontact{grid-column:1/-1}.sfcol li a{font-size:14px}}
