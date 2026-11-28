@@ -1589,3 +1589,24 @@ section.plsec:not(.card){padding:0!important}
 .cllaw em{font-style:normal;font-weight:700;color:var(--teal);white-space:nowrap}
 .cljoin{padding:20px!important;border-left:5px solid var(--teal)}.cljoin h3{margin:0 0 6px}.cljoin .btns{margin:6px 0 0}
 @media (max-width:600px){.clic{width:56px;height:56px;border-radius:16px}.cllaw{flex-wrap:wrap}.cllaw em{width:100%;padding-left:54px}}
+/* Club leader + join page */
+.cllead{display:flex;align-items:center;gap:14px;margin:0 0 12px;padding:12px 16px;border-radius:16px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid color-mix(in srgb,var(--c) 30%,var(--line))}
+.cllead:hover{border-color:var(--c)}.cllead img{flex:none;width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 35%,transparent)}
+.cllead span{display:flex;flex-direction:column;flex:1}.cllead small{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--soft)}.cllead b{font-size:18px}.cllead em{font-style:normal;color:var(--soft);font-size:14.5px}.cllead i{font-style:normal;color:var(--c);font-size:20px}
+.cljbtn{margin-top:18px;display:inline-flex}
+.jsteps{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px;padding:0}
+.jsteps li{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:var(--tealbg);font-weight:600}
+.jsteps b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#7c3aed;color:#fff;font:700 13px Unbounded,Inter,sans-serif}
+.jgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start;margin-bottom:18px}
+.jform{padding:22px!important;display:grid;gap:16px;border-top:5px solid #7c3aed}
+.jl{display:flex;flex-direction:column;gap:6px;font-weight:600;border:0;margin:0;padding:0;min-width:0}.jl legend{padding:0;margin-bottom:6px}
+.jl input,.jl select,.jl textarea{font:16px Inter,sans-serif;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box}
+.jl input:focus,.jl select:focus,.jl textarea:focus{outline:2px solid #7c3aed;outline-offset:1px;border-color:transparent}
+.jchips{display:flex;flex-wrap:wrap;gap:8px}.jchip{position:relative}.jchip input{position:absolute;opacity:0;left:0;top:0;width:1px;height:1px;margin:0}.jchip span{display:inline-block;padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-weight:500;cursor:pointer}
+.jchip input:checked+span{background:#7c3aed;border-color:#7c3aed;color:#fff}.jchip input:focus-visible+span{outline:2px solid #7c3aed;outline-offset:2px}
+.jchk{display:flex;gap:10px;align-items:flex-start;font-weight:600;cursor:pointer}.jchk input{width:20px;height:20px;margin-top:2px;accent-color:#7c3aed}
+.jprev{padding:22px!important;position:sticky;top:90px}.jprev h3{margin:0 0 10px}
+.jprev pre{margin:0 0 14px;padding:14px;border-radius:12px;background:var(--tealbg);white-space:pre-wrap;word-break:break-word;font:14.5px/1.55 Inter,sans-serif;min-height:120px}
+.jbtns{display:flex;flex-wrap:wrap;gap:10px}.jbtns.off .btn{opacity:.5}
+.jerr{color:var(--red);font-weight:600;margin:10px 0 0}.jok{color:#047857;font-weight:600;margin:10px 0 0}
+@media (max-width:820px){.jgrid{grid-template-columns:1fr}.jprev{position:static}}
