@@ -13,8 +13,8 @@ import datetime as _dt, html as _html, json
 from teachers import TEACHERS, LEADERS, SUBJECTS, ROLES, latin, shown
 
 TIME = "10:00"
-# attended: names from the signed attendance sheet (Latin, as written on the sheet)
-ATT_2026_11_28 = ['Nizamatdinova Feruza', 'Uteniyazov Nurnazar', 'Pirniyazov Islam', 'Jumamuratov Alimbek', 'Temirxanova Gúlziba', 'Perdebaev Baxtiyar', 'Seytnazarova Feruza', 'Salieva Elmira', 'Joldasbaev Bazarbay', 'Begalieva Jarqın', 'Qarlıbaeva Gulshexra', 'Qutlimuratov Sarmanbek', 'Ismaylova Gulmira', 'Óserbaeva Zulfiya', 'Nazbergenova Ziyada', 'Mamutova Zinexan', 'Aytmuratova Dilfuza', 'Temirxanova Aynur', 'Amanbaeva Quralay', 'Jalǵasova Orkenay', 'Uzakbaeva Aysanem', 'Aynazarov Kurbanazar', 'Pirimbetov Alpısbay', 'Xudaybergenova Qumar', 'Dilmuratov Damir', 'Orazalieva Risgul', 'Saparov Mansur', 'Daurxanov Jenis', 'Aynazarov Ajiniyaz', 'Esbergenov Atabek', 'Sarsenbaev Daniyar', 'Kewnimjaev Abdiganiy', 'Artıkova Shaxnoza', 'Kurbanbaeva Malika', 'Shukirillayev Naurızbay', 'Zarıpbaev Ajınyaz', 'Elmuratova Totı', 'Tajimuratova Ziyada', 'Uteniyazova Abadan', 'Tulepov Sultan', 'Jarılkasınov Aynazar', 'Uteshova Gulbahar', 'Qudaybergenov Maxmud', 'Jangabaeva Nargiza', 'Seytnazarov Temirbek', 'Arzıbaev Tolısbay', 'Berdibaev Salamat', 'Ótebaeva Gulbahar', 'Erejepov Zuxratdin', 'Allanazarova Gúlnara']
+# attended: only people who SIGNED the attendance sheet (Latin, as written on the sheet)
+ATT_2026_11_28 = ['Jumamuratov Alimbek', 'Perdebaev Baxtiyar', 'Seytnazarova Feruza', 'Salieva Elmira', 'Qarlıbaeva Gulshexra', 'Óserbaeva Zulfiya', 'Temirxanova Aynur', 'Amanbaeva Quralay', 'Jalǵasova Orkenay', 'Uzakbaeva Aysanem', 'Aynazarov Kurbanazar', 'Aynazarov Ajiniyaz', 'Sarsenbaev Daniyar', 'Artıkova Shaxnoza', 'Kurbanbaeva Malika', 'Zarıpbaev Ajınyaz', 'Elmuratova Totı', 'Uteshova Gulbahar', 'Qudaybergenov Maxmud', 'Arzıbaev Tolısbay', 'Ótebaeva Gulbahar']
 SEMINARS = [
  dict(date="2026-09-19", who=["Давирханов Женисбай"], subj="math", topic="Anıq pánlerdi oqıtıwda gamifikaciya elementlerinen paydalanıw"),
  dict(date="2026-09-26", who=["Арзибаев Толисбай"], subj="art", topic="Xudojnik Leonardo da Vinci ómiri hám dóretiwshiligi"),
