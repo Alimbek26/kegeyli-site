@@ -40,7 +40,7 @@ T = dict(
  uni_mail=L("Hújjetler hám tekseriw ushın:", "Documents and verification:", "Hujjatlar va tekshirish uchun:", "Документы и проверка:"),
  prin_h=L("Biziń principlerimiz", "Our principles", "Bizning tamoyillarimiz", "Наши принципы"),
  tool_h=L("Oqıwshılar ushın qurallar", "Toolkit for students", "O‘quvchilar uchun vositalar", "Инструменты для учеников"),
- tool_p=L("Bul saytta tayarlanǵan basshılıqlar — óz betińshe tayarlanıw ushın.", "Step-by-step guides on this website, for preparing on your own.", "Ushbu saytdagi qo‘llanmalar — mustaqil tayyorlanish uchun.", "Пошаговые руководства на этом сайте — для самостоятельной подготовки."),
+ tool_p=L("Bul saytta tayarlanǵan qollanbalar — óz betińshe tayarlanıw ushın.", "Step-by-step guides on this website, for preparing on your own.", "Ushbu saytdagi qo‘llanmalar — mustaqil tayyorlanish uchun.", "Пошаговые руководства на этом сайте — для самостоятельной подготовки."),
  cta_h=L("Ushırasıwǵa jazılıń", "Book a meeting", "Uchrashuvga yoziling", "Запишитесь на встречу"),
  cta_p=L("Oqıwshılar hám ata-analar: Telegram yamasa elektron pochta arqalı jazıń, yamasa qońıraw etiń. Ushırasıwlar mektepte, aldın ala kelisip ótkeriledi.",
          "Students and parents: write on Telegram or by email, or call. Meetings take place at school, by appointment.",
