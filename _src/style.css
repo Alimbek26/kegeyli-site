@@ -1640,3 +1640,15 @@ section.plsec:not(.card){padding:0!important}
 .clfaq p{margin:0;padding:0 18px 16px;color:var(--soft);max-width:none}
 .clnext{display:flex;align-items:center;gap:14px;margin:12px 0 0;padding:14px 16px;border-radius:16px;color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 50%,#0b5f78))}
 .clnext .clic{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.18);box-shadow:none}.clnext div{display:flex;flex-direction:column}.clnext small{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;opacity:.85}.clnext b{font-size:19px}.clnext em{font-style:normal;opacity:.9}
+.clgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.clg{padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--g);display:flex;flex-direction:column;gap:8px}
+.clg h3{margin:0;font-size:19px;color:var(--g)}.clgw{font-size:14px;color:var(--soft)}
+.clgt{display:flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;color:var(--ink)}.clgt img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.clsteps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.clsteps li{position:relative;display:flex;gap:12px;align-items:center;padding:16px;border-radius:16px;background:color-mix(in srgb,var(--c) 8%,var(--card));font-weight:600}
+.clsteps b{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--c);color:#fff;font:700 15px Unbounded,Inter,sans-serif}
+.clstages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column-reverse;gap:8px;max-width:560px}
+.clstages li{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;font-weight:600;margin-left:calc(var(--n) * 18px);
+ background:color-mix(in srgb,var(--c) calc(8% + var(--n) * 9%),var(--card));color:var(--ink)}
+.clstages li:first-child{margin-left:0}.clstages span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font:700 12px Unbounded,Inter,sans-serif}
+@media (max-width:600px){.clstages li{margin-left:calc(var(--n) * 8px)}}

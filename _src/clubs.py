@@ -48,6 +48,10 @@ T = dict(
  next=L("Keyingi ushırasıw", "Next meeting", "Keyingi mashg‘ulot", "Следующее занятие"),
  today=L("búgin", "today", "bugun", "сегодня"), tomorrow=L("erteń", "tomorrow", "ertaga", "завтра"),
  indays=L("{n} kúnnen keyin", "in {n} days", "{n} kundan keyin", "через {n} дн."),
+ groups_h=L("Pánler boyınsha toparlar", "Subject groups", "Fanlar bo‘yicha guruhlar", "Группы по предметам"),
+ tbc=L("Muǵallim hám waqıt tez arada kórsetiledi", "Teacher and schedule coming soon", "O‘qituvchi va vaqt tez orada ko‘rsatiladi", "Учитель и расписание скоро"),
+ steps_h=L("Qalay qabıl etiledi", "How students are selected", "Qanday qabul qilinadi", "Как проходит отбор"),
+ stages_h=L("Olimpiada basqıshları", "Olympiad stages", "Olimpiada bosqichlari", "Этапы олимпиад"),
  decree=L("PF-55 Pármanın oqıw", "Read Decree PF-55", "PF-55 Farmonini o‘qish", "Читать Указ УП-55"),
 )
 
@@ -98,12 +102,46 @@ CLUBS = [
       done=[], photo=None, join=True, log=[], projects=[], members=[]),
 ]
 
+CLUBS.append(dict(key="olympiad-groups", colour="#d97706",
+      icon='<circle cx="12" cy="15" r="6"/><path d="M8.500 10.200L5 3h4l3 6 3-6h4l-3.500 7.200"/>',
+      name=L("Olimpiada toparları", "Olympiad groups", "Olimpiada guruhlari", "Олимпиадные группы"),
+      tag=L("Matematika · Fizika · Ximiya · Biologiya · Informatika", "Maths · Physics · Chemistry · Biology · Computer science", "Matematika · Fizika · Kimyo · Biologiya · Informatika", "Математика · Физика · Химия · Биология · Информатика"),
+      intro=L("Pánler boyınsha olimpiadalarǵa tereń tayarlıq: mektep basqıshınan baslap respublikalıq hám xalıqaralıq olimpiadalarǵa shekem.",
+              "In-depth preparation for subject olympiads, from the school stage up to national and international olympiads.",
+              "Fanlar bo‘yicha olimpiadalarga chuqur tayyorgarlik: maktab bosqichidan boshlab respublika va xalqaro olimpiadalargacha.",
+              "Углублённая подготовка к предметным олимпиадам: от школьного этапа до республиканских и международных олимпиад."),
+      what=[L("Programmadan tıs qıyın máseleler", "Hard problems beyond the curriculum", "Dasturdan tashqari murakkab masalalar", "Сложные задачи сверх программы"),
+            L("Ótken jıllardıń olimpiada tapsırmaları", "Past olympiad papers", "O‘tgan yillar olimpiada topshiriqlari", "Задания олимпиад прошлых лет"),
+            L("Waqıtqa qarap sınaq olimpiadalar", "Timed practice olympiads", "Vaqtli sinov olimpiadalari", "Пробные олимпиады на время"),
+            L("Hár bir basqıshqa jeke tayarlıq", "Individual preparation for each stage", "Har bir bosqichga individual tayyorgarlik", "Индивидуальная подготовка к каждому этапу")],
+      groups=[("math", "#2563eb", L("Matematika", "Maths", "Matematika", "Математика")),
+              ("phys", "#0b7a8f", L("Fizika", "Physics", "Fizika", "Физика")),
+              ("chem", "#047857", L("Ximiya", "Chemistry", "Kimyo", "Химия")),
+              ("bio", "#2f8f5b", L("Biologiya", "Biology", "Biologiya", "Биология")),
+              ("it", "#7c3aed", L("Informatika", "Computer science", "Informatika", "Информатика"))],
+      group_info={},   # e.g. "math": dict(teacher=("Name", "slug"), when=L(...), where=L(...))
+      steps=[L("Arza beriw", "Apply", "Ariza berish", "Подача заявки"),
+             L("Tańlaw (sınaq yamasa mektep olimpiadası nátiyjesi)", "Selection (test or school olympiad result)", "Saralash (sinov yoki maktab olimpiadasi natijasi)", "Отбор (тест или результат школьной олимпиады)"),
+             L("Toparda tayarlıq", "Training in the group", "Guruhda tayyorgarlik", "Подготовка в группе")],
+      stages=["school", "district", "region", "republic", "intl"],
+      leader=None, teacher=None, when=None, where=None, since=None,
+      done=[], photo=None, join=True, log=[], projects=[], members=[],
+      faq=[(L("Kim qosıla aladı?", "Who can join?", "Kim qo‘shilishi mumkin?", "Кто может вступить?"),
+            L("Qálegen oqıwshı arza bere aladı. Keyin tańlaw ótkeriledi hám eń tayar oqıwshılar toparlarǵa alınadı.", "Any student can apply. A selection follows, and the best-prepared students join the groups.", "Istalgan o‘quvchi ariza berishi mumkin. So‘ng saralash o‘tkaziladi va eng tayyor o‘quvchilar guruhlarga olinadi.", "Подать заявку может любой ученик. Затем проходит отбор, и лучше подготовленные ученики попадают в группы.")),
+           (L("Bir neshe pánge arza beriwge bola ma?", "Can I apply for more than one subject?", "Bir nechta fanga ariza berish mumkinmi?", "Можно подать заявку на несколько предметов?"),
+            L("Awa, arzada qızıǵatuǵın barlıq pánlerdi belgileń.", "Yes: tick every subject you are interested in on the application.", "Ha, arizada qiziqqan barcha fanlarni belgilang.", "Да, отметьте в заявке все интересующие предметы.")),
+           (L("Qaysı olimpiadalarǵa tayarlanadı?", "Which olympiads do the groups prepare for?", "Qaysi olimpiadalarga tayyorlanadi?", "К каким олимпиадам готовят?"),
+            L("Mektep, rayon, Qaraqalpaqstan hám respublika basqıshlarına, sonday-aq múmkinshilik bolǵanda xalıqaralıq olimpiadalarǵa.", "The school, district, Karakalpakstan and national stages, and international olympiads whenever possible.", "Maktab, tuman, Qoraqalpog‘iston va respublika bosqichlariga, shuningdek imkon bo‘lganda xalqaro olimpiadalarga.", "К школьному, районному, каракалпакстанскому и республиканскому этапам, а при возможности — к международным олимпиадам.")),
+           (L("Qalay qosılaman?", "How do I join?", "Qanday qo‘shilaman?", "Как вступить?"),
+            L("Usı saytta arzanı toltırıp, pánlerdi belgileń hám Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website, tick your subjects and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, fanlarni belgilang va Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте, отметьте предметы и отправьте в Telegram или по почте."), "join")]))
+
 
 WHY_I = {"lab": '<path d="M9 3h6"/><path d="M10 3v6L4.500 19a1.500 1.500 0 0 0 1.300 2.200h12.400a1.500 1.500 0 0 0 1.300-2.200L14 9V3"/><path d="M7.500 14h9"/>',
          "bulb": '<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.700V17h8v-2.300A7 7 0 0 0 12 2z"/>',
          "cap": '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
          "trophy": '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'}
 CAL_I = '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>'
+TBC = "<span class=\"clgw\">{}</span>"
 DOC_I = '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>'
 
 
@@ -206,12 +244,35 @@ def club_body(sub, i, up, href):
         nd = _j.dumps({"a": c["anchor"], "e": c.get("every", 14), "t": c.get("mtime") or "", "l": i, "lab": {k: T[k][i] for k in ("today", "tomorrow", "indays")}}, ensure_ascii=False)
         nxt = (f'<div class="clnext" id="clnext" hidden><span class="clic">{_svg(CAL_I, 24)}</span><div><small>{T["next"][i]}</small><b id="clnd"></b><em id="clnin"></em></div></div>'
                f'<script>var CN={nd};' + NEXT_JS + '</script>')
-    nav = "".join(f'<a href="#{k}">{T[h][i]}</a>' for k, h in (("about", "about_h"), ("why", "why_h"), ("log", "log_h"), ("projects", "proj_h"), ("members", "mem_h"), ("faq", "faq_h")) if (k != "why" or whyh) and (k != "faq" or faqh))
+    import achieve as _A
+    grp = ""
+    if c.get("groups"):
+        gi = c.get("group_info", {})
+        cells = ""
+        for k, col, nm in c["groups"]:
+            info = gi.get(k, {})
+            det = ""
+            if info.get("teacher"):
+                tn, ts = info["teacher"]
+                det += f'<a class="clgt" href="{href("teachers/" + ts + "/")}"><img src="{up}photos/teachers/{ts}-s.jpg" alt="" width="36" height="36" loading="lazy">{tn}</a>'
+            if info.get("when"):
+                det += f'<span class="clgw">{info["when"][i]}</span>'
+            if info.get("where"):
+                det += f'<span class="clgw">{info["where"][i]}</span>'
+            cells += f'<div class="clg" style="--g:{col}"><h3>{nm[i]}</h3>{det or TBC.format(T["tbc"][i])}</div>'
+        grp = f'<section class="clsec" id="groups" style="--c:{c["colour"]}"><h2>{T["groups_h"][i]}</h2><div class="clgs">{cells}</div></section>'
+    if c.get("steps"):
+        grp += (f'<section class="clsec" id="steps" style="--c:{c["colour"]}"><h2>{T["steps_h"][i]}</h2><ol class="clsteps">'
+                + "".join(f'<li><b>{n + 1}</b><span>{x[i]}</span></li>' for n, x in enumerate(c["steps"])) + '</ol></section>')
+    if c.get("stages"):
+        grp += (f'<section class="clsec" id="stages" style="--c:{c["colour"]}"><h2>{T["stages_h"][i]}</h2><ol class="clstages">'
+                + "".join(f'<li style="--n:{n}"><span>{n + 1}</span>{_A.STAGE[k][i]}</li>' for n, k in enumerate(c["stages"])) + '</ol></section>')
+    nav = "".join(f'<a href="#{k}">{T[h][i]}</a>' for k, h in (("about", "about_h"), ("groups", "groups_h"), ("why", "why_h"), ("log", "log_h"), ("projects", "proj_h"), ("members", "mem_h"), ("faq", "faq_h")) if (k != "why" or whyh) and (k != "faq" or faqh) and (k != "groups" or c.get("groups")))
     return (f'<article class="clcard clpage" style="--c:{c["colour"]}">{head}{ph}<p class="clintro">{c["intro"][i]}</p>{lead}{fx}'
             f'{nxt}<p class="btns clbtns">{join}</p></article>'
             f'<nav class="clnav" style="--c:{c["colour"]}">{nav}</nav>'
             f'<section class="clsec" id="about" style="--c:{c["colour"]}"><h2>{T["what"][i]}</h2><ul class="clwhat">{what}</ul>{law}</section>'
-            f'{whyh}<section class="clsec" id="log" style="--c:{c["colour"]}"><h2>{T["log_h"][i]}</h2>{logh}</section>'
+            f'{grp}{whyh}<section class="clsec" id="log" style="--c:{c["colour"]}"><h2>{T["log_h"][i]}</h2>{logh}</section>'
             f'<section class="clsec" id="projects" style="--c:{c["colour"]}"><h2>{T["proj_h"][i]}</h2>{prh}</section>'
             f'<section class="clsec" id="members" style="--c:{c["colour"]}"><h2>{T["mem_h"][i]}</h2>{memh}</section>'
             f'<section class="clsec" id="results" style="--c:{c["colour"]}"><h2>{T["done"][i]}</h2>{done}</section>{faqh}'
