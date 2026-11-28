@@ -218,6 +218,32 @@ CLUBS.append(dict(key="sat-club", colour="#0b7a8f",
             L("Usı saytta arzanı toltırıp, Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте и отправьте в Telegram или по почте."), "join")]))
 
 
+CLUBS.append(dict(key="english-speaking-club", colour="#db2777",
+      icon='<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.500 2.700 3.800 5.700 3.800 9s-1.300 6.300-3.800 9c-2.500-2.700-3.800-5.700-3.800-9S9.500 5.700 12 3z"/>',
+      name=L("Inglis tilinde sóylesiw klubı", "English Speaking Club", "Ingliz tilida so‘zlashuv to‘garagi", "Разговорный клуб английского языка"),
+      tag=L("Erkin sóylesiw", "Speak freely", "Erkin so‘zlashuv", "Свободное общение"),
+      intro=L("Inglis tilinde erkin sóylesiwge úyreniw ushın klub: kúndelikli temalar, pikirlesiwler, oyınlar hám prezentaciyalar. Bul jerde baha joq — tek sóylesiw.",
+              "A club for learning to speak English freely: everyday topics, discussions, games and presentations. There are no grades here, just conversation.",
+              "Ingliz tilida erkin so‘zlashishni o‘rganish uchun to‘garak: kundalik mavzular, munozaralar, o‘yinlar va taqdimotlar. Bu yerda baho yo‘q — faqat suhbat.",
+              "Клуб, где учатся свободно говорить по-английски: повседневные темы, дискуссии, игры и презентации. Здесь нет оценок — только общение."),
+      what=[L("Kúndelikli temalarda sóylesiw", "Conversation on everyday topics", "Kundalik mavzularda suhbat", "Разговор на повседневные темы"),
+            L("Pikirlesiw hám kishi debatlar", "Discussions and mini-debates", "Munozaralar va kichik debatlar", "Дискуссии и мини-дебаты"),
+            L("Oyınlar hám rollerge bólinip oynaw", "Games and role plays", "O‘yinlar va rolli o‘yinlar", "Игры и ролевые сценки"),
+            L("Qısqa prezentaciyalar", "Short presentations", "Qisqa taqdimotlar", "Короткие презентации")],
+      why=[("talk", L("Ózińe isenim", "Confidence", "O‘ziga ishonch", "Уверенность"),
+             L("Qáte jiberiwden qorıqpay sóylewge úyrenesiz.", "Learn to speak without being afraid of mistakes.", "Xato qilishdan qo‘rqmay gapirishni o‘rganasiz.", "Научитесь говорить, не боясь ошибок.")),
+           ("test", L("IELTS-ke tayarlıq", "A step towards IELTS", "IELTSga tayyorgarlik", "Шаг к IELTS"),
+             L("Erkin sóylew IELTS-tiń Speaking bóliminde járdem beredi.", "Speaking freely helps in the IELTS Speaking test later.", "Erkin gapirish keyinchalik IELTS Speaking bo‘limida yordam beradi.", "Свободная речь поможет потом на IELTS Speaking.")),
+           ("cap", L("Dúnya menen baylanıs", "Connect with the world", "Dunyo bilan aloqa", "Связь с миром"),
+             L("Sherik mektepler, shet ellik qonaqlar hám universitetler menen sóylesiwge tayar bolasız.", "Be ready to talk with partner schools, international guests and universities.", "Hamkor maktablar, xorijlik mehmonlar va universitetlar bilan gaplashishga tayyor bo‘lasiz.", "Будьте готовы общаться со школами-партнёрами, иностранными гостями и университетами."))],
+      leader=None, teacher=None, when=None, where=None, since=None,
+      done=[], photo=None, join=True, log=[], projects=[], members=[],
+      faq=[(L("IELTS klubınan nesi menen parıq qıladı?", "How is it different from the IELTS club?", "IELTS to‘garagidan nimasi bilan farq qiladi?", "Чем отличается от клуба IELTS?"),
+            L("IELTS klubı imtixanǵa tayarlaydı. Sóylesiw klubı — erkin sóylewdi rawajlandırıw ushın, test emes.", "The IELTS club prepares for the exam. The Speaking Club is about speaking freely, with no test focus.", "IELTS to‘garagi imtihonga tayyorlaydi. So‘zlashuv to‘garagi — erkin gapirishni rivojlantirish uchun, test emas.", "Клуб IELTS готовит к экзамену. Разговорный клуб — для свободной речи, без упора на тест.")),
+           (L("Qalay qosılaman?", "How do I join?", "Qanday qo‘shilaman?", "Как вступить?"),
+            L("Usı saytta arzanı toltırıp, Telegram yamasa pochta arqalı jiberiń.", "Fill in the application on this website and send it by Telegram or email.", "Ushbu saytda arizani to‘ldirib, Telegram yoki pochta orqali yuboring.", "Заполните заявку на сайте и отправьте в Telegram или по почте."), "join")]))
+
+
 WHY_I = {"test": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
          "talk": '<path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>',
          "lab": '<path d="M9 3h6"/><path d="M10 3v6L4.500 19a1.500 1.500 0 0 0 1.300 2.200h12.400a1.500 1.500 0 0 0 1.300-2.200L14 9V3"/><path d="M7.500 14h9"/>',
