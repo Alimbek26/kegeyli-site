@@ -13,6 +13,8 @@ import datetime as _dt, html as _html, json
 from teachers import TEACHERS, LEADERS, SUBJECTS, ROLES, latin, shown
 
 TIME = "10:00"
+# attended: names from the signed attendance sheet (Latin, as written on the sheet)
+ATT_2026_11_28 = ['Nizamatdinova Feruza', 'Uteniyazov Nurnazar', 'Pirniyazov Islam', 'Jumamuratov Alimbek', 'Temirxanova Gúlziba', 'Perdebaev Baxtiyar', 'Seytnazarova Feruza', 'Salieva Elmira', 'Joldasbaev Bazarbay', 'Begalieva Jarqın', 'Qarlıbaeva Gulshexra', 'Qutlimuratov Sarmanbek', 'Ismaylova Gulmira', 'Óserbaeva Zulfiya', 'Nazbergenova Ziyada', 'Mamutova Zinexan', 'Aytmuratova Dilfuza', 'Temirxanova Aynur', 'Amanbaeva Quralay', 'Jalǵasova Orkenay', 'Uzakbaeva Aysanem', 'Aynazarov Kurbanazar', 'Pirimbetov Alpısbay', 'Xudaybergenova Qumar', 'Dilmuratov Damir', 'Orazalieva Risgul', 'Saparov Mansur', 'Daurxanov Jenis', 'Aynazarov Ajiniyaz', 'Esbergenov Atabek', 'Sarsenbaev Daniyar', 'Kewnimjaev Abdiganiy', 'Artıkova Shaxnoza', 'Kurbanbaeva Malika', 'Shukirillayev Naurızbay', 'Zarıpbaev Ajınyaz', 'Elmuratova Totı', 'Tajimuratova Ziyada', 'Uteniyazova Abadan', 'Tulepov Sultan', 'Jarılkasınov Aynazar', 'Uteshova Gulbahar', 'Qudaybergenov Maxmud', 'Jangabaeva Nargiza', 'Seytnazarov Temirbek', 'Arzıbaev Tolısbay', 'Berdibaev Salamat', 'Ótebaeva Gulbahar', 'Erejepov Zuxratdin', 'Allanazarova Gúlnara']
 SEMINARS = [
  dict(date="2026-09-19", who=["Давирханов Женисбай"], subj="math", topic="Anıq pánlerdi oqıtıwda gamifikaciya elementlerinen paydalanıw"),
  dict(date="2026-09-26", who=["Арзибаев Толисбай"], subj="art", topic="Xudojnik Leonardo da Vinci ómiri hám dóretiwshiligi"),
@@ -23,7 +25,8 @@ SEMINARS = [
  dict(date="2026-10-31", who=["Елмуратова Тоти"], subj="bio", topic="Qızıqlı biologiya"),
  dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic="АК-47 автоматы, Ф-1 ҳәм РГД-5 қол гранаталары"),
  dict(date="2026-11-14", who=["lead:Islam Pirniyazov"], subj="lead", topic="«Pedagog maqomi»: qaror va hujjatlar bilan tanishtiruv"),
- dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları"),
+ dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları",
+      attended=ATT_2026_11_28),
  dict(date="2026-12-05", who=["Жалғасова Оркенай"], subj="eng", topic=""),
  dict(date="2026-12-12", who=["Узақбаева Айсанем"], subj="rus", topic=""),
  dict(date="2026-12-19", who=["Айназаров Қурбаназар"], subj="math", topic=""),
@@ -80,6 +83,7 @@ T = {
  "today": ("Búgin", "Today", "Bugun", "Сегодня"),
  "tba": ("Tema keyinirek belgilenedi", "Topic to be announced", "Mavzu keyinroq e’lon qilinadi", "Тема будет объявлена позже"),
  "up_h": ("Aldaǵı seminarlar", "Upcoming seminars", "Kelgusi seminarlar", "Предстоящие семинары"),
+ "att": ("{n} qatnasıwshı", "{n} participants", "{n} nafar ishtirokchi", "Участников: {n}"),
  "past_h": ("Ótkerilgen seminarlar", "Seminars held", "O‘tkazilgan seminarlar", "Проведённые семинары"),
  "all": ("Barlıǵı", "All", "Barchasi", "Все"),
  "lead_s": ("Basshılıq", "Leadership", "Rahbariyat", "Руководство"),
@@ -150,7 +154,9 @@ def _row(s, lang, href, tp, lp, cls=""):
     return (f'<li class="smrow{cls}" data-d="{s["date"]}" data-s="{s["subj"]}" style="--sc:{col}">'
             f'<time class="smdate" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
             f'<div class="smbody"><div class="smmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
-            f'<span class="smtoday" hidden>{T["today"][i]}</span></div>{topic}<p class="smwho">{who}</p></div></li>')
+            f'<span class="smtoday" hidden>{T["today"][i]}</span></div>{topic}<p class="smwho">{who}</p>'
+            + (f'<details class="smatt"><summary>{T["att"][i].format(n=len(s["attended"]))}</summary><p>{esc(", ".join(s["attended"]))}</p></details>' if s.get("attended") else "")
+            + '</div></li>')
 
 def _next_card(s, lang, href, tp, lp, shown):
     i = LANGS.index(lang); esc = _html.escape
