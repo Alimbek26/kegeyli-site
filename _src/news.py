@@ -24,6 +24,13 @@ EMPTY = ("Jańalıqlar tez arada.", "News coming soon.", "Yangiliklar tez orada.
 TG_BTN = ("Telegram kanalımız", "Our Telegram channel", "Telegram kanalimiz", "Наш Telegram-канал")
 ALL = ("Barlıq jańalıqlar", "All news", "Barcha yangiliklar", "Все новости")
 NEWS = [
+ dict(date="2026-11-28", tag="event", photo="news/seminar-2026-11-28.jpg", link="teachers/seminars/2026-11-28/",
+  link_t=("Seminar súwretleri", "Seminar photos", "Seminar suratlari", "Фотографии семинара"),
+  title=("Kásiplik rawajlanıw kúni: «Ana tilimiz imkaniyatları»", "Professional Development Day: “The possibilities of our native language”", "Kasbiy rivojlanish kuni: «Ana tilimiz imkaniyatları»", "День профессионального развития: «Возможности родного языка»"),
+  text=("28-noyabr kúni Kásiplik rawajlanıw kúni sheńberinde qaraqalpaq tili hám ádebiyatı muǵallimi Gulshexra Qarlıbaeva «Ana tilimiz imkaniyatları» temasında seminar ótkerdi. Seminar 1-dekabr — qaraqalpaq tiline mámleketlik til biyligi berilgen kúnge (1989-jıl) baǵıshlandı; bıyıl bul waqıyaǵa 37 jıl. 21 muǵallim qatnastı: olar toparlarǵa bólinip tapsırmalar orınladı hám óz jumısların tanıstırdı.",
+        "On 28 November, as part of our Professional Development Day, Karakalpak language and literature teacher Gulshexra Qarlıbaeva led a seminar on “The possibilities of our native language”. It was dedicated to 1 December, the day the Karakalpak language was given state language status in 1989, 37 years ago this year. 21 teachers took part, working in groups on tasks and presenting their work.",
+        "28-noyabr kuni Kasbiy rivojlanish kuni doirasida qoraqalpoq tili va adabiyoti o‘qituvchisi Gulshexra Qarlıbaeva «Ana tilimiz imkaniyatları» mavzusida seminar o‘tkazdi. Seminar 1-dekabr — qoraqalpoq tiliga davlat tili maqomi berilgan kunga (1989-yil) bag‘ishlandi; bu yil ushbu voqeaga 37 yil to‘ladi. 21 nafar o‘qituvchi qatnashdi: ular guruhlarga bo‘linib topshiriqlarni bajarishdi va o‘z ishlarini taqdim etishdi.",
+        "28 ноября в рамках Дня профессионального развития учитель каракалпакского языка и литературы Гульшехра Карлыбаева провела семинар «Возможности родного языка». Он был посвящён 1 декабря — дню, когда каракалпакскому языку в 1989 году был придан статус государственного; в этом году исполняется 37 лет. В семинаре участвовали 21 учитель: они работали в группах и представили свои работы.")),
  dict(date="2026-11", tag="project", photo="news/junior-academy.jpg",
   title=("Gulnur Abdullaeva — Nyu-York pánler akademiyasınıń The Junior Academy programmasında", "Gulnur Abdullaeva takes part in The Junior Academy of the New York Academy of Sciences", "Gulnur Abdullaeva — Nyu-York fanlar akademiyasining The Junior Academy dasturida", "Гульнур Абдуллаева — участница The Junior Academy Нью-Йоркской академии наук"),
   text=("Oqıwshımız Gulnur Abdullaeva Nyu-York pánler akademiyası (The New York Academy of Sciences) shólkemlestirgen «The Junior Academy» programmasına qatnastı. Bul — dúnya júzindegi STEM oqıwshıları ushın programma: qatnasıwshılar xalıqaralıq komandalarda haqıyqıy máselelerdi sheshedi. Gulnur komandası menen «Climatizing Infrastructure: Green Retrofit» shaqırıǵı boyınsha «GreenShift Infrastructure» joybarın isledi: bar qala imaratların quyash panelleri, aqıllı energiya basqarıw sistemaları hám vertikal jasıl diywallar járdeminde aqıllı, energiyanı únemleytuǵın hám klimatqa shıdamlı imaratlarǵa aylandırıw. Qatnasıw sertifikatı jazda beriledi.",
@@ -104,7 +111,8 @@ def cards(i, limit=None, up=""):
         tg = n.get("tag", "announce")
         ph = f'<img class="nph" src="{up}photos/{n["photo"]}" alt="" loading="lazy">' if n.get("photo") else ""
         out += (f'<article class="card ncard" style="--mc:{TAGCOL[tg]}">{ph}<div class="nbody"><div class="nmeta"><span class="ntag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{TAGICON[tg]}</svg>{TAGS[tg][i]}</span>'
-                f'<time datetime="{n["date"]}">{fmt(n["date"], i)}</time></div><h3>{n["title"][i]}</h3><p>{n["text"][i]}</p>{_src(n, i)}</div></article>')
+                f'<time datetime="{n["date"]}">{fmt(n["date"], i)}</time></div><h3>{n["title"][i]}</h3><p>{n["text"][i]}</p>{_src(n, i)}'
+                + (f'<a class="nlink" href="{up}{("", "en/", "uz/", "ru/")[i]}{n["link"]}">{n["link_t"][i]} →</a>' if n.get("link") else "") + '</div></article>')
     return out or f'<p>{EMPTY[i]}</p>'
 
 def body(i, up, tg):
