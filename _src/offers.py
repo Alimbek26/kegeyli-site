@@ -18,6 +18,7 @@ ICON = ('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.800 5.7
 COUNTRY = {
  "us": ("🇺🇸", ("AQSh", "USA", "AQSh", "США")),
  "uk": ("🇬🇧", ("Ullı Britaniya", "United Kingdom", "Buyuk Britaniya", "Великобритания")),
+ "us_online": ("🇺🇸", ("AQSh · onlayn", "USA · online", "AQSh · onlayn", "США · онлайн")),
  "uz": ("🇺🇿", ("Nókis, Ózbekstan", "Nukus, Uzbekistan", "Nukus, O‘zbekiston", "Нукус, Узбекистан")),
 }
 _XH = ("Khurshida Ismailova", "Khurshida Ismailova", "Khurshida Ismailova", "Хуршида Исмайлова")
@@ -93,6 +94,13 @@ PDESC = ("Oqıwshılarımız qatnasqan shet el universitetleriniń hám xalıqar
          "Программы зарубежных университетов и международных организаций, в которых участвовали наши ученики.")
 PICON = ('<path d="M12 3l9 4.500-9 4.500-9-4.500z"/><path d="M7 9.700V15c0 1.300 2.200 3 5 3s5-1.700 5-3V9.700"/><path d="M21 7.500v6"/>', "#0d9488")
 PROGRAMMES = [
+ dict(student=("Gulnur Abdullaeva", "Gulnur Abdullaeva", "Gulnur Abdullaeva", "Гульнур Абдуллаева"),
+      name=("The Junior Academy — Nyu-York pánler akademiyası", "The Junior Academy, New York Academy of Sciences", "The Junior Academy — Nyu-York fanlar akademiyasi", "The Junior Academy — Нью-Йоркская академия наук"),
+      country="us_online", year="2026", photo="gallery/events/junior-academy-card.jpg", cls="11-B", grad="2025/2026",
+      note=("Nyu-York pánler akademiyasınıń dúnya júzi STEM oqıwshıları ushın programması. Gulnur xalıqaralıq komandada «Climatizing Infrastructure: Green Retrofit» shaqırıǵı boyınsha «GreenShift Infrastructure» joybarın isledi. Sertifikat jazda beriledi.",
+            "A New York Academy of Sciences programme for STEM students worldwide. Gulnur worked in an international team on the project GreenShift Infrastructure for the challenge “Climatizing Infrastructure: Green Retrofit”. The certificate will be issued in summer.",
+            "Nyu-York fanlar akademiyasining dunyo bo‘ylab STEM o‘quvchilari uchun dasturi. Gulnur xalqaro jamoada «Climatizing Infrastructure: Green Retrofit» tanlovi bo‘yicha «GreenShift Infrastructure» loyihasi ustida ishladi. Sertifikat yozda beriladi.",
+            "Программа Нью-Йоркской академии наук для STEM-учеников со всего мира. Гульнур работала в международной команде над проектом GreenShift Infrastructure в рамках задания «Climatizing Infrastructure: Green Retrofit». Сертификат будет выдан летом.")),
  dict(student=("Gulnur Abdullaeva", "Gulnur Abdullaeva", "Gulnur Abdullaeva", "Гульнур Абдуллаева"),
       name=("«English for IT» jazǵı lageri", "English for IT Summer Camp", "«English for IT» yozgi lageri", "Летний лагерь English for IT"),
       country="uz", year="2025", photo="gallery/events/english-for-it-camp-with-cert.jpg", cls="11-B", grad="2025/2026",
