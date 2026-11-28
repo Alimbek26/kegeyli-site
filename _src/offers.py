@@ -18,6 +18,7 @@ ICON = ('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.800 5.7
 COUNTRY = {
  "us": ("🇺🇸", ("AQSh", "USA", "AQSh", "США")),
  "uk": ("🇬🇧", ("Ullı Britaniya", "United Kingdom", "Buyuk Britaniya", "Великобритания")),
+ "uz": ("🇺🇿", ("Nókis, Ózbekstan", "Nukus, Uzbekistan", "Nukus, O‘zbekiston", "Нукус, Узбекистан")),
 }
 _XH = ("Khurshida Ismailova", "Khurshida Ismailova", "Khurshida Ismailova", "Хуршида Исмайлова")
 OFFERS = [
@@ -92,6 +93,13 @@ PDESC = ("Oqıwshılarımız qatnasqan shet el universitetleriniń hám xalıqar
          "Программы зарубежных университетов и международных организаций, в которых участвовали наши ученики.")
 PICON = ('<path d="M12 3l9 4.500-9 4.500-9-4.500z"/><path d="M7 9.700V15c0 1.300 2.200 3 5 3s5-1.700 5-3V9.700"/><path d="M21 7.500v6"/>', "#0d9488")
 PROGRAMMES = [
+ dict(student=("Gulnur Abdullaeva", "Gulnur Abdullaeva", "Gulnur Abdullaeva", "Гульнур Абдуллаева"),
+      name=("«English for IT» jazǵı lageri", "English for IT Summer Camp", "«English for IT» yozgi lageri", "Летний лагерь English for IT"),
+      country="uz", year="2025", photo="gallery/events/english-for-it-camp-with-cert.jpg", cls="11-B", grad="2025/2026",
+      note=("AQSh húkimeti tárepinen AQSh-tıń Ózbekstandaǵı elshixanası arqalı qarjılandırılǵan 3 háptelik programma. Ámelge asırıwshılar: American Councils hám IT Park University. 2025-jıl 28-iyul – 15-avgust, Nókis.",
+            "A 3-week programme funded by the U.S. Government through the U.S. Embassy in Uzbekistan, run by American Councils and IT Park University. 28 July – 15 August 2025, Nukus.",
+            "AQSh hukumati tomonidan AQShning O‘zbekistondagi elchixonasi orqali moliyalashtirilgan 3 haftalik dastur. Amalga oshiruvchilar: American Councils va IT Park University. 2025-yil 28-iyul – 15-avgust, Nukus.",
+            "Трёхнедельная программа, финансируемая правительством США через посольство США в Узбекистане; организаторы — American Councils и IT Park University. 28 июля – 15 августа 2025 г., Нукус.")),
  dict(student=_XH, name=("Kembridj universitetiniń programması", "University of Cambridge programme", "Kembrij universiteti dasturi", "Программа Кембриджского университета"),
       country="uk", year=None, photo="gallery/events/ismailova-cambridge-programme.jpg", cls="11-A", grad="2024/2025"),
 ]
@@ -207,7 +215,7 @@ def page(i, href, tabs):
 
 PX = dict(
  lead=("Shet el universitetleriniń hám xalıqaralıq shólkemlerdiń jazǵı mektepleri, kursları hám programmaları — oqıwshılarımız qatnasqan.",
-       "Summer schools, courses and programmes at universities and organisations abroad that our students have taken part in.",
+       "Summer schools, courses and programmes run by universities abroad and international organisations that our students have taken part in.",
        "O‘quvchilarimiz qatnashgan xorijiy universitetlar va xalqaro tashkilotlarning yozgi maktablari, kurslari va dasturlari.",
        "Летние школы, курсы и программы зарубежных университетов и международных организаций, в которых участвовали наши ученики."),
  t_prog=("programma", "programmes", "ta dastur", "программ"), t_stud=("oqıwshı", "students", "nafar o‘quvchi", "учеников"), t_cty=("mámleket", "countries", "ta davlat", "стран"),
@@ -232,7 +240,7 @@ def ppage(i, href, tabs):
         img = f'<img src="{{UP}}photos/{p["photo"]}" alt="{e(p["name"][i])}" loading="lazy">' if p.get("photo") else ""
         cards.append(f'<article class="card prcard">{img}<div class="prbody"><span class="offlag sm" aria-hidden="true">{fl}</span>'
                      f'<h3>{p["name"][i]}</h3><p class="ofloc">{cn[i]}' + (f' · {p["year"]}' if p.get("year") else "") + '</p>'
-                     f'<dl class="ofdl"><dt>{X["student"][i]}</dt><dd>{who}</dd></dl><p class="prnote">{PX["not_offer"][i]}</p></div></article>')
+                     + (f'<p class="prdesc">{p["note"][i]}</p>' if p.get("note") else "") + f'<dl class="ofdl"><dt>{X["student"][i]}</dt><dd>{who}</dd></dl><p class="prnote">{PX["not_offer"][i]}</p></div></article>')
     return (f'{tabs(PSUB, i, href)}<p class="lead2">{PX["lead"][i]}</p><div class="stats ofstats prstats">{tiles}</div>'
             f'<div class="prgrid">{"".join(cards)}</div>'
             f'<a class="card satprev satban ofban" href="{href(SUB)}"><div class="sph"><span class="acbi" style="--ac:{ICON[1]}"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ICON[0]}</svg></span><div><h3>{NAME[i]} · {len(OFFERS)}</h3><p>{PX["offers"][i]}</p></div><span class="acgo2">→</span></div></a>'

@@ -1693,3 +1693,4 @@ section.plsec:not(.card){padding:0!important}
 @media (max-width:760px){.hstats{grid-template-columns:1fr 1fr}.htl:before{left:19px}.hyr{justify-content:flex-start}.hev,.hev.r{width:100%;margin-left:0;padding:0 0 0 54px!important}
  .hev .hdot,.hev.big .hdot{left:0!important;right:auto!important}.hyn{margin-left:0}}
 @media (prefers-reduced-motion:reduce){.hcu{animation:none}.hcard{transition:none}}
+.prdesc{margin:6px 0 10px;color:var(--soft);font-size:15px;max-width:none}

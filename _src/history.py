@@ -74,6 +74,11 @@ EVENTS = [
       title=L("16 000 dollarlıq grant", "A $16,000 grant", "16 000 dollarlik grant", "Грант $16 000"),
       text=L("Aynura Turganbaeva Arizona universitetinen 16 000 dollarlıq grant penen usınıs aldı.", "Aynura Turganbaeva is offered a $16,000 grant by the University of Arizona.", "Aynura Turganbaeva Arizona universitetidan 16 000 dollarlik grant bilan taklif oldi.", "Айнура Турганбаева получает предложение с грантом $16 000 от Университета Аризоны.")),
  _gev("2024/2025", "2025-06"),
+ dict(date="2025-08-15", cat="recog", link="achievements/programmes/",
+      title=L("AQSh elshixanasınıń programması", "A U.S. Embassy programme", "AQSh elchixonasi dasturi", "Программа посольства США"),
+      text=L("Gulnur Abdullaeva AQSh elshixanası qarjılandırǵan 3 háptelik «English for IT» jazǵı lagerin tamamladı (American Councils hám IT Park University).", "Gulnur Abdullaeva completes the 3-week English for IT Summer Camp, funded by the U.S. Embassy and run by American Councils and IT Park University.",
+             "Gulnur Abdullaeva AQSh elchixonasi moliyalashtirgan 3 haftalik «English for IT» yozgi lagerini tamomladi (American Councils va IT Park University).", "Гульнур Абдуллаева окончила трёхнедельный летний лагерь English for IT, финансируемый посольством США (American Councils и IT Park University).")),
+
  dict(date="2025-2026", cat="result", link="achievements/olympiads/",
       title=L("AKHU STEM olimpiadasında bronza", "Bronze at the AKHU STEM Olympiad", "AKHU STEM olimpiadasida bronza", "Бронза на олимпиаде AKHU STEM"),
       text=L("2025/2026 oqıw jılında AKHU STEM olimpiadasında bronza medal hám 95 milliy sertifikat imtixanı (aldıńǵı jılı 32).", "A bronze medal at the AKHU STEM Olympiad, and 95 national certificate exams taken in 2025/2026 (32 a year earlier).",
