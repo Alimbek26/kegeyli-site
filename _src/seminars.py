@@ -8,7 +8,7 @@
 #             or "lead:<Latin name>" for someone in teachers.LEADERS. Empty list = name not published.
 #   subj    : a key of teachers.SUBJECTS, or "lead" for school leadership
 #   done    : True once the seminar has taken place (moves it to "held" on the same day)
-#   topic   : the seminar topic as written (leave "" if not decided yet - shown as "topic to be announced")
+#   topic   : the topic as a 4-tuple ("kaa", "en", "uz", "ru"), or a plain string (leave "" if not decided yet - shown as "topic to be announced")
 # Past/upcoming is worked out from today's date automatically (also in the visitor's browser).
 import datetime as _dt, html as _html, json
 from teachers import TEACHERS, LEADERS, SUBJECTS, ROLES, latin, shown
@@ -17,16 +17,16 @@ TIME = "10:00"
 # attended: only people who SIGNED the attendance sheet (Latin, as written on the sheet)
 ATT_2026_11_28 = ['Jumamuratov Alimbek', 'Perdebaev Baxtiyar', 'Seytnazarova Feruza', 'Salieva Elmira', 'Qarlıbaeva Gulshexra', 'Óserbaeva Zulfiya', 'Temirxanova Aynur', 'Amanbaeva Quralay', 'Jalǵasova Orkenay', 'Uzakbaeva Aysanem', 'Aynazarov Kurbanazar', 'Aynazarov Ajiniyaz', 'Sarsenbaev Daniyar', 'Artıkova Shaxnoza', 'Kurbanbaeva Malika', 'Zarıpbaev Ajınyaz', 'Elmuratova Totı', 'Uteshova Gulbahar', 'Qudaybergenov Maxmud', 'Arzıbaev Tolısbay', 'Ótebaeva Gulbahar']
 SEMINARS = [
- dict(date="2026-09-19", who=["Давирханов Женисбай"], subj="math", topic="Anıq pánlerdi oqıtıwda gamifikaciya elementlerinen paydalanıw"),
- dict(date="2026-09-26", who=["Арзибаев Толисбай"], subj="art", topic="Xudojnik Leonardo da Vinci ómiri hám dóretiwshiligi"),
- dict(date="2026-10-03", who=["Жангабаева Наргиза"], subj="rob", topic="VARK modeli hám robotlar haqqında"),
- dict(date="2026-10-10", who=["Исмайлова Гулмира", "Қутлимуратов Сарманбек"], subj="uzb", topic="«Ózbek tiline mámleketlik til biyligi berilgenine 32 jıl» tolıwı múnásibeti menen"),
- dict(date="2026-10-17", who=["Қудайбергенов Махмут"], subj="geo", topic="Racional awqatlanıw"),
- dict(date="2026-10-24", who=["Жарилқасинов Айназар"], subj="hist", topic="Tariyx pániniń rawajlanıw basqıshları: dáslepki jazıwdan jasalma intellektke shekem"),
- dict(date="2026-10-31", who=["Елмуратова Тоти"], subj="bio", topic="Qızıqlı biologiya"),
- dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic="AK-47 avtomatı, F-1 hám RGD-5 qol granataları"),
- dict(date="2026-11-14", who=["lead:Islam Pirniyazov"], subj="lead", topic="«Pedagog maqomi»: qaror va hujjatlar bilan tanishtiruv"),
- dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic="Ana tilimiz imkaniyatları", done=True,
+ dict(date="2026-09-19", who=["Давирханов Женисбай"], subj="math", topic=("Anıq pánlerdi oqıtıwda gamifikaciya elementlerinen paydalanıw", "Using gamification in teaching the exact sciences", "Aniq fanlarni o‘qitishda gamifikatsiya elementlaridan foydalanish", "Использование элементов геймификации в преподавании точных наук")),
+ dict(date="2026-09-26", who=["Арзибаев Толисбай"], subj="art", topic=("Xudojnik Leonardo da Vinci ómiri hám dóretiwshiligi", "The life and work of the artist Leonardo da Vinci", "Rassom Leonardo da Vinchi hayoti va ijodi", "Жизнь и творчество художника Леонардо да Винчи")),
+ dict(date="2026-10-03", who=["Жангабаева Наргиза"], subj="rob", topic=("VARK modeli hám robotlar haqqında", "The VARK model and robots", "VARK modeli va robotlar haqida", "Модель VARK и роботы")),
+ dict(date="2026-10-10", who=["Исмайлова Гулмира", "Қутлимуратов Сарманбек"], subj="uzb", topic=("«Ózbek tiline mámleketlik til biyligi berilgenine 32 jıl» tolıwı múnásibeti menen", "Marking 32 years since Uzbek was given state language status", "«O‘zbek tiliga davlat tili maqomi berilganiga 32 yil» munosabati bilan", "К 32-летию придания узбекскому языку статуса государственного")),
+ dict(date="2026-10-17", who=["Қудайбергенов Махмут"], subj="geo", topic=("Racional awqatlanıw", "Healthy, balanced nutrition", "Ratsional ovqatlanish", "Рациональное питание")),
+ dict(date="2026-10-24", who=["Жарилқасинов Айназар"], subj="hist", topic=("Tariyx pániniń rawajlanıw basqıshları: dáslepki jazıwdan jasalma intellektke shekem", "Stages in the development of history: from the first writing to artificial intelligence", "Tarix fanining rivojlanish bosqichlari: dastlabki yozuvdan sun’iy intellektgacha", "Этапы развития истории: от первой письменности до искусственного интеллекта")),
+ dict(date="2026-10-31", who=["Елмуратова Тоти"], subj="bio", topic=("Qızıqlı biologiya", "Fascinating biology", "Qiziqarli biologiya", "Занимательная биология")),
+ dict(date="2026-11-07", who=["Сейтназаров Темирбек"], subj="cqt", topic=("AK-47 avtomatı, F-1 hám RGD-5 qol granataları", "The AK-47 rifle and the F-1 and RGD-5 hand grenades", "AK-47 avtomati, F-1 va RGD-5 qo‘l granatalari", "Автомат АК-47, ручные гранаты Ф-1 и РГД-5")),
+ dict(date="2026-11-14", who=["lead:Islam Pirniyazov"], subj="lead", topic=("«Pedagog statusı»: qarar hám hújjetler menen tanısıw", "“Teacher status”: an introduction to the decree and documents", "«Pedagog maqomi»: qaror va hujjatlar bilan tanishtiruv", "«Статус педагога»: знакомство с постановлением и документами")),
+ dict(date="2026-11-28", who=["Қарлибаева Гулшахра"], subj="kaa", topic=("Ana tilimiz imkaniyatları", "The possibilities of our native language", "Ona tilimiz imkoniyatlari", "Возможности родного языка"), done=True,
       photos=['2026-11-28-1.jpg', '2026-11-28-2.jpg', '2026-11-28-3.jpg', '2026-11-28-4.jpg', '2026-11-28-5.jpg', '2026-11-28-6.jpg', '2026-11-28-7.jpg', '2026-11-28-8.jpg'],
       about=("Seminar 1-dekabr — qaraqalpaq tiline mámleketlik til biyligi berilgen kúnge (1989-jıl) baǵıshlandı; bıyıl bul waqıyaǵa 37 jıl. Muǵallimler toparlarǵa bólinip, ana tilimizdiń imkaniyatları boyınsha tapsırmalar orınladı hám óz jumısların tanıstırdı.", "The seminar was dedicated to 1 December, the day the Karakalpak language was given state language status (1989); this year marks 37 years. Teachers worked in groups on tasks about the possibilities of our native language and presented their work.", "Seminar 1-dekabr — qoraqalpoq tiliga davlat tili maqomi berilgan kunga (1989-yil) bag‘ishlandi; bu yil ushbu voqeaga 37 yil to‘ladi. O‘qituvchilar guruhlarga bo‘linib, ona tilimiz imkoniyatlari bo‘yicha topshiriqlarni bajarishdi va o‘z ishlarini taqdim etishdi.", "Семинар был посвящён 1 декабря — дню, когда каракалпакскому языку был придан статус государственного (1989); в этом году исполняется 37 лет. Учителя работали в группах над заданиями о возможностях родного языка и представили свои работы."),
       attended=ATT_2026_11_28),
@@ -131,6 +131,11 @@ for _s in SEMINARS:  # catch typos early
     assert _dt.date.fromisoformat(_s["date"]).weekday() != 6, "seminar on a Sunday in seminars.py: " + _s["date"]
     assert _s["subj"] in SUBJECTS or _s["subj"] == "lead", "unknown subject in seminars.py: " + _s["subj"]
 
+def topic(s, i):
+    """Topic in language i: topic may be a 4-tuple (kaa, en, uz, ru) or a single string."""
+    t = s["topic"]
+    return (t[i] if isinstance(t, tuple) else t) or ""
+_topic = topic
 def _date(s):
     return _dt.date.fromisoformat(s)
 def fmt_long(s, lang):
@@ -164,7 +169,7 @@ def _row(s, lang, href, tp, lp, cls=""):
         names.append(f'<a href="{link}">{esc(nm)}</a>')
     who = ", ".join(names) or f'<span class="smuted">{T["nobody"][i]}</span>'
     col = SUBJ_COL.get(s["subj"], "#5b6472")
-    topic = (f'<p class="smtopic"><a href="{href(psub(s))}">{esc(s["topic"])}</a></p>' if s["topic"] else f'<p class="smtopic tba"><a href="{href(psub(s))}">{T["tba"][i]}</a></p>')
+    topic = (f'<p class="smtopic"><a href="{href(psub(s))}">{esc(_topic(s, i))}</a></p>' if _topic(s, i) else f'<p class="smtopic tba"><a href="{href(psub(s))}">{T["tba"][i]}</a></p>')
     return (f'<li class="smrow{cls}" data-d="{s["date"]}"{" data-done=1" if s.get("done") else ""} data-s="{s["subj"]}" style="--sc:{col}">'
             f'<time class="smdate" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
             f'<div class="smbody"><div class="smmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
@@ -175,7 +180,7 @@ def _row(s, lang, href, tp, lp, cls=""):
 def _next_card(s, lang, href, tp, lp, shown):
     i = LANGS.index(lang); esc = _html.escape
     names = ", ".join(f'<a href="{l}">{esc(n)}</a>' for n, l in (person(w, lang, href, tp, lp) for w in s["who"])) or T["nobody"][i]
-    topic = esc(s["topic"]) if s["topic"] else f'<span class="tba">{T["tba"][i]}</span>'
+    topic = esc(_topic(s, i)) if _topic(s, i) else f'<span class="tba">{T["tba"][i]}</span>'
     col = SUBJ_COL.get(s["subj"], "#5b6472")
     return (f'<div class="smnext card" data-d="{s["date"]}"{" data-done=1" if s.get("done") else ""} style="--sc:{col}"{"" if shown else " hidden"}>'
             f'<p class="smkick">{T["next_h"][i]} · <span class="smtoday" hidden>{T["today"][i]} · </span>{fmt_long(s["date"], lang)}, {TIME}</p>'
@@ -206,7 +211,7 @@ cs.forEach(function(b){b.addEventListener('click',function(){cs.forEach(function
             f'<div class="chips smchips" role="group">{chips}</div><p class="note" id="smnone" hidden>{T["none"][i]}</p>'
             f'<h2 id="smuph"{"" if fut else " hidden"}>{T["up_h"][i]}</h2><ol class="smlist" id="smup">{"".join(_row(s, lang, href, tp, lp) for s in fut)}</ol>'
             f'<h2 id="smpasth"{"" if past else " hidden"}>{T["past_h"][i]}</h2><ol class="smlist past" id="smpast">{"".join(_row(s, lang, href, tp, lp) for s in past)}</ol>'
-            f'<p class="note">{T["lang_note"][i]}</p>{js}')
+            f'{js}')
 
 def for_person(key, lang, href, tp, lp):
     """Section for a teacher / leader profile. key = Cyrillic teacher name or 'lead:<Latin name>'."""
@@ -231,11 +236,11 @@ PSUBS = {psub(s): s for s in _ORDER}
 
 def pname(sub, i):
     s = PSUBS[sub]
-    return s["topic"] or T["p_title"][i].format(d=fmt_long(s["date"], LANGS[i]))
+    return topic(s, i) or T["p_title"][i].format(d=fmt_long(s["date"], LANGS[i]))
 
 def pdesc(sub):
     s = PSUBS[sub]
-    return tuple(f'{fmt_long(s["date"], L)}, {TIME} · {subj_name(s["subj"], k)}' + (f' · {s["topic"]}' if s["topic"] else "") for k, L in enumerate(LANGS))
+    return tuple(f'{fmt_long(s["date"], L)}, {TIME} · {subj_name(s["subj"], k)}' + (f' · {topic(s, k)}' if topic(s, k) else "") for k, L in enumerate(LANGS))
 
 def _avatar(w, tp, lp):
     if w.startswith("lead:"):
@@ -254,7 +259,7 @@ def page(sub, lang, href, tp, lp, up):
         nm, link = person(w, lang, href, tp, lp); av = _avatar(w, tp, lp)
         img = f'<img src="{up}{av}" alt="" width="56" height="56" loading="lazy">' if av else '<span class="spav"></span>'
         trainers += f'<a class="sptr" href="{link}">{img}<span><small>{T["p_trainer"][i]}</small><b>{esc(nm)}</b></span></a>'
-    topic = esc(s["topic"]) if s["topic"] else f'<span class="tba">{T["tba"][i]}</span>'
+    topic = esc(_topic(s, i)) if _topic(s, i) else f'<span class="tba">{T["tba"][i]}</span>'
     hero = (f'<div class="sphero" style="--sc:{col}"><time class="spcal" datetime="{s["date"]}T{TIME}"><b>{d.day}</b><span>{MON_S[lang][d.month - 1]}</span><small>{d.year}</small></time>'
             f'<div class="sphx"><p class="spmeta"><span class="smsubj">{esc(subj_name(s["subj"], i))}</span>'
             f'<span class="spst" data-d="{"0000-00-00" if s.get("done") else s["date"]}" data-h="{T["p_held"][i]}" data-u="{T["p_upc"][i]}" data-t="{T["today"][i]}"></span></p>'

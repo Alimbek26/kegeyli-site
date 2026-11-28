@@ -38,7 +38,7 @@ def report(s, i):
     director = d_cy if lang == "ru" else d_la
     att = s.get("attended", [])
     photos = s.get("photos", [])[:4]
-    rows = [(R["topic"][i], e(s["topic"]) or "—"), (R["date"][i], S.fmt_long(s["date"], lang)), (R["time"][i], S.TIME),
+    rows = [(R["topic"][i], e(S.topic(s, i)) or "—"), (R["date"][i], S.fmt_long(s["date"], lang)), (R["time"][i], S.TIME),
             (R["trainer"][i], names), (R["subj"][i], e(S.subj_name(s["subj"], i)))] + ([(R["count"][i], str(len(att)))] if att else [])
     meta = "".join(f"<tr><th>{a}</th><td>{b}</td></tr>" for a, b in rows)
     about = f'<h2>{R["about"][i]}</h2><p>{e(s["about"][i])}</p>' if s.get("about") else ""
@@ -61,7 +61,7 @@ p{{margin:0}}.gal{{display:grid;grid-template-columns:1fr 1fr;gap:6px}}.gal img{
 .ft{{margin-top:14px;padding-top:6px;border-top:1px solid #dfe7ea;font-size:8.5pt;color:#5b6b72}}
 </style></head><body>
 <div class="hd"><img src="/logo-80.png"><div class="sc"><small>{R["kicker"][i]}</small><b>{FULL[i]}</b></div><div class="tt">{R["title"][i]}</div></div>
-<h1>{e(s["topic"]) or R["title"][i]}</h1><table>{meta}</table>{about}{gal}{lst}
+<h1>{e(S.topic(s, i)) or R["title"][i]}</h1><table>{meta}</table>{about}{gal}{lst}
 <div class="sign"><div>{R["director"][i]}:<span class="ln"></span>{e(director)}</div><div class="st">{R["stamp"][i]}</div></div>
 <div class="ft">{R["src"][i]}: {url}</div></body></html>"""
 

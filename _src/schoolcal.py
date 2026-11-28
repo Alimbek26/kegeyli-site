@@ -136,7 +136,7 @@ def _sem_map(lang):
     out = {}
     for s in SEM.SEMINARS:
         who = ", ".join((w[5:] if w.startswith("lead:") else shown(w, lang)) for w in s["who"]) or SEM.T["nobody"][LANGS.index(lang)]
-        out[s["date"]] = (who, SEM.subj_name(s["subj"], LANGS.index(lang)), s["topic"])
+        out[s["date"]] = (who, SEM.subj_name(s["subj"], LANGS.index(lang)), SEM.topic(s, LANGS.index(lang)))
     return out
 
 def _info(d, lang, sem):
