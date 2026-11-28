@@ -1,0 +1,1 @@
+(function(){var b=document.querySelector(".ns-ln");if(!b)return;b.onclick=function(){var u=b.dataset.u;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){b.classList.add("ok");b.title=b.dataset.ok;setTimeout(function(){b.classList.remove("ok")},1800)}).catch(function(){prompt("",u)})}})();

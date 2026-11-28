@@ -1,0 +1,1 @@
+(function(){var e=document.querySelector(".spst"),t=new Date(),y=t.getFullYear()+"-"+("0"+(t.getMonth()+1)).slice(-2)+"-"+("0"+t.getDate()).slice(-2);e.textContent=e.dataset.d<y?e.dataset.h:e.dataset.d==y?e.dataset.t:e.dataset.u;e.className+=" "+(e.dataset.d<y?"h":e.dataset.d==y?"t":"u")})();

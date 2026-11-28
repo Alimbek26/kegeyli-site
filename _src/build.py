@@ -1352,4 +1352,6 @@ for _f in os.listdir(ROOT):
         os.remove(os.path.join(ROOT, _f))
 open(os.path.join(ROOT, CSS_FILE), "w", encoding="utf-8").write(STYLE_MIN)
 open(os.path.join(ROOT, "sw.js"), "w", encoding="utf-8").write(open(os.path.join(SRC, "sw.js"), encoding="utf-8").read())
-print("built:", ", ".join(ORDER), "x", len(PAGES), "pages")
+import slim as _slim
+_n, _b, _a, _js, _ic = _slim.run(ROOT)
+print("built:", ", ".join(ORDER), "x", len(PAGES), "pages;", f"html {_b // 1024} KB -> {_a // 1024} KB, {_js} shared scripts, {_ic} icons")

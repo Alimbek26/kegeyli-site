@@ -1,0 +1,1 @@
+(function(){if(/^(localhost|127\.)/.test(location.hostname))return;document.querySelectorAll('[data-gcp]').forEach(function(e){fetch('https://alimbek26.goatcounter.com/counter/'+encodeURIComponent(e.dataset.gcp)+'.json').then(function(r){return r.ok?r.json():{count:'0'}}).then(function(j){e.querySelector('b').textContent=j.count;e.hidden=false}).catch(function(){})})})();
