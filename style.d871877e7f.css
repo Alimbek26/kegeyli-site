@@ -1713,3 +1713,4 @@ background:radial-gradient(90% 140% at 100% 0%,color-mix(in srgb,var(--sc) 14%,t
 .nrel:hover{border-color:var(--teal)}.nrel img{width:100%;aspect-ratio:2/1;object-fit:cover}.nrel span{display:flex;flex-direction:column;gap:4px;padding:10px 12px}.nrel time{font-size:12.5px;color:var(--soft)}.nrel b{font-size:14.5px;line-height:1.35}
 .nback{max-width:780px;margin:18px auto 0}
 @media(max-width:700px){.nrels{grid-template-columns:1fr}.nrel{flex-direction:row}.nrel img{width:110px;aspect-ratio:1;flex:none}.nbymeta{margin-left:0;width:100%}}
+.poapr{display:inline-block;line-height:1.45;padding:5px 12px 5px 9px;border-radius:16px;background:#047857;color:#fff!important;font-weight:600}.poapr b{color:#fff!important;white-space:nowrap}.poapr svg{vertical-align:-4px;margin-right:6px}

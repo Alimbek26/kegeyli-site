@@ -30,7 +30,9 @@ T = dict(
              "О любой проблеме можно сообщить любому из сотрудников ниже. Каждое обращение рассматривается внимательно и конфиденциально."),
  hot=L("Agentlik isenim telefonı", "Agency helpline", "Agentlik ishonch telefoni", "Телефон доверия Агентства"),
  child=L("Balalardı qorǵaw isenim telefonı (Sociallıq qorǵaw milliy agentligi)", "Child protection helpline (National Agency for Social Protection)", "Bolalarni himoya qilish ishonch telefoni (Ijtimoiy himoya milliy agentligi)", "Телефон доверия по защите детей (Национальное агентство социальной защиты)"),
- approved=L("Qaǵıydalar mektep direktorı tárepinen tastıyıqlanadı hám hár jılı kórip shıǵıladı.", "The policies are approved by the school director and reviewed every year.", "Qoidalar maktab direktori tomonidan tasdiqlanadi va har yili ko‘rib chiqiladi.", "Правила утверждаются директором школы и пересматриваются ежегодно."),
+ approved=L("Qaǵıydalar mektep direktorı Feruza Nizamatdinova tárepinen 2026-jıl 28-noyabrde tastıyıqlanǵan hám hár jılı kórip shıǵıladı.", "These policies were approved by the school director, Feruza Nizamatdinova, on 28 November 2026 and are reviewed every year.", "Qoidalar maktab direktori Feruza Nizamatdinova tomonidan 2026-yil 28-noyabrda tasdiqlangan va har yili ko‘rib chiqiladi.", "Правила утверждены директором школы Ферузой Низаматдиновой 28 ноября 2026 года и пересматриваются ежегодно."),
+ apr=L("Direktor tastıyıqlaǵan", "Approved by the director", "Direktor tasdiqlagan", "Утверждено директором"),
+ apr_d=L("2026-jıl 28-noyabr", "28 November 2026", "2026-yil 28-noyabr", "28 ноября 2026"),
 )
 
 CONTACTS = [  # (name, role) - public on the Leadership page
@@ -101,6 +103,7 @@ POLICIES = [  # (id, colour, icon, title, summary, commitments, report, legal ba
 
 
 PRINT_I = '<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/>'
+APR_I = '<path d="M12 3l2.4 1.8 3 .2.9 2.9 2.2 2-1 2.8.4 3-2.6 1.5-1.4 2.6-3-.4L12 21l-2.4-1.8-3 .4-1.4-2.6-2.6-1.5.4-3-1-2.8 2.2-2 .9-2.9 3-.2z"/><path d="M8.5 12l2.4 2.4 4.6-4.8"/>'
 WHO_I = '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>'
 
 
@@ -117,7 +120,7 @@ def body(i, up, href, lead_href):
         for n, (k, c, ic, t, s, cm, r, lw) in enumerate(POLICIES))
     who = "".join(f'<li><a href="{lead_href(nm)}"><b>{nm}</b></a><span>{rl[i]}</span></li>' for nm, rl in CONTACTS)
     return (f'<p class="lead2">{T["lead"][i]}</p>'
-            f'<div class="pometa"><span>{T["rev"][i]}: <b>{REVIEWED[i]}</b></span><span>{T["nxt"][i]}: <b>{NEXT[i]}</b></span>'
+            f'<div class="pometa"><span class="poapr">{_svg(APR_I, 18)}{T["apr"][i]}: <b>{T["apr_d"][i]}</b></span><span>{T["rev"][i]}: <b>{REVIEWED[i]}</b></span><span>{T["nxt"][i]}: <b>{NEXT[i]}</b></span>'
             f'<button type="button" class="poprint" onclick="window.print()">{_svg(PRINT_I, 18)}{T["print"][i]}</button></div>'
             f'<div class="polay"><nav class="potoc" aria-label="{T["toc"][i]}"><p>{T["toc"][i]}</p>{toc}<a href="#who" style="--c:#4b5d65"><span class="poi">{_svg(WHO_I, 18)}</span>{T["contact_h"][i]}</a></nav>'
             f'<div class="pomain">{cards}'
